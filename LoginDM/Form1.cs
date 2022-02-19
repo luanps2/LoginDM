@@ -10,13 +10,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using aejw.Network;
 
+
 namespace LoginDM
 {
     public partial class Form1 : Form
     {
-
-        int user;
-
         public Form1()
         {
             InitializeComponent();
@@ -36,14 +34,14 @@ namespace LoginDM
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            bool DiretorioExiste = Directory.Exists("A:/");
+            bool DiretorioExiste = Directory.Exists("C:/");
             if (DiretorioExiste == false)
             {
                 MessageBox.Show("Entre com seu número de matricula primeiro!");
             }
             else if (true)
             {
-                System.Diagnostics.Process.Start("A:/");
+                System.Diagnostics.Process.Start("C:/");
             }
 
         }
@@ -60,18 +58,19 @@ namespace LoginDM
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
+            //user = int.Parse(txtUsuario.Text);
 
+            //if (user < 1000)
+            //{
+            //    MessageBox.Show("Digite um usuário válido!");
+            //}
+            //txtUsuario.Text = "";
 
-            user = int.Parse(tbUsuario.Text);
-
-
-
-            if (user < 1000)
-            {
-                MessageBox.Show("Digite um usuário válido!");
-            }
-
-            bool existeDiretorio = Directory.Exists("E:\\Sistemas\\Backup");
+            //if (txtUsuario.TextLength < 4)
+            //{
+            //    MessageBox.Show("Digite um usuário Válido");
+            //}
+            //txtUsuario.Text = "";
 
 
         }
@@ -93,25 +92,34 @@ namespace LoginDM
 
         private void pictureBox5_Click_1(object sender, EventArgs e)
         {
-            bool PastaExiste = Directory.Exists("A:\\luan\\" + user.ToString());
+            NetworkDrive oNetDrive = new aejw.Network.NetworkDrive();
 
-            if (PastaExiste == false)
-            {
-                
-            }
-
-            NetworkDrive mapeamento = new NetworkDrive();
             try
             {
-                mapeamento.LocalDrive = "A:";
-                mapeamento.ShareName = "//luan" + "/" + user.ToString();
-                mapeamento.MapDrive();
+                oNetDrive.LocalDrive = "M:";
+                oNetDrive.ShareName = "//luan//Tarde/" + txtUsuario.Text;
+                oNetDrive.PromptForCredentials = true;
+                oNetDrive.MapDrive();
             }
-            catch (Exception erro)
+            catch (Exception err)
             {
-                MessageBox.Show(this, "Erro: " + erro.Message);
-                throw;
+                MessageBox.Show(this, "Error: " + err.Message + "\n" + err.ToString());
             }
+            oNetDrive = null;
+
+
+            //System.Diagnostics.Process.Start("net.exe", "use M: \\luan\\tarde" + txtUsuario.Text);
+        }
+
+        private void txtUsuario_TextChanged(object sender, EventArgs e)
+        {
+            txtUsuario.MaxLength = 5;
+        }
+
+        private void btnTestes_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("chrome.exe");
+
         }
     }
 }

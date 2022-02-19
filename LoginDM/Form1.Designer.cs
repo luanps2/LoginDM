@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.tbUsuario = new System.Windows.Forms.TextBox();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rbNoite = new System.Windows.Forms.RadioButton();
             this.rbTarde = new System.Windows.Forms.RadioButton();
@@ -45,14 +45,15 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.btnLogin = new System.Windows.Forms.PictureBox();
+            this.btnTestes = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnLogin)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -66,12 +67,15 @@
             this.label1.Text = "Usuário";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // tbUsuario
+            // txtUsuario
             // 
-            this.tbUsuario.Location = new System.Drawing.Point(233, 60);
-            this.tbUsuario.Name = "tbUsuario";
-            this.tbUsuario.Size = new System.Drawing.Size(107, 20);
-            this.tbUsuario.TabIndex = 2;
+            this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuario.Location = new System.Drawing.Point(233, 60);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(107, 26);
+            this.txtUsuario.TabIndex = 2;
+            this.txtUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtUsuario.TextChanged += new System.EventHandler(this.txtUsuario_TextChanged);
             // 
             // groupBox1
             // 
@@ -136,7 +140,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(124, 75);
+            this.label3.Location = new System.Drawing.Point(120, 75);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 16);
             this.label3.TabIndex = 7;
@@ -168,7 +172,7 @@
             // 
             this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox3.Image = global::LoginDM.Properties.Resources.live1;
-            this.pictureBox3.Location = new System.Drawing.Point(113, 19);
+            this.pictureBox3.Location = new System.Drawing.Point(109, 19);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(107, 50);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -212,6 +216,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::LoginDM.Properties.Resources.logo_dommacario_borda;
             this.pictureBox1.Location = new System.Drawing.Point(12, 44);
             this.pictureBox1.Name = "pictureBox1";
@@ -244,29 +249,41 @@
             this.linkLabel1.Text = "Luan Costa";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
-            // pictureBox5
+            // btnLogin
             // 
-            this.pictureBox5.Image = global::LoginDM.Properties.Resources.BT1;
-            this.pictureBox5.Location = new System.Drawing.Point(233, 86);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(106, 35);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox5.TabIndex = 10;
-            this.pictureBox5.TabStop = false;
-            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click_1);
+            this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogin.Image = global::LoginDM.Properties.Resources.BT1;
+            this.btnLogin.Location = new System.Drawing.Point(233, 92);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(106, 35);
+            this.btnLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btnLogin.TabIndex = 10;
+            this.btnLogin.TabStop = false;
+            this.btnLogin.Click += new System.EventHandler(this.pictureBox5_Click_1);
+            // 
+            // btnTestes
+            // 
+            this.btnTestes.Location = new System.Drawing.Point(257, 15);
+            this.btnTestes.Name = "btnTestes";
+            this.btnTestes.Size = new System.Drawing.Size(75, 23);
+            this.btnTestes.TabIndex = 11;
+            this.btnTestes.Text = "Testes";
+            this.btnTestes.UseVisualStyleBackColor = true;
+            this.btnTestes.Click += new System.EventHandler(this.btnTestes_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(352, 262);
-            this.Controls.Add(this.pictureBox5);
+            this.Controls.Add(this.btnTestes);
+            this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.tbUsuario);
+            this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.lbUsuario);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label1);
@@ -282,7 +299,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnLogin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -290,7 +307,7 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbUsuario;
+        private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton rbNoite;
@@ -306,7 +323,8 @@
         private System.Windows.Forms.Label lbUsuario;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox btnLogin;
+        private System.Windows.Forms.Button btnTestes;
     }
 }
 
