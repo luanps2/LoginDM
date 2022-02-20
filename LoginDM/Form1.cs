@@ -17,7 +17,8 @@ namespace LoginDM
     public partial class Form1 : Form
     {
 
-       
+        String server = "luanpc";
+        String diretorio = "teste";
 
         public Form1()
         {
@@ -124,7 +125,30 @@ namespace LoginDM
             {
                 Mapeamento.Persistent = true;
                 Mapeamento.LocalDrive = "M:";
-                Mapeamento.ShareName = "\\\\" + "luan" + "\\" + periodo + "\\" + txtUsuario.Text ;
+                String dir = "\\\\" + server + "\\" + diretorio + "\\" + txtUsuario.Text;
+                Mapeamento.ShareName =  dir;
+
+                bool existeDiretorio = Directory.Exists(dir);
+
+                if (!existeDiretorio)
+                {
+                    try
+                    {
+                        DirectoryInfo di = Directory.CreateDirectory(dir);
+                        MessageBox.Show("Pasta de usuário criada com sucesso!");
+                    }
+                    catch (Exception erro2)
+                    {
+                        MessageBox.Show("Pasta não foi criada! \nErro: " +  erro2.Message);
+                        
+                    }
+                   
+                }
+
+                MessageBox.Show(Mapeamento.ShareName);
+
+                
+
                 Mapeamento.MapDrive();
 
                 System.Diagnostics.Process.Start("M:/");
@@ -160,8 +184,20 @@ namespace LoginDM
             catch (Exception erro)
             {
 
-                MessageBox.Show(this, "Não desconectada! \nErro: "+ erro.Message);
             }
+        }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NetworkDrive Desconectar = new NetworkDrive();
+            Desconectar.ShowDisconnectDialog(this);
+            Desconectar = null;
+        }
+
+        private void sobreToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Form form = new Form;
+            form
         }
     }
 }
