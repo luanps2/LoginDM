@@ -10,12 +10,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using aejw.Network;
 
+
+
 namespace LoginDM
 {
     public partial class Form1 : Form
     {
 
-        int user;
+       
 
         public Form1()
         {
@@ -36,14 +38,14 @@ namespace LoginDM
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            bool DiretorioExiste = Directory.Exists("A:/");
+            bool DiretorioExiste = Directory.Exists("M:/");
             if (DiretorioExiste == false)
             {
                 MessageBox.Show("Entre com seu número de matricula primeiro!");
             }
             else if (true)
             {
-                System.Diagnostics.Process.Start("A:/");
+                System.Diagnostics.Process.Start("M:/");
             }
 
         }
@@ -62,8 +64,8 @@ namespace LoginDM
         {
 
 
-            user = int.Parse(tbUsuario.Text);
-
+            int user = Int32.Parse(txtUsuario.Text);
+                
 
 
             if (user < 1000)
@@ -91,26 +93,74 @@ namespace LoginDM
             System.Diagnostics.Process.Start("https://www.linkedin.com/in/luan-da-costa-oliveira-esp%C3%B3sito-b57705ba/");
         }
 
-        private void pictureBox5_Click_1(object sender, EventArgs e)
-        {
-            bool PastaExiste = Directory.Exists("A:\\luan\\" + user.ToString());
+        
 
-            if (PastaExiste == false)
+        private void txtUsuario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+     
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+
+
+            if (!rbTarde.Checked && !rbNoite.Checked)
             {
-                
+                MessageBox.Show("Selecione seu periodo!");
             }
 
-            NetworkDrive mapeamento = new NetworkDrive();
+            String periodo = "";
+            periodo = rbTarde.Checked ? "Tarde" : "Noite";
+            
+        
+            
+            //int user = Int32.Parse(txtUsuario.Text);
+
+            NetworkDrive Mapeamento = new NetworkDrive();
+
             try
             {
-                mapeamento.LocalDrive = "A:";
-                mapeamento.ShareName = "//luan" + "/" + user.ToString();
-                mapeamento.MapDrive();
+                Mapeamento.Persistent = true;
+                Mapeamento.LocalDrive = "M:";
+                Mapeamento.ShareName = "\\\\" + "luan" + "\\" + periodo + "\\" + txtUsuario.Text ;
+                Mapeamento.MapDrive();
+
+                System.Diagnostics.Process.Start("M:/");
+
             }
             catch (Exception erro)
             {
-                MessageBox.Show(this, "Erro: " + erro.Message);
-                throw;
+                MessageBox.Show(this, "Não conectado!\nErro: " + erro.Message);
+                
+            }
+            Mapeamento = null;
+           
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void btnDesconectar_Click(object sender, EventArgs e)
+        {
+            NetworkDrive Desconectar = new NetworkDrive();
+            try
+            {
+                Desconectar.Force = true;
+                Desconectar.LocalDrive = "M:";
+                Desconectar.UnMapDrive();
+
+                MessageBox.Show("Pasta desconectada com Sucesso!");
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(this, "Não desconectada! \nErro: "+ erro.Message);
             }
         }
     }
