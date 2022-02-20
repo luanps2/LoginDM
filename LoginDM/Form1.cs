@@ -20,6 +20,8 @@ namespace LoginDM
         String server = "luanpc";
         String diretorio = "teste";
 
+        NetworkDrive Mapeamento = new NetworkDrive();
+
         public Form1()
         {
             InitializeComponent();
@@ -66,7 +68,7 @@ namespace LoginDM
 
 
             int user = Int32.Parse(txtUsuario.Text);
-                
+
 
 
             if (user < 1000)
@@ -94,14 +96,14 @@ namespace LoginDM
             System.Diagnostics.Process.Start("https://www.linkedin.com/in/luan-da-costa-oliveira-esp%C3%B3sito-b57705ba/");
         }
 
-        
+
 
         private void txtUsuario_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-     
+
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -109,66 +111,81 @@ namespace LoginDM
 
             if (!rbTarde.Checked && !rbNoite.Checked)
             {
-                MessageBox.Show("Selecione seu periodo!");
+                if (txtUsuario.Text == "")
+                {
+                    MessageBox.Show("Selecione seu periodo e \nDigite seu Usuário!");
+                }
             }
 
             String periodo = "";
             periodo = rbTarde.Checked ? "Tarde" : "Noite";
-            
-        
-            
+
+
+
             //int user = Int32.Parse(txtUsuario.Text);
 
-            NetworkDrive Mapeamento = new NetworkDrive();
 
-            try
+
+            if (rbTarde.Checked || rbNoite.Checked)
             {
-                Mapeamento.Persistent = true;
-                Mapeamento.LocalDrive = "M:";
-                String dir = "\\\\" + server + "\\" + diretorio + "\\" + txtUsuario.Text;
-                Mapeamento.ShareName =  dir;
-
-                bool existeDiretorio = Directory.Exists(dir);
-
-                if (!existeDiretorio)
+                try
                 {
-                    try
+                    Mapeamento.Persistent = true;
+                    Mapeamento.LocalDrive = "M:";
+                    String dir = "\\\\" + server + "\\" + periodo + "\\" + txtUsuario.Text;
+                    Mapeamento.ShareName = dir;
+
+                    bool existeDiretorio = Directory.Exists(dir);
+
+                    if (!existeDiretorio)
                     {
-                        DirectoryInfo di = Directory.CreateDirectory(dir);
-                        MessageBox.Show("Pasta de usuário criada com sucesso!");
+                        try
+                        {
+                            DirectoryInfo di = Directory.CreateDirectory(dir);
+                            MessageBox.Show("Pasta de usuário criada com sucesso!");
+                        }
+                        catch (Exception erro2)
+                        {
+                            MessageBox.Show("Pasta não foi criada! \nErro: " + erro2.Message);
+
+                        }
+
                     }
-                    catch (Exception erro2)
-                    {
-                        MessageBox.Show("Pasta não foi criada! \nErro: " +  erro2.Message);
-                        
-                    }
-                   
+
+                    //MessageBox.Show(Mapeamento.ShareName);
+
+
+
+                    Mapeamento.MapDrive();
+
+                    System.Diagnostics.Process.Start("M:/");
+
                 }
+                catch (Exception erro)
+                {
+                    MessageBox.Show(this, "Não conectado!\nErro: " + erro.Message);
 
-                MessageBox.Show(Mapeamento.ShareName);
-
-                
-
-                Mapeamento.MapDrive();
-
-                System.Diagnostics.Process.Start("M:/");
-
+                }
+                Mapeamento = null;
             }
-            catch (Exception erro)
-            {
-                MessageBox.Show(this, "Não conectado!\nErro: " + erro.Message);
-                
-            }
-            Mapeamento = null;
-           
+
+
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
 
+            MessageBox.Show("Periodo: " + gbPeriodo.ToString());
+           
 
+
+            MessageBox.Show("Tarde marcado?: " + rbTarde.Checked.ToString());
+            MessageBox.Show("Noite marcado?: " + rbNoite.Checked.ToString());
         }
+
+
+
 
         private void btnDesconectar_Click(object sender, EventArgs e)
         {
@@ -178,6 +195,19 @@ namespace LoginDM
                 Desconectar.Force = true;
                 Desconectar.LocalDrive = "M:";
                 Desconectar.UnMapDrive();
+
+                bool ReturnValue = false;
+                System.Diagnostics.Process p = new System.Diagnostics.Process();
+                //p.StartInfo.UseShellExecute = false;
+                //p.StartInfo.CreateNoWindow = true;
+                //p.StartInfo.RedirectStandardError = true;
+                //p.StartInfo.RedirectStandardOutput = true;
+
+                p.StartInfo.FileName = "net.exe";
+                p.StartInfo.Arguments = "use * /DELETE /y";
+                p.Start();
+                p.WaitForExit();
+
 
                 MessageBox.Show("Pasta desconectada com Sucesso!");
             }
@@ -196,8 +226,45 @@ namespace LoginDM
 
         private void sobreToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Form form = new Form;
-            form
+            Sobre sobre = new Sobre();
+            sobre.Show();
+        }
+
+        private void conectarManualmenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NetworkDrive ConnManual = new NetworkDrive();
+            ConnManual.ShowConnectDialog(this);
+            ConnManual = null;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            NetworkDrive Desconectar = new NetworkDrive();
+            try
+            {
+                Desconectar.Force = true;
+                Desconectar.LocalDrive = "M:";
+                Desconectar.UnMapDrive();
+
+                bool ReturnValue = false;
+                System.Diagnostics.Process p = new System.Diagnostics.Process();
+                //p.StartInfo.UseShellExecute = false;
+                //p.StartInfo.CreateNoWindow = true;
+                //p.StartInfo.RedirectStandardError = true;
+                //p.StartInfo.RedirectStandardOutput = true;
+
+                p.StartInfo.FileName = "net.exe";
+                p.StartInfo.Arguments = "use * /DELETE /y";
+                p.Start();
+                p.WaitForExit();
+
+
+
+            }
+            catch (Exception erro)
+            {
+
+            }
         }
     }
 }

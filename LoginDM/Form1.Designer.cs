@@ -30,7 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbPeriodo = new System.Windows.Forms.GroupBox();
             this.rbNoite = new System.Windows.Forms.RadioButton();
             this.rbTarde = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -44,16 +44,17 @@
             this.lbUsuario = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.funçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.conectarManualmenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.btnDesconectar = new System.Windows.Forms.PictureBox();
             this.btnLogin = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.groupBox1.SuspendLayout();
+            this.button1 = new System.Windows.Forms.Button();
+            this.gbPeriodo.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -86,17 +87,17 @@
             this.txtUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtUsuario.TextChanged += new System.EventHandler(this.txtUsuario_TextChanged);
             // 
-            // groupBox1
+            // gbPeriodo
             // 
-            this.groupBox1.Controls.Add(this.rbNoite);
-            this.groupBox1.Controls.Add(this.rbTarde);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(108, 53);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(77, 88);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Período";
+            this.gbPeriodo.Controls.Add(this.rbNoite);
+            this.gbPeriodo.Controls.Add(this.rbTarde);
+            this.gbPeriodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbPeriodo.Location = new System.Drawing.Point(108, 53);
+            this.gbPeriodo.Name = "gbPeriodo";
+            this.gbPeriodo.Size = new System.Drawing.Size(77, 88);
+            this.gbPeriodo.TabIndex = 5;
+            this.gbPeriodo.TabStop = false;
+            this.gbPeriodo.Text = "Período";
             // 
             // rbNoite
             // 
@@ -128,7 +129,7 @@
             this.groupBox2.Controls.Add(this.pictureBox4);
             this.groupBox2.Controls.Add(this.pictureBox3);
             this.groupBox2.Controls.Add(this.pictureBox2);
-            this.groupBox2.Location = new System.Drawing.Point(16, 159);
+            this.groupBox2.Location = new System.Drawing.Point(16, 146);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(391, 100);
             this.groupBox2.TabIndex = 7;
@@ -228,7 +229,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
-            this.label6.Location = new System.Drawing.Point(258, 269);
+            this.label6.Location = new System.Drawing.Point(256, 253);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(96, 13);
             this.label6.TabIndex = 7;
@@ -239,23 +240,13 @@
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
-            this.linkLabel1.Location = new System.Drawing.Point(346, 269);
+            this.linkLabel1.Location = new System.Drawing.Point(344, 253);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(61, 13);
             this.linkLabel1.TabIndex = 9;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Luan Costa";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(322, 27);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Teste";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // menuStrip1
             // 
@@ -271,15 +262,23 @@
             // funçõesToolStripMenuItem
             // 
             this.funçõesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.conectarManualmenteToolStripMenuItem,
             this.sairToolStripMenuItem});
             this.funçõesToolStripMenuItem.Name = "funçõesToolStripMenuItem";
             this.funçõesToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
             this.funçõesToolStripMenuItem.Text = "Funções";
             // 
+            // conectarManualmenteToolStripMenuItem
+            // 
+            this.conectarManualmenteToolStripMenuItem.Name = "conectarManualmenteToolStripMenuItem";
+            this.conectarManualmenteToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.conectarManualmenteToolStripMenuItem.Text = "Conectar Manualmente";
+            this.conectarManualmenteToolStripMenuItem.Click += new System.EventHandler(this.conectarManualmenteToolStripMenuItem_Click);
+            // 
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.sairToolStripMenuItem.Text = "Desconectar";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
@@ -294,16 +293,17 @@
             // sobreToolStripMenuItem1
             // 
             this.sobreToolStripMenuItem1.Name = "sobreToolStripMenuItem1";
-            this.sobreToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.sobreToolStripMenuItem1.Size = new System.Drawing.Size(104, 22);
             this.sobreToolStripMenuItem1.Text = "Sobre";
             this.sobreToolStripMenuItem1.Click += new System.EventHandler(this.sobreToolStripMenuItem1_Click);
             // 
             // btnDesconectar
             // 
+            this.btnDesconectar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDesconectar.Image = global::LoginDM.Properties.Resources.BT2;
-            this.btnDesconectar.Location = new System.Drawing.Point(288, 108);
+            this.btnDesconectar.Location = new System.Drawing.Point(305, 102);
             this.btnDesconectar.Name = "btnDesconectar";
-            this.btnDesconectar.Size = new System.Drawing.Size(91, 32);
+            this.btnDesconectar.Size = new System.Drawing.Size(102, 38);
             this.btnDesconectar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnDesconectar.TabIndex = 13;
             this.btnDesconectar.TabStop = false;
@@ -311,10 +311,11 @@
             // 
             // btnLogin
             // 
+            this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogin.Image = global::LoginDM.Properties.Resources.BT1;
-            this.btnLogin.Location = new System.Drawing.Point(191, 108);
+            this.btnLogin.Location = new System.Drawing.Point(191, 103);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(91, 32);
+            this.btnLogin.Size = new System.Drawing.Size(102, 37);
             this.btnLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnLogin.TabIndex = 10;
             this.btnLogin.TabStop = false;
@@ -331,18 +332,28 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(330, 30);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Teste";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(422, 293);
+            this.ClientSize = new System.Drawing.Size(422, 278);
             this.Controls.Add(this.btnDesconectar);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbPeriodo);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.lbUsuario);
@@ -354,8 +365,9 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema - Casa Dom Macário";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.gbPeriodo.ResumeLayout(false);
+            this.gbPeriodo.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -375,7 +387,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbPeriodo;
         private System.Windows.Forms.RadioButton rbNoite;
         private System.Windows.Forms.RadioButton rbTarde;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -390,13 +402,14 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.PictureBox btnLogin;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem funçõesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
         private System.Windows.Forms.PictureBox btnDesconectar;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStripMenuItem conectarManualmenteToolStripMenuItem;
     }
 }
 
