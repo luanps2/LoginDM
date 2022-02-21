@@ -41,5 +41,48 @@ namespace LoginDM
         {
 
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.linkedin.com/in/luan-da-costa-oliveira-esp%C3%B3sito-b57705ba/");
+        }
+
+        private void Sobre_Load(object sender, EventArgs e)
+        {
+
+            string[] curiosidades = new string[]
+            { "HDD Significa Hard Disk Drive",
+                "RAM significa Random Access Memory",
+                    "CPU significa Central Processor Unit",
+                    "o primeiro nome da Internet era Arphanet",
+                    "Cada 1GB é equivalente a 1024MB", "SSD significa Solid State Drive" };
+            lblCuriosidade.Text = (curiosidades[new Random().Next(0, curiosidades.Length)]);
+
+            
+            string[] frases = new string[]
+            { "O importante não é vencer todos os dias, mas lutar sempre. Waldemar Valle Martins",
+                "Maior que a tristeza de não haver vencido é a vergonha de não ter lutado! Rui Barbosa",
+                    "Enquanto houver vontade de lutar haverá esperança de vencer. Santo Agostinho",
+                    "O medo de perder tira a vontade de ganhar. Mussum",
+                    "Se você pretende ser rico, pense em economizar tanto quanto em ganhar. Benjamin Franklin" };
+            lblFrase.Text = (frases[new Random().Next(0, frases.Length)]);
+
+
+            //string[] curiosidade = new string[] 
+            //{ "HDD Significa Hard Disk Drive", 
+            //    "RAM significa Random Access Memory",
+            //    "CPU significa Central Processor Unit", 
+            //    "o primeiro nome da Internet era Arphanet", 
+            //    "Cada 1GB é equivalente a 1024MB", "SSD significa Solid State Drive" };
+            //return curiosidade[rnd.Next(0, curiosidade.Length)];
+
+            //lblCuriosidade.Text = curiosidade;
+
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.casadommacario.org.br/");
+        }
     }
 }

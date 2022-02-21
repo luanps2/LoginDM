@@ -27,7 +27,7 @@ namespace LoginDM
             InitializeComponent();
         }
 
-   
+
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
@@ -61,7 +61,7 @@ namespace LoginDM
             System.Diagnostics.Process.Start("https://meet.jit.si/Inform%C3%A1tica");
         }
 
-        
+
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -80,19 +80,18 @@ namespace LoginDM
 
 
 
-     
+
 
 
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-         
-            
 
             if (!rbTarde.Checked && !rbNoite.Checked)
             {
                 MessageBox.Show("Selecione seu periodo!");
-            }else if (txtUsuario.Text == "")
+            }
+            else if (txtUsuario.Text == "")
             {
                 MessageBox.Show("Digite seu Usuário!");
             }
@@ -141,7 +140,7 @@ namespace LoginDM
                             }
 
                         }
-                       
+
 
                         //MessageBox.Show(Mapeamento.ShareName);
 
@@ -151,7 +150,7 @@ namespace LoginDM
 
                         System.Diagnostics.Process.Start("M:/");
                     }
-                   
+
 
                 }
                 catch (Exception erro)
@@ -168,7 +167,7 @@ namespace LoginDM
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+
         }
 
 
@@ -226,7 +225,7 @@ namespace LoginDM
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
 
             NetworkDrive Desconectar = new NetworkDrive();
 
@@ -254,40 +253,40 @@ namespace LoginDM
             }
             catch (Exception erro)
             {
-               
+
             }
         }
 
-     
+
 
         private void txtUsuario_KeyDown(object sender, KeyEventArgs e)
         {
-            
+
         }
 
         private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
-           
+
         }
 
         private void pbPeriodo_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void gbPeriodo_Enter(object sender, EventArgs e)
         {
-           
+
         }
 
         private void gbPeriodo_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
-          
+
         }
 
         private void txtUsuario_KeyDown_1(object sender, KeyEventArgs e)
         {
-           
+
         }
 
         private void rbTarde_CheckedChanged(object sender, EventArgs e)
@@ -296,7 +295,7 @@ namespace LoginDM
             {
                 pbPeriodo.Image = Properties.Resources.tarde;
             }
-            
+
         }
 
         private void rbNoite_CheckedChanged(object sender, EventArgs e)
@@ -312,6 +311,6 @@ namespace LoginDM
             lblUser.Text = txtUsuario.Text;
         }
 
-        
+
     }
 }
