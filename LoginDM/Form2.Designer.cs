@@ -36,12 +36,9 @@ namespace LoginDM
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -53,25 +50,29 @@ namespace LoginDM
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.label16 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // label7
@@ -146,28 +147,9 @@ namespace LoginDM
             this.textBox1.Location = new System.Drawing.Point(282, 25);
             this.textBox1.MaxLength = 0;
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(70, 21);
             this.textBox1.TabIndex = 3;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::LoginDM.Properties.Resources.BT1;
-            this.pictureBox4.Location = new System.Drawing.Point(464, 20);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(70, 26);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 0;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::LoginDM.Properties.Resources.BT2;
-            this.pictureBox5.Location = new System.Drawing.Point(676, 20);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(70, 26);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 0;
-            this.pictureBox5.TabStop = false;
             // 
             // label13
             // 
@@ -196,24 +178,14 @@ namespace LoginDM
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(202, 18);
+            this.label15.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(266, 9);
             this.label15.MaximumSize = new System.Drawing.Size(250, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(235, 40);
+            this.label15.Size = new System.Drawing.Size(246, 50);
             this.label15.TabIndex = 1;
             this.label15.Text = "Sistema Casa Dom Macário  Informática Avançada";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::LoginDM.Properties.Resources.logo_dommacario_borda;
-            this.pictureBox6.Location = new System.Drawing.Point(276, 61);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(74, 55);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 0;
-            this.pictureBox6.TabStop = false;
             // 
             // linkLabel1
             // 
@@ -240,7 +212,7 @@ namespace LoginDM
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(21, 77);
+            this.label19.Location = new System.Drawing.Point(21, 64);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(50, 16);
             this.label19.TabIndex = 1;
@@ -250,13 +222,15 @@ namespace LoginDM
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(20, 104);
-            this.label20.MaximumSize = new System.Drawing.Size(155, 0);
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(21, 92);
+            this.label20.MaximumSize = new System.Drawing.Size(170, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(153, 78);
+            this.label20.Size = new System.Drawing.Size(169, 78);
             this.label20.TabIndex = 2;
-            this.label20.Text = "Programa desenvolvido em Fevereiro de 2021 pelo professor de informática Luan Cos" +
-    "ta com muito        para facilitar a vida dos conviventes da fundação";
+            this.label20.Text = "Desenvolvimento: Luan Costa Versão 1.0.0 - Colossus               © 2022 CEDESP F" +
+    "undação Lar de São Bento Casa Dom Macário                                    Tod" +
+    "os os direitos reservados";
             this.label20.Click += new System.EventHandler(this.label14_Click);
             // 
             // rbTarde
@@ -291,11 +265,11 @@ namespace LoginDM
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
-            this.label23.Location = new System.Drawing.Point(642, 635);
+            this.label23.Location = new System.Drawing.Point(643, 635);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(109, 13);
+            this.label23.Size = new System.Drawing.Size(118, 13);
             this.label23.TabIndex = 10;
-            this.label23.Text = "Versão 1.0 - Colossus";
+            this.label23.Text = "Versão 1.0.0 - Colossus";
             // 
             // groupBox1
             // 
@@ -351,16 +325,6 @@ namespace LoginDM
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Sistemas";
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::LoginDM.Properties.Resources.dir;
-            this.pictureBox3.Location = new System.Drawing.Point(678, 27);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(35, 29);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 0;
-            this.pictureBox3.TabStop = false;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -382,17 +346,6 @@ namespace LoginDM
             this.label6.TabIndex = 2;
             this.label6.Text = "Aqui você pode abrir sua pasta em qualquer computador que esteja e trabalhar com " +
     "seus arquivos do curso.";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::LoginDM.Properties.Resources.google_classroom_logo_2;
-            this.pictureBox1.Location = new System.Drawing.Point(109, 27);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(35, 28);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label1
             // 
@@ -439,16 +392,6 @@ namespace LoginDM
             this.label2.TabIndex = 4;
             this.label2.Text = "Transmissão";
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::LoginDM.Properties.Resources.live1;
-            this.pictureBox2.Location = new System.Drawing.Point(382, 30);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(59, 25);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label7);
@@ -472,6 +415,81 @@ namespace LoginDM
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Acesso";
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(313, 79);
+            this.label16.MaximumSize = new System.Drawing.Size(170, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(168, 91);
+            this.label16.TabIndex = 2;
+            this.label16.Text = "Software desenvolvido no visual studio em linguagem C# para facilitar a usabilida" +
+    "de das tarefas diárias dos usuários no curso de informática avançada em caso de " +
+    "erros, chame seu professor. ";
+            this.label16.Click += new System.EventHandler(this.label14_Click);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::LoginDM.Properties.Resources.BT2;
+            this.pictureBox5.Location = new System.Drawing.Point(676, 20);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(70, 26);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 0;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::LoginDM.Properties.Resources.BT1;
+            this.pictureBox4.Location = new System.Drawing.Point(464, 20);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(70, 26);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 0;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::LoginDM.Properties.Resources.live1;
+            this.pictureBox2.Location = new System.Drawing.Point(382, 30);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(59, 25);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::LoginDM.Properties.Resources.google_classroom_logo_2;
+            this.pictureBox1.Location = new System.Drawing.Point(109, 27);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(35, 28);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::LoginDM.Properties.Resources.dir;
+            this.pictureBox3.Location = new System.Drawing.Point(678, 27);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(35, 29);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 0;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::LoginDM.Properties.Resources.logo_dommacario_borda;
+            this.pictureBox6.Location = new System.Drawing.Point(709, 9);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(74, 55);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 0;
+            this.pictureBox6.TabStop = false;
+            // 
             // Sobre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -479,29 +497,30 @@ namespace LoginDM
             this.ClientSize = new System.Drawing.Size(794, 656);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.label20);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label18);
-            this.Controls.Add(this.label20);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.pictureBox6);
             this.Name = "Sobre";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sobre";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -542,5 +561,6 @@ namespace LoginDM
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label16;
     }
 }

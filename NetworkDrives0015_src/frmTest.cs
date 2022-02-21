@@ -362,8 +362,8 @@ namespace Network
 				zUpdateStatus("Drive map successful");
 			}catch(Exception err){
 				//report error
-				zUpdateStatus("Cannot map drive! - "+err.Message);
-				MessageBox.Show(this, "Cannot map drive!\nError: "+err.Message);
+				zUpdateStatus("1 - Cannot map drive! - "+err.Message);
+				MessageBox.Show(this, "2 - Cannot map drive!\nError: "+err.Message);
 			}
 			oNetDrive = null;
 		}

@@ -111,5 +111,20 @@
   <ItemGroup>
     <None Include="Resources\BT2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tarde.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\noite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\conectar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\desconectar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

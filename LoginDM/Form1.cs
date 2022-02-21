@@ -14,7 +14,7 @@ using aejw.Network;
 
 namespace LoginDM
 {
-    public partial class Form1 : Form
+    public partial class SistemaDoma : Form
     {
 
         String server = "luanpc";
@@ -22,15 +22,12 @@ namespace LoginDM
 
         NetworkDrive Mapeamento = new NetworkDrive();
 
-        public Form1()
+        public SistemaDoma()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
+   
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
@@ -42,11 +39,12 @@ namespace LoginDM
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             bool DiretorioExiste = Directory.Exists("M:/");
-            if (DiretorioExiste == false)
+
+            if (!DiretorioExiste)
             {
                 MessageBox.Show("Entre com seu número de matricula primeiro!");
             }
-            else if (true)
+            else if (DiretorioExiste)
             {
                 System.Diagnostics.Process.Start("M:/");
             }
@@ -63,23 +61,7 @@ namespace LoginDM
             System.Diagnostics.Process.Start("https://meet.jit.si/Inform%C3%A1tica");
         }
 
-        private void pictureBox5_Click(object sender, EventArgs e)
-        {
-
-
-            int user = Int32.Parse(txtUsuario.Text);
-
-
-
-            if (user < 1000)
-            {
-                MessageBox.Show("Digite um usuário válido!");
-            }
-
-            bool existeDiretorio = Directory.Exists("E:\\Sistemas\\Backup");
-
-
-        }
+        
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -98,24 +80,29 @@ namespace LoginDM
 
 
 
-        private void txtUsuario_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+     
 
 
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-
+         
+            
 
             if (!rbTarde.Checked && !rbNoite.Checked)
             {
-                if (txtUsuario.Text == "")
-                {
-                    MessageBox.Show("Selecione seu periodo e \nDigite seu Usuário!");
-                }
+                MessageBox.Show("Selecione seu periodo!");
+            }else if (txtUsuario.Text == "")
+            {
+                MessageBox.Show("Digite seu Usuário!");
             }
+
+
+
+            //if (txtUsuario.TextLength > 0 && gbPeriodo.Controls.Count < 0)
+            //{
+            //    MessageBox.Show("Selecione seu periodo e \nDigite seu Usuário!");
+            //}
 
             String periodo = "";
             periodo = rbTarde.Checked ? "Tarde" : "Noite";
@@ -124,41 +111,47 @@ namespace LoginDM
 
             //int user = Int32.Parse(txtUsuario.Text);
 
+            bool MapeamentoExiste = Directory.Exists("M:/");
 
-
-            if (rbTarde.Checked || rbNoite.Checked)
+            if ((rbTarde.Checked || rbNoite.Checked) && (txtUsuario.TextLength > 0))
             {
                 try
                 {
-                    Mapeamento.Persistent = true;
-                    Mapeamento.LocalDrive = "M:";
-                    String dir = "\\\\" + server + "\\" + periodo + "\\" + txtUsuario.Text;
-                    Mapeamento.ShareName = dir;
-
-                    bool existeDiretorio = Directory.Exists(dir);
-
-                    if (!existeDiretorio)
+                    if (!MapeamentoExiste)
                     {
-                        try
+                        Mapeamento.Force = true;
+                        Mapeamento.Persistent = true;
+                        Mapeamento.LocalDrive = "M:";
+                        String dir = "\\\\" + server + "\\" + periodo + "\\" + txtUsuario.Text;
+                        Mapeamento.ShareName = dir;
+
+                        bool DiretorioExiste = Directory.Exists(dir);
+
+                        if (!DiretorioExiste)
                         {
-                            DirectoryInfo di = Directory.CreateDirectory(dir);
-                            MessageBox.Show("Pasta de usuário criada com sucesso!");
-                        }
-                        catch (Exception erro2)
-                        {
-                            MessageBox.Show("Pasta não foi criada! \nErro: " + erro2.Message);
+                            try
+                            {
+                                DirectoryInfo di = Directory.CreateDirectory(dir);
+                                MessageBox.Show("Pasta de usuário criada com sucesso!");
+                            }
+                            catch (Exception erro2)
+                            {
+                                MessageBox.Show("Pasta não foi criada! \nErro: " + erro2.Message);
+
+                            }
 
                         }
+                       
 
+                        //MessageBox.Show(Mapeamento.ShareName);
+
+
+
+                        Mapeamento.MapDrive();
+
+                        System.Diagnostics.Process.Start("M:/");
                     }
-
-                    //MessageBox.Show(Mapeamento.ShareName);
-
-
-
-                    Mapeamento.MapDrive();
-
-                    System.Diagnostics.Process.Start("M:/");
+                   
 
                 }
                 catch (Exception erro)
@@ -175,13 +168,7 @@ namespace LoginDM
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            MessageBox.Show("Periodo: " + gbPeriodo.ToString());
            
-
-
-            MessageBox.Show("Tarde marcado?: " + rbTarde.Checked.ToString());
-            MessageBox.Show("Noite marcado?: " + rbNoite.Checked.ToString());
         }
 
 
@@ -198,10 +185,10 @@ namespace LoginDM
 
                 bool ReturnValue = false;
                 System.Diagnostics.Process p = new System.Diagnostics.Process();
-                //p.StartInfo.UseShellExecute = false;
-                //p.StartInfo.CreateNoWindow = true;
-                //p.StartInfo.RedirectStandardError = true;
-                //p.StartInfo.RedirectStandardOutput = true;
+                p.StartInfo.UseShellExecute = false;
+                p.StartInfo.CreateNoWindow = true;
+                p.StartInfo.RedirectStandardError = true;
+                p.StartInfo.RedirectStandardOutput = true;
 
                 p.StartInfo.FileName = "net.exe";
                 p.StartInfo.Arguments = "use * /DELETE /y";
@@ -239,7 +226,10 @@ namespace LoginDM
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
+
             NetworkDrive Desconectar = new NetworkDrive();
+
             try
             {
                 Desconectar.Force = true;
@@ -258,13 +248,70 @@ namespace LoginDM
                 p.Start();
                 p.WaitForExit();
 
+                txtStatus.Text = "Status: Desconectado";
 
 
             }
             catch (Exception erro)
             {
-
+               
             }
         }
+
+     
+
+        private void txtUsuario_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           
+        }
+
+        private void pbPeriodo_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void gbPeriodo_Enter(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void gbPeriodo_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+          
+        }
+
+        private void txtUsuario_KeyDown_1(object sender, KeyEventArgs e)
+        {
+           
+        }
+
+        private void rbTarde_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbTarde.Checked)
+            {
+                pbPeriodo.Image = Properties.Resources.tarde;
+            }
+            
+        }
+
+        private void rbNoite_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbNoite.Checked)
+            {
+                pbPeriodo.Image = Properties.Resources.noite;
+            }
+        }
+
+        private void txtUsuario_TextChanged(object sender, EventArgs e)
+        {
+            lblUser.Text = txtUsuario.Text;
+        }
+
+        
     }
 }
