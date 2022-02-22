@@ -294,7 +294,7 @@ namespace LoginDM
 
             }
 
-            if (!MapeamentoExiste)
+            if (!MapExiste)
             {
                 lblStatus.Text = "Status: Desconectado";
                 pbStatus.Image = Properties.Resources.offline;
