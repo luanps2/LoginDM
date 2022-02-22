@@ -285,14 +285,14 @@
             // 
             this.sobreToolStripMenuItem1.Image = global::LoginDM.Properties.Resources.info;
             this.sobreToolStripMenuItem1.Name = "sobreToolStripMenuItem1";
-            this.sobreToolStripMenuItem1.Size = new System.Drawing.Size(111, 22);
+            this.sobreToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.sobreToolStripMenuItem1.Text = "Sobre";
             this.sobreToolStripMenuItem1.Click += new System.EventHandler(this.sobreToolStripMenuItem1_Click);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(327, 25);
+            this.label7.Location = new System.Drawing.Point(323, 25);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(46, 13);
             this.label7.TabIndex = 14;
@@ -301,7 +301,7 @@
             // lblUser
             // 
             this.lblUser.AutoSize = true;
-            this.lblUser.Location = new System.Drawing.Point(372, 25);
+            this.lblUser.Location = new System.Drawing.Point(375, 25);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(31, 13);
             this.lblUser.TabIndex = 14;
@@ -310,7 +310,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(189, 4);
+            this.label9.Location = new System.Drawing.Point(202, 6);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(48, 13);
             this.label9.TabIndex = 14;
@@ -318,7 +318,7 @@
             // 
             // pbPeriodo
             // 
-            this.pbPeriodo.Location = new System.Drawing.Point(236, 2);
+            this.pbPeriodo.Location = new System.Drawing.Point(256, 4);
             this.pbPeriodo.Name = "pbPeriodo";
             this.pbPeriodo.Size = new System.Drawing.Size(17, 17);
             this.pbPeriodo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -352,6 +352,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::LoginDM.Properties.Resources.logo_dommacario_borda;
             this.pictureBox1.Location = new System.Drawing.Point(12, 55);
             this.pictureBox1.Name = "pictureBox1";
@@ -363,7 +364,6 @@
             // 
             // pbStatus
             // 
-            this.pbStatus.Image = global::LoginDM.Properties.Resources.offline;
             this.pbStatus.Location = new System.Drawing.Point(389, 4);
             this.pbStatus.Name = "pbStatus";
             this.pbStatus.Size = new System.Drawing.Size(17, 17);
@@ -374,7 +374,7 @@
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(269, 8);
+            this.lblStatus.Location = new System.Drawing.Point(279, 6);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(40, 13);
             this.lblStatus.TabIndex = 17;
