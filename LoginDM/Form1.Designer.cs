@@ -58,6 +58,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pbStatus = new System.Windows.Forms.PictureBox();
             this.lblStatus = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.gbPeriodo.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -288,14 +289,6 @@
             this.sobreToolStripMenuItem1.Text = "Sobre";
             this.sobreToolStripMenuItem1.Click += new System.EventHandler(this.sobreToolStripMenuItem1_Click);
             // 
-            // sobreToolStripMenuItem1
-            // 
-            this.sobreToolStripMenuItem1.Image = global::LoginDM.Properties.Resources.info;
-            this.sobreToolStripMenuItem1.Name = "sobreToolStripMenuItem1";
-            this.sobreToolStripMenuItem1.Size = new System.Drawing.Size(111, 22);
-            this.sobreToolStripMenuItem1.Text = "Sobre";
-            this.sobreToolStripMenuItem1.Click += new System.EventHandler(this.sobreToolStripMenuItem1_Click);
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -385,18 +378,23 @@
             this.lblStatus.Size = new System.Drawing.Size(40, 13);
             this.lblStatus.TabIndex = 17;
             this.lblStatus.Text = "Status:";
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(269, 8);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(40, 13);
-            this.lblStatus.TabIndex = 17;
-            this.lblStatus.Text = "Status:";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 25);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(86, 23);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // SistemaDoma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(412, 293);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.pbStatus);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.linkLabel1);
@@ -470,6 +468,7 @@
         private System.Windows.Forms.PictureBox pbPeriodo;
         private System.Windows.Forms.PictureBox pbStatus;
         private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Button button1;
     }
 }
 

@@ -17,9 +17,10 @@ namespace LoginDM
     public partial class SistemaDoma : Form
     {
 
-        String server = "luan";
-        String diretorio = "";
-        bool MapExiste = Directory.Exists("M:/");
+        String server = "luanpc";
+        //String diretorio = "";
+        bool MapeamentoExiste = Directory.Exists("M:/luanpc/");
+
         NetworkDrive Mapeamento = new NetworkDrive();
 
         public void Desconectar()
@@ -57,35 +58,7 @@ namespace LoginDM
             InitializeComponent();
         }
 
-        public void Desconectar()
-        {
-            NetworkDrive Desconectar = new NetworkDrive();
-            try
-            {
-                Desconectar.Force = true;
-                Desconectar.LocalDrive = "M:";
-                Desconectar.UnMapDrive();
 
-                bool ReturnValue = false;
-                System.Diagnostics.Process p = new System.Diagnostics.Process();
-                p.StartInfo.UseShellExecute = false;
-                p.StartInfo.CreateNoWindow = true;
-                p.StartInfo.RedirectStandardError = true;
-                p.StartInfo.RedirectStandardOutput = true;
-
-                p.StartInfo.FileName = "net.exe";
-                p.StartInfo.Arguments = "use * /DELETE /y";
-                p.Start();
-                p.WaitForExit();
-
-
-                MessageBox.Show("Pasta desconectada com Sucesso!");
-            }
-            catch (Exception erro)
-            {
-
-            }
-        }
 
 
         private void btnEntrar_Click(object sender, EventArgs e)
@@ -145,10 +118,11 @@ namespace LoginDM
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            bool MapExiste = Directory.Exists("M:/luanpc/" + txtUsuario.Text);
 
-            if (MapExiste == true)
+            if (MapExiste)
             {
-                Desconectar();
+                Application.Restart();
             }
 
             if (!rbTarde.Checked && !rbNoite.Checked)
@@ -174,7 +148,7 @@ namespace LoginDM
 
             //int user = Int32.Parse(txtUsuario.Text);
 
-            bool MapeamentoExiste = Directory.Exists("M:/");
+
 
             if ((rbTarde.Checked || rbNoite.Checked) && (txtUsuario.TextLength > 0))
             {
@@ -208,10 +182,6 @@ namespace LoginDM
 
 
                         //MessageBox.Show(Mapeamento.ShareName);
-
-                        Mapeamento.MapDrive();
-                        lblStatus.Text = "Status: Conectado!";
-                        pbStatus.Image = Properties.Resources.online;
 
 
                         Mapeamento.MapDrive();
@@ -285,9 +255,9 @@ namespace LoginDM
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           
 
-            
+
+
 
             NetworkDrive Desconectar = new NetworkDrive();
 
@@ -318,7 +288,7 @@ namespace LoginDM
 
             }
 
-            if (!MapExiste)
+            if (!MapeamentoExiste)
             {
                 lblStatus.Text = "Status: Desconectado";
                 pbStatus.Image = Properties.Resources.offline;
@@ -385,6 +355,9 @@ namespace LoginDM
             lblUser.Text = txtUsuario.Text;
         }
 
-
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            MessageBox.Show(MapeamentoExiste.ToString());
+        }
     }
 }
