@@ -17,10 +17,40 @@ namespace LoginDM
     public partial class SistemaDoma : Form
     {
 
-        String server = "luanpc";
-        String diretorio = "teste";
-
+        String server = "luan";
+        String diretorio = "";
+        bool MapExiste = Directory.Exists("M:/");
         NetworkDrive Mapeamento = new NetworkDrive();
+
+        public void Desconectar()
+        {
+            NetworkDrive Desconectar = new NetworkDrive();
+            try
+            {
+                Desconectar.Force = true;
+                Desconectar.LocalDrive = "M:";
+                Desconectar.UnMapDrive();
+
+                //bool ReturnValue = false;
+                System.Diagnostics.Process p = new System.Diagnostics.Process();
+                p.StartInfo.UseShellExecute = false;
+                p.StartInfo.CreateNoWindow = true;
+                p.StartInfo.RedirectStandardError = true;
+                p.StartInfo.RedirectStandardOutput = true;
+
+                p.StartInfo.FileName = "net.exe";
+                p.StartInfo.Arguments = "use * /DELETE /y";
+                p.Start();
+                p.WaitForExit();
+
+
+                MessageBox.Show("Pasta desconectada com Sucesso!");
+            }
+            catch (Exception)
+            {
+
+            }
+        }
 
         public SistemaDoma()
         {
@@ -116,6 +146,11 @@ namespace LoginDM
         private void btnLogin_Click(object sender, EventArgs e)
         {
 
+            if (MapExiste == true)
+            {
+                Desconectar();
+            }
+
             if (!rbTarde.Checked && !rbNoite.Checked)
             {
                 MessageBox.Show("Selecione seu periodo!");
@@ -179,8 +214,9 @@ namespace LoginDM
                         pbStatus.Image = Properties.Resources.online;
 
 
-
-
+                        Mapeamento.MapDrive();
+                        pbStatus.Image = Properties.Resources.online;
+                        lblStatus.Text = "Status: Conectado!";
                         System.Diagnostics.Process.Start("M:/");
                     }
 
@@ -249,6 +285,8 @@ namespace LoginDM
 
         private void Form1_Load(object sender, EventArgs e)
         {
+           
+
             
 
             NetworkDrive Desconectar = new NetworkDrive();
@@ -259,7 +297,7 @@ namespace LoginDM
                 Desconectar.LocalDrive = "M:";
                 Desconectar.UnMapDrive();
 
-                bool ReturnValue = false;
+                //bool ReturnValue = false;
                 System.Diagnostics.Process p = new System.Diagnostics.Process();
                 //p.StartInfo.UseShellExecute = false;
                 //p.StartInfo.CreateNoWindow = true;
@@ -275,9 +313,20 @@ namespace LoginDM
 
 
             }
-            catch (Exception erro)
+            catch (Exception)
             {
 
+            }
+
+            if (!MapExiste)
+            {
+                lblStatus.Text = "Status: Desconectado";
+                pbStatus.Image = Properties.Resources.offline;
+            }
+            else
+            {
+                lblStatus.Text = "Status: Conectado!";
+                pbStatus.Image = Properties.Resources.online;
             }
             Status();
         }
