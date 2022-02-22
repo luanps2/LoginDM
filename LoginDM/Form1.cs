@@ -19,7 +19,13 @@ namespace LoginDM
 
         String server = "luan";
         String diretorio = "";
+
+
+
         bool MapExiste = Directory.Exists("M:/");
+
+
+
         NetworkDrive Mapeamento = new NetworkDrive();
 
         public void Desconectar()
@@ -44,7 +50,7 @@ namespace LoginDM
                 p.WaitForExit();
 
 
-                MessageBox.Show("Pasta desconectada com Sucesso!");
+                MessageBox.Show("Pasta de usuário " + lblUser.Text + " desconectada com Sucesso!", "Mensagem", MessageBoxButtons.OK ,MessageBoxIcon.Information);
             }
             catch (Exception)
             {
@@ -72,7 +78,7 @@ namespace LoginDM
 
             if (!DiretorioExiste)
             {
-                MessageBox.Show("Entre com seu número de matricula primeiro!");
+                MessageBox.Show("Entre com seu número de matricula primeiro!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else if (DiretorioExiste)
             {
@@ -116,10 +122,13 @@ namespace LoginDM
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            DriveInfo driverinfo = new DriveInfo("M");
+            bool MapExiste = driverinfo.IsReady;
 
-            if (MapExiste == true)
+            if (MapExiste)
             {
                 Desconectar();
+                
             }
 
             if (!rbTarde.Checked && !rbNoite.Checked)
@@ -128,7 +137,7 @@ namespace LoginDM
             }
             else if (txtUsuario.Text == "")
             {
-                MessageBox.Show("Digite seu Usuário!");
+                MessageBox.Show("Digite seu Usuário!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
 
@@ -151,7 +160,7 @@ namespace LoginDM
             {
                 try
                 {
-                    if (!MapeamentoExiste)
+                    if (!MapExiste)
                     {
                         Mapeamento.Force = true;
                         Mapeamento.Persistent = true;
@@ -166,7 +175,7 @@ namespace LoginDM
                             try
                             {
                                 DirectoryInfo di = Directory.CreateDirectory(dir);
-                                MessageBox.Show("Pasta de usuário criada com sucesso!");
+                                MessageBox.Show("Pasta de usuário" + lblUser.Text + "criada com sucesso!");
                             }
                             catch (Exception erro2)
                             {
@@ -336,6 +345,34 @@ namespace LoginDM
             lblUser.Text = txtUsuario.Text;
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            MessageBox.Show("Mapeamento: " + Mapeamento.ToString());
 
+            DriveInfo di = new DriveInfo("M");
+            bool pronto = di.IsReady;
+            if (pronto)
+            {
+                MessageBox.Show("Drive está disponivel: \n Drive: " + di.ToString() + "\nbool: "  + pronto) ;
+            }
+            else
+            {
+                string periodo = "";
+
+                if (rbTarde.Checked)
+                {
+                    periodo = "Tarde";
+                }
+                else if (rbNoite.Checked)
+                {
+                    periodo = "Noite";
+                }
+                else
+                {
+                    periodo = "vazio";
+                }
+                MessageBox.Show("Drive não está disponivel! \n Drive: " + di.ToString() + "\nbool: " + pronto + "\ndiretoria a mapear: " + "\\\\" + server + "\\" + periodo +"\\" + txtUsuario.Text);
+            }
+        }
     }
 }
