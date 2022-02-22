@@ -27,6 +27,35 @@ namespace LoginDM
             InitializeComponent();
         }
 
+        public void Desconectar()
+        {
+            NetworkDrive Desconectar = new NetworkDrive();
+            try
+            {
+                Desconectar.Force = true;
+                Desconectar.LocalDrive = "M:";
+                Desconectar.UnMapDrive();
+
+                bool ReturnValue = false;
+                System.Diagnostics.Process p = new System.Diagnostics.Process();
+                p.StartInfo.UseShellExecute = false;
+                p.StartInfo.CreateNoWindow = true;
+                p.StartInfo.RedirectStandardError = true;
+                p.StartInfo.RedirectStandardOutput = true;
+
+                p.StartInfo.FileName = "net.exe";
+                p.StartInfo.Arguments = "use * /DELETE /y";
+                p.Start();
+                p.WaitForExit();
+
+
+                MessageBox.Show("Pasta desconectada com Sucesso!");
+            }
+            catch (Exception erro)
+            {
+
+            }
+        }
 
 
         private void btnEntrar_Click(object sender, EventArgs e)
@@ -131,6 +160,7 @@ namespace LoginDM
                             try
                             {
                                 DirectoryInfo di = Directory.CreateDirectory(dir);
+                                Status();
                                 MessageBox.Show("Pasta de usuário criada com sucesso!");
                             }
                             catch (Exception erro2)
@@ -144,9 +174,12 @@ namespace LoginDM
 
                         //MessageBox.Show(Mapeamento.ShareName);
 
-
-
                         Mapeamento.MapDrive();
+                        lblStatus.Text = "Status: Conectado!";
+                        pbStatus.Image = Properties.Resources.online;
+
+
+
 
                         System.Diagnostics.Process.Start("M:/");
                     }
@@ -175,32 +208,8 @@ namespace LoginDM
 
         private void btnDesconectar_Click(object sender, EventArgs e)
         {
-            NetworkDrive Desconectar = new NetworkDrive();
-            try
-            {
-                Desconectar.Force = true;
-                Desconectar.LocalDrive = "M:";
-                Desconectar.UnMapDrive();
-
-                bool ReturnValue = false;
-                System.Diagnostics.Process p = new System.Diagnostics.Process();
-                p.StartInfo.UseShellExecute = false;
-                p.StartInfo.CreateNoWindow = true;
-                p.StartInfo.RedirectStandardError = true;
-                p.StartInfo.RedirectStandardOutput = true;
-
-                p.StartInfo.FileName = "net.exe";
-                p.StartInfo.Arguments = "use * /DELETE /y";
-                p.Start();
-                p.WaitForExit();
-
-
-                MessageBox.Show("Pasta desconectada com Sucesso!");
-            }
-            catch (Exception erro)
-            {
-
-            }
+            Desconectar();
+            Application.Restart();
         }
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
@@ -223,9 +232,24 @@ namespace LoginDM
             ConnManual = null;
         }
 
+        public void Status()
+        {
+            bool MapExiste = Directory.Exists("M:/");
+            if (!MapExiste)
+            {
+                lblStatus.Text = "Status: Desconectado!";
+                pbStatus.Image = Properties.Resources.offline;
+            }
+            else if (MapExiste)
+            {
+                lblStatus.Text = "Status: Conectado!";
+                pbStatus.Image = Properties.Resources.online;
+            }
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
 
             NetworkDrive Desconectar = new NetworkDrive();
 
@@ -247,7 +271,7 @@ namespace LoginDM
                 p.Start();
                 p.WaitForExit();
 
-                txtStatus.Text = "Status: Desconectado";
+                lblStatus.Text = "Status: Desconectado";
 
 
             }
@@ -255,6 +279,7 @@ namespace LoginDM
             {
 
             }
+            Status();
         }
 
 

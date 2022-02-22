@@ -38,35 +38,35 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.funçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.conectarManualmenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sobreToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.label7 = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.pbPeriodo = new System.Windows.Forms.PictureBox();
             this.btnDesconectar = new System.Windows.Forms.PictureBox();
             this.btnLogin = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.conectarManualmenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sobreToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pbStatus = new System.Windows.Forms.PictureBox();
-            this.txtStatus = new System.Windows.Forms.Label();
+            this.lblStatus = new System.Windows.Forms.Label();
             this.gbPeriodo.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPeriodo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDesconectar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLogin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStatus)).BeginInit();
             this.SuspendLayout();
@@ -175,6 +175,42 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Sala de Aula";
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox4.Image = global::LoginDM.Properties.Resources.dir;
+            this.pictureBox4.Location = new System.Drawing.Point(305, 19);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(63, 50);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 6;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox3.Image = global::LoginDM.Properties.Resources.live1;
+            this.pictureBox3.Location = new System.Drawing.Point(144, 19);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(107, 50);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 6;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox2.Image = global::LoginDM.Properties.Resources.google_classroom_logo_2;
+            this.pictureBox2.Location = new System.Drawing.Point(28, 19);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(63, 50);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 6;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -219,6 +255,22 @@
             this.funçõesToolStripMenuItem.Size = new System.Drawing.Size(67, 21);
             this.funçõesToolStripMenuItem.Text = "Funções";
             // 
+            // conectarManualmenteToolStripMenuItem
+            // 
+            this.conectarManualmenteToolStripMenuItem.Image = global::LoginDM.Properties.Resources.conectar;
+            this.conectarManualmenteToolStripMenuItem.Name = "conectarManualmenteToolStripMenuItem";
+            this.conectarManualmenteToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.conectarManualmenteToolStripMenuItem.Text = "Conectar Manualmente";
+            this.conectarManualmenteToolStripMenuItem.Click += new System.EventHandler(this.conectarManualmenteToolStripMenuItem_Click);
+            // 
+            // sairToolStripMenuItem
+            // 
+            this.sairToolStripMenuItem.Image = global::LoginDM.Properties.Resources.desconectar;
+            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.sairToolStripMenuItem.Text = "Desconectar Manualmente";
+            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
+            // 
             // sobreToolStripMenuItem
             // 
             this.sobreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -228,10 +280,18 @@
             this.sobreToolStripMenuItem.Size = new System.Drawing.Size(53, 21);
             this.sobreToolStripMenuItem.Text = "Ajuda";
             // 
+            // sobreToolStripMenuItem1
+            // 
+            this.sobreToolStripMenuItem1.Image = global::LoginDM.Properties.Resources.info;
+            this.sobreToolStripMenuItem1.Name = "sobreToolStripMenuItem1";
+            this.sobreToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.sobreToolStripMenuItem1.Text = "Sobre";
+            this.sobreToolStripMenuItem1.Click += new System.EventHandler(this.sobreToolStripMenuItem1_Click);
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(327, 25);
+            this.label7.Location = new System.Drawing.Point(323, 25);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(46, 13);
             this.label7.TabIndex = 14;
@@ -240,7 +300,7 @@
             // lblUser
             // 
             this.lblUser.AutoSize = true;
-            this.lblUser.Location = new System.Drawing.Point(372, 25);
+            this.lblUser.Location = new System.Drawing.Point(375, 25);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(31, 13);
             this.lblUser.TabIndex = 14;
@@ -249,7 +309,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(189, 4);
+            this.label9.Location = new System.Drawing.Point(202, 6);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(48, 13);
             this.label9.TabIndex = 14;
@@ -257,7 +317,7 @@
             // 
             // pbPeriodo
             // 
-            this.pbPeriodo.Location = new System.Drawing.Point(236, 2);
+            this.pbPeriodo.Location = new System.Drawing.Point(256, 4);
             this.pbPeriodo.Name = "pbPeriodo";
             this.pbPeriodo.Size = new System.Drawing.Size(17, 17);
             this.pbPeriodo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -289,42 +349,6 @@
             this.btnLogin.TabStop = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox4.Image = global::LoginDM.Properties.Resources.dir;
-            this.pictureBox4.Location = new System.Drawing.Point(305, 19);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(63, 50);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 6;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox3.Image = global::LoginDM.Properties.Resources.live1;
-            this.pictureBox3.Location = new System.Drawing.Point(144, 19);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(107, 50);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 6;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Image = global::LoginDM.Properties.Resources.google_classroom_logo_2;
-            this.pictureBox2.Location = new System.Drawing.Point(28, 19);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(63, 50);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 6;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::LoginDM.Properties.Resources.logo_dommacario_borda;
@@ -336,50 +360,23 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // conectarManualmenteToolStripMenuItem
-            // 
-            this.conectarManualmenteToolStripMenuItem.Image = global::LoginDM.Properties.Resources.conectar;
-            this.conectarManualmenteToolStripMenuItem.Name = "conectarManualmenteToolStripMenuItem";
-            this.conectarManualmenteToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.conectarManualmenteToolStripMenuItem.Text = "Conectar Manualmente";
-            this.conectarManualmenteToolStripMenuItem.Click += new System.EventHandler(this.conectarManualmenteToolStripMenuItem_Click);
-            // 
-            // sairToolStripMenuItem
-            // 
-            this.sairToolStripMenuItem.Image = global::LoginDM.Properties.Resources.desconectar;
-            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.sairToolStripMenuItem.Text = "Desconectar Manualmente";
-            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
-            // 
-            // sobreToolStripMenuItem1
-            // 
-            this.sobreToolStripMenuItem1.Image = global::LoginDM.Properties.Resources.info;
-            this.sobreToolStripMenuItem1.Name = "sobreToolStripMenuItem1";
-            this.sobreToolStripMenuItem1.Size = new System.Drawing.Size(111, 22);
-            this.sobreToolStripMenuItem1.Text = "Sobre";
-            this.sobreToolStripMenuItem1.Click += new System.EventHandler(this.sobreToolStripMenuItem1_Click);
-            // 
             // pbStatus
             // 
-            this.pbStatus.Image = global::LoginDM.Properties.Resources.offline;
             this.pbStatus.Location = new System.Drawing.Point(389, 4);
             this.pbStatus.Name = "pbStatus";
             this.pbStatus.Size = new System.Drawing.Size(17, 17);
             this.pbStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbStatus.TabIndex = 16;
             this.pbStatus.TabStop = false;
-            
             // 
-            // txtStatus
+            // lblStatus
             // 
-            this.txtStatus.AutoSize = true;
-            this.txtStatus.Location = new System.Drawing.Point(269, 8);
-            this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(40, 13);
-            this.txtStatus.TabIndex = 17;
-            this.txtStatus.Text = "Status:";
-            
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Location = new System.Drawing.Point(279, 6);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(40, 13);
+            this.lblStatus.TabIndex = 17;
+            this.lblStatus.Text = "Status:";
             // 
             // SistemaDoma
             // 
@@ -387,7 +384,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(412, 293);
             this.Controls.Add(this.pbStatus);
-            this.Controls.Add(this.txtStatus);
+            this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.pbPeriodo);
@@ -414,14 +411,14 @@
             this.gbPeriodo.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPeriodo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDesconectar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLogin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStatus)).EndInit();
             this.ResumeLayout(false);
@@ -458,7 +455,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox pbPeriodo;
         private System.Windows.Forms.PictureBox pbStatus;
-        private System.Windows.Forms.Label txtStatus;
+        private System.Windows.Forms.Label lblStatus;
     }
 }
 
