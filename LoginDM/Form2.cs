@@ -84,5 +84,10 @@ namespace LoginDM
         {
             System.Diagnostics.Process.Start("https://www.casadommacario.org.br/");
         }
+
+        private void pictureBox12_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

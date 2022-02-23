@@ -63,9 +63,39 @@ namespace LoginDM.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BACK {
+            get {
+                object obj = ResourceManager.GetObject("BACK", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap back_icon_3__1_ {
+            get {
+                object obj = ResourceManager.GetObject("back-icon-3 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BT1 {
             get {
                 object obj = ResourceManager.GetObject("BT1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BT11 {
+            get {
+                object obj = ResourceManager.GetObject("BT11", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

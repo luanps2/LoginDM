@@ -12,13 +12,14 @@ using aejw.Network;
 
 
 
+
 namespace LoginDM
 {
     public partial class SistemaDoma : Form
     {
 
-        //String server = "luan"; //Dom Macário
-        String server = "luanpc"; //Casa
+        String server = "luan"; //Dom Macário
+        //String server = "luanpc"; //Casa
         String diretorio = "";
 
 
@@ -114,6 +115,16 @@ namespace LoginDM
                             imgPasta.Image = Properties.Resources.dir;
                         }
 
+                        DriveInfo din = new DriveInfo(@"M:\");
+                        DirectoryInfo dirInfo = din.RootDirectory;
+                        DirectoryInfo[] dirInfos = dirInfo.GetDirectories("*.*");
+
+                        foreach (DirectoryInfo d in dirInfos)
+                        {
+                            lblNome.Text = d.Name.ToUpper();
+
+                        }
+                        
 
                         System.Diagnostics.Process.Start("M:/");
 
@@ -138,7 +149,8 @@ namespace LoginDM
             {
                 MessageBox.Show("Não há nenhum usuário conectado!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else {
+            else
+            {
                 NetworkDrive Desconectar = new NetworkDrive();
                 try
                 {
@@ -168,7 +180,7 @@ namespace LoginDM
                 }
             }
 
-            
+
         }
 
         public SistemaDoma()
@@ -251,7 +263,7 @@ namespace LoginDM
         {
 
             Desconectar();
-            
+
         }
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
@@ -294,6 +306,8 @@ namespace LoginDM
             DriveInfo di = new DriveInfo("M");
             bool pronto = di.IsReady;
 
+            
+
             if (!pronto)
             {
                 imgPasta.Image = Properties.Resources.offdir;
@@ -302,8 +316,6 @@ namespace LoginDM
             {
                 imgPasta.Image = Properties.Resources.dir;
             }
-
-
 
             NetworkDrive Desconectar = new NetworkDrive();
 
@@ -334,7 +346,7 @@ namespace LoginDM
 
             }
 
-            if (!MapExiste)
+            if (!pronto)
             {
                 lblStatus.Text = "Status: Desconectado";
                 pbStatus.Image = Properties.Resources.offline;
@@ -345,6 +357,8 @@ namespace LoginDM
                 pbStatus.Image = Properties.Resources.online;
             }
             Status();
+
+
         }
 
 
@@ -399,37 +413,56 @@ namespace LoginDM
         private void txtUsuario_TextChanged(object sender, EventArgs e)
         {
             lblUser.Text = txtUsuario.Text;
+
+            if (txtUsuario.TextLength < 2)
+            {
+                btnLogin.Image = Properties.Resources.BT11;
+            }
+            else
+            {
+                btnLogin.Image = Properties.Resources.BT1;
+            }
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            MessageBox.Show("Mapeamento: " + Mapeamento.ToString());
+            // Get the subdirectories directly that is under the root.
+            // See "How to: Iterate Through a Directory Tree" for an example of how to
+            // iterate through an entire tree.
+            DriveInfo di = new DriveInfo(@"M:\");
+            DirectoryInfo dirInfo = di.RootDirectory;
+            DirectoryInfo[] dirInfos = dirInfo.GetDirectories("*.*");
 
-            DriveInfo di = new DriveInfo("M");
-            bool pronto = di.IsReady;
-
-            if (pronto)
+            foreach (DirectoryInfo d in dirInfos)
             {
-                MessageBox.Show("Drive está disponivel: \n Drive: " + di.ToString() + "\nbool: " + pronto);
-            }
-            else
-            {
-                string periodo = "";
+                MessageBox.Show(d.Name);
 
-                if (rbTarde.Checked)
-                {
-                    periodo = "Tarde";
-                }
-                else if (rbNoite.Checked)
-                {
-                    periodo = "Noite";
-                }
-                else
-                {
-                    periodo = "vazio";
-                }
-                MessageBox.Show("Drive não está disponivel! \n Drive: " + di.ToString() + "\nbool: " + pronto + "\ndiretoria a mapear: " + "\\\\" + server + "\\" + periodo + "\\" + txtUsuario.Text);
             }
+
+            //DriveInfo di = new DriveInfo("M");
+            //bool pronto = di.IsReady;
+
+            //if (pronto)
+            //{
+            //    MessageBox.Show("Drive está disponivel: \n Drive: " + di.ToString() + "\nbool: " + pronto);
+            //}
+            //else
+            //{
+            //    string periodo = "";
+
+            //    if (rbTarde.Checked)
+            //    {
+            //        periodo = "Tarde";
+            //    }
+            //    else if (rbNoite.Checked)
+            //    {
+            //        periodo = "Noite";
+            //    }
+            //    else
+            //    {
+            //        periodo = "vazio";
+            //    }
+            //    MessageBox.Show("Drive não está disponivel! \n Drive: " + di.ToString() + "\nbool: " + pronto + "\ndiretoria a mapear: " + "\\\\" + server + "\\" + periodo + "\\" + txtUsuario.Text);
         }
 
         private void txtUsuario_KeyUp(object sender, KeyEventArgs e)
@@ -439,5 +472,12 @@ namespace LoginDM
                 Conectar();
             }
         }
+
+        private void lblNome_Click(object sender, EventArgs e)
+        {
+          
+        }
     }
+
+  
 }

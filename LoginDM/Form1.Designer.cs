@@ -40,14 +40,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.funçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label7 = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.lblBemVindo = new System.Windows.Forms.Label();
+            this.lblNome = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.funçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.pbStatus = new System.Windows.Forms.PictureBox();
             this.pbPeriodo = new System.Windows.Forms.PictureBox();
             this.btnDesconectar = new System.Windows.Forms.PictureBox();
@@ -76,7 +79,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(184, 53);
+            this.label1.Location = new System.Drawing.Point(184, 89);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 17);
             this.label1.TabIndex = 1;
@@ -85,7 +88,7 @@
             // txtUsuario
             // 
             this.txtUsuario.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(187, 73);
+            this.txtUsuario.Location = new System.Drawing.Point(187, 109);
             this.txtUsuario.MaxLength = 5;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(213, 30);
@@ -100,7 +103,7 @@
             this.gbPeriodo.Controls.Add(this.rbNoite);
             this.gbPeriodo.Controls.Add(this.rbTarde);
             this.gbPeriodo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbPeriodo.Location = new System.Drawing.Point(104, 55);
+            this.gbPeriodo.Location = new System.Drawing.Point(104, 91);
             this.gbPeriodo.Name = "gbPeriodo";
             this.gbPeriodo.Size = new System.Drawing.Size(77, 88);
             this.gbPeriodo.TabIndex = 5;
@@ -140,7 +143,7 @@
             this.groupBox2.Controls.Add(this.pictureBox3);
             this.groupBox2.Controls.Add(this.pictureBox2);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(12, 149);
+            this.groupBox2.Location = new System.Drawing.Point(12, 185);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(388, 100);
             this.groupBox2.TabIndex = 7;
@@ -181,7 +184,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(241, 271);
+            this.label6.Location = new System.Drawing.Point(241, 307);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(103, 13);
             this.label6.TabIndex = 7;
@@ -192,7 +195,7 @@
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(336, 271);
+            this.linkLabel1.Location = new System.Drawing.Point(336, 307);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(64, 13);
             this.linkLabel1.TabIndex = 9;
@@ -200,16 +203,84 @@
             this.linkLabel1.Text = "Luan Costa";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
-            // menuStrip1
+            // label7
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.funçõesToolStripMenuItem,
-            this.sobreToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(412, 25);
-            this.menuStrip1.TabIndex = 12;
-            this.menuStrip1.Text = "menuStrip1";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(321, 25);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(46, 13);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Usuário:";
+            // 
+            // lblUser
+            // 
+            this.lblUser.AutoSize = true;
+            this.lblUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUser.Location = new System.Drawing.Point(371, 25);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(35, 13);
+            this.lblUser.TabIndex = 14;
+            this.lblUser.Text = "????";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(202, 6);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(48, 13);
+            this.label9.TabIndex = 14;
+            this.label9.Text = "Período:";
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.Location = new System.Drawing.Point(279, 6);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(40, 13);
+            this.lblStatus.TabIndex = 17;
+            this.lblStatus.Text = "Status:";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 297);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Teste";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // lblBemVindo
+            // 
+            this.lblBemVindo.AutoSize = true;
+            this.lblBemVindo.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBemVindo.Location = new System.Drawing.Point(8, 25);
+            this.lblBemVindo.Name = "lblBemVindo";
+            this.lblBemVindo.Size = new System.Drawing.Size(108, 23);
+            this.lblBemVindo.TabIndex = 19;
+            this.lblBemVindo.Text = "BEM-VINDO";
+            // 
+            // lblNome
+            // 
+            this.lblNome.AutoSize = true;
+            this.lblNome.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome.Location = new System.Drawing.Point(8, 48);
+            this.lblNome.Name = "lblNome";
+            this.lblNome.Size = new System.Drawing.Size(89, 23);
+            this.lblNome.TabIndex = 19;
+            this.lblNome.Text = "USUÁRIO";
+            this.lblNome.Click += new System.EventHandler(this.lblNome_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(9, 71);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(292, 18);
+            this.label10.TabIndex = 19;
+            this.label10.Text = "INSIRA SEUS DADOS PARA ACESSAR O SISTEMA";
             // 
             // funçõesToolStripMenuItem
             // 
@@ -230,51 +301,16 @@
             this.sobreToolStripMenuItem.Size = new System.Drawing.Size(53, 21);
             this.sobreToolStripMenuItem.Text = "Ajuda";
             // 
-            // label7
+            // menuStrip1
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(323, 25);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(46, 13);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Usuário:";
-            // 
-            // lblUser
-            // 
-            this.lblUser.AutoSize = true;
-            this.lblUser.Location = new System.Drawing.Point(375, 25);
-            this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(31, 13);
-            this.lblUser.TabIndex = 14;
-            this.lblUser.Text = "????";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(202, 6);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(48, 13);
-            this.label9.TabIndex = 14;
-            this.label9.Text = "Período:";
-            // 
-            // lblStatus
-            // 
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(279, 6);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(40, 13);
-            this.lblStatus.TabIndex = 17;
-            this.lblStatus.Text = "Status:";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(12, 260);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Teste";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.funçõesToolStripMenuItem,
+            this.sobreToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(412, 25);
+            this.menuStrip1.TabIndex = 12;
+            this.menuStrip1.Text = "menuStrip1";
             // 
             // pbStatus
             // 
@@ -299,7 +335,7 @@
             // 
             this.btnDesconectar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDesconectar.Image = global::LoginDM.Properties.Resources.BT2;
-            this.btnDesconectar.Location = new System.Drawing.Point(298, 106);
+            this.btnDesconectar.Location = new System.Drawing.Point(298, 142);
             this.btnDesconectar.Name = "btnDesconectar";
             this.btnDesconectar.Size = new System.Drawing.Size(102, 38);
             this.btnDesconectar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -310,8 +346,8 @@
             // btnLogin
             // 
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogin.Image = global::LoginDM.Properties.Resources.BT1;
-            this.btnLogin.Location = new System.Drawing.Point(187, 106);
+            this.btnLogin.Image = global::LoginDM.Properties.Resources.BT11;
+            this.btnLogin.Location = new System.Drawing.Point(187, 142);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(102, 37);
             this.btnLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -359,7 +395,7 @@
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::LoginDM.Properties.Resources.logo_dommacario_borda;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 55);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 91);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(86, 88);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -395,7 +431,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(412, 296);
+            this.ClientSize = new System.Drawing.Size(412, 333);
+            this.Controls.Add(this.lblNome);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.lblBemVindo);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pbStatus);
             this.Controls.Add(this.lblStatus);
@@ -457,13 +496,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.PictureBox btnLogin;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem funçõesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
         private System.Windows.Forms.PictureBox btnDesconectar;
-        private System.Windows.Forms.ToolStripMenuItem conectarManualmenteToolStripMenuItem;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Label label9;
@@ -471,6 +504,15 @@
         private System.Windows.Forms.PictureBox pbStatus;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblBemVindo;
+        private System.Windows.Forms.Label lblNome;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ToolStripMenuItem funçõesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem conectarManualmenteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
     }
 }
 
