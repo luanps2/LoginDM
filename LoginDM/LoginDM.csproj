@@ -185,6 +185,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo-dommacario-borda.ico" />
+    <None Include="Resources\offdir.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

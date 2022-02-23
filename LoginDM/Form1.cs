@@ -101,7 +101,22 @@ namespace LoginDM
                         Mapeamento.MapDrive();
                         pbStatus.Image = Properties.Resources.online;
                         lblStatus.Text = "Status: Conectado!";
+
+                        DriveInfo dinfo = new DriveInfo("M");
+                        bool pronto = dinfo.IsReady;
+
+                        if (!pronto)
+                        {
+                            imgPasta.Image = Properties.Resources.offdir;
+                        }
+                        else if (pronto)
+                        {
+                            imgPasta.Image = Properties.Resources.dir;
+                        }
+
+
                         System.Diagnostics.Process.Start("M:/");
+
                     }
 
 
@@ -117,32 +132,44 @@ namespace LoginDM
 
         public void Desconectar()
         {
-            NetworkDrive Desconectar = new NetworkDrive();
-            try
+            DriveInfo driverinfo = new DriveInfo("M");
+            bool MapExiste = driverinfo.IsReady;
+
+            if (!MapExiste)
             {
-                Desconectar.Force = true;
-                Desconectar.LocalDrive = "M:";
-                Desconectar.UnMapDrive();
-
-                //bool ReturnValue = false;
-                System.Diagnostics.Process p = new System.Diagnostics.Process();
-                p.StartInfo.UseShellExecute = false;
-                p.StartInfo.CreateNoWindow = true;
-                p.StartInfo.RedirectStandardError = true;
-                p.StartInfo.RedirectStandardOutput = true;
-
-                p.StartInfo.FileName = "net.exe";
-                p.StartInfo.Arguments = "use * /DELETE /y";
-                p.Start();
-                p.WaitForExit();
-
-
-                MessageBox.Show("Pasta de usuário " + lblUser.Text + " desconectada com Sucesso!", "Mensagem", MessageBoxButtons.OK ,MessageBoxIcon.Information);
+                MessageBox.Show("Não há nenhum usuário conectado!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (Exception)
-            {
+            else {
+                NetworkDrive Desconectar = new NetworkDrive();
+                try
+                {
+                    Desconectar.Force = true;
+                    Desconectar.LocalDrive = "M:";
+                    Desconectar.UnMapDrive();
 
+                    //bool ReturnValue = false;
+                    System.Diagnostics.Process p = new System.Diagnostics.Process();
+                    p.StartInfo.UseShellExecute = false;
+                    p.StartInfo.CreateNoWindow = true;
+                    p.StartInfo.RedirectStandardError = true;
+                    p.StartInfo.RedirectStandardOutput = true;
+
+                    p.StartInfo.FileName = "net.exe";
+                    p.StartInfo.Arguments = "use * /DELETE /y";
+                    p.Start();
+                    p.WaitForExit();
+
+
+                    MessageBox.Show("Pasta de usuário " + lblUser.Text + " desconectada com Sucesso!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Application.Restart();
+                }
+                catch (Exception)
+                {
+
+                }
             }
+
+            
         }
 
         public SistemaDoma()
@@ -223,8 +250,9 @@ namespace LoginDM
 
         private void btnDesconectar_Click(object sender, EventArgs e)
         {
+
             Desconectar();
-            Application.Restart();
+            
         }
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
@@ -264,7 +292,17 @@ namespace LoginDM
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            DriveInfo di = new DriveInfo("M");
+            bool pronto = di.IsReady;
 
+            if (!pronto)
+            {
+                imgPasta.Image = Properties.Resources.offdir;
+            }
+            else if (pronto)
+            {
+                imgPasta.Image = Properties.Resources.dir;
+            }
 
 
 
@@ -370,9 +408,10 @@ namespace LoginDM
 
             DriveInfo di = new DriveInfo("M");
             bool pronto = di.IsReady;
+
             if (pronto)
             {
-                MessageBox.Show("Drive está disponivel: \n Drive: " + di.ToString() + "\nbool: "  + pronto) ;
+                MessageBox.Show("Drive está disponivel: \n Drive: " + di.ToString() + "\nbool: " + pronto);
             }
             else
             {
@@ -390,7 +429,7 @@ namespace LoginDM
                 {
                     periodo = "vazio";
                 }
-                MessageBox.Show("Drive não está disponivel! \n Drive: " + di.ToString() + "\nbool: " + pronto + "\ndiretoria a mapear: " + "\\\\" + server + "\\" + periodo +"\\" + txtUsuario.Text);
+                MessageBox.Show("Drive não está disponivel! \n Drive: " + di.ToString() + "\nbool: " + pronto + "\ndiretoria a mapear: " + "\\\\" + server + "\\" + periodo + "\\" + txtUsuario.Text);
             }
         }
 
