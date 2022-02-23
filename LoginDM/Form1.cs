@@ -17,7 +17,8 @@ namespace LoginDM
     public partial class SistemaDoma : Form
     {
 
-        String server = "luan";
+        //String server = "luan"; //Dom Macário
+        String server = "luanpc"; //Casa
         String diretorio = "";
 
 
@@ -27,6 +28,92 @@ namespace LoginDM
 
 
         NetworkDrive Mapeamento = new NetworkDrive();
+
+        public void Conectar()
+        {
+            DriveInfo driverinfo = new DriveInfo("M");
+            bool MapExiste = driverinfo.IsReady;
+
+            if (MapExiste)
+            {
+                Desconectar();
+
+            }
+
+            if (!rbTarde.Checked && !rbNoite.Checked)
+            {
+                MessageBox.Show("Selecione seu periodo!");
+            }
+            else if (txtUsuario.Text == "")
+            {
+                MessageBox.Show("Digite seu Usuário!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+
+
+            //if (txtUsuario.TextLength > 0 && gbPeriodo.Controls.Count < 0)
+            //{
+            //    MessageBox.Show("Selecione seu periodo e \nDigite seu Usuário!");
+            //}
+
+            String periodo = "";
+            periodo = rbTarde.Checked ? "Tarde" : "Noite";
+
+
+
+            //int user = Int32.Parse(txtUsuario.Text);
+
+
+
+            if ((rbTarde.Checked || rbNoite.Checked) && (txtUsuario.TextLength > 0))
+            {
+                try
+                {
+                    if (!MapExiste)
+                    {
+                        Mapeamento.Force = true;
+                        Mapeamento.Persistent = true;
+                        Mapeamento.LocalDrive = "M:";
+                        String dir = "\\\\" + server + "\\" + periodo + "\\" + txtUsuario.Text;
+                        Mapeamento.ShareName = dir;
+
+                        bool DiretorioExiste = Directory.Exists(dir);
+
+                        if (!DiretorioExiste)
+                        {
+                            try
+                            {
+                                DirectoryInfo di = Directory.CreateDirectory(dir);
+                                MessageBox.Show("Pasta de usuário" + lblUser.Text + "criada com sucesso!");
+                            }
+                            catch (Exception erro2)
+                            {
+                                MessageBox.Show("Pasta não foi criada! \nErro: " + erro2.Message);
+
+                            }
+
+                        }
+
+
+                        //MessageBox.Show(Mapeamento.ShareName);
+
+
+                        Mapeamento.MapDrive();
+                        pbStatus.Image = Properties.Resources.online;
+                        lblStatus.Text = "Status: Conectado!";
+                        System.Diagnostics.Process.Start("M:/");
+                    }
+
+
+                }
+                catch (Exception erro)
+                {
+                    MessageBox.Show("Não conectado!\nErro: " + erro.Message, "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+                Mapeamento = null;
+            }
+        }
 
         public void Desconectar()
         {
@@ -123,91 +210,7 @@ namespace LoginDM
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            DriveInfo driverinfo = new DriveInfo("M");
-            bool MapExiste = driverinfo.IsReady;
-
-            if (MapExiste)
-            {
-                Desconectar();
-                
-            }
-
-            if (!rbTarde.Checked && !rbNoite.Checked)
-            {
-                MessageBox.Show("Selecione seu periodo!");
-            }
-            else if (txtUsuario.Text == "")
-            {
-                MessageBox.Show("Digite seu Usuário!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-
-
-
-            //if (txtUsuario.TextLength > 0 && gbPeriodo.Controls.Count < 0)
-            //{
-            //    MessageBox.Show("Selecione seu periodo e \nDigite seu Usuário!");
-            //}
-
-            String periodo = "";
-            periodo = rbTarde.Checked ? "Tarde" : "Noite";
-
-
-
-            //int user = Int32.Parse(txtUsuario.Text);
-
-
-
-            if ((rbTarde.Checked || rbNoite.Checked) && (txtUsuario.TextLength > 0))
-            {
-                try
-                {
-                    if (!MapExiste)
-                    {
-                        Mapeamento.Force = true;
-                        Mapeamento.Persistent = true;
-                        Mapeamento.LocalDrive = "M:";
-                        String dir = "\\\\" + server + "\\" + periodo + "\\" + txtUsuario.Text;
-                        Mapeamento.ShareName = dir;
-
-                        bool DiretorioExiste = Directory.Exists(dir);
-
-                        if (!DiretorioExiste)
-                        {
-                            try
-                            {
-                                DirectoryInfo di = Directory.CreateDirectory(dir);
-                                MessageBox.Show("Pasta de usuário" + lblUser.Text + "criada com sucesso!");
-                            }
-                            catch (Exception erro2)
-                            {
-                                MessageBox.Show("Pasta não foi criada! \nErro: " + erro2.Message);
-
-                            }
-
-                        }
-
-
-                        //MessageBox.Show(Mapeamento.ShareName);
-
-
-                        Mapeamento.MapDrive();
-                        pbStatus.Image = Properties.Resources.online;
-                        lblStatus.Text = "Status: Conectado!";
-                        System.Diagnostics.Process.Start("M:/");
-                    }
-
-
-                }
-                catch (Exception erro)
-                {
-                    MessageBox.Show(this, "Não conectado!\nErro: " + erro.Message);
-
-                }
-                Mapeamento = null;
-            }
-
-
-
+            Conectar();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -388,6 +391,14 @@ namespace LoginDM
                     periodo = "vazio";
                 }
                 MessageBox.Show("Drive não está disponivel! \n Drive: " + di.ToString() + "\nbool: " + pronto + "\ndiretoria a mapear: " + "\\\\" + server + "\\" + periodo +"\\" + txtUsuario.Text);
+            }
+        }
+
+        private void txtUsuario_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Conectar();
             }
         }
     }
