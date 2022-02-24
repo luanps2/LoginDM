@@ -18,8 +18,8 @@ namespace LoginDM
     public partial class SistemaDoma : Form
     {
 
-        //String server = "luan"; //Dom Macário
-        String server = "luanpc"; //Casa
+        String server = "luan"; //Dom Macário
+        //String server = "luanpc"; //Casa
         String diretorio = "";
 
         bool MapExiste = Directory.Exists("M:/");
@@ -469,6 +469,19 @@ namespace LoginDM
         private void toolStripProgressBar1_Click(object sender, EventArgs e)
         {
            
+        }
+
+        private void pictureBox4_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void boletimToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Boletim boletim = new Boletim();
+            boletim.Show();
+
+        
         }
     }
 

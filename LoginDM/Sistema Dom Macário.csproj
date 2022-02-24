@@ -78,6 +78,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Boletim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Boletim.Designer.cs">
+      <DependentUpon>Boletim.cs</DependentUpon>
+    </Compile>
     <Compile Include="Functions.cs" />
     <Compile Include="cNetworkDrives0015.cs" />
     <Compile Include="Sistema.cs">
@@ -94,6 +100,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Boletim.resx">
+      <DependentUpon>Boletim.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sistema.resx">
       <DependentUpon>Sistema.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,6 +198,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo-dommacario-borda.ico" />
+    <None Include="Resources\boletim.png" />
     <None Include="Resources\BT22.png" />
     <None Include="Resources\BT11.png" />
     <None Include="Resources\BACK.png" />

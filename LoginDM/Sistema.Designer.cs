@@ -62,6 +62,7 @@
             this.conectarManualmenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.boletimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gbPeriodo.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -290,7 +291,8 @@
             // 
             this.funçõesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.conectarManualmenteToolStripMenuItem,
-            this.sairToolStripMenuItem});
+            this.sairToolStripMenuItem,
+            this.boletimToolStripMenuItem});
             this.funçõesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.funçõesToolStripMenuItem.Name = "funçõesToolStripMenuItem";
             this.funçõesToolStripMenuItem.Size = new System.Drawing.Size(67, 21);
@@ -427,9 +429,17 @@
             // 
             this.sobreToolStripMenuItem1.Image = global::LoginDM.Properties.Resources.info;
             this.sobreToolStripMenuItem1.Name = "sobreToolStripMenuItem1";
-            this.sobreToolStripMenuItem1.Size = new System.Drawing.Size(111, 22);
+            this.sobreToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.sobreToolStripMenuItem1.Text = "Sobre";
             this.sobreToolStripMenuItem1.Click += new System.EventHandler(this.sobreToolStripMenuItem1_Click);
+            // 
+            // boletimToolStripMenuItem
+            // 
+            this.boletimToolStripMenuItem.Image = global::LoginDM.Properties.Resources.boletim;
+            this.boletimToolStripMenuItem.Name = "boletimToolStripMenuItem";
+            this.boletimToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.boletimToolStripMenuItem.Text = "Boletim";
+            this.boletimToolStripMenuItem.Click += new System.EventHandler(this.boletimToolStripMenuItem_Click);
             // 
             // SistemaDoma
             // 
@@ -517,6 +527,7 @@
         private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem1;
         private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem boletimToolStripMenuItem;
     }
 }
 
