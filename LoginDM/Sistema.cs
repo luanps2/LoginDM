@@ -18,15 +18,11 @@ namespace LoginDM
     public partial class SistemaDoma : Form
     {
 
-        String server = "luan"; //Dom Macário
-        //String server = "luanpc"; //Casa
+        //String server = "luan"; //Dom Macário
+        String server = "luanpc"; //Casa
         String diretorio = "";
 
-
-
         bool MapExiste = Directory.Exists("M:/");
-
-
 
         NetworkDrive Mapeamento = new NetworkDrive();
 
@@ -50,8 +46,6 @@ namespace LoginDM
                 MessageBox.Show("Digite seu Usuário!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-
-
             //if (txtUsuario.TextLength > 0 && gbPeriodo.Controls.Count < 0)
             //{
             //    MessageBox.Show("Selecione seu periodo e \nDigite seu Usuário!");
@@ -60,11 +54,7 @@ namespace LoginDM
             String periodo = "";
             periodo = rbTarde.Checked ? "Tarde" : "Noite";
 
-
-
             //int user = Int32.Parse(txtUsuario.Text);
-
-
 
             if ((rbTarde.Checked || rbNoite.Checked) && (txtUsuario.TextLength > 0))
             {
@@ -95,13 +85,13 @@ namespace LoginDM
 
                         }
 
-
                         //MessageBox.Show(Mapeamento.ShareName);
-
 
                         Mapeamento.MapDrive();
                         pbStatus.Image = Properties.Resources.online;
                         lblStatus.Text = "Status: Conectado!";
+                        lblStatus.Location = new Point(270, 4);
+                        btnDesconectar.Image = Properties.Resources.BT2;
 
                         DriveInfo dinfo = new DriveInfo("M");
                         bool pronto = dinfo.IsReady;
@@ -125,9 +115,7 @@ namespace LoginDM
 
                         }
                         
-
                         System.Diagnostics.Process.Start("M:/");
-
 
                     }
                 }
@@ -148,6 +136,7 @@ namespace LoginDM
             if (!MapExiste)
             {
                 MessageBox.Show("Não há nenhum usuário conectado!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
             else
             {
@@ -170,8 +159,7 @@ namespace LoginDM
                     p.Start();
                     p.WaitForExit();
 
-
-                    MessageBox.Show("Pasta de usuário " + lblUser.Text + " desconectada com Sucesso!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(lblNome.Text + ", sua pasta de usuário " + lblUser.Text + " foi desconectada com sucesso! \naté a próxima aula! :)", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Application.Restart();
                 }
                 catch (Exception)
@@ -204,7 +192,7 @@ namespace LoginDM
 
             if (!DiretorioExiste)
             {
-                MessageBox.Show("Entre com seu número de matricula primeiro!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Entre com seu número de matricula primeiro!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else if (DiretorioExiste)
             {
@@ -476,6 +464,11 @@ namespace LoginDM
         private void lblNome_Click(object sender, EventArgs e)
         {
           
+        }
+
+        private void toolStripProgressBar1_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 
