@@ -186,7 +186,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(241, 307);
+            this.label6.Location = new System.Drawing.Point(233, 307);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(111, 18);
             this.label6.TabIndex = 7;
@@ -427,7 +427,7 @@
             // 
             this.sobreToolStripMenuItem1.Image = global::LoginDM.Properties.Resources.info;
             this.sobreToolStripMenuItem1.Name = "sobreToolStripMenuItem1";
-            this.sobreToolStripMenuItem1.Size = new System.Drawing.Size(111, 22);
+            this.sobreToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.sobreToolStripMenuItem1.Text = "Sobre";
             this.sobreToolStripMenuItem1.Click += new System.EventHandler(this.sobreToolStripMenuItem1_Click);
             // 
