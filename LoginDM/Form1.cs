@@ -43,11 +43,11 @@ namespace LoginDM
 
             if (!rbTarde.Checked && !rbNoite.Checked)
             {
-                MessageBox.Show("Selecione seu periodo!");
+                MessageBox.Show("Selecione seu periodo!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else if (txtUsuario.Text == "")
             {
-                MessageBox.Show("Digite seu Usuário!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Digite seu Usuário!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
 
@@ -85,7 +85,7 @@ namespace LoginDM
                             try
                             {
                                 DirectoryInfo di = Directory.CreateDirectory(dir);
-                                MessageBox.Show("Pasta de usuário" + lblUser.Text + "criada com sucesso!");
+                                MessageBox.Show("Pasta de usuário" + lblUser.Text + "criada com sucesso!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                             catch (Exception erro2)
                             {
