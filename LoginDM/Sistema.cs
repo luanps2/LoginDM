@@ -22,7 +22,7 @@ namespace LoginDM
         //String server = "luanpc"; //Casa
         String diretorio = "";
 
-        bool MapExiste = Directory.Exists("M:/");
+        //bool MapExiste = Directory.Exists("M:/");
 
         NetworkDrive Mapeamento = new NetworkDrive();
 
@@ -417,15 +417,24 @@ namespace LoginDM
             // Get the subdirectories directly that is under the root.
             // See "How to: Iterate Through a Directory Tree" for an example of how to
             // iterate through an entire tree.
-            DriveInfo di = new DriveInfo(@"M:\");
-            DirectoryInfo dirInfo = di.RootDirectory;
-            DirectoryInfo[] dirInfos = dirInfo.GetDirectories("*.*");
-
-            foreach (DirectoryInfo d in dirInfos)
+            try
             {
-                MessageBox.Show(d.Name);
+                DriveInfo di = new DriveInfo(@"M:\");
+                DirectoryInfo dirInfo = di.RootDirectory;
+                DirectoryInfo[] dirInfos = dirInfo.GetDirectories("*.*");
 
+                foreach (DirectoryInfo d in dirInfos)
+                {
+                    MessageBox.Show(d.Name);
+
+                }
             }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show("" + erro);
+            }
+           
 
             //DriveInfo di = new DriveInfo("M");
             //bool pronto = di.IsReady;
@@ -478,8 +487,16 @@ namespace LoginDM
 
         private void boletimToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Boletim boletim = new Boletim();
-            boletim.Show();
+            if (MapExiste)
+            {
+                Boletim boletim = new Boletim();
+                boletim.Show();
+            }
+            else
+            {
+
+            }
+            
 
         
         }

@@ -38,5 +38,10 @@ namespace LoginDM
             }
            
         }
+
+        private void pictureBox12_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
