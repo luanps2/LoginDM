@@ -61,8 +61,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.conectarManualmenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sobreToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.boletimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.criarUsuárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sobreToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.gbPeriodo.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -290,6 +291,7 @@
             // funçõesToolStripMenuItem
             // 
             this.funçõesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.criarUsuárioToolStripMenuItem,
             this.conectarManualmenteToolStripMenuItem,
             this.sairToolStripMenuItem,
             this.boletimToolStripMenuItem});
@@ -425,14 +427,6 @@
             this.sairToolStripMenuItem.Text = "Desconectar Manualmente";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
-            // sobreToolStripMenuItem1
-            // 
-            this.sobreToolStripMenuItem1.Image = global::LoginDM.Properties.Resources.info;
-            this.sobreToolStripMenuItem1.Name = "sobreToolStripMenuItem1";
-            this.sobreToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.sobreToolStripMenuItem1.Text = "Sobre";
-            this.sobreToolStripMenuItem1.Click += new System.EventHandler(this.sobreToolStripMenuItem1_Click);
-            // 
             // boletimToolStripMenuItem
             // 
             this.boletimToolStripMenuItem.Image = global::LoginDM.Properties.Resources.boletim;
@@ -440,6 +434,21 @@
             this.boletimToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
             this.boletimToolStripMenuItem.Text = "Boletim";
             this.boletimToolStripMenuItem.Click += new System.EventHandler(this.boletimToolStripMenuItem_Click);
+            // 
+            // criarUsuárioToolStripMenuItem
+            // 
+            this.criarUsuárioToolStripMenuItem.Image = global::LoginDM.Properties.Resources.user;
+            this.criarUsuárioToolStripMenuItem.Name = "criarUsuárioToolStripMenuItem";
+            this.criarUsuárioToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.criarUsuárioToolStripMenuItem.Text = "Criar Usuário";
+            // 
+            // sobreToolStripMenuItem1
+            // 
+            this.sobreToolStripMenuItem1.Image = global::LoginDM.Properties.Resources.info;
+            this.sobreToolStripMenuItem1.Name = "sobreToolStripMenuItem1";
+            this.sobreToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.sobreToolStripMenuItem1.Text = "Sobre";
+            this.sobreToolStripMenuItem1.Click += new System.EventHandler(this.sobreToolStripMenuItem1_Click);
             // 
             // SistemaDoma
             // 
@@ -528,6 +537,7 @@
         private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem boletimToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem criarUsuárioToolStripMenuItem;
     }
 }
 

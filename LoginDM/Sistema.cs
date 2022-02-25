@@ -22,110 +22,121 @@ namespace LoginDM
         //String server = "luanpc"; //Casa
         String diretorio = "";
 
+
         //bool MapExiste = Directory.Exists("M:/");
 
         NetworkDrive Mapeamento = new NetworkDrive();
 
         public void Conectar()
         {
-            DriveInfo driverinfo = new DriveInfo("M");
-            bool MapExiste = driverinfo.IsReady;
 
-            if (MapExiste)
+            if (txtUsuario.TextLength < 2)
             {
-                Desconectar();
-
+                MessageBox.Show("Digite um usuário válido!", "Usuário Inválido", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-            if (!rbTarde.Checked && !rbNoite.Checked)
+            else
             {
-                MessageBox.Show("Selecione seu periodo!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else if (txtUsuario.Text == "")
-            {
-                MessageBox.Show("Digite seu Usuário!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+                DriveInfo driverinfo = new DriveInfo("M");
+                bool MapExiste = driverinfo.IsReady;
 
-            //if (txtUsuario.TextLength > 0 && gbPeriodo.Controls.Count < 0)
-            //{
-            //    MessageBox.Show("Selecione seu periodo e \nDigite seu Usuário!");
-            //}
-
-            String periodo = "";
-            periodo = rbTarde.Checked ? "Tarde" : "Noite";
-
-            //int user = Int32.Parse(txtUsuario.Text);
-
-            if ((rbTarde.Checked || rbNoite.Checked) && (txtUsuario.TextLength > 0))
-            {
-                try
+                if (MapExiste)
                 {
-                    if (!MapExiste)
+                    Desconectar();
+
+                }
+
+                if (!rbTarde.Checked && !rbNoite.Checked)
+                {
+                    MessageBox.Show("Selecione seu periodo!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (txtUsuario.Text == "")
+                {
+                    MessageBox.Show("Digite seu Usuário!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                //if (txtUsuario.TextLength > 0 && gbPeriodo.Controls.Count < 0)
+                //{
+                //    MessageBox.Show("Selecione seu periodo e \nDigite seu Usuário!");
+                //}
+
+                String periodo = "";
+                periodo = rbTarde.Checked ? "Tarde" : "Noite";
+
+                //int user = Int32.Parse(txtUsuario.Text);
+
+                if ((rbTarde.Checked || rbNoite.Checked) && (txtUsuario.TextLength > 0))
+                {
+                    try
                     {
-                        Mapeamento.Force = true;
-                        Mapeamento.Persistent = true;
-                        Mapeamento.LocalDrive = "M:";
-                        String dir = "\\\\" + server + "\\" + periodo + "\\" + txtUsuario.Text;
-                        Mapeamento.ShareName = dir;
-
-                        bool DiretorioExiste = Directory.Exists(dir);
-
-                        if (!DiretorioExiste)
+                        if (!MapExiste)
                         {
-                            try
+                            Mapeamento.Force = true;
+                            Mapeamento.Persistent = true;
+                            Mapeamento.LocalDrive = "M:";
+                            String dir = "\\\\" + server + "\\" + periodo + "\\" + txtUsuario.Text;
+                            Mapeamento.ShareName = dir;
+
+                            bool DiretorioExiste = Directory.Exists(dir);
+
+                            if (!DiretorioExiste)
                             {
-                                DirectoryInfo di = Directory.CreateDirectory(dir);
-                                MessageBox.Show("Pasta de usuário" + lblUser.Text + "criada com sucesso!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                try
+                                {
+                                    DirectoryInfo di = Directory.CreateDirectory(dir);
+                                    MessageBox.Show("Pasta de usuário" + lblUser.Text + "criada com sucesso!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                catch (Exception erro2)
+                                {
+                                    MessageBox.Show("Pasta não foi criada! \nErro: " + erro2.Message);
+
+                                }
+
                             }
-                            catch (Exception erro2)
+
+                            //MessageBox.Show(Mapeamento.ShareName);
+
+                            Mapeamento.MapDrive();
+                            pbStatus.Image = Properties.Resources.online;
+                            lblStatus.Text = "Status: Conectado!";
+                            lblStatus.Location = new Point(270, 4);
+                            btnDesconectar.Image = Properties.Resources.BT2;
+
+                            DriveInfo dinfo = new DriveInfo("M");
+                            bool pronto = dinfo.IsReady;
+
+                            if (!pronto)
                             {
-                                MessageBox.Show("Pasta não foi criada! \nErro: " + erro2.Message);
+                                imgPasta.Image = Properties.Resources.offdir;
+                            }
+                            else if (pronto)
+                            {
+                                imgPasta.Image = Properties.Resources.dir;
+                            }
+
+                            DriveInfo din = new DriveInfo(@"M:\");
+                            DirectoryInfo dirInfo = din.RootDirectory;
+                            DirectoryInfo[] dirInfos = dirInfo.GetDirectories("*.*");
+
+                            foreach (DirectoryInfo d in dirInfos)
+                            {
+                                lblNome.Text = d.Name.ToUpper();
 
                             }
 
-                        }
-
-                        //MessageBox.Show(Mapeamento.ShareName);
-
-                        Mapeamento.MapDrive();
-                        pbStatus.Image = Properties.Resources.online;
-                        lblStatus.Text = "Status: Conectado!";
-                        lblStatus.Location = new Point(270, 4);
-                        btnDesconectar.Image = Properties.Resources.BT2;
-
-                        DriveInfo dinfo = new DriveInfo("M");
-                        bool pronto = dinfo.IsReady;
-
-                        if (!pronto)
-                        {
-                            imgPasta.Image = Properties.Resources.offdir;
-                        }
-                        else if (pronto)
-                        {
-                            imgPasta.Image = Properties.Resources.dir;
-                        }
-
-                        DriveInfo din = new DriveInfo(@"M:\");
-                        DirectoryInfo dirInfo = din.RootDirectory;
-                        DirectoryInfo[] dirInfos = dirInfo.GetDirectories("*.*");
-
-                        foreach (DirectoryInfo d in dirInfos)
-                        {
-                            lblNome.Text = d.Name.ToUpper();
+                            System.Diagnostics.Process.Start("M:/");
 
                         }
-                        
-                        System.Diagnostics.Process.Start("M:/");
+                    }
+                    catch (Exception erro)
+                    {
+                        MessageBox.Show("Não conectado!\nErro: " + erro.Message, "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                     }
+                    Mapeamento = null;
                 }
-                catch (Exception erro)
-                {
-                    MessageBox.Show("Não conectado!\nErro: " + erro.Message, "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                }
-                Mapeamento = null;
             }
+
+
         }
 
         public void Desconectar()
@@ -294,7 +305,7 @@ namespace LoginDM
             DriveInfo di = new DriveInfo("M");
             bool pronto = di.IsReady;
 
-            
+
 
             if (!pronto)
             {
@@ -434,7 +445,7 @@ namespace LoginDM
 
                 MessageBox.Show("" + erro);
             }
-           
+
 
             //DriveInfo di = new DriveInfo("M");
             //bool pronto = di.IsReady;
@@ -472,12 +483,12 @@ namespace LoginDM
 
         private void lblNome_Click(object sender, EventArgs e)
         {
-          
+
         }
 
         private void toolStripProgressBar1_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void pictureBox4_Click_1(object sender, EventArgs e)
@@ -487,6 +498,9 @@ namespace LoginDM
 
         private void boletimToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            DriveInfo driverinfo = new DriveInfo("M");
+            bool MapExiste = driverinfo.IsReady;
+
             if (MapExiste)
             {
                 Boletim boletim = new Boletim();
@@ -494,13 +508,13 @@ namespace LoginDM
             }
             else
             {
-
+                MessageBox.Show("Entre com seu usuário primeiro!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            
 
-        
+
+
         }
     }
 
-  
+
 }

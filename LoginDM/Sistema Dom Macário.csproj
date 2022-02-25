@@ -198,6 +198,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo-dommacario-borda.ico" />
+    <None Include="Resources\user.png" />
     <None Include="Resources\boletim.png" />
     <None Include="Resources\BT22.png" />
     <None Include="Resources\BT11.png" />
