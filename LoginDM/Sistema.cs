@@ -305,7 +305,7 @@ namespace LoginDM
             DriveInfo di = new DriveInfo("M");
             bool pronto = di.IsReady;
 
-
+           
 
             if (!pronto)
             {
@@ -513,6 +513,23 @@ namespace LoginDM
 
 
 
+        }
+
+        private void criarUsuárioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtUsuario_Click(object sender, EventArgs e)
+        {
+            txtUsuario.Text = "";
+            txtUsuario.ForeColor = Color.Black;
+        }
+
+        private void txtSenha_Click(object sender, EventArgs e)
+        {
+            txtSenha.Text = "";
+            txtSenha.ForeColor = Color.Black;
         }
     }
 

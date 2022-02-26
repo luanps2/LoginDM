@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SistemaDoma));
-            this.label1 = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.gbPeriodo = new System.Windows.Forms.GroupBox();
             this.rbNoite = new System.Windows.Forms.RadioButton();
@@ -38,6 +37,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.imgPasta = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label7 = new System.Windows.Forms.Label();
@@ -49,53 +51,44 @@
             this.lblNome = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.funçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.criarUsuárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.conectarManualmenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.boletimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sobreToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.pbStatus = new System.Windows.Forms.PictureBox();
             this.pbPeriodo = new System.Windows.Forms.PictureBox();
             this.btnDesconectar = new System.Windows.Forms.PictureBox();
             this.btnLogin = new System.Windows.Forms.PictureBox();
-            this.imgPasta = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.conectarManualmenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.boletimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.criarUsuárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sobreToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtSenha = new System.Windows.Forms.TextBox();
             this.gbPeriodo.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPasta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPeriodo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDesconectar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLogin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgPasta)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(184, 89);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 16);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Usuário";
             // 
             // txtUsuario
             // 
             this.txtUsuario.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(187, 109);
+            this.txtUsuario.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.txtUsuario.Location = new System.Drawing.Point(191, 104);
             this.txtUsuario.MaxLength = 5;
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(213, 30);
+            this.txtUsuario.Size = new System.Drawing.Size(105, 30);
             this.txtUsuario.TabIndex = 2;
+            this.txtUsuario.Text = "Usuário";
             this.txtUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtUsuario.Click += new System.EventHandler(this.txtUsuario_Click);
             this.txtUsuario.TextChanged += new System.EventHandler(this.txtUsuario_TextChanged);
             this.txtUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUsuario_KeyDown_1);
             this.txtUsuario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtUsuario_KeyUp);
@@ -105,7 +98,7 @@
             this.gbPeriodo.Controls.Add(this.rbNoite);
             this.gbPeriodo.Controls.Add(this.rbTarde);
             this.gbPeriodo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbPeriodo.Location = new System.Drawing.Point(104, 91);
+            this.gbPeriodo.Location = new System.Drawing.Point(108, 88);
             this.gbPeriodo.Name = "gbPeriodo";
             this.gbPeriodo.Size = new System.Drawing.Size(77, 89);
             this.gbPeriodo.TabIndex = 5;
@@ -147,7 +140,7 @@
             this.groupBox2.Controls.Add(this.pictureBox3);
             this.groupBox2.Controls.Add(this.pictureBox2);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(12, 185);
+            this.groupBox2.Location = new System.Drawing.Point(16, 182);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(388, 111);
             this.groupBox2.TabIndex = 7;
@@ -184,11 +177,47 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Sala de Aula";
             // 
+            // imgPasta
+            // 
+            this.imgPasta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.imgPasta.Image = global::LoginDM.Properties.Resources.dir;
+            this.imgPasta.Location = new System.Drawing.Point(297, 24);
+            this.imgPasta.Name = "imgPasta";
+            this.imgPasta.Size = new System.Drawing.Size(63, 50);
+            this.imgPasta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgPasta.TabIndex = 6;
+            this.imgPasta.TabStop = false;
+            this.imgPasta.Click += new System.EventHandler(this.pictureBox4_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox3.Image = global::LoginDM.Properties.Resources.live1;
+            this.pictureBox3.Location = new System.Drawing.Point(139, 24);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(107, 50);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 6;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox2.Image = global::LoginDM.Properties.Resources.google_classroom_logo_2;
+            this.pictureBox2.Location = new System.Drawing.Point(23, 24);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(63, 50);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 6;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(231, 305);
+            this.label6.Location = new System.Drawing.Point(235, 302);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(107, 15);
             this.label6.TabIndex = 7;
@@ -199,7 +228,7 @@
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(331, 305);
+            this.linkLabel1.Location = new System.Drawing.Point(335, 302);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(69, 15);
             this.linkLabel1.TabIndex = 9;
@@ -249,7 +278,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 302);
+            this.button1.Location = new System.Drawing.Point(16, 299);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 18;
@@ -300,6 +329,38 @@
             this.funçõesToolStripMenuItem.Size = new System.Drawing.Size(67, 21);
             this.funçõesToolStripMenuItem.Text = "Funções";
             // 
+            // criarUsuárioToolStripMenuItem
+            // 
+            this.criarUsuárioToolStripMenuItem.Image = global::LoginDM.Properties.Resources.user;
+            this.criarUsuárioToolStripMenuItem.Name = "criarUsuárioToolStripMenuItem";
+            this.criarUsuárioToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.criarUsuárioToolStripMenuItem.Text = "Criar Usuário(Admin)";
+            this.criarUsuárioToolStripMenuItem.Click += new System.EventHandler(this.criarUsuárioToolStripMenuItem_Click);
+            // 
+            // conectarManualmenteToolStripMenuItem
+            // 
+            this.conectarManualmenteToolStripMenuItem.Image = global::LoginDM.Properties.Resources.conectar;
+            this.conectarManualmenteToolStripMenuItem.Name = "conectarManualmenteToolStripMenuItem";
+            this.conectarManualmenteToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.conectarManualmenteToolStripMenuItem.Text = "Conectar Manualmente";
+            this.conectarManualmenteToolStripMenuItem.Click += new System.EventHandler(this.conectarManualmenteToolStripMenuItem_Click);
+            // 
+            // sairToolStripMenuItem
+            // 
+            this.sairToolStripMenuItem.Image = global::LoginDM.Properties.Resources.desconectar;
+            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.sairToolStripMenuItem.Text = "Desconectar Manualmente";
+            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
+            // 
+            // boletimToolStripMenuItem
+            // 
+            this.boletimToolStripMenuItem.Image = global::LoginDM.Properties.Resources.boletim;
+            this.boletimToolStripMenuItem.Name = "boletimToolStripMenuItem";
+            this.boletimToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.boletimToolStripMenuItem.Text = "Boletim";
+            this.boletimToolStripMenuItem.Click += new System.EventHandler(this.boletimToolStripMenuItem_Click);
+            // 
             // sobreToolStripMenuItem
             // 
             this.sobreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -308,6 +369,14 @@
             this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
             this.sobreToolStripMenuItem.Size = new System.Drawing.Size(53, 21);
             this.sobreToolStripMenuItem.Text = "Ajuda";
+            // 
+            // sobreToolStripMenuItem1
+            // 
+            this.sobreToolStripMenuItem1.Image = global::LoginDM.Properties.Resources.info;
+            this.sobreToolStripMenuItem1.Name = "sobreToolStripMenuItem1";
+            this.sobreToolStripMenuItem1.Size = new System.Drawing.Size(111, 22);
+            this.sobreToolStripMenuItem1.Text = "Sobre";
+            this.sobreToolStripMenuItem1.Click += new System.EventHandler(this.sobreToolStripMenuItem1_Click);
             // 
             // menuStrip1
             // 
@@ -343,9 +412,9 @@
             // 
             this.btnDesconectar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDesconectar.Image = global::LoginDM.Properties.Resources.BT22;
-            this.btnDesconectar.Location = new System.Drawing.Point(298, 142);
+            this.btnDesconectar.Location = new System.Drawing.Point(302, 140);
             this.btnDesconectar.Name = "btnDesconectar";
-            this.btnDesconectar.Size = new System.Drawing.Size(102, 38);
+            this.btnDesconectar.Size = new System.Drawing.Size(91, 31);
             this.btnDesconectar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnDesconectar.TabIndex = 13;
             this.btnDesconectar.TabStop = false;
@@ -355,55 +424,19 @@
             // 
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogin.Image = global::LoginDM.Properties.Resources.BT11;
-            this.btnLogin.Location = new System.Drawing.Point(187, 142);
+            this.btnLogin.Location = new System.Drawing.Point(302, 106);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(102, 37);
+            this.btnLogin.Size = new System.Drawing.Size(91, 31);
             this.btnLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnLogin.TabIndex = 10;
             this.btnLogin.TabStop = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // imgPasta
-            // 
-            this.imgPasta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.imgPasta.Image = global::LoginDM.Properties.Resources.dir;
-            this.imgPasta.Location = new System.Drawing.Point(297, 24);
-            this.imgPasta.Name = "imgPasta";
-            this.imgPasta.Size = new System.Drawing.Size(63, 50);
-            this.imgPasta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgPasta.TabIndex = 6;
-            this.imgPasta.TabStop = false;
-            this.imgPasta.Click += new System.EventHandler(this.pictureBox4_Click);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox3.Image = global::LoginDM.Properties.Resources.live1;
-            this.pictureBox3.Location = new System.Drawing.Point(139, 24);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(107, 50);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 6;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Image = global::LoginDM.Properties.Resources.google_classroom_logo_2;
-            this.pictureBox2.Location = new System.Drawing.Point(23, 24);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(63, 50);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 6;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::LoginDM.Properties.Resources.logo_dommacario_borda;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 91);
+            this.pictureBox1.Location = new System.Drawing.Point(16, 88);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(86, 88);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -411,50 +444,25 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // conectarManualmenteToolStripMenuItem
+            // txtSenha
             // 
-            this.conectarManualmenteToolStripMenuItem.Image = global::LoginDM.Properties.Resources.conectar;
-            this.conectarManualmenteToolStripMenuItem.Name = "conectarManualmenteToolStripMenuItem";
-            this.conectarManualmenteToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.conectarManualmenteToolStripMenuItem.Text = "Conectar Manualmente";
-            this.conectarManualmenteToolStripMenuItem.Click += new System.EventHandler(this.conectarManualmenteToolStripMenuItem_Click);
-            // 
-            // sairToolStripMenuItem
-            // 
-            this.sairToolStripMenuItem.Image = global::LoginDM.Properties.Resources.desconectar;
-            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.sairToolStripMenuItem.Text = "Desconectar Manualmente";
-            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
-            // 
-            // boletimToolStripMenuItem
-            // 
-            this.boletimToolStripMenuItem.Image = global::LoginDM.Properties.Resources.boletim;
-            this.boletimToolStripMenuItem.Name = "boletimToolStripMenuItem";
-            this.boletimToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.boletimToolStripMenuItem.Text = "Boletim";
-            this.boletimToolStripMenuItem.Click += new System.EventHandler(this.boletimToolStripMenuItem_Click);
-            // 
-            // criarUsuárioToolStripMenuItem
-            // 
-            this.criarUsuárioToolStripMenuItem.Image = global::LoginDM.Properties.Resources.user;
-            this.criarUsuárioToolStripMenuItem.Name = "criarUsuárioToolStripMenuItem";
-            this.criarUsuárioToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.criarUsuárioToolStripMenuItem.Text = "Criar Usuário";
-            // 
-            // sobreToolStripMenuItem1
-            // 
-            this.sobreToolStripMenuItem1.Image = global::LoginDM.Properties.Resources.info;
-            this.sobreToolStripMenuItem1.Name = "sobreToolStripMenuItem1";
-            this.sobreToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.sobreToolStripMenuItem1.Text = "Sobre";
-            this.sobreToolStripMenuItem1.Click += new System.EventHandler(this.sobreToolStripMenuItem1_Click);
+            this.txtSenha.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSenha.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.txtSenha.Location = new System.Drawing.Point(191, 142);
+            this.txtSenha.Name = "txtSenha";
+            this.txtSenha.PasswordChar = '●';
+            this.txtSenha.Size = new System.Drawing.Size(105, 30);
+            this.txtSenha.TabIndex = 20;
+            this.txtSenha.Text = "Senha";
+            this.txtSenha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtSenha.Click += new System.EventHandler(this.txtSenha_Click);
             // 
             // SistemaDoma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(412, 330);
+            this.ClientSize = new System.Drawing.Size(412, 341);
+            this.Controls.Add(this.txtSenha);
             this.Controls.Add(this.lblNome);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.lblBemVindo);
@@ -473,7 +481,6 @@
             this.Controls.Add(this.gbPeriodo);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtUsuario);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -487,15 +494,15 @@
             this.gbPeriodo.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPasta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPeriodo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDesconectar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLogin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgPasta)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -503,7 +510,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox gbPeriodo;
@@ -538,6 +544,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem boletimToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem criarUsuárioToolStripMenuItem;
+        private System.Windows.Forms.TextBox txtSenha;
     }
 }
 
