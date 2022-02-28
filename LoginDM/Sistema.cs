@@ -18,9 +18,9 @@ namespace LoginDM
     public partial class SistemaDoma : Form
     {
 
-        String server = "luan"; //Dom Macário
-        //String server = "luanpc"; //Casa
-        String diretorio = "";
+        //String server = "luan"; //Dom Macário
+        String server = "luanpc"; //Casa
+        //String diretorio = "";
 
 
         //bool MapExiste = Directory.Exists("M:/");
@@ -247,7 +247,15 @@ namespace LoginDM
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            Conectar();
+            if (txtUsuario.Text != txtSenha.Text)
+            {
+                MessageBox.Show("Senha incorreta! Verifique sua senha e tente novamente.", "Senha incorreta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                Conectar();
+            }
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -409,19 +417,7 @@ namespace LoginDM
             }
         }
 
-        private void txtUsuario_TextChanged(object sender, EventArgs e)
-        {
-            lblUser.Text = txtUsuario.Text;
-
-            if (txtUsuario.TextLength < 2)
-            {
-                btnLogin.Image = Properties.Resources.BT11;
-            }
-            else
-            {
-                btnLogin.Image = Properties.Resources.BT1;
-            }
-        }
+      
 
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -517,8 +513,17 @@ namespace LoginDM
 
         private void criarUsuárioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            SenhaCriarUsuario senhacriar = new SenhaCriarUsuario();
+            senhacriar.Show();
         }
+
+       
+
+       
+
+       
+
+       
 
         private void txtUsuario_Click(object sender, EventArgs e)
         {
@@ -530,6 +535,51 @@ namespace LoginDM
         {
             txtSenha.Text = "";
             txtSenha.ForeColor = Color.Black;
+        }
+
+        private void txtUsuario_TextChanged_1(object sender, EventArgs e)
+        {
+            lblUser.Text = txtUsuario.Text;
+
+            if (txtUsuario.TextLength < 2)
+            {
+                btnLogin.Image = Properties.Resources.BT11;
+            }
+            else
+            {
+                btnLogin.Image = Properties.Resources.BT1;
+            }
+
+        }
+
+        private void txtUsuario_Click_1(object sender, EventArgs e)
+        {
+            txtUsuario.Text = "";
+            txtUsuario.ForeColor = Color.Black;
+        }
+
+        private void txtSenha_Click_1(object sender, EventArgs e)
+        {
+            txtSenha.Text = "";
+            txtSenha.ForeColor = Color.Black;
+        }
+
+        private void btnLogin_Click_1(object sender, EventArgs e)
+        {
+            if (txtUsuario.Text == txtSenha.Text)
+            {
+                Conectar();
+            }
+            else
+            {
+                MessageBox.Show("Senha Incorreta, Verifique sua senha e tente novamente.", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
+        }
+
+        private void btnDesconectar_Click_1(object sender, EventArgs e)
+        {
+            Desconectar();
         }
     }
 

@@ -32,7 +32,7 @@ namespace LoginDM
 
                 }
             }
-            catch (Exception erro)
+            catch (Exception)
             {
                 MessageBox.Show("Usuário não conectado!");
             }

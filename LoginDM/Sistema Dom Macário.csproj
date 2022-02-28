@@ -84,14 +84,20 @@
     <Compile Include="Boletim.Designer.cs">
       <DependentUpon>Boletim.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="CriarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="CriarUsuario.Designer.cs">
+      <DependentUpon>CriarUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Functions.cs" />
     <Compile Include="cNetworkDrives0015.cs" />
+    <Compile Include="SenhaCriarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SenhaCriarUsuario.Designer.cs">
+      <DependentUpon>SenhaCriarUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sistema.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,8 +115,11 @@
     <EmbeddedResource Include="Boletim.resx">
       <DependentUpon>Boletim.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="CriarUsuario.resx">
+      <DependentUpon>CriarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SenhaCriarUsuario.resx">
+      <DependentUpon>SenhaCriarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sistema.resx">
       <DependentUpon>Sistema.cs</DependentUpon>
@@ -207,6 +216,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo-dommacario-borda.ico" />
+    <None Include="Resources\BtnAlterarSenha.png" />
+    <None Include="Resources\btnEntrar.png" />
     <None Include="Resources\btCriar.png" />
     <None Include="Resources\user.png" />
     <None Include="Resources\boletim.png" />

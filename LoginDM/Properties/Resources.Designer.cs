@@ -143,6 +143,26 @@ namespace LoginDM.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BtnAlterarSenha {
+            get {
+                object obj = ResourceManager.GetObject("BtnAlterarSenha", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btnEntrar {
+            get {
+                object obj = ResourceManager.GetObject("btnEntrar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap conectar {
             get {
                 object obj = ResourceManager.GetObject("conectar", resourceCulture);
