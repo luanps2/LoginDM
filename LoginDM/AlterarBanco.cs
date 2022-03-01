@@ -9,49 +9,96 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using LoginDM;
+using Sistema_Dom_Macário_Lib;
+
 
 namespace LoginDM
 {
     public partial class AlterarBanco : Form
     {
-        string server2 = "localhost";
-        string user = "root";
-        string password = "admin";
-        string database = "boletim";
+        public DadosBanco db { get; set; }
 
-        private MySqlConnection conexao;
+        DadosBanco dadosbanco = new DadosBanco();
+
+        SistemaDoma sistemadoma = new SistemaDoma();
+
+        string server2;
+        string user;
+        string password;
+        string database;
+        string cnx;
+        
+
+        public MySqlConnection conexao;
+
         public AlterarBanco()
         {
             InitializeComponent();
+
         }
-        private void AlterarBanco_Load(object sender, EventArgs e)
+        public void AlterarBanco_Load(object sender, EventArgs e)
         {
-            txtServer.Text = server2;
-            txtUser.Text = user;
-            txtPass.Text = password;
-            txtDatabase.Text = database;
+            server2 = txtServer.Text = db.Server;
+            user = txtUser.Text = db.User;
+            password = txtPass.Text = db.Password;
+            database = txtDatabase.Text = db.DataBase;
+
+
+            //conexao = new MySqlConnection(dadosbanco.conn);
+            dadosbanco.mysql = new MySqlConnection(dadosbanco.conn);
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
-            server2 = txtServer.Text;
-            user = txtUser.Text;
-            password = txtPass.Text;
-            database = txtDatabase.Text;
+            DadosBanco dadosbanco = new DadosBanco();
+
+            SistemaDoma sistema = new SistemaDoma();
+
+            sistema.db = new DadosBanco();
 
             try
             {
-                conexao = new MySqlConnection("server=" + server2 + " ;user id=" + user + "; password= '" + password + "'; database=" + database + " ; SSL Mode = None");
-                MessageBox.Show("Dados Alterados com sucesso!");
+                //Inserindo dos campos de texto para as classes
+                dadosbanco.Server = txtServer.Text;
+                dadosbanco.User = txtUser.Text;
+                dadosbanco.Password = txtPass.Text;
+                dadosbanco.DataBase = txtDatabase.Text;
+                dadosbanco.conn = "server=" + server2 + " ;user id=" + user + "; password= '" + password + "'; database=" + database + " ;SSL Mode = None";
+
+                //inserindo das classes para as variaveis locais
+                server2 = dadosbanco.Server;
+                user = dadosbanco.User;
+                password = dadosbanco.Password;
+                database = dadosbanco.DataBase;
+                cnx = dadosbanco.conn;
+
+                //passando dados para a janela sistema
+                sistema.db.Server = server2;
+                sistema.db.User = user;
+                sistema.db.Password = password;
+                sistema.db.DataBase = database;
+                sistema.db.conn = cnx;
+
+
+                //conexao = new MySqlConnection(dadosbanco.conn);
+                dadosbanco.mysql = new MySqlConnection(dadosbanco.conn);
+
+                MessageBox.Show("Dados alterados com sucesso!");
             }
             catch (Exception err)
             {
+                MessageBox.Show("Erro! " + err);
 
-                MessageBox.Show("Erro ao alterar os dados \nERRO: " + err.Message);
             }
-            
+
+
+
         }
 
-      
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(conexao.ConnectionString.ToString());
+        }
     }
 }

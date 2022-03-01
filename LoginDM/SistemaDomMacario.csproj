@@ -246,5 +246,11 @@
     <None Include="Resources\back-icon-3 %281%29.jpg" />
     <None Include="Resources\offdir.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sistema Dom Macário Lib\SistemaDomMacarioLib.csproj">
+      <Project>{6892BD5A-5F9A-4A97-8C39-9C67260B1C50}</Project>
+      <Name>SistemaDomMacarioLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

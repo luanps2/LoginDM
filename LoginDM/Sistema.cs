@@ -12,15 +12,15 @@ using aejw.Network;
 using MySql.Data.MySqlClient;
 using Microsoft.VisualBasic;
 using LoginDM.Dados;
-
-
-
+using Sistema_Dom_Macário_Lib;
 
 namespace LoginDM
 {
     public partial class SistemaDoma : Form
     {
-        private MySqlConnection conexao;
+        public DadosBanco db { get; set; }
+
+        public MySqlConnection conexao;
         private MySqlCommand command;
         private MySqlDataAdapter adapter;
         private MySqlDataReader rs;
@@ -212,12 +212,9 @@ namespace LoginDM
         public SistemaDoma()
         {
             InitializeComponent();
-            string server2 = "localhost";
-            string user = "root";
-            string password = "admin";
-            string database = "boletim";
 
-            conexao = new MySqlConnection("server=" + server2 + " ;user id=" + user + "; password= '" + password + "'; database=" + database + " ; SSL Mode = None");
+           
+
         }
 
         public void popularDataGrid()
@@ -360,6 +357,32 @@ namespace LoginDM
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            DadosBanco dadosbanco = new DadosBanco();
+
+            dadosbanco.Server = "localhost";
+            dadosbanco.User = "root";
+            dadosbanco.Password = "admin";
+            dadosbanco.DataBase = "boletim";
+
+
+            string server2 = dadosbanco.Server;
+            string user = dadosbanco.User;
+            string password = dadosbanco.Password;
+            string database = dadosbanco.DataBase;
+
+            dadosbanco.conn = "server=" + server2 + " ;user id=" + user + "; password= '" + password + "'; database=" + database + " ;SSL Mode = None";
+
+            //txtServer.Text = db.Server;
+            //txtUser.Text = db.User;
+            //txtPass.Text = db.Password;
+            //txtDatabase.Text = db.DataBase;
+
+            //conexao = new MySqlConnection(dadosbanco.conn);
+            conexao = new MySqlConnection("server=" + server2 + " ;user id=" + user + "; password= '" + password + "'; database=" + database + " ;SSL Mode = None");
+
+            dadosbanco.mysql = new MySqlConnection(dadosbanco.conn);
+            //dadosbanco.mysql.Open();
+            //dadosbanco.mysql.Close();
 
             tabPage2.Enabled = false;
 
@@ -692,8 +715,24 @@ namespace LoginDM
 
         private void alterarBancoDeDadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+           
             AlterarBanco alterarbanco = new AlterarBanco();
+            
+            alterarbanco.db = new DadosBanco();
+
+
+            alterarbanco.db.Server = "localhost";
+            alterarbanco.db.User = "root";
+            alterarbanco.db.Password = "admin";
+            alterarbanco.db.DataBase = "ABACATE";
+
             alterarbanco.Show();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            
+            MessageBox.Show(conexao.ConnectionString.ToString());
         }
     }
 
