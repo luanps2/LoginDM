@@ -29,7 +29,7 @@ namespace LoginDM
         {
             
 
-            if (txtSenha.Text == "1674")
+            if (txtSenha.Text == senha)
             {
                 CriarUsuario criaruser = new CriarUsuario();
                 criaruser.Show();
@@ -43,7 +43,7 @@ namespace LoginDM
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-
+            senha = txtSenha.Text;
         }
     }
 }

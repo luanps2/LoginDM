@@ -9,7 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using aejw.Network;
-
+using MySql.Data.MySqlClient;
+using Microsoft.VisualBasic;
 
 
 
@@ -17,6 +18,12 @@ namespace LoginDM
 {
     public partial class SistemaDoma : Form
     {
+        private MySqlConnection conexao;
+        private MySqlCommand command;
+        private MySqlDataAdapter adapter;
+        private MySqlDataReader rs;
+        private String sql;
+
 
         //String server = "luan"; //Dom Macário
         String server = "luanpc"; //Casa
@@ -82,12 +89,23 @@ namespace LoginDM
                             {
                                 try
                                 {
-                                    DirectoryInfo di = Directory.CreateDirectory(dir);
-                                    MessageBox.Show("Pasta de usuário" + lblUser.Text + "criada com sucesso!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    DialogResult dialogresult = MessageBox.Show("Usuário " + txtUsuario.Text + " não existe, deseja cria-lo?", "Usuário não existe", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                                    if (dialogresult == DialogResult.Yes)
+                                    {
+                                        string dialogNome = Interaction.InputBox("Digite seu nome completo: ", "Nome", "Nome completo");
+                                        DirectoryInfo di = Directory.CreateDirectory(dir + "\\" + dialogNome.ToString());
+                                        MessageBox.Show(dialogNome.ToString() + " sua pasta de usuário " + lblUser.Text + " foi criada com sucesso! ", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    }
+                                    else if (dialogresult == DialogResult.No)
+                                    {
+                                        MessageBox.Show("Pasta não foi criada! Aguarde alguns segundos...\nErro: LN01");
+                                        Application.Restart();
+                                    }
+
                                 }
                                 catch (Exception erro2)
                                 {
-                                    MessageBox.Show("Pasta não foi criada! \nErro: " + erro2.Message);
+                                    MessageBox.Show("Pasta não foi criada! \nErro: LN02 " + erro2.Message);
 
                                 }
 
@@ -96,9 +114,9 @@ namespace LoginDM
                             //MessageBox.Show(Mapeamento.ShareName);
 
                             Mapeamento.MapDrive();
-                            pbStatus.Image = Properties.Resources.online;
+                            pbStatus.Image = Properties.Resources.online2;
                             lblStatus.Text = "Status: Conectado!";
-                            lblStatus.Location = new Point(270, 4);
+                            lblStatus.Location = new Point(275, 4);
                             btnDesconectar.Image = Properties.Resources.BT2;
 
                             DriveInfo dinfo = new DriveInfo("M");
@@ -120,10 +138,12 @@ namespace LoginDM
                             foreach (DirectoryInfo d in dirInfos)
                             {
                                 lblNome.Text = d.Name.ToUpper();
+                                lblUsuario.Text = d.Name.ToUpper();
 
                             }
 
                             System.Diagnostics.Process.Start("M:/");
+                            tabPage2.Enabled = true;
 
                         }
                     }
@@ -185,6 +205,24 @@ namespace LoginDM
         public SistemaDoma()
         {
             InitializeComponent();
+            conexao = new MySqlConnection("server=localhost; user id=root; password='admin'; database= boletim; SSL Mode = None");
+        }
+
+        public void popularDataGrid()
+        {
+            try
+            {
+                dgBoletim.DataSource = null;
+                adapter = new MySqlDataAdapter("SELECT * FROM usuario WHERE Cod = " + "'" + lblUser.Text + "'", conexao);
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+                dgBoletim.DataSource = ds.Tables[0];
+            }
+            catch (Exception err)
+            {
+
+                MessageBox.Show("Query:" + "SELECT * FROM usuario WHERE Cod = '" + lblUser.Text + "' ERRO MySQL: " + err.ToString());
+            }
         }
 
 
@@ -214,12 +252,12 @@ namespace LoginDM
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://classroom.google.com/h");
+           
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://meet.jit.si/Inform%C3%A1tica");
+            
         }
 
 
@@ -236,7 +274,7 @@ namespace LoginDM
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://www.linkedin.com/in/luan-da-costa-oliveira-esp%C3%B3sito-b57705ba/");
+            
         }
 
 
@@ -255,7 +293,7 @@ namespace LoginDM
             {
                 Conectar();
             }
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -299,30 +337,22 @@ namespace LoginDM
             if (!MapExiste)
             {
                 lblStatus.Text = "Status: Desconectado!";
-                pbStatus.Image = Properties.Resources.offline;
+                pbStatus.Image = Properties.Resources.offline2;
             }
             else if (MapExiste)
             {
                 lblStatus.Text = "Status: Conectado!";
-                pbStatus.Image = Properties.Resources.online;
+                pbStatus.Image = Properties.Resources.online2;
             }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
+            tabPage2.Enabled = false;
+
             DriveInfo di = new DriveInfo("M");
             bool pronto = di.IsReady;
-
-           
-
-            if (!pronto)
-            {
-                imgPasta.Image = Properties.Resources.offdir;
-            }
-            else if (pronto)
-            {
-                imgPasta.Image = Properties.Resources.dir;
-            }
 
             NetworkDrive Desconectar = new NetworkDrive();
 
@@ -353,17 +383,22 @@ namespace LoginDM
 
             }
 
-            if (!pronto)
-            {
-                lblStatus.Text = "Status: Desconectado";
-                pbStatus.Image = Properties.Resources.offline;
-            }
-            else
-            {
-                lblStatus.Text = "Status: Conectado!";
-                pbStatus.Image = Properties.Resources.online;
-            }
+
+
+            //if (!pronto)
+            //{
+            //    lblStatus.Text = "Status: Desconectado";
+            //    pbStatus.Image = Properties.Resources.offline;
+            //}
+            //else
+            //{
+            //    lblStatus.Text = "Status: Conectado!";
+            //    pbStatus.Image = Properties.Resources.online;
+            //}
+
             Status();
+
+
 
 
         }
@@ -402,22 +437,16 @@ namespace LoginDM
 
         private void rbTarde_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbTarde.Checked)
-            {
-                pbPeriodo.Image = Properties.Resources.tarde;
-            }
+           
 
         }
 
         private void rbNoite_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbNoite.Checked)
-            {
-                pbPeriodo.Image = Properties.Resources.noite;
-            }
+           
         }
 
-      
+
 
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -517,13 +546,13 @@ namespace LoginDM
             senhacriar.Show();
         }
 
-       
 
-       
 
-       
 
-       
+
+
+
+
 
         private void txtUsuario_Click(object sender, EventArgs e)
         {
@@ -569,17 +598,84 @@ namespace LoginDM
             if (txtUsuario.Text == txtSenha.Text)
             {
                 Conectar();
+                popularDataGrid();
             }
             else
             {
                 MessageBox.Show("Senha Incorreta, Verifique sua senha e tente novamente.", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            
+
         }
 
         private void btnDesconectar_Click_1(object sender, EventArgs e)
         {
             Desconectar();
+        }
+
+        private void imgPasta_Click(object sender, EventArgs e)
+        {
+            DriveInfo driverinfo = new DriveInfo("M");
+            bool MapExiste = driverinfo.IsReady;
+
+            if (MapExiste)
+            {
+                System.Diagnostics.Process.Start("M:/");
+            }
+            else
+            {
+                MessageBox.Show("Entre com seu usuário primeiro!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void reiniciarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            popularDataGrid();
+        }
+
+        private void rbTarde_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (rbTarde.Checked)
+            {
+                pbPeriodo.Image = Properties.Resources.tarde;
+            }
+        }
+
+        private void rbNoite_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (rbNoite.Checked)
+            {
+                pbPeriodo.Image = Properties.Resources.noite;
+            }
+        }
+
+        private void pictureBox2_Click_1(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://classroom.google.com/h");
+        }
+
+        private void pictureBox3_Click_1(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://meet.jit.si/Inform%C3%A1tica");
+        }
+
+        private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.linkedin.com/in/luan-da-costa-oliveira-esp%C3%B3sito-b57705ba/");
+        }
+
+        private void atualizarSistemaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Atualizações em breve... ","Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information );
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+
         }
     }
 

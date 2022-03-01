@@ -1312,19 +1312,19 @@
     <value>Segoe UI, 8.25pt</value>
   </data>
   <data name="label16.Location" type="System.Drawing.Point, System.Drawing">
-    <value>672, 74</value>
+    <value>672, 61</value>
   </data>
   <data name="label16.MaximumSize" type="System.Drawing.Size, System.Drawing">
     <value>170, 0</value>
   </data>
   <data name="label16.Size" type="System.Drawing.Size, System.Drawing">
-    <value>169, 91</value>
+    <value>169, 104</value>
   </data>
   <data name="label16.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="label16.Text" xml:space="preserve">
-    <value>Software desenvolvido no Visual Studio em linguagem C# para facilitar a usabilidade das tarefas diárias dos usuários no curso de informática avançada. em caso de dúvidas chame seu professor.</value>
+    <value>Software desenvolvido no Visual Studio em linguagem C#, banco de dados MySQL para facilitar a usabilidade das tarefas diárias dos usuários no curso de informática avançada. em caso de dúvidas chame seu professor.</value>
   </data>
   <data name="label16.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>

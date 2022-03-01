@@ -65,6 +65,8 @@
     <ApplicationIcon>logo-dommacario-borda.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="MySql.Data, Version=8.0.28.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -216,6 +218,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo-dommacario-borda.ico" />
+    <None Include="Resources\offline2.png" />
+    <None Include="Resources\online2.png" />
+    <None Include="Resources\update.png" />
+    <None Include="Resources\consultar.png" />
+    <None Include="Resources\restart.png" />
     <None Include="Resources\BtnAlterarSenha.png" />
     <None Include="Resources\btnEntrar.png" />
     <None Include="Resources\btCriar.png" />
