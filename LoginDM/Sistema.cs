@@ -734,6 +734,15 @@ namespace LoginDM
             
             MessageBox.Show(conexao.ConnectionString.ToString());
         }
+
+        private void txtSenha_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Conectar();
+                popularDataGrid();
+            }
+        }
     }
 
 

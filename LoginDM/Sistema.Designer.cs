@@ -44,7 +44,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.lblNome = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -224,7 +223,6 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.txtSenha);
             this.tabPage1.Controls.Add(this.lblNome);
             this.tabPage1.Controls.Add(this.label10);
@@ -244,16 +242,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Acesso";
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(11, 280);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 35;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
-            // 
             // txtSenha
             // 
             this.txtSenha.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -266,6 +254,7 @@
             this.txtSenha.Text = "Senha";
             this.txtSenha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtSenha.Click += new System.EventHandler(this.txtSenha_Click_1);
+            this.txtSenha.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSenha_KeyUp);
             // 
             // lblNome
             // 
@@ -657,7 +646,6 @@
         private System.Windows.Forms.ToolStripMenuItem atualizarSistemaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem alterarServidorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem alterarBancoDeDadosToolStripMenuItem;
-        private System.Windows.Forms.Button button2;
     }
 }
 
