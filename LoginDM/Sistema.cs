@@ -11,6 +11,8 @@ using System.Windows.Forms;
 using aejw.Network;
 using MySql.Data.MySqlClient;
 using Microsoft.VisualBasic;
+using LoginDM.Dados;
+
 
 
 
@@ -23,6 +25,11 @@ namespace LoginDM
         private MySqlDataAdapter adapter;
         private MySqlDataReader rs;
         private String sql;
+
+        //string server2 = "localhost";
+        //string user = "root";
+        //string password = "admin";
+        //string database = "boletim";
 
 
         //String server = "luan"; //Dom Macário
@@ -205,7 +212,12 @@ namespace LoginDM
         public SistemaDoma()
         {
             InitializeComponent();
-            conexao = new MySqlConnection("server=localhost; user id=root; password='admin'; database= boletim; SSL Mode = None");
+            string server2 = "localhost";
+            string user = "root";
+            string password = "admin";
+            string database = "boletim";
+
+            conexao = new MySqlConnection("server=" + server2 + " ;user id=" + user + "; password= '" + password + "'; database=" + database + " ; SSL Mode = None");
         }
 
         public void popularDataGrid()
@@ -676,6 +688,12 @@ namespace LoginDM
         private void button1_Click_2(object sender, EventArgs e)
         {
 
+        }
+
+        private void alterarBancoDeDadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AlterarBanco alterarbanco = new AlterarBanco();
+            alterarbanco.Show();
         }
     }
 

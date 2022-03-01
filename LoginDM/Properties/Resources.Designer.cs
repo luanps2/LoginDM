@@ -203,6 +203,16 @@ namespace LoginDM.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap database {
+            get {
+                object obj = ResourceManager.GetObject("database", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap desconectar {
             get {
                 object obj = ResourceManager.GetObject("desconectar", resourceCulture);
@@ -216,6 +226,26 @@ namespace LoginDM.Properties {
         internal static System.Drawing.Bitmap dir {
             get {
                 object obj = ResourceManager.GetObject("dir", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fileserver {
+            get {
+                object obj = ResourceManager.GetObject("fileserver", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fileserver1 {
+            get {
+                object obj = ResourceManager.GetObject("fileserver1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
