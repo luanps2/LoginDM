@@ -36,9 +36,9 @@
             this.conectarManualmenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reiniciarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.atualizarSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alterarServidorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alterarBancoDeDadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.atualizarSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -118,8 +118,8 @@
             this.sairToolStripMenuItem,
             this.reiniciarToolStripMenuItem,
             this.atualizarSistemaToolStripMenuItem,
-            this.alterarServidorToolStripMenuItem,
-            this.alterarBancoDeDadosToolStripMenuItem});
+            this.alterarBancoDeDadosToolStripMenuItem,
+            this.alterarServidorToolStripMenuItem});
             this.funçõesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.funçõesToolStripMenuItem.Name = "funçõesToolStripMenuItem";
             this.funçõesToolStripMenuItem.Size = new System.Drawing.Size(67, 21);
@@ -157,6 +157,14 @@
             this.reiniciarToolStripMenuItem.Text = "Reiniciar Sistema";
             this.reiniciarToolStripMenuItem.Click += new System.EventHandler(this.reiniciarToolStripMenuItem_Click);
             // 
+            // atualizarSistemaToolStripMenuItem
+            // 
+            this.atualizarSistemaToolStripMenuItem.Image = global::LoginDM.Properties.Resources.update;
+            this.atualizarSistemaToolStripMenuItem.Name = "atualizarSistemaToolStripMenuItem";
+            this.atualizarSistemaToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
+            this.atualizarSistemaToolStripMenuItem.Text = "Atualizar Sistema";
+            this.atualizarSistemaToolStripMenuItem.Click += new System.EventHandler(this.atualizarSistemaToolStripMenuItem_Click);
+            // 
             // alterarServidorToolStripMenuItem
             // 
             this.alterarServidorToolStripMenuItem.Enabled = false;
@@ -173,14 +181,6 @@
             this.alterarBancoDeDadosToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
             this.alterarBancoDeDadosToolStripMenuItem.Text = "Alterar Banco de Dados";
             this.alterarBancoDeDadosToolStripMenuItem.Click += new System.EventHandler(this.alterarBancoDeDadosToolStripMenuItem_Click);
-            // 
-            // atualizarSistemaToolStripMenuItem
-            // 
-            this.atualizarSistemaToolStripMenuItem.Image = global::LoginDM.Properties.Resources.update;
-            this.atualizarSistemaToolStripMenuItem.Name = "atualizarSistemaToolStripMenuItem";
-            this.atualizarSistemaToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
-            this.atualizarSistemaToolStripMenuItem.Text = "Atualizar Sistema";
-            this.atualizarSistemaToolStripMenuItem.Click += new System.EventHandler(this.atualizarSistemaToolStripMenuItem_Click);
             // 
             // sobreToolStripMenuItem
             // 

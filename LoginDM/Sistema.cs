@@ -34,8 +34,10 @@ namespace LoginDM
 
         //String server = "luan"; //Dom Macário
         String server = "luanpc"; //Casa
-        //String diretorio = "";
-
+                                  //String diretorio = "";
+        DadosBanco dadosbanco = new DadosBanco();
+        
+        
 
         //bool MapExiste = Directory.Exists("M:/");
 
@@ -355,10 +357,9 @@ namespace LoginDM
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        public void Form1_Load(object sender, EventArgs e)
         {
-            DadosBanco dadosbanco = new DadosBanco();
-
+            
             dadosbanco.Server = "localhost";
             dadosbanco.User = "root";
             dadosbanco.Password = "admin";
@@ -378,9 +379,15 @@ namespace LoginDM
             //txtDatabase.Text = db.DataBase;
 
             //conexao = new MySqlConnection(dadosbanco.conn);
-            conexao = new MySqlConnection("server=" + server2 + " ;user id=" + user + "; password= '" + password + "'; database=" + database + " ;SSL Mode = None");
 
-            dadosbanco.mysql = new MySqlConnection(dadosbanco.conn);
+
+            conexao = new MySqlConnection("server=" + dadosbanco.Server + 
+                " ;user id=" + dadosbanco.User + ";" +
+                " password= '" + dadosbanco.Password + 
+                "'; database=" + dadosbanco.DataBase + 
+                " ;SSL Mode = None");
+
+            //dadosbanco.mysql = new MySqlConnection(dadosbanco.conn);
             //dadosbanco.mysql.Open();
             //dadosbanco.mysql.Close();
 
@@ -720,19 +727,24 @@ namespace LoginDM
             
             alterarbanco.db = new DadosBanco();
 
+            
 
             alterarbanco.db.Server = "localhost";
             alterarbanco.db.User = "root";
             alterarbanco.db.Password = "admin";
             alterarbanco.db.DataBase = "ABACATE";
 
+            
             alterarbanco.Show();
+
         }
+
+        
 
         private void button2_Click_1(object sender, EventArgs e)
         {
             
-            MessageBox.Show(conexao.ConnectionString.ToString());
+            MessageBox.Show(dadosbanco.conn.ToString());
         }
 
         private void txtSenha_KeyUp(object sender, KeyEventArgs e)
@@ -742,6 +754,11 @@ namespace LoginDM
                 Conectar();
                 popularDataGrid();
             }
+        }
+
+        private void button1_Click_3(object sender, EventArgs e)
+        {
+            MessageBox.Show(dadosbanco.Server);
         }
     }
 

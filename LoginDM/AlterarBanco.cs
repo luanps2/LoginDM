@@ -28,7 +28,6 @@ namespace LoginDM
         string database;
         string cnx;
         
-
         public MySqlConnection conexao;
 
         public AlterarBanco()
@@ -38,10 +37,10 @@ namespace LoginDM
         }
         public void AlterarBanco_Load(object sender, EventArgs e)
         {
-            server2 = txtServer.Text = db.Server;
-            user = txtUser.Text = db.User;
-            password = txtPass.Text = db.Password;
-            database = txtDatabase.Text = db.DataBase;
+            txtServer.Text = db.Server;
+            txtUser.Text = db.User;
+            txtPass.Text = db.Password;
+            txtDatabase.Text = db.DataBase;
 
 
             //conexao = new MySqlConnection(dadosbanco.conn);
@@ -51,6 +50,7 @@ namespace LoginDM
 
         public void button1_Click(object sender, EventArgs e)
         {
+           
             DadosBanco dadosbanco = new DadosBanco();
 
             SistemaDoma sistema = new SistemaDoma();
@@ -64,14 +64,23 @@ namespace LoginDM
                 dadosbanco.User = txtUser.Text;
                 dadosbanco.Password = txtPass.Text;
                 dadosbanco.DataBase = txtDatabase.Text;
-                dadosbanco.conn = "server=" + server2 + " ;user id=" + user + "; password= '" + password + "'; database=" + database + " ;SSL Mode = None";
+                dadosbanco.conn = "server=" + dadosbanco.Server + " ;user id=" + dadosbanco.User + "; password= '" + dadosbanco.Password + "'; database=" + dadosbanco.DataBase + " ;SSL Mode = None";
 
-                //inserindo das classes para as variaveis locais
+                //inserindo dados da classe para as variaveis
                 server2 = dadosbanco.Server;
                 user = dadosbanco.User;
                 password = dadosbanco.Password;
                 database = dadosbanco.DataBase;
                 cnx = dadosbanco.conn;
+
+                ////inserindo dados das variaveis locais para as classes
+                //dadosbanco.Server = server2;
+                //dadosbanco.User = user;
+                //dadosbanco.Password = password;
+                //dadosbanco.DataBase = database;
+                //dadosbanco.conn = cnx;
+
+             
 
                 //passando dados para a janela sistema
                 sistema.db.Server = server2;
@@ -82,9 +91,12 @@ namespace LoginDM
 
 
                 //conexao = new MySqlConnection(dadosbanco.conn);
-                dadosbanco.mysql = new MySqlConnection(dadosbanco.conn);
+                sistema.db.mysql = new MySqlConnection(dadosbanco.conn);
 
-                MessageBox.Show("Dados alterados com sucesso!");
+
+                MessageBox.Show("Dados alterados com sucesso! " + sistema.db.mysql);
+                
+               
             }
             catch (Exception err)
             {
@@ -98,7 +110,7 @@ namespace LoginDM
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(conexao.ConnectionString.ToString());
+            MessageBox.Show(db.mysql.ToString());
         }
     }
 }
