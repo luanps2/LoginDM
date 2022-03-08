@@ -32,8 +32,8 @@ namespace LoginDM
         //string database = "boletim";
 
 
-        //String server = "luan"; //Dom Macário
-        String server = "luanpc"; //Casa
+        String server = "luan"; //Dom Macário
+        //String server = "luanpc"; //Casa
                                   //String diretorio = "";
         DadosBanco dadosbanco = new DadosBanco();
         
@@ -214,8 +214,15 @@ namespace LoginDM
         public SistemaDoma()
         {
             InitializeComponent();
+            if (rbTarde.Checked == false && rbNoite.Checked == false)
+            {
+                pbLive.Image = Properties.Resources.live1off;
+            }
+            else
+            {
+                pbLive.Image = Properties.Resources.live1;
+            }
 
-           
 
         }
 
@@ -359,7 +366,8 @@ namespace LoginDM
 
         public void Form1_Load(object sender, EventArgs e)
         {
-            
+         
+
             dadosbanco.Server = "localhost";
             dadosbanco.User = "root";
             dadosbanco.Password = "admin";
@@ -684,6 +692,7 @@ namespace LoginDM
             if (rbTarde.Checked)
             {
                 pbPeriodo.Image = Properties.Resources.tarde;
+                pbLive.Image = Properties.Resources.live1;
             }
         }
 
@@ -692,6 +701,7 @@ namespace LoginDM
             if (rbNoite.Checked)
             {
                 pbPeriodo.Image = Properties.Resources.noite;
+                pbLive.Image = Properties.Resources.live1;
             }
         }
 
@@ -702,7 +712,20 @@ namespace LoginDM
 
         private void pictureBox3_Click_1(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://meet.jit.si/Inform%C3%A1tica");
+            
+            if (rbTarde.Checked)
+            {
+                System.Diagnostics.Process.Start("https://meet.jit.si/tarde");
+            }
+            else if (rbNoite.Checked)
+            {
+                System.Diagnostics.Process.Start("https://meet.jit.si/Inform%C3%A1tica");
+            }
+            else
+            {
+                MessageBox.Show("Selecione seu periodo primeiro!","Mensagem" ,MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
+            
         }
 
         private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
