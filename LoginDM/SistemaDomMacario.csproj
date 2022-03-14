@@ -13,7 +13,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>S:\HD EXTERNO\DOCUMENTOS\Sistema_DomMacario\Executavel\ver4\</PublishUrl>
+    <PublishUrl>C:\Users\Educador\Documents\SistemaDM\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
