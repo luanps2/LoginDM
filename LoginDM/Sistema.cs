@@ -366,9 +366,10 @@ namespace LoginDM
 
         public void Form1_Load(object sender, EventArgs e)
         {
-         
 
-            dadosbanco.Server = "localhost";
+
+            //dadosbanco.Server = "localhost";
+            dadosbanco.Server = "192.168.15.81";
             dadosbanco.User = "root";
             dadosbanco.Password = "admin";
             dadosbanco.DataBase = "boletim";
