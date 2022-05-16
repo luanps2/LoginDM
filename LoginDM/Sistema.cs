@@ -367,10 +367,9 @@ namespace LoginDM
         public void Form1_Load(object sender, EventArgs e)
         {
 
-
             //dadosbanco.Server = "localhost";
             dadosbanco.Server = "192.168.15.81";
-            dadosbanco.User = "root";
+            dadosbanco.User = "root2";
             dadosbanco.Password = "admin";
             dadosbanco.DataBase = "boletim";
 
@@ -685,7 +684,7 @@ namespace LoginDM
 
         private void button2_Click(object sender, EventArgs e)
         {
-            popularDataGrid();
+            //popularDataGrid();
         }
 
         private void rbTarde_CheckedChanged_1(object sender, EventArgs e)
@@ -754,7 +753,7 @@ namespace LoginDM
             
 
             alterarbanco.db.Server = "localhost";
-            alterarbanco.db.User = "root";
+            alterarbanco.db.User = "root2";
             alterarbanco.db.Password = "admin";
             alterarbanco.db.DataBase = "ABACATE";
 
@@ -776,13 +775,18 @@ namespace LoginDM
             if (e.KeyCode == Keys.Enter)
             {
                 Conectar();
-                popularDataGrid();
+                //popularDataGrid();
             }
         }
 
         private void button1_Click_3(object sender, EventArgs e)
         {
             MessageBox.Show(dadosbanco.Server);
+        }
+
+        private void dgBoletim_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 

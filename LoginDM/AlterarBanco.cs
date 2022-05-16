@@ -51,58 +51,60 @@ namespace LoginDM
         public void button1_Click(object sender, EventArgs e)
         {
            
-            DadosBanco dadosbanco = new DadosBanco();
 
-            SistemaDoma sistema = new SistemaDoma();
 
-            sistema.db = new DadosBanco();
+            //DadosBanco dadosbanco = new DadosBanco();
 
-            try
-            {
-                //Inserindo dos campos de texto para as classes
-                dadosbanco.Server = txtServer.Text;
-                dadosbanco.User = txtUser.Text;
-                dadosbanco.Password = txtPass.Text;
-                dadosbanco.DataBase = txtDatabase.Text;
-                dadosbanco.conn = "server=" + dadosbanco.Server + " ;user id=" + dadosbanco.User + "; password= '" + dadosbanco.Password + "'; database=" + dadosbanco.DataBase + " ;SSL Mode = None";
+            //SistemaDoma sistema = new SistemaDoma();
 
-                //inserindo dados da classe para as variaveis
-                server2 = dadosbanco.Server;
-                user = dadosbanco.User;
-                password = dadosbanco.Password;
-                database = dadosbanco.DataBase;
-                cnx = dadosbanco.conn;
+            //sistema.db = new DadosBanco();
 
-                ////inserindo dados das variaveis locais para as classes
-                //dadosbanco.Server = server2;
-                //dadosbanco.User = user;
-                //dadosbanco.Password = password;
-                //dadosbanco.DataBase = database;
-                //dadosbanco.conn = cnx;
+            //try
+            //{
+            //    //Inserindo dos campos de texto para as classes
+            //    dadosbanco.Server = txtServer.Text;
+            //    dadosbanco.User = txtUser.Text;
+            //    dadosbanco.Password = txtPass.Text;
+            //    dadosbanco.DataBase = txtDatabase.Text;
+            //    dadosbanco.conn = "server=" + dadosbanco.Server + " ;user id=" + dadosbanco.User + "; password= '" + dadosbanco.Password + "'; database=" + dadosbanco.DataBase + " ;SSL Mode = None";
+
+            //    //inserindo dados da classe para as variaveis
+            //    server2 = dadosbanco.Server;
+            //    user = dadosbanco.User;
+            //    password = dadosbanco.Password;
+            //    database = dadosbanco.DataBase;
+            //    cnx = dadosbanco.conn;
+
+            //    ////inserindo dados das variaveis locais para as classes
+            //    //dadosbanco.Server = server2;
+            //    //dadosbanco.User = user;
+            //    //dadosbanco.Password = password;
+            //    //dadosbanco.DataBase = database;
+            //    //dadosbanco.conn = cnx;
 
              
 
-                //passando dados para a janela sistema
-                sistema.db.Server = server2;
-                sistema.db.User = user;
-                sistema.db.Password = password;
-                sistema.db.DataBase = database;
-                sistema.db.conn = cnx;
+            //    //passando dados para a janela sistema
+            //    sistema.db.Server = server2;
+            //    sistema.db.User = user;
+            //    sistema.db.Password = password;
+            //    sistema.db.DataBase = database;
+            //    sistema.db.conn = cnx;
 
 
-                //conexao = new MySqlConnection(dadosbanco.conn);
-                sistema.db.mysql = new MySqlConnection(dadosbanco.conn);
+            //    //conexao = new MySqlConnection(dadosbanco.conn);
+            //    sistema.db.mysql = new MySqlConnection(dadosbanco.conn);
 
 
-                MessageBox.Show("Dados alterados com sucesso! " + sistema.db.mysql);
+            //    MessageBox.Show("Dados alterados com sucesso! " + sistema.db.mysql);
                 
                
-            }
-            catch (Exception err)
-            {
-                MessageBox.Show("Erro! " + err);
+            //}
+            //catch (Exception err)
+            //{
+            //    MessageBox.Show("Erro! " + err);
 
-            }
+            //}
 
 
 
