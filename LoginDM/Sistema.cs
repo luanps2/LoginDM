@@ -36,8 +36,10 @@ namespace LoginDM
         //String server = "luanpc"; //Casa
                                   //String diretorio = "";
         DadosBanco dadosbanco = new DadosBanco();
-        
-        
+
+        Double versao = 1;
+        String data = File.ReadAllText("\\\\luan\\SistemaLoginDM\\versao.txt"); //teste leitura servidor
+
 
         //bool MapExiste = Directory.Exists("M:/");
 
@@ -209,6 +211,21 @@ namespace LoginDM
             }
 
 
+        }
+
+
+        public void AtualizarSistema()
+        {
+            
+            //try
+            //{
+            //    string dirOrigem, string dirDestino)
+            //}
+            //catch (Exception)
+            //{
+
+            //    throw;
+            //}
         }
 
         public SistemaDoma()
@@ -732,10 +749,65 @@ namespace LoginDM
         {
             System.Diagnostics.Process.Start("https://www.linkedin.com/in/luan-da-costa-oliveira-esp%C3%B3sito-b57705ba/");
         }
+        
+
+
+        static void CopyDirectory(string sourceDir, string destinationDir, bool recursive)
+        {
+         
+
+            // Get information about the source directory
+            var dir = new DirectoryInfo(sourceDir);
+
+            // Check if the source directory exists
+            if (!dir.Exists)
+                throw new DirectoryNotFoundException($"Source directory not found: {dir.FullName}");
+
+            // Cache directories before we start copying
+            DirectoryInfo[] dirs = dir.GetDirectories();
+
+            // Create the destination directory
+            Directory.CreateDirectory(destinationDir);
+
+            // Get the files in the source directory and copy to the destination directory
+            foreach (FileInfo file in dir.GetFiles())
+            {
+                string targetFilePath = Path.Combine(destinationDir, file.Name);
+                file.CopyTo(targetFilePath);
+            }
+
+            // If recursive and copying subdirectories, recursively call this method
+            if (recursive)
+            {
+                foreach (DirectoryInfo subDir in dirs)
+                {
+                    string newDestinationDir = Path.Combine(destinationDir, subDir.Name);
+                    CopyDirectory(subDir.FullName, newDestinationDir, true);
+                    
+                }
+            }
+        }
 
         private void atualizarSistemaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Atualizações em breve... ","Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information );
+            if (versao < Convert.ToDouble(data))
+            {
+                MessageBox.Show("Sistema desatualizado! \nVersão local: " + versao + "\nVersão servidor: " + data + "\nAperte OK para atualizar.", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                CopyDirectory(@"\\luan\\SistemaLoginDM\\", @"C:\\SistemaLoginDm", true);
+
+                MessageBox.Show("Sistema Atualizado com sucesso! versão atual: " + data);
+
+                versao = Convert.ToDouble(data);
+
+            }
+            else {
+
+                MessageBox.Show("sistema atualizado! \nVersão local: " + versao + "\nversão servidor: " + data, "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+
+            
         }
 
         private void button1_Click_2(object sender, EventArgs e)
@@ -787,6 +859,11 @@ namespace LoginDM
         private void dgBoletim_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button1_Click_4(object sender, EventArgs e)
+        {
+            MessageBox.Show(data);
         }
     }
 
