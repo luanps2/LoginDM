@@ -37,8 +37,9 @@ namespace LoginDM
                                   //String diretorio = "";
         DadosBanco dadosbanco = new DadosBanco();
 
-        Double versao = 1;
-        String data = File.ReadAllText("\\\\luan\\SistemaLoginDM\\versao.txt"); //teste leitura servidor
+        
+     
+        
 
 
         //bool MapExiste = Directory.Exists("M:/");
@@ -216,16 +217,35 @@ namespace LoginDM
 
         public void AtualizarSistema()
         {
-            
-            //try
-            //{
-            //    string dirOrigem, string dirDestino)
-            //}
-            //catch (Exception)
-            //{
+            try
+            {
+                String versaoLocal = File.ReadAllText("C:\\SistemaLoginDm\\versao.txt"); //
+                String versaoServer = File.ReadAllText("\\\\luan\\SistemaLoginDM\\versao.txt"); //leitura servidor
 
-            //    throw;
-            //}
+                if (Convert.ToDouble(versaoLocal) < Convert.ToDouble(versaoServer))
+                {
+                    MessageBox.Show("Sistema desatualizado! \nVersão local: " + versaoLocal + "\nVersão servidor: " + versaoServer + "\nAperte OK para atualizar.", "Atualizar Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    CopyDirectory(@"\\luan\\SistemaLoginDM\\", @"C:\\SistemaLoginDm\\", true);
+
+                    MessageBox.Show("Sistema Atualizado com sucesso! versão atual: " + versaoServer);
+
+                    versaoLocal = versaoServer;
+
+                }
+                else
+                {
+                    MessageBox.Show("Sistema Atualizado! \nVersão local: " + versaoLocal + "\nVersão do Servidor: " + versaoServer, "Sistema Atualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Erro: " + e.ToString());
+            }
+            
+
+           
+
         }
 
         public SistemaDoma()
@@ -754,14 +774,20 @@ namespace LoginDM
 
         static void CopyDirectory(string sourceDir, string destinationDir, bool recursive)
         {
-         
+            var destino = new DirectoryInfo(destinationDir);
+            if (destino.Exists)
+            {
+                Directory.Delete(destinationDir, true); 
+            }
 
             // Get information about the source directory
             var dir = new DirectoryInfo(sourceDir);
 
             // Check if the source directory exists
             if (!dir.Exists)
-                throw new DirectoryNotFoundException($"Source directory not found: {dir.FullName}");
+                throw new DirectoryNotFoundException($"Source directory not found // Pasta de origem não encontrada: {dir.FullName}");
+
+
 
             // Cache directories before we start copying
             DirectoryInfo[] dirs = dir.GetDirectories();
@@ -790,24 +816,7 @@ namespace LoginDM
 
         private void atualizarSistemaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (versao < Convert.ToDouble(data))
-            {
-                MessageBox.Show("Sistema desatualizado! \nVersão local: " + versao + "\nVersão servidor: " + data + "\nAperte OK para atualizar.", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                CopyDirectory(@"\\luan\\SistemaLoginDM\\", @"C:\\SistemaLoginDm", true);
-
-                MessageBox.Show("Sistema Atualizado com sucesso! versão atual: " + data);
-
-                versao = Convert.ToDouble(data);
-
-            }
-            else {
-
-                MessageBox.Show("sistema atualizado! \nVersão local: " + versao + "\nversão servidor: " + data, "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            }
-
-            
+            AtualizarSistema();
         }
 
         private void button1_Click_2(object sender, EventArgs e)
@@ -847,7 +856,7 @@ namespace LoginDM
             if (e.KeyCode == Keys.Enter)
             {
                 Conectar();
-                //popularDataGrid();
+                popularDataGrid();
             }
         }
 
@@ -861,10 +870,7 @@ namespace LoginDM
 
         }
 
-        private void button1_Click_4(object sender, EventArgs e)
-        {
-            MessageBox.Show(data);
-        }
+        
     }
 
 
