@@ -46,7 +46,6 @@ namespace LoginDM
             this.label20 = new System.Windows.Forms.Label();
             this.rbTarde = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.label23 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
@@ -80,6 +79,8 @@ namespace LoginDM
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.lblVersao = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -191,11 +192,6 @@ namespace LoginDM
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.TabStop = true;
             this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // label23
-            // 
-            resources.ApplyResources(this.label23, "label23");
-            this.label23.Name = "label23";
             // 
             // groupBox1
             // 
@@ -434,10 +430,22 @@ namespace LoginDM
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.TabStop = false;
             // 
+            // lblVersao
+            // 
+            resources.ApplyResources(this.lblVersao, "lblVersao");
+            this.lblVersao.Name = "lblVersao";
+            // 
+            // label23
+            // 
+            resources.ApplyResources(this.label23, "label23");
+            this.label23.Name = "label23";
+            // 
             // Sobre
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblVersao);
+            this.Controls.Add(this.label23);
             this.Controls.Add(this.pictureBox12);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.groupBox3);
@@ -447,7 +455,6 @@ namespace LoginDM
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label23);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label19);
@@ -504,7 +511,6 @@ namespace LoginDM
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.RadioButton rbTarde;
         private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Label label23;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
@@ -535,5 +541,7 @@ namespace LoginDM
         private System.Windows.Forms.PictureBox pictureBox11;
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.PictureBox pictureBox12;
+        private System.Windows.Forms.Label lblVersao;
+        private System.Windows.Forms.Label label23;
     }
 }

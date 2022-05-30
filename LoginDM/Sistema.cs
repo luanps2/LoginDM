@@ -13,11 +13,32 @@ using MySql.Data.MySqlClient;
 using Microsoft.VisualBasic;
 using LoginDM.Dados;
 using Sistema_Dom_Macário_Lib;
+using Microsoft.Win32;
+using System.Drawing.Imaging;
+using System.Runtime.InteropServices;
+
 
 namespace LoginDM
 {
     public partial class SistemaDoma : Form
     {
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        private static extern Int32 SystemParametersInfo(
+            UInt32 action, UInt32 uParam, String vParam, UInt32 winIni);
+
+        private static readonly UInt32 SPI_SETDESKWALLPAPER = 0x14;
+        private static readonly UInt32 SPIF_UPDATEINIFILE = 0x01;
+        private static readonly UInt32 SPIF_SENDWININICHANGE = 0x02;
+
+        static public void SetWallpaper(String path)
+        {
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop", true);
+            key.SetValue(@"WallpaperStyle", 0.ToString()); // 2 is stretched
+            key.SetValue(@"TileWallpaper", 0.ToString());
+
+            SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, path, SPIF_UPDATEINIFILE | SPIF_SENDWININICHANGE);
+        }
+
         public DadosBanco db { get; set; }
 
         public MySqlConnection conexao;
@@ -26,6 +47,10 @@ namespace LoginDM
         private MySqlDataReader rs;
         private String sql;
 
+
+        String versaoLocal = File.ReadAllText("C:\\SistemaLoginDm\\versao.txt"); //leitura local 
+        String versaoServer = File.ReadAllText("\\\\luan\\SistemaLoginDM\\versao.txt"); //leitura servidor
+
         //string server2 = "localhost";
         //string user = "root";
         //string password = "admin";
@@ -33,13 +58,13 @@ namespace LoginDM
 
 
         String server = "luan"; //Dom Macário
-        //String server = "luanpc"; //Casa
-                                  //String diretorio = "";
+                                //String server = "luanpc"; //Casa
+                                //String diretorio = "";
         DadosBanco dadosbanco = new DadosBanco();
 
-        
-     
-        
+
+
+
 
 
         //bool MapExiste = Directory.Exists("M:/");
@@ -219,8 +244,8 @@ namespace LoginDM
         {
             try
             {
-                String versaoLocal = File.ReadAllText("C:\\SistemaLoginDm\\versao.txt"); //
-                String versaoServer = File.ReadAllText("\\\\luan\\SistemaLoginDM\\versao.txt"); //leitura servidor
+
+
 
                 if (Convert.ToDouble(versaoLocal) < Convert.ToDouble(versaoServer))
                 {
@@ -242,11 +267,13 @@ namespace LoginDM
             {
                 MessageBox.Show("Erro: " + e.ToString());
             }
-            
 
-           
+
+
 
         }
+
+
 
         public SistemaDoma()
         {
@@ -267,11 +294,21 @@ namespace LoginDM
         {
             try
             {
+                //Tabela Boletim
                 dgBoletim.DataSource = null;
                 adapter = new MySqlDataAdapter("SELECT * FROM usuario WHERE Cod = " + "'" + lblUser.Text + "'", conexao);
                 DataSet ds = new DataSet();
                 adapter.Fill(ds);
                 dgBoletim.DataSource = ds.Tables[0];
+
+                //Tabela Faltas
+                dgFaltas.DataSource = null;
+                adapter = new MySqlDataAdapter("SELECT Cod, Periodo, Nome, Faltas FROM usuario WHERE Cod = " + "'" + lblUser.Text + "'", conexao);
+                DataSet ds2 = new DataSet();
+                adapter.Fill(ds2);
+                dgFaltas.DataSource = ds2.Tables[0];
+
+
             }
             catch (Exception err)
             {
@@ -279,6 +316,8 @@ namespace LoginDM
                 MessageBox.Show("Query:" + "SELECT * FROM usuario WHERE Cod = '" + lblUser.Text + "' ERRO MySQL: " + err.ToString());
             }
         }
+
+
 
 
 
@@ -307,12 +346,12 @@ namespace LoginDM
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            
+
         }
 
 
@@ -329,7 +368,7 @@ namespace LoginDM
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            
+
         }
 
 
@@ -375,7 +414,8 @@ namespace LoginDM
 
         private void sobreToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Sobre sobre = new Sobre();
+
+            Sobre sobre = new Sobre(lblVersao.Text);
             sobre.Show();
         }
 
@@ -401,8 +441,25 @@ namespace LoginDM
             }
         }
 
+
+
+
+
         public void Form1_Load(object sender, EventArgs e)
         {
+            
+                string imgWallpaper = @"C:\Windows\Web\Wallpaper\Windows\img0.jpg";
+
+                // verify    
+                if (File.Exists(imgWallpaper))
+                {
+
+                    SetWallpaper(imgWallpaper);
+                }
+
+            
+
+            lblVersao.Text = versaoLocal.ToString();
 
             //dadosbanco.Server = "localhost";
             dadosbanco.Server = "192.168.15.81";
@@ -426,10 +483,10 @@ namespace LoginDM
             //conexao = new MySqlConnection(dadosbanco.conn);
 
 
-            conexao = new MySqlConnection("server=" + dadosbanco.Server + 
+            conexao = new MySqlConnection("server=" + dadosbanco.Server +
                 " ;user id=" + dadosbanco.User + ";" +
-                " password= '" + dadosbanco.Password + 
-                "'; database=" + dadosbanco.DataBase + 
+                " password= '" + dadosbanco.Password +
+                "'; database=" + dadosbanco.DataBase +
                 " ;SSL Mode = None");
 
             //dadosbanco.mysql = new MySqlConnection(dadosbanco.conn);
@@ -524,13 +581,13 @@ namespace LoginDM
 
         private void rbTarde_CheckedChanged(object sender, EventArgs e)
         {
-           
+
 
         }
 
         private void rbNoite_CheckedChanged(object sender, EventArgs e)
         {
-           
+
         }
 
 
@@ -749,7 +806,7 @@ namespace LoginDM
 
         private void pictureBox3_Click_1(object sender, EventArgs e)
         {
-            
+
             if (rbTarde.Checked)
             {
                 System.Diagnostics.Process.Start("https://meet.jit.si/tarde");
@@ -760,16 +817,16 @@ namespace LoginDM
             }
             else
             {
-                MessageBox.Show("Selecione seu periodo primeiro!","Mensagem" ,MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("Selecione seu periodo primeiro!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            
+
         }
 
         private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://www.linkedin.com/in/luan-da-costa-oliveira-esp%C3%B3sito-b57705ba/");
         }
-        
+
 
 
         static void CopyDirectory(string sourceDir, string destinationDir, bool recursive)
@@ -777,8 +834,29 @@ namespace LoginDM
             var destino = new DirectoryInfo(destinationDir);
             if (destino.Exists)
             {
-                Directory.Delete(destinationDir, true); 
+                Directory.Delete(destinationDir, true);
+                Directory.CreateDirectory("C:\\SistemaDM\\");
+                StreamWriter x;
+                string ver = "C:\\SistemaDM\\versao.txt";
+                x = File.AppendText(ver);
+                String versaoServer = File.ReadAllText("\\\\luan\\SistemaLoginDM\\versao.txt"); //leitura servidor
+                x.WriteLine(versaoServer);
+                x.Close();
+
             }
+            else
+            {
+                Directory.CreateDirectory("C:\\SistemaDM\\");
+                StreamWriter x;
+                string ver = "C:\\SistemaDM\\versao.txt";
+                x = File.AppendText(ver);
+                String versaoServer = File.ReadAllText("\\\\luan\\SistemaLoginDM\\versao.txt"); //leitura servidor
+                x.WriteLine(versaoServer);
+                x.Close();
+
+            }
+
+
 
             // Get information about the source directory
             var dir = new DirectoryInfo(sourceDir);
@@ -809,7 +887,7 @@ namespace LoginDM
                 {
                     string newDestinationDir = Path.Combine(destinationDir, subDir.Name);
                     CopyDirectory(subDir.FullName, newDestinationDir, true);
-                    
+
                 }
             }
         }
@@ -817,6 +895,7 @@ namespace LoginDM
         private void atualizarSistemaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AtualizarSistema();
+            Application.Restart();
         }
 
         private void button1_Click_2(object sender, EventArgs e)
@@ -826,28 +905,28 @@ namespace LoginDM
 
         private void alterarBancoDeDadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
             AlterarBanco alterarbanco = new AlterarBanco();
-            
+
             alterarbanco.db = new DadosBanco();
 
-            
+
 
             alterarbanco.db.Server = "localhost";
             alterarbanco.db.User = "root2";
             alterarbanco.db.Password = "admin";
             alterarbanco.db.DataBase = "ABACATE";
 
-            
+
             alterarbanco.Show();
 
         }
 
-        
+
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            
+
             MessageBox.Show(dadosbanco.conn.ToString());
         }
 
@@ -870,7 +949,15 @@ namespace LoginDM
 
         }
 
-        
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 

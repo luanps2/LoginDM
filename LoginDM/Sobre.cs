@@ -7,14 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sistema_Dom_Macário_Lib;
 
 namespace LoginDM
 {
     public partial class Sobre : Form
     {
-        public Sobre()
+        public Sobre(string versao)
         {
             InitializeComponent();
+            lblVersao.Text = versao;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -49,6 +51,7 @@ namespace LoginDM
 
         private void Sobre_Load(object sender, EventArgs e)
         {
+            
 
             string[] curiosidades = new string[]
             { "HDD Significa Hard Disk Drive",
