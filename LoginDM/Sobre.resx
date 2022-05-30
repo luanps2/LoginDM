@@ -1483,7 +1483,7 @@
     <value>True</value>
   </data>
   <data name="linkLabel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 608</value>
+    <value>20, 603</value>
   </data>
   <data name="linkLabel2.Size" type="System.Drawing.Size, System.Drawing">
     <value>185, 13</value>
@@ -1557,6 +1557,9 @@
   <data name="lblVersao.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="lblVersao.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 7.25pt</value>
+  </data>
   <data name="lblVersao.Location" type="System.Drawing.Point, System.Drawing">
     <value>809, 609</value>
   </data>
@@ -1583,6 +1586,9 @@
   </data>
   <data name="label23.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="label23.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 7.25pt</value>
   </data>
   <data name="label23.Location" type="System.Drawing.Point, System.Drawing">
     <value>767, 609</value>

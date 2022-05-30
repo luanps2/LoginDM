@@ -51,13 +51,13 @@
             this.dgBoletim = new System.Windows.Forms.DataGridView();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.lblVersao = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.lblVersao = new System.Windows.Forms.Label();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.lblNome = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.lblBemVindo = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label6 = new System.Windows.Forms.Label();
             this.btnDesconectar = new System.Windows.Forms.PictureBox();
             this.btnLogin = new System.Windows.Forms.PictureBox();
@@ -75,9 +75,9 @@
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.dgFaltas = new System.Windows.Forms.DataGridView();
-            this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dgFaltas = new System.Windows.Forms.DataGridView();
+            this.lblUsuario2 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPeriodo)).BeginInit();
@@ -95,8 +95,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgFaltas)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgFaltas)).BeginInit();
             this.SuspendLayout();
             // 
             // label9
@@ -204,7 +204,7 @@
             // 
             this.sobreToolStripMenuItem1.Image = global::LoginDM.Properties.Resources.info;
             this.sobreToolStripMenuItem1.Name = "sobreToolStripMenuItem1";
-            this.sobreToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.sobreToolStripMenuItem1.Size = new System.Drawing.Size(111, 22);
             this.sobreToolStripMenuItem1.Text = "Sobre";
             this.sobreToolStripMenuItem1.Click += new System.EventHandler(this.sobreToolStripMenuItem1_Click);
             // 
@@ -324,6 +324,28 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Acesso";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(9, 288);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 12);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "Versão:";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.Location = new System.Drawing.Point(338, 287);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(61, 13);
+            this.linkLabel1.TabIndex = 26;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Luan Costa";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked_1);
+            // 
             // lblVersao
             // 
             this.lblVersao.AutoSize = true;
@@ -334,16 +356,6 @@
             this.lblVersao.TabIndex = 36;
             this.lblVersao.Text = "label5";
             this.lblVersao.Click += new System.EventHandler(this.label5_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(9, 288);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 12);
-            this.label1.TabIndex = 35;
-            this.label1.Text = "Versão:";
             // 
             // txtSenha
             // 
@@ -388,18 +400,6 @@
             this.lblBemVindo.Size = new System.Drawing.Size(121, 20);
             this.lblBemVindo.TabIndex = 34;
             this.lblBemVindo.Text = "BEM-VINDO(A)";
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(338, 287);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(61, 13);
-            this.linkLabel1.TabIndex = 26;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Luan Costa";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked_1);
             // 
             // label6
             // 
@@ -591,6 +591,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
             this.tabPage3.Controls.Add(this.panel2);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
@@ -598,8 +599,18 @@
             this.tabPage3.Size = new System.Drawing.Size(407, 309);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Faltas";
-            this.tabPage3.UseVisualStyleBackColor = true;
             this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.panel2.Controls.Add(this.dgFaltas);
+            this.panel2.Controls.Add(this.lblUsuario2);
+            this.panel2.Enabled = false;
+            this.panel2.Location = new System.Drawing.Point(6, 6);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(395, 297);
+            this.panel2.TabIndex = 1;
             // 
             // dgFaltas
             // 
@@ -610,25 +621,15 @@
             this.dgFaltas.Size = new System.Drawing.Size(380, 254);
             this.dgFaltas.TabIndex = 3;
             // 
-            // label5
+            // lblUsuario2
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 9);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(104, 18);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "USUÁRIO(A)";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.SystemColors.Control;
-            this.panel2.Controls.Add(this.dgFaltas);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Location = new System.Drawing.Point(6, 6);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(395, 297);
-            this.panel2.TabIndex = 1;
+            this.lblUsuario2.AutoSize = true;
+            this.lblUsuario2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario2.Location = new System.Drawing.Point(3, 9);
+            this.lblUsuario2.Name = "lblUsuario2";
+            this.lblUsuario2.Size = new System.Drawing.Size(104, 18);
+            this.lblUsuario2.TabIndex = 2;
+            this.lblUsuario2.Text = "USUÁRIO(A)";
             // 
             // SistemaDoma
             // 
@@ -673,9 +674,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgFaltas)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgFaltas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -730,7 +731,7 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dgFaltas;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblUsuario2;
     }
 }
 

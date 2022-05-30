@@ -176,11 +176,14 @@ namespace LoginDM
                             {
                                 lblNome.Text = d.Name.ToUpper();
                                 lblUsuario.Text = d.Name.ToUpper();
-
+                                lblUsuario2.Text = d.Name.ToUpper();
                             }
 
-                            System.Diagnostics.Process.Start("M:/");
+                            System.Diagnostics.Process.Start("M:/");//abre a pasta do usuário após logar
+
+
                             tabPage2.Enabled = true;
+                            tabPage3.Enabled = true;
 
                         }
                     }
@@ -192,7 +195,6 @@ namespace LoginDM
                     Mapeamento = null;
                 }
             }
-
 
         }
 
@@ -447,17 +449,17 @@ namespace LoginDM
 
         public void Form1_Load(object sender, EventArgs e)
         {
-            
-                string imgWallpaper = @"C:\Windows\Web\Wallpaper\Windows\img0.jpg";
 
-                // verify    
-                if (File.Exists(imgWallpaper))
-                {
+            string imgWallpaper = @"C:\Windows\Web\Wallpaper\Windows\img0.jpg";
 
-                    SetWallpaper(imgWallpaper);
-                }
+            // verify    
+            if (File.Exists(imgWallpaper))
+            {
 
-            
+                SetWallpaper(imgWallpaper);//coloca papel de parede padrão
+            }
+
+
 
             lblVersao.Text = versaoLocal.ToString();
 
@@ -494,6 +496,7 @@ namespace LoginDM
             //dadosbanco.mysql.Close();
 
             tabPage2.Enabled = false;
+            tabPage3.Enabled = false;
 
             DriveInfo di = new DriveInfo("M");
             bool pronto = di.IsReady;
@@ -958,7 +961,9 @@ namespace LoginDM
         {
 
         }
+
+
+
+
     }
-
-
 }
