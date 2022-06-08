@@ -434,6 +434,7 @@ namespace LoginDM
             // 
             resources.ApplyResources(this.lblVersao, "lblVersao");
             this.lblVersao.Name = "lblVersao";
+            this.lblVersao.Click += new System.EventHandler(this.lblVersao_Click);
             // 
             // label23
             // 

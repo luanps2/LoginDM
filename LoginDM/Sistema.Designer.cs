@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SistemaDoma));
             this.label9 = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
@@ -51,6 +52,8 @@
             this.dgBoletim = new System.Windows.Forms.DataGridView();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblSinal = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.lblVersao = new System.Windows.Forms.Label();
@@ -78,6 +81,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgFaltas = new System.Windows.Forms.DataGridView();
             this.lblUsuario2 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPeriodo)).BeginInit();
@@ -303,6 +307,8 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.Controls.Add(this.label8);
+            this.tabPage1.Controls.Add(this.lblSinal);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.linkLabel1);
             this.tabPage1.Controls.Add(this.lblVersao);
@@ -320,15 +326,33 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(407, 309);
+            this.tabPage1.Size = new System.Drawing.Size(407, 303);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Acesso";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(147, 282);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(33, 13);
+            this.label8.TabIndex = 37;
+            this.label8.Text = "Sinal:";
+            // 
+            // lblSinal
+            // 
+            this.lblSinal.AutoSize = true;
+            this.lblSinal.Location = new System.Drawing.Point(183, 282);
+            this.lblSinal.Name = "lblSinal";
+            this.lblSinal.Size = new System.Drawing.Size(49, 13);
+            this.lblSinal.TabIndex = 37;
+            this.lblSinal.Text = "00:02:00";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(9, 288);
+            this.label1.Location = new System.Drawing.Point(14, 283);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 12);
             this.label1.TabIndex = 35;
@@ -338,7 +362,7 @@
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(338, 287);
+            this.linkLabel1.Location = new System.Drawing.Point(338, 282);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(61, 13);
             this.linkLabel1.TabIndex = 26;
@@ -350,11 +374,11 @@
             // 
             this.lblVersao.AutoSize = true;
             this.lblVersao.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVersao.Location = new System.Drawing.Point(45, 288);
+            this.lblVersao.Location = new System.Drawing.Point(50, 283);
             this.lblVersao.Name = "lblVersao";
-            this.lblVersao.Size = new System.Drawing.Size(29, 12);
+            this.lblVersao.Size = new System.Drawing.Size(78, 12);
             this.lblVersao.TabIndex = 36;
-            this.lblVersao.Text = "label5";
+            this.lblVersao.Text = "VERSÃO LOCAL";
             this.lblVersao.Click += new System.EventHandler(this.label5_Click);
             // 
             // txtSenha
@@ -405,11 +429,11 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(250, 287);
+            this.label6.Location = new System.Drawing.Point(249, 282);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(96, 13);
+            this.label6.Size = new System.Drawing.Size(93, 13);
             this.label6.TabIndex = 24;
-            this.label6.Text = "Desenvolvido por: ";
+            this.label6.Text = "Desenvolvido por:";
             // 
             // btnDesconectar
             // 
@@ -586,7 +610,7 @@
             this.tabControl1.Location = new System.Drawing.Point(4, 27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(415, 335);
+            this.tabControl1.Size = new System.Drawing.Size(415, 329);
             this.tabControl1.TabIndex = 21;
             // 
             // tabPage3
@@ -606,7 +630,6 @@
             this.panel2.BackColor = System.Drawing.SystemColors.Control;
             this.panel2.Controls.Add(this.dgFaltas);
             this.panel2.Controls.Add(this.lblUsuario2);
-            this.panel2.Enabled = false;
             this.panel2.Location = new System.Drawing.Point(6, 6);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(395, 297);
@@ -631,11 +654,16 @@
             this.lblUsuario2.TabIndex = 2;
             this.lblUsuario2.Text = "USUÁRIO(A)";
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // SistemaDoma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 365);
+            this.ClientSize = new System.Drawing.Size(421, 359);
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.tabControl1);
@@ -650,7 +678,7 @@
             this.MaximizeBox = false;
             this.Name = "SistemaDoma";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Sistema - Casa Dom Macário";
+            this.Text = "Sistema - Fundação Casa Dom Macário";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -732,6 +760,9 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dgFaltas;
         private System.Windows.Forms.Label lblUsuario2;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblSinal;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

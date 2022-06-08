@@ -110,5 +110,10 @@ namespace LoginDM
         {
             this.Close();
         }
+
+        private void lblVersao_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

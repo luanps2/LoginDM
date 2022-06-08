@@ -247,8 +247,6 @@ namespace LoginDM
             try
             {
 
-
-
                 if (Convert.ToDouble(versaoLocal) < Convert.ToDouble(versaoServer))
                 {
                     MessageBox.Show("Sistema desatualizado! \nVersão local: " + versaoLocal + "\nVersão servidor: " + versaoServer + "\nAperte OK para atualizar.", "Atualizar Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -258,6 +256,8 @@ namespace LoginDM
                     MessageBox.Show("Sistema Atualizado com sucesso! versão atual: " + versaoServer);
 
                     versaoLocal = versaoServer;
+
+                    Application.Restart();
 
                 }
                 else
@@ -270,7 +270,7 @@ namespace LoginDM
                 MessageBox.Show("Erro: " + e.ToString());
             }
 
-
+            
 
 
         }
@@ -449,6 +449,7 @@ namespace LoginDM
 
         public void Form1_Load(object sender, EventArgs e)
         {
+            lblSinal.Text = DateTime.Now.ToString();
 
             string imgWallpaper = @"C:\Windows\Web\Wallpaper\Windows\img0.jpg";
 
@@ -898,7 +899,7 @@ namespace LoginDM
         private void atualizarSistemaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AtualizarSistema();
-            Application.Restart();
+            
         }
 
         private void button1_Click_2(object sender, EventArgs e)
@@ -962,8 +963,9 @@ namespace LoginDM
 
         }
 
-
-
-
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblSinal.Text = DateTime.Now.ToString("HH:mm");  
+        }
     }
 }
