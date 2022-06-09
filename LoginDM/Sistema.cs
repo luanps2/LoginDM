@@ -449,14 +449,13 @@ namespace LoginDM
 
         public void Form1_Load(object sender, EventArgs e)
         {
-            lblSinal.Text = DateTime.Now.ToString();
+            //lblSinal.Text = DateTime.Now.ToString(); //Pega hora atual do sistema
 
             string imgWallpaper = @"C:\Windows\Web\Wallpaper\Windows\img0.jpg";
 
             // verify    
             if (File.Exists(imgWallpaper))
             {
-
                 SetWallpaper(imgWallpaper);//coloca papel de parede padrão
             }
 
@@ -969,21 +968,61 @@ namespace LoginDM
             var minutos = DateTime.Now.ToString("mm");
             var segundos = DateTime.Now.ToString("ss");
 
+            if (!rbTarde.Checked && !rbNoite.Checked)
+            {
+                lblCafe.Text = "";
+                lblSaida.Text = "";
+                
+            }
+
             if (rbTarde.Checked)
             {
                 //DateTime atual = new TimeSpan(Convert.ToInt32(hora), Convert.ToInt32(minutos), Convert.ToInt32(segundos));
-                DateTime atual = Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss"));
+                DateTime HoraAtual = Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss"));
                 //DateTime café = new TimeSpan(15, 30, 0);
-                DateTime café = DateTime.Parse("15:30:00");
-                lblteste.Text = (atual - café).ToString();
+                DateTime CafeTarde = DateTime.Parse("15:30:00");
+                lblCafe.Text = (CafeTarde - HoraAtual).ToString();
+                DateTime SaidaTarde = DateTime.Parse("17:00:00");
+                lblSaida.Text = (SaidaTarde - HoraAtual).ToString();
+
+                pbCafeouJantar.Image = Properties.Resources.cafe;
+
+                if (CafeTarde < HoraAtual)
+                {
+                    lblCafe.Text = "";
+                }
+
+                if (SaidaTarde < HoraAtual)
+                {
+                    lblSaida.Text = "";
+                }
+
             }
             else if (rbNoite.Checked)
             {
                 //DateTime atual = new TimeSpan(Convert.ToInt32(hora), Convert.ToInt32(minutos), Convert.ToInt32(segundos));
-                DateTime atual = Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss"));
+                DateTime HoraAtual = Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss"));
                 //DateTime café = new TimeSpan(15, 30, 0);
-                DateTime café = DateTime.Parse("20:00:00");
-                lblteste.Text = (café - atual).ToString();
+
+                DateTime CafeNoite = DateTime.Parse("20:00:00");
+                lblCafe.Text = (CafeNoite - HoraAtual).ToString();
+
+                DateTime SaidaNoite = DateTime.Parse("21:50:00");
+                lblSaida.Text = (SaidaNoite - HoraAtual).ToString();
+
+                pbCafeouJantar.Image = Properties.Resources.jantar;
+
+                if (CafeNoite < HoraAtual)
+                {
+                    lblCafe.Text = "";
+                }
+
+                if (SaidaNoite < HoraAtual)
+                {
+                    lblSaida.Text = "";
+                }
+
+
             }
 
            
@@ -992,7 +1031,12 @@ namespace LoginDM
 
             
 
-            lblSinal.Text = DateTime.Now.ToString("HH:mm:ss");  
+            //lblSinal.Text = DateTime.Now.ToString("HH:mm:ss");  
+        }
+
+        private void lblSinal_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

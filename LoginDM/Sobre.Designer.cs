@@ -81,6 +81,12 @@ namespace LoginDM
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.lblVersao = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.pictureBox14 = new System.Windows.Forms.PictureBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -98,6 +104,8 @@ namespace LoginDM
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             this.SuspendLayout();
             // 
             // label7
@@ -195,8 +203,14 @@ namespace LoginDM
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.pictureBox14);
+            this.groupBox1.Controls.Add(this.pictureBox13);
             this.groupBox1.Controls.Add(this.label22);
+            this.groupBox1.Controls.Add(this.label30);
+            this.groupBox1.Controls.Add(this.label28);
+            this.groupBox1.Controls.Add(this.label29);
             this.groupBox1.Controls.Add(this.label21);
+            this.groupBox1.Controls.Add(this.label27);
             this.groupBox1.Controls.Add(this.label25);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.pictureBox9);
@@ -441,6 +455,40 @@ namespace LoginDM
             resources.ApplyResources(this.label23, "label23");
             this.label23.Name = "label23";
             // 
+            // pictureBox13
+            // 
+            this.pictureBox13.Image = global::LoginDM.Properties.Resources.restart;
+            resources.ApplyResources(this.pictureBox13, "pictureBox13");
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.TabStop = false;
+            // 
+            // label27
+            // 
+            resources.ApplyResources(this.label27, "label27");
+            this.label27.Name = "label27";
+            // 
+            // label28
+            // 
+            resources.ApplyResources(this.label28, "label28");
+            this.label28.Name = "label28";
+            // 
+            // pictureBox14
+            // 
+            this.pictureBox14.Image = global::LoginDM.Properties.Resources.update;
+            resources.ApplyResources(this.pictureBox14, "pictureBox14");
+            this.pictureBox14.Name = "pictureBox14";
+            this.pictureBox14.TabStop = false;
+            // 
+            // label29
+            // 
+            resources.ApplyResources(this.label29, "label29");
+            this.label29.Name = "label29";
+            // 
+            // label30
+            // 
+            resources.ApplyResources(this.label30, "label30");
+            this.label30.Name = "label30";
+            // 
             // Sobre
             // 
             resources.ApplyResources(this, "$this");
@@ -487,6 +535,8 @@ namespace LoginDM
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -544,5 +594,11 @@ namespace LoginDM
         private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.Label lblVersao;
         private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.PictureBox pictureBox14;
+        private System.Windows.Forms.PictureBox pictureBox13;
     }
 }

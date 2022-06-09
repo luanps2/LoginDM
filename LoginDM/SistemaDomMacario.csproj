@@ -282,6 +282,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo-dommacario-borda.ico" />
+    <None Include="Resources\adm.png" />
+    <None Include="Resources\jantar.png" />
+    <None Include="Resources\saida.png" />
+    <None Include="Resources\cafe.png" />
     <None Include="Resources\live1off.png" />
     <None Include="Resources\database.png" />
     <None Include="Resources\fileserver.png" />

@@ -33,27 +33,15 @@
             this.label9 = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
             this.funçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.criarUsuárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.conectarManualmenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reiniciarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.atualizarSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.alterarBancoDeDadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.alterarServidorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sobreToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.lblUser = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.pbStatus = new System.Windows.Forms.PictureBox();
-            this.pbPeriodo = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgBoletim = new System.Windows.Forms.DataGridView();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lblSinal = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.lblVersao = new System.Windows.Forms.Label();
@@ -62,19 +50,13 @@
             this.label10 = new System.Windows.Forms.Label();
             this.lblBemVindo = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnDesconectar = new System.Windows.Forms.PictureBox();
-            this.btnLogin = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.imgPasta = new System.Windows.Forms.PictureBox();
-            this.pbLive = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.gbPeriodo = new System.Windows.Forms.GroupBox();
             this.rbNoite = new System.Windows.Forms.RadioButton();
             this.rbTarde = new System.Windows.Forms.RadioButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -82,26 +64,48 @@
             this.dgFaltas = new System.Windows.Forms.DataGridView();
             this.lblUsuario2 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.lblteste = new System.Windows.Forms.Label();
+            this.lblCafe = new System.Windows.Forms.Label();
+            this.lblSaida = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pbCafeouJantar = new System.Windows.Forms.PictureBox();
+            this.btnDesconectar = new System.Windows.Forms.PictureBox();
+            this.btnLogin = new System.Windows.Forms.PictureBox();
+            this.imgPasta = new System.Windows.Forms.PictureBox();
+            this.pbLive = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbStatus = new System.Windows.Forms.PictureBox();
+            this.pbPeriodo = new System.Windows.Forms.PictureBox();
+            this.criarUsuárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.conectarManualmenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reiniciarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.atualizarSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.alterarBancoDeDadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.alterarServidorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sobreToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.funçõesAdministrativasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStatus)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPeriodo)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgBoletim)).BeginInit();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnDesconectar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnLogin)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgPasta)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLive)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.gbPeriodo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgFaltas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCafeouJantar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDesconectar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnLogin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPasta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLive)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStatus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPeriodo)).BeginInit();
             this.SuspendLayout();
             // 
             // label9
@@ -133,68 +137,12 @@
             this.reiniciarToolStripMenuItem,
             this.atualizarSistemaToolStripMenuItem,
             this.alterarBancoDeDadosToolStripMenuItem,
-            this.alterarServidorToolStripMenuItem});
+            this.alterarServidorToolStripMenuItem,
+            this.funçõesAdministrativasToolStripMenuItem});
             this.funçõesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.funçõesToolStripMenuItem.Name = "funçõesToolStripMenuItem";
             this.funçõesToolStripMenuItem.Size = new System.Drawing.Size(67, 21);
             this.funçõesToolStripMenuItem.Text = "Funções";
-            // 
-            // criarUsuárioToolStripMenuItem
-            // 
-            this.criarUsuárioToolStripMenuItem.Image = global::LoginDM.Properties.Resources.user;
-            this.criarUsuárioToolStripMenuItem.Name = "criarUsuárioToolStripMenuItem";
-            this.criarUsuárioToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
-            this.criarUsuárioToolStripMenuItem.Text = "Criar Usuário";
-            this.criarUsuárioToolStripMenuItem.Click += new System.EventHandler(this.criarUsuárioToolStripMenuItem_Click);
-            // 
-            // conectarManualmenteToolStripMenuItem
-            // 
-            this.conectarManualmenteToolStripMenuItem.Image = global::LoginDM.Properties.Resources.conectar;
-            this.conectarManualmenteToolStripMenuItem.Name = "conectarManualmenteToolStripMenuItem";
-            this.conectarManualmenteToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
-            this.conectarManualmenteToolStripMenuItem.Text = "Conectar Manualmente";
-            this.conectarManualmenteToolStripMenuItem.Click += new System.EventHandler(this.conectarManualmenteToolStripMenuItem_Click);
-            // 
-            // sairToolStripMenuItem
-            // 
-            this.sairToolStripMenuItem.Image = global::LoginDM.Properties.Resources.desconectar;
-            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
-            this.sairToolStripMenuItem.Text = "Desconectar Manualmente";
-            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
-            // 
-            // reiniciarToolStripMenuItem
-            // 
-            this.reiniciarToolStripMenuItem.Image = global::LoginDM.Properties.Resources.restart;
-            this.reiniciarToolStripMenuItem.Name = "reiniciarToolStripMenuItem";
-            this.reiniciarToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
-            this.reiniciarToolStripMenuItem.Text = "Reiniciar Sistema";
-            this.reiniciarToolStripMenuItem.Click += new System.EventHandler(this.reiniciarToolStripMenuItem_Click);
-            // 
-            // atualizarSistemaToolStripMenuItem
-            // 
-            this.atualizarSistemaToolStripMenuItem.Image = global::LoginDM.Properties.Resources.update;
-            this.atualizarSistemaToolStripMenuItem.Name = "atualizarSistemaToolStripMenuItem";
-            this.atualizarSistemaToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
-            this.atualizarSistemaToolStripMenuItem.Text = "Atualizar Sistema";
-            this.atualizarSistemaToolStripMenuItem.Click += new System.EventHandler(this.atualizarSistemaToolStripMenuItem_Click);
-            // 
-            // alterarBancoDeDadosToolStripMenuItem
-            // 
-            this.alterarBancoDeDadosToolStripMenuItem.Enabled = false;
-            this.alterarBancoDeDadosToolStripMenuItem.Image = global::LoginDM.Properties.Resources.database;
-            this.alterarBancoDeDadosToolStripMenuItem.Name = "alterarBancoDeDadosToolStripMenuItem";
-            this.alterarBancoDeDadosToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
-            this.alterarBancoDeDadosToolStripMenuItem.Text = "Alterar Banco de Dados";
-            this.alterarBancoDeDadosToolStripMenuItem.Click += new System.EventHandler(this.alterarBancoDeDadosToolStripMenuItem_Click);
-            // 
-            // alterarServidorToolStripMenuItem
-            // 
-            this.alterarServidorToolStripMenuItem.Enabled = false;
-            this.alterarServidorToolStripMenuItem.Image = global::LoginDM.Properties.Resources.fileserver1;
-            this.alterarServidorToolStripMenuItem.Name = "alterarServidorToolStripMenuItem";
-            this.alterarServidorToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
-            this.alterarServidorToolStripMenuItem.Text = "Alterar Servidor de Arquivos";
             // 
             // sobreToolStripMenuItem
             // 
@@ -204,14 +152,6 @@
             this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
             this.sobreToolStripMenuItem.Size = new System.Drawing.Size(53, 21);
             this.sobreToolStripMenuItem.Text = "Ajuda";
-            // 
-            // sobreToolStripMenuItem1
-            // 
-            this.sobreToolStripMenuItem1.Image = global::LoginDM.Properties.Resources.info;
-            this.sobreToolStripMenuItem1.Name = "sobreToolStripMenuItem1";
-            this.sobreToolStripMenuItem1.Size = new System.Drawing.Size(111, 22);
-            this.sobreToolStripMenuItem1.Text = "Sobre";
-            this.sobreToolStripMenuItem1.Click += new System.EventHandler(this.sobreToolStripMenuItem1_Click);
             // 
             // menuStrip1
             // 
@@ -243,26 +183,6 @@
             this.label7.Size = new System.Drawing.Size(57, 16);
             this.label7.TabIndex = 32;
             this.label7.Text = "Usuário:";
-            // 
-            // pbStatus
-            // 
-            this.pbStatus.Image = global::LoginDM.Properties.Resources.online2;
-            this.pbStatus.Location = new System.Drawing.Point(398, 4);
-            this.pbStatus.Name = "pbStatus";
-            this.pbStatus.Size = new System.Drawing.Size(17, 17);
-            this.pbStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbStatus.TabIndex = 16;
-            this.pbStatus.TabStop = false;
-            // 
-            // pbPeriodo
-            // 
-            this.pbPeriodo.Location = new System.Drawing.Point(226, 4);
-            this.pbPeriodo.Name = "pbPeriodo";
-            this.pbPeriodo.Size = new System.Drawing.Size(17, 17);
-            this.pbPeriodo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbPeriodo.TabIndex = 15;
-            this.pbPeriodo.TabStop = false;
-            this.pbPeriodo.Click += new System.EventHandler(this.pbPeriodo_Click);
             // 
             // tabPage2
             // 
@@ -308,9 +228,6 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage1.Controls.Add(this.lblteste);
-            this.tabPage1.Controls.Add(this.label8);
-            this.tabPage1.Controls.Add(this.lblSinal);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.linkLabel1);
             this.tabPage1.Controls.Add(this.lblVersao);
@@ -331,24 +248,6 @@
             this.tabPage1.Size = new System.Drawing.Size(407, 303);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Acesso";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(147, 282);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(33, 13);
-            this.label8.TabIndex = 37;
-            this.label8.Text = "Sinal:";
-            // 
-            // lblSinal
-            // 
-            this.lblSinal.AutoSize = true;
-            this.lblSinal.Location = new System.Drawing.Point(183, 282);
-            this.lblSinal.Name = "lblSinal";
-            this.lblSinal.Size = new System.Drawing.Size(49, 13);
-            this.lblSinal.TabIndex = 37;
-            this.lblSinal.Text = "00:02:00";
             // 
             // label1
             // 
@@ -437,30 +336,6 @@
             this.label6.TabIndex = 24;
             this.label6.Text = "Desenvolvido por:";
             // 
-            // btnDesconectar
-            // 
-            this.btnDesconectar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDesconectar.Image = global::LoginDM.Properties.Resources.BT22;
-            this.btnDesconectar.Location = new System.Drawing.Point(297, 126);
-            this.btnDesconectar.Name = "btnDesconectar";
-            this.btnDesconectar.Size = new System.Drawing.Size(91, 31);
-            this.btnDesconectar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnDesconectar.TabIndex = 28;
-            this.btnDesconectar.TabStop = false;
-            this.btnDesconectar.Click += new System.EventHandler(this.btnDesconectar_Click_1);
-            // 
-            // btnLogin
-            // 
-            this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogin.Image = global::LoginDM.Properties.Resources.BT11;
-            this.btnLogin.Location = new System.Drawing.Point(297, 92);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(91, 31);
-            this.btnLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnLogin.TabIndex = 27;
-            this.btnLogin.TabStop = false;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click_1);
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label4);
@@ -507,42 +382,6 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Sala de Aula";
             // 
-            // imgPasta
-            // 
-            this.imgPasta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.imgPasta.Image = global::LoginDM.Properties.Resources.offdir;
-            this.imgPasta.Location = new System.Drawing.Point(297, 24);
-            this.imgPasta.Name = "imgPasta";
-            this.imgPasta.Size = new System.Drawing.Size(63, 50);
-            this.imgPasta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgPasta.TabIndex = 6;
-            this.imgPasta.TabStop = false;
-            this.imgPasta.Click += new System.EventHandler(this.imgPasta_Click);
-            // 
-            // pbLive
-            // 
-            this.pbLive.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbLive.Image = global::LoginDM.Properties.Resources.live1;
-            this.pbLive.Location = new System.Drawing.Point(139, 24);
-            this.pbLive.Name = "pbLive";
-            this.pbLive.Size = new System.Drawing.Size(107, 50);
-            this.pbLive.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbLive.TabIndex = 6;
-            this.pbLive.TabStop = false;
-            this.pbLive.Click += new System.EventHandler(this.pictureBox3_Click_1);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Image = global::LoginDM.Properties.Resources.google_classroom_logo_2;
-            this.pictureBox2.Location = new System.Drawing.Point(23, 24);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(63, 50);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 6;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click_1);
-            // 
             // gbPeriodo
             // 
             this.gbPeriodo.Controls.Add(this.rbNoite);
@@ -579,17 +418,6 @@
             this.rbTarde.UseVisualStyleBackColor = true;
             this.rbTarde.CheckedChanged += new System.EventHandler(this.rbTarde_CheckedChanged_1);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::LoginDM.Properties.Resources.logo_dommacario_borda;
-            this.pictureBox1.Location = new System.Drawing.Point(11, 74);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(86, 88);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 22;
-            this.pictureBox1.TabStop = false;
-            // 
             // txtUsuario
             // 
             this.txtUsuario.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -609,7 +437,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(4, 27);
+            this.tabControl1.Location = new System.Drawing.Point(4, 30);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(415, 329);
@@ -661,20 +489,216 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // lblteste
+            // lblCafe
             // 
-            this.lblteste.AutoSize = true;
-            this.lblteste.Location = new System.Drawing.Point(339, 9);
-            this.lblteste.Name = "lblteste";
-            this.lblteste.Size = new System.Drawing.Size(49, 13);
-            this.lblteste.TabIndex = 33;
-            this.lblteste.Text = "00:00:00";
+            this.lblCafe.AutoSize = true;
+            this.lblCafe.Location = new System.Drawing.Point(169, 33);
+            this.lblCafe.Name = "lblCafe";
+            this.lblCafe.Size = new System.Drawing.Size(49, 13);
+            this.lblCafe.TabIndex = 44;
+            this.lblCafe.Text = "00:00:00";
+            // 
+            // lblSaida
+            // 
+            this.lblSaida.AutoSize = true;
+            this.lblSaida.Location = new System.Drawing.Point(252, 33);
+            this.lblSaida.Name = "lblSaida";
+            this.lblSaida.Size = new System.Drawing.Size(49, 13);
+            this.lblSaida.TabIndex = 45;
+            this.lblSaida.Text = "00:00:00";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::LoginDM.Properties.Resources.saida;
+            this.pictureBox4.Location = new System.Drawing.Point(226, 31);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(17, 17);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 46;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pbCafeouJantar
+            // 
+            this.pbCafeouJantar.Image = global::LoginDM.Properties.Resources.jantar;
+            this.pbCafeouJantar.Location = new System.Drawing.Point(146, 30);
+            this.pbCafeouJantar.Name = "pbCafeouJantar";
+            this.pbCafeouJantar.Size = new System.Drawing.Size(17, 17);
+            this.pbCafeouJantar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbCafeouJantar.TabIndex = 47;
+            this.pbCafeouJantar.TabStop = false;
+            // 
+            // btnDesconectar
+            // 
+            this.btnDesconectar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDesconectar.Image = global::LoginDM.Properties.Resources.BT22;
+            this.btnDesconectar.Location = new System.Drawing.Point(297, 126);
+            this.btnDesconectar.Name = "btnDesconectar";
+            this.btnDesconectar.Size = new System.Drawing.Size(91, 31);
+            this.btnDesconectar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnDesconectar.TabIndex = 28;
+            this.btnDesconectar.TabStop = false;
+            this.btnDesconectar.Click += new System.EventHandler(this.btnDesconectar_Click_1);
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogin.Image = global::LoginDM.Properties.Resources.BT11;
+            this.btnLogin.Location = new System.Drawing.Point(297, 92);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(91, 31);
+            this.btnLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnLogin.TabIndex = 27;
+            this.btnLogin.TabStop = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click_1);
+            // 
+            // imgPasta
+            // 
+            this.imgPasta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.imgPasta.Image = global::LoginDM.Properties.Resources.offdir;
+            this.imgPasta.Location = new System.Drawing.Point(297, 24);
+            this.imgPasta.Name = "imgPasta";
+            this.imgPasta.Size = new System.Drawing.Size(63, 50);
+            this.imgPasta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgPasta.TabIndex = 6;
+            this.imgPasta.TabStop = false;
+            this.imgPasta.Click += new System.EventHandler(this.imgPasta_Click);
+            // 
+            // pbLive
+            // 
+            this.pbLive.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbLive.Image = global::LoginDM.Properties.Resources.live1;
+            this.pbLive.Location = new System.Drawing.Point(139, 24);
+            this.pbLive.Name = "pbLive";
+            this.pbLive.Size = new System.Drawing.Size(107, 50);
+            this.pbLive.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLive.TabIndex = 6;
+            this.pbLive.TabStop = false;
+            this.pbLive.Click += new System.EventHandler(this.pictureBox3_Click_1);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox2.Image = global::LoginDM.Properties.Resources.google_classroom_logo_2;
+            this.pictureBox2.Location = new System.Drawing.Point(23, 24);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(63, 50);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 6;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click_1);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = global::LoginDM.Properties.Resources.logo_dommacario_borda;
+            this.pictureBox1.Location = new System.Drawing.Point(11, 74);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(86, 88);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 22;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pbStatus
+            // 
+            this.pbStatus.Image = global::LoginDM.Properties.Resources.online2;
+            this.pbStatus.Location = new System.Drawing.Point(398, 4);
+            this.pbStatus.Name = "pbStatus";
+            this.pbStatus.Size = new System.Drawing.Size(17, 17);
+            this.pbStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbStatus.TabIndex = 16;
+            this.pbStatus.TabStop = false;
+            // 
+            // pbPeriodo
+            // 
+            this.pbPeriodo.Location = new System.Drawing.Point(226, 4);
+            this.pbPeriodo.Name = "pbPeriodo";
+            this.pbPeriodo.Size = new System.Drawing.Size(17, 17);
+            this.pbPeriodo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbPeriodo.TabIndex = 15;
+            this.pbPeriodo.TabStop = false;
+            this.pbPeriodo.Click += new System.EventHandler(this.pbPeriodo_Click);
+            // 
+            // criarUsuárioToolStripMenuItem
+            // 
+            this.criarUsuárioToolStripMenuItem.Image = global::LoginDM.Properties.Resources.user;
+            this.criarUsuárioToolStripMenuItem.Name = "criarUsuárioToolStripMenuItem";
+            this.criarUsuárioToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
+            this.criarUsuárioToolStripMenuItem.Text = "Criar Usuário";
+            this.criarUsuárioToolStripMenuItem.Click += new System.EventHandler(this.criarUsuárioToolStripMenuItem_Click);
+            // 
+            // conectarManualmenteToolStripMenuItem
+            // 
+            this.conectarManualmenteToolStripMenuItem.Image = global::LoginDM.Properties.Resources.conectar;
+            this.conectarManualmenteToolStripMenuItem.Name = "conectarManualmenteToolStripMenuItem";
+            this.conectarManualmenteToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
+            this.conectarManualmenteToolStripMenuItem.Text = "Conectar Manualmente";
+            this.conectarManualmenteToolStripMenuItem.Click += new System.EventHandler(this.conectarManualmenteToolStripMenuItem_Click);
+            // 
+            // sairToolStripMenuItem
+            // 
+            this.sairToolStripMenuItem.Image = global::LoginDM.Properties.Resources.desconectar;
+            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
+            this.sairToolStripMenuItem.Text = "Desconectar Manualmente";
+            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
+            // 
+            // reiniciarToolStripMenuItem
+            // 
+            this.reiniciarToolStripMenuItem.Image = global::LoginDM.Properties.Resources.restart;
+            this.reiniciarToolStripMenuItem.Name = "reiniciarToolStripMenuItem";
+            this.reiniciarToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
+            this.reiniciarToolStripMenuItem.Text = "Reiniciar Sistema";
+            this.reiniciarToolStripMenuItem.Click += new System.EventHandler(this.reiniciarToolStripMenuItem_Click);
+            // 
+            // atualizarSistemaToolStripMenuItem
+            // 
+            this.atualizarSistemaToolStripMenuItem.Image = global::LoginDM.Properties.Resources.update;
+            this.atualizarSistemaToolStripMenuItem.Name = "atualizarSistemaToolStripMenuItem";
+            this.atualizarSistemaToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
+            this.atualizarSistemaToolStripMenuItem.Text = "Atualizar Sistema";
+            this.atualizarSistemaToolStripMenuItem.Click += new System.EventHandler(this.atualizarSistemaToolStripMenuItem_Click);
+            // 
+            // alterarBancoDeDadosToolStripMenuItem
+            // 
+            this.alterarBancoDeDadosToolStripMenuItem.Enabled = false;
+            this.alterarBancoDeDadosToolStripMenuItem.Image = global::LoginDM.Properties.Resources.database;
+            this.alterarBancoDeDadosToolStripMenuItem.Name = "alterarBancoDeDadosToolStripMenuItem";
+            this.alterarBancoDeDadosToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
+            this.alterarBancoDeDadosToolStripMenuItem.Text = "Alterar Banco de Dados";
+            this.alterarBancoDeDadosToolStripMenuItem.Click += new System.EventHandler(this.alterarBancoDeDadosToolStripMenuItem_Click);
+            // 
+            // alterarServidorToolStripMenuItem
+            // 
+            this.alterarServidorToolStripMenuItem.Enabled = false;
+            this.alterarServidorToolStripMenuItem.Image = global::LoginDM.Properties.Resources.fileserver1;
+            this.alterarServidorToolStripMenuItem.Name = "alterarServidorToolStripMenuItem";
+            this.alterarServidorToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
+            this.alterarServidorToolStripMenuItem.Text = "Alterar Servidor de Arquivos";
+            // 
+            // sobreToolStripMenuItem1
+            // 
+            this.sobreToolStripMenuItem1.Image = global::LoginDM.Properties.Resources.info;
+            this.sobreToolStripMenuItem1.Name = "sobreToolStripMenuItem1";
+            this.sobreToolStripMenuItem1.Size = new System.Drawing.Size(111, 22);
+            this.sobreToolStripMenuItem1.Text = "Sobre";
+            this.sobreToolStripMenuItem1.Click += new System.EventHandler(this.sobreToolStripMenuItem1_Click);
+            // 
+            // funçõesAdministrativasToolStripMenuItem
+            // 
+            this.funçõesAdministrativasToolStripMenuItem.Image = global::LoginDM.Properties.Resources.adm;
+            this.funçõesAdministrativasToolStripMenuItem.Name = "funçõesAdministrativasToolStripMenuItem";
+            this.funçõesAdministrativasToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
+            this.funçõesAdministrativasToolStripMenuItem.Text = "Funções Administrativas";
             // 
             // SistemaDoma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 359);
+            this.ClientSize = new System.Drawing.Size(421, 365);
+            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.lblSaida);
+            this.Controls.Add(this.pbCafeouJantar);
+            this.Controls.Add(this.lblCafe);
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.tabControl1);
@@ -693,29 +717,31 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStatus)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPeriodo)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgBoletim)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnDesconectar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnLogin)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgPasta)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLive)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.gbPeriodo.ResumeLayout(false);
             this.gbPeriodo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgFaltas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCafeouJantar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDesconectar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnLogin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPasta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLive)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStatus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPeriodo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -771,10 +797,12 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dgFaltas;
         private System.Windows.Forms.Label lblUsuario2;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label lblSinal;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label lblteste;
+        private System.Windows.Forms.PictureBox pbCafeouJantar;
+        private System.Windows.Forms.Label lblCafe;
+        private System.Windows.Forms.Label lblSaida;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.ToolStripMenuItem funçõesAdministrativasToolStripMenuItem;
     }
 }
 
