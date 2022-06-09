@@ -965,7 +965,34 @@ namespace LoginDM
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblSinal.Text = DateTime.Now.ToString("HH:mm");  
+            var hora = DateTime.Now.ToString("HH");
+            var minutos = DateTime.Now.ToString("mm");
+            var segundos = DateTime.Now.ToString("ss");
+
+            if (rbTarde.Checked)
+            {
+                //DateTime atual = new TimeSpan(Convert.ToInt32(hora), Convert.ToInt32(minutos), Convert.ToInt32(segundos));
+                DateTime atual = Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss"));
+                //DateTime café = new TimeSpan(15, 30, 0);
+                DateTime café = DateTime.Parse("15:30:00");
+                lblteste.Text = (atual - café).ToString();
+            }
+            else if (rbNoite.Checked)
+            {
+                //DateTime atual = new TimeSpan(Convert.ToInt32(hora), Convert.ToInt32(minutos), Convert.ToInt32(segundos));
+                DateTime atual = Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss"));
+                //DateTime café = new TimeSpan(15, 30, 0);
+                DateTime café = DateTime.Parse("20:00:00");
+                lblteste.Text = (café - atual).ToString();
+            }
+
+           
+
+           
+
+            
+
+            lblSinal.Text = DateTime.Now.ToString("HH:mm:ss");  
         }
     }
 }

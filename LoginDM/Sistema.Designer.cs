@@ -82,6 +82,7 @@
             this.dgFaltas = new System.Windows.Forms.DataGridView();
             this.lblUsuario2 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lblteste = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPeriodo)).BeginInit();
@@ -270,7 +271,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(407, 309);
+            this.tabPage2.Size = new System.Drawing.Size(407, 303);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Boletim";
             // 
@@ -307,6 +308,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.Controls.Add(this.lblteste);
             this.tabPage1.Controls.Add(this.label8);
             this.tabPage1.Controls.Add(this.lblSinal);
             this.tabPage1.Controls.Add(this.label1);
@@ -620,7 +622,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(407, 309);
+            this.tabPage3.Size = new System.Drawing.Size(407, 303);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Faltas";
             this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
@@ -658,6 +660,15 @@
             // 
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // lblteste
+            // 
+            this.lblteste.AutoSize = true;
+            this.lblteste.Location = new System.Drawing.Point(339, 9);
+            this.lblteste.Name = "lblteste";
+            this.lblteste.Size = new System.Drawing.Size(49, 13);
+            this.lblteste.TabIndex = 33;
+            this.lblteste.Text = "00:00:00";
             // 
             // SistemaDoma
             // 
@@ -763,6 +774,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblSinal;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lblteste;
     }
 }
 
