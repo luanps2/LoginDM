@@ -270,7 +270,7 @@ namespace LoginDM
                 MessageBox.Show("Erro: " + e.ToString());
             }
 
-            
+
 
 
         }
@@ -318,6 +318,8 @@ namespace LoginDM
                 MessageBox.Show("Query:" + "SELECT * FROM usuario WHERE Cod = '" + lblUser.Text + "' ERRO MySQL: " + err.ToString());
             }
         }
+
+       
 
 
 
@@ -463,10 +465,18 @@ namespace LoginDM
 
             lblVersao.Text = versaoLocal.ToString();
 
+            //local
             //dadosbanco.Server = "localhost";
-            dadosbanco.Server = "192.168.15.81";
-            dadosbanco.User = "root2";
-            dadosbanco.Password = "admin";
+            //dadosbanco.Server = "192.168.15.81";
+            //dadosbanco.User = "root2";
+            //dadosbanco.Password = "admin";
+            //dadosbanco.DataBase = "boletim";
+
+            //db4free
+            //dadosbanco.Server = "localhost";
+            dadosbanco.Server = "db4free.net";
+            dadosbanco.User = "usercedesp";
+            dadosbanco.Password = "admin123";
             dadosbanco.DataBase = "boletim";
 
 
@@ -482,7 +492,7 @@ namespace LoginDM
             //txtPass.Text = db.Password;
             //txtDatabase.Text = db.DataBase;
 
-            //conexao = new MySqlConnection(dadosbanco.conn);
+            //conexao = new MySqlConnectionConnection(dadosbanco.conn);
 
 
             conexao = new MySqlConnection("server=" + dadosbanco.Server +
@@ -898,7 +908,7 @@ namespace LoginDM
         private void atualizarSistemaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AtualizarSistema();
-            
+
         }
 
         private void button1_Click_2(object sender, EventArgs e)
@@ -972,7 +982,7 @@ namespace LoginDM
             {
                 lblCafe.Text = "";
                 lblSaida.Text = "";
-                
+
             }
 
             if (rbTarde.Checked)
@@ -980,21 +990,34 @@ namespace LoginDM
                 //DateTime atual = new TimeSpan(Convert.ToInt32(hora), Convert.ToInt32(minutos), Convert.ToInt32(segundos));
                 DateTime HoraAtual = Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss"));
                 //DateTime café = new TimeSpan(15, 30, 0);
+
                 DateTime CafeTarde = DateTime.Parse("15:30:00");
                 lblCafe.Text = (CafeTarde - HoraAtual).ToString();
                 DateTime SaidaTarde = DateTime.Parse("17:00:00");
                 lblSaida.Text = (SaidaTarde - HoraAtual).ToString();
 
                 pbCafeouJantar.Image = Properties.Resources.cafe;
+                pbSaida.Image = Properties.Resources.saida;
 
                 if (CafeTarde < HoraAtual)
                 {
                     lblCafe.Text = "";
+
+                    if (HoraAtual == CafeTarde)
+                    {
+                        MessageBox.Show("Hora do Café! ", "Café", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+
                 }
 
                 if (SaidaTarde < HoraAtual)
                 {
                     lblSaida.Text = "";
+                }
+
+                if (HoraAtual == SaidaTarde)
+                {
+                    MessageBox.Show("Hora de ir embora :( \nAté a próxima aula! bom descanso. ;)", "Hora da saída", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
             }
@@ -1004,17 +1027,23 @@ namespace LoginDM
                 DateTime HoraAtual = Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss"));
                 //DateTime café = new TimeSpan(15, 30, 0);
 
-                DateTime CafeNoite = DateTime.Parse("20:00:00");
-                lblCafe.Text = (CafeNoite - HoraAtual).ToString();
+                DateTime JantarNoite = DateTime.Parse("20:00:00");
+                lblCafe.Text = (JantarNoite - HoraAtual).ToString();
 
                 DateTime SaidaNoite = DateTime.Parse("21:50:00");
                 lblSaida.Text = (SaidaNoite - HoraAtual).ToString();
 
                 pbCafeouJantar.Image = Properties.Resources.jantar;
+                pbSaida.Image = Properties.Resources.saida;
 
-                if (CafeNoite < HoraAtual)
+                if (JantarNoite < HoraAtual)
                 {
                     lblCafe.Text = "";
+                }
+
+                if (HoraAtual == JantarNoite)
+                {
+                    MessageBox.Show("Hora da janta! ", "Jantar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
                 if (SaidaNoite < HoraAtual)
@@ -1022,14 +1051,19 @@ namespace LoginDM
                     lblSaida.Text = "";
                 }
 
+                if (SaidaNoite == HoraAtual)
+                {
+                    MessageBox.Show("Hora de ir embora :( \nAté a próxima aula! bom descanso. ;)", "Hora da saída", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
 
             }
 
-           
 
-           
 
-            
+
+
+
 
             //lblSinal.Text = DateTime.Now.ToString("HH:mm:ss");  
         }
@@ -1037,6 +1071,13 @@ namespace LoginDM
         private void lblSinal_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void funçõesAdministrativasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FuncADM JanelaAdm = new FuncADM();
+            JanelaAdm.Show();
+            
         }
     }
 }

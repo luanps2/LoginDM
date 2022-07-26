@@ -73,6 +73,16 @@ namespace LoginDM.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap adm1 {
+            get {
+                object obj = ResourceManager.GetObject("adm1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BACK {
             get {
                 object obj = ResourceManager.GetObject("BACK", resourceCulture);
@@ -213,6 +223,16 @@ namespace LoginDM.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap create {
+            get {
+                object obj = ResourceManager.GetObject("create", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap curiosidade {
             get {
                 object obj = ResourceManager.GetObject("curiosidade", resourceCulture);
@@ -233,6 +253,16 @@ namespace LoginDM.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap delete {
+            get {
+                object obj = ResourceManager.GetObject("delete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap desconectar {
             get {
                 object obj = ResourceManager.GetObject("desconectar", resourceCulture);
@@ -246,6 +276,26 @@ namespace LoginDM.Properties {
         internal static System.Drawing.Bitmap dir {
             get {
                 object obj = ResourceManager.GetObject("dir", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap diskette {
+            get {
+                object obj = ResourceManager.GetObject("diskette", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit {
+            get {
+                object obj = ResourceManager.GetObject("edit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -406,6 +456,16 @@ namespace LoginDM.Properties {
         internal static System.Drawing.Bitmap online2 {
             get {
                 object obj = ResourceManager.GetObject("online2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap refresh_button {
+            get {
+                object obj = ResourceManager.GetObject("refresh-button", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

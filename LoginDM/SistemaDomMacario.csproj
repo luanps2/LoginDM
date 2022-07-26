@@ -151,6 +151,18 @@
     <Compile Include="CriarUsuario.Designer.cs">
       <DependentUpon>CriarUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="adm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adm.Designer.cs">
+      <DependentUpon>adm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuncADM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FuncADM.Designer.cs">
+      <DependentUpon>FuncADM.cs</DependentUpon>
+    </Compile>
     <Compile Include="Functions.cs" />
     <Compile Include="cNetworkDrives0015.cs" />
     <Compile Include="SenhaCriarUsuario.cs">
@@ -181,6 +193,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CriarUsuario.resx">
       <DependentUpon>CriarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adm.resx">
+      <DependentUpon>adm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuncADM.resx">
+      <DependentUpon>FuncADM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SenhaCriarUsuario.resx">
       <DependentUpon>SenhaCriarUsuario.cs</DependentUpon>
@@ -282,6 +300,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo-dommacario-borda.ico" />
+    <None Include="Resources\edit.png" />
+    <None Include="Resources\refresh-button.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\diskette.png" />
+    <None Include="Resources\create.png" />
     <None Include="Resources\adm.png" />
     <None Include="Resources\jantar.png" />
     <None Include="Resources\saida.png" />
