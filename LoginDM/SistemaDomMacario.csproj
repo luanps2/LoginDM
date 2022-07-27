@@ -300,6 +300,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo-dommacario-borda.ico" />
+    <None Include="Resources\search.png" />
     <None Include="Resources\edit.png" />
     <None Include="Resources\refresh-button.png" />
     <None Include="Resources\delete.png" />

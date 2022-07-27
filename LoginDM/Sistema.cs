@@ -16,6 +16,7 @@ using Sistema_Dom_Macário_Lib;
 using Microsoft.Win32;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
+using System.Configuration;
 
 
 namespace LoginDM
@@ -60,6 +61,7 @@ namespace LoginDM
         String server = "luan"; //Dom Macário
                                 //String server = "luanpc"; //Casa
                                 //String diretorio = "";
+
         DadosBanco dadosbanco = new DadosBanco();
 
 
@@ -132,6 +134,29 @@ namespace LoginDM
                                         string dialogNome = Interaction.InputBox("Digite seu nome completo: ", "Nome", "Nome completo");
                                         DirectoryInfo di = Directory.CreateDirectory(dir + "\\" + dialogNome.ToString());
                                         MessageBox.Show(dialogNome.ToString() + " sua pasta de usuário " + lblUser.Text + " foi criada com sucesso! ", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                        //Criar usuário no banco Mysql
+                                        
+
+
+                                        conexao = new MySqlConnection("server=" + dadosbanco.Server +
+                                            " ;user id=" + dadosbanco.User + ";" +
+                                            " password= '" + dadosbanco.Password +
+                                            "'; database=" + dadosbanco.DataBase +
+                                            " ;SSL Mode = None");
+
+                                        string InsertQuery = "INSERT INTO usuario(Cod, Periodo, Nome) VALUES (@cod, @Periodo, @Nome)";
+                                        
+
+                                        conexao.Open();
+                                        MySqlCommand command = new MySqlCommand(InsertQuery, conexao);
+                                        command.Parameters.AddWithValue("@cod", txtUsuario.Text);
+                                        command.Parameters.AddWithValue("@Periodo", periodo.ToString());
+                                        command.Parameters.AddWithValue("@Nome", dialogNome.ToString());
+                                        command.ExecuteNonQuery();
+                                        conexao.Close();
+
+
                                     }
                                     else if (dialogresult == DialogResult.No)
                                     {
@@ -451,6 +476,12 @@ namespace LoginDM
 
         public void Form1_Load(object sender, EventArgs e)
         {
+            conexao = new MySqlConnection("server=" + dadosbanco.Server +
+               " ;user id=" + dadosbanco.User + ";" +
+               " password= '" + dadosbanco.Password +
+               "'; database=" + dadosbanco.DataBase +
+               " ;SSL Mode = None");
+
             //lblSinal.Text = DateTime.Now.ToString(); //Pega hora atual do sistema
 
             string imgWallpaper = @"C:\Windows\Web\Wallpaper\Windows\img0.jpg";
@@ -495,11 +526,7 @@ namespace LoginDM
             //conexao = new MySqlConnectionConnection(dadosbanco.conn);
 
 
-            conexao = new MySqlConnection("server=" + dadosbanco.Server +
-                " ;user id=" + dadosbanco.User + ";" +
-                " password= '" + dadosbanco.Password +
-                "'; database=" + dadosbanco.DataBase +
-                " ;SSL Mode = None");
+           
 
             //dadosbanco.mysql = new MySqlConnection(dadosbanco.conn);
             //dadosbanco.mysql.Open();

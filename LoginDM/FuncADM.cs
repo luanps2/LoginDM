@@ -16,9 +16,12 @@ namespace LoginDM
 
     public partial class FuncADM : Form
     {
+        
+
         public FuncADM()
         {
             InitializeComponent();
+            
         }
 
         public MySqlConnection conexao;
@@ -27,8 +30,15 @@ namespace LoginDM
         private MySqlDataReader rs;
         private String sql;
 
+       
+            string periodo;
+            
+       
+
         private void FuncADM_Load(object sender, EventArgs e)
         {
+            
+
             dadosbanco.Server = "db4free.net";
             dadosbanco.User = "usercedesp";
             dadosbanco.Password = "admin123";
@@ -79,11 +89,15 @@ namespace LoginDM
         }
         void PesquisarUsuario()
         {
+
+            periodo = rbTarde.Checked ? "Tarde" : "Noite";
+
+
             try
             {
                 //Tabela Boletim
                 dgADM.DataSource = null;
-                adapter = new MySqlDataAdapter("SELECT * FROM usuario WHERE Nome LIKE '%" + txtPesquisa.Text + "%'", conexao);
+                adapter = new MySqlDataAdapter("SELECT * FROM usuario WHERE Nome LIKE '%" + txtPesquisa.Text + "%' AND Periodo ='" + periodo + "'", conexao);
                 DataSet ds = new DataSet();
                 adapter.Fill(ds);
                 dgADM.DataSource = ds.Tables[0];
@@ -105,7 +119,34 @@ namespace LoginDM
 
         private void txtPesquisa_TextChanged(object sender, EventArgs e)
         {
+           
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+            if (rbTarde.Checked)
+            {
+                dgADM.DataSource = null;
+                adapter = new MySqlDataAdapter("SELECT * FROM usuario WHERE Periodo = '" + periodo + "'", conexao) ;
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+                dgADM.DataSource = ds.Tables[0];
+            }
+        }
+
+        private void rbTarde_CheckedChanged(object sender, EventArgs e)
+        {
             PesquisarUsuario();
+        }
+
+        private void rbNoite_CheckedChanged(object sender, EventArgs e)
+        {
+            PesquisarUsuario();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
