@@ -146,7 +146,36 @@ namespace LoginDM
 
         private void button2_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string DeleteQuery = "DELETE from usuario WHERE Cod = @cod";
+                conexao.Open();
+                MySqlCommand command = new MySqlCommand(DeleteQuery, conexao);
+                command.Parameters.AddWithValue("@cod", dgADM.SelectedCells[0].Value.ToString());
+                command.ExecuteNonQuery();
+                conexao.Close();
+
+                MessageBox.Show("Usuário de código: " + dgADM.SelectedCells[0].Value.ToString() +
+                    " e nome: " + dgADM.SelectedCells[2].Value.ToString() + "excluído com sucesso!");
+
+                popularDataGridADM();
+
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show("Ocorreu um erro ao excluir o registro: " + erro);
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
             
+          
+
+        
         }
     }
 }

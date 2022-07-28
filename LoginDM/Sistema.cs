@@ -114,6 +114,13 @@ namespace LoginDM
                 {
                     try
                     {
+
+                        conexao = new MySqlConnection("server=" + dadosbanco.Server +
+                           " ;user id=" + dadosbanco.User + ";" +
+                           " password= '" + dadosbanco.Password +
+                           "'; database=" + dadosbanco.DataBase +
+                           " ;SSL Mode = None");
+
                         if (!MapExiste)
                         {
                             Mapeamento.Force = true;
@@ -133,21 +140,7 @@ namespace LoginDM
                                     {
                                         string dialogNome = Interaction.InputBox("Digite seu nome completo: ", "Nome", "Nome completo");
                                         DirectoryInfo di = Directory.CreateDirectory(dir + "\\" + dialogNome.ToString());
-                                        MessageBox.Show(dialogNome.ToString() + " sua pasta de usuário " + lblUser.Text + " foi criada com sucesso! ", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                                        //Criar usuário no banco Mysql
-                                        
-
-
-                                        conexao = new MySqlConnection("server=" + dadosbanco.Server +
-                                            " ;user id=" + dadosbanco.User + ";" +
-                                            " password= '" + dadosbanco.Password +
-                                            "'; database=" + dadosbanco.DataBase +
-                                            " ;SSL Mode = None");
-
                                         string InsertQuery = "INSERT INTO usuario(Cod, Periodo, Nome) VALUES (@cod, @Periodo, @Nome)";
-                                        
-
                                         conexao.Open();
                                         MySqlCommand command = new MySqlCommand(InsertQuery, conexao);
                                         command.Parameters.AddWithValue("@cod", txtUsuario.Text);
@@ -155,6 +148,14 @@ namespace LoginDM
                                         command.Parameters.AddWithValue("@Nome", dialogNome.ToString());
                                         command.ExecuteNonQuery();
                                         conexao.Close();
+
+                                        MessageBox.Show(dialogNome.ToString() + " sua pasta de usuário e seu registro no banco de dados " + lblUser.Text + " foram criados com sucesso! ", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                        //Criar usuário no banco Mysql
+                                        
+
+
+                                       
 
 
                                     }

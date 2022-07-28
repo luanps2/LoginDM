@@ -40,6 +40,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rbNoite = new System.Windows.Forms.RadioButton();
             this.rbTarde = new System.Windows.Forms.RadioButton();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgADM)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -183,6 +184,22 @@
             this.rbTarde.UseVisualStyleBackColor = true;
             this.rbTarde.CheckedChanged += new System.EventHandler(this.rbTarde_CheckedChanged);
             // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.button4.Font = new System.Drawing.Font("Dubai", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.Image = global::LoginDM.Properties.Resources.edit;
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button4.Location = new System.Drawing.Point(651, 445);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(113, 45);
+            this.button4.TabIndex = 2;
+            this.button4.Text = "Teste";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // FuncADM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -193,6 +210,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button3);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.btnNovo);
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.txtPesquisa);
@@ -222,5 +240,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton rbNoite;
         private System.Windows.Forms.RadioButton rbTarde;
+        private System.Windows.Forms.Button button4;
     }
 }
