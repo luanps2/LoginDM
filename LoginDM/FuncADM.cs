@@ -59,13 +59,20 @@ namespace LoginDM
                 "'; database=" + dadosbanco.DataBase +
                 " ;SSL Mode = None");
 
+           
+
+           
             popularDataGridADM();
+
+            //ajusta colunas de acordo com o tamanho necessário
+            dgADM.AutoResizeColumns(
+               DataGridViewAutoSizeColumnsMode.AllCells);
         }
         DadosBanco dadosbanco = new DadosBanco();
 
         
 
-       
+     
 
         void popularDataGridADM()
         {
@@ -146,27 +153,38 @@ namespace LoginDM
 
         private void button2_Click(object sender, EventArgs e)
         {
-            try
+            if (MessageBox.Show("Deseja Realmente remover o usuário: " + dgADM.SelectedCells[0].Value.ToString() + " ?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                string DeleteQuery = "DELETE from usuario WHERE Cod = @cod";
-                conexao.Open();
-                MySqlCommand command = new MySqlCommand(DeleteQuery, conexao);
-                command.Parameters.AddWithValue("@cod", dgADM.SelectedCells[0].Value.ToString());
-                command.ExecuteNonQuery();
-                conexao.Close();
+                try
+                {
+                    string DeleteQuery = "DELETE from usuario WHERE Cod = @cod";
+                    conexao.Open();
+                    MySqlCommand command = new MySqlCommand(DeleteQuery, conexao);
+                    command.Parameters.AddWithValue("@cod", dgADM.SelectedCells[0].Value.ToString());
+                    command.ExecuteNonQuery();
+                    conexao.Close();
 
-                MessageBox.Show("Usuário de código: " + dgADM.SelectedCells[0].Value.ToString() +
-                    " e nome: " + dgADM.SelectedCells[2].Value.ToString() + "excluído com sucesso!");
+                    MessageBox.Show("Usuário de código: " + dgADM.SelectedCells[0].Value.ToString() +
+                        " \nPeriodo: " + dgADM.SelectedCells[1].Value.ToString() +
+                        " \nNome: " + dgADM.SelectedCells[2].Value.ToString() + 
+                        " \nexcluído com sucesso!", "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                popularDataGridADM();
+                    popularDataGridADM();
 
 
+                }
+                catch (Exception erro)
+                {
+
+                    MessageBox.Show("Ocorreu um erro ao excluir o usuário: " + erro);
+                }
             }
-            catch (Exception erro)
+            else
             {
-
-                MessageBox.Show("Ocorreu um erro ao excluir o registro: " + erro);
+                MessageBox.Show("Usuário não foi excluido!");
             }
+
+           
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -176,6 +194,12 @@ namespace LoginDM
           
 
         
+        }
+
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            NovoUsuario janela = new NovoUsuario();
+            janela.ShowDialog();
         }
     }
 }

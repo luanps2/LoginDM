@@ -132,6 +132,7 @@
             this.btnNovo.Text = "Novo";
             this.btnNovo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNovo.UseVisualStyleBackColor = false;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // btnPesquisar
             // 
@@ -217,6 +218,7 @@
             this.Controls.Add(this.dgADM);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FuncADM";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Funções Administrativas";
             this.Load += new System.EventHandler(this.FuncADM_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgADM)).EndInit();

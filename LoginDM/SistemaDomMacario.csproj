@@ -165,6 +165,12 @@
     </Compile>
     <Compile Include="Functions.cs" />
     <Compile Include="cNetworkDrives0015.cs" />
+    <Compile Include="NovoUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NovoUsuario.Designer.cs">
+      <DependentUpon>NovoUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="SenhaCriarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FuncADM.resx">
       <DependentUpon>FuncADM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NovoUsuario.resx">
+      <DependentUpon>NovoUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SenhaCriarUsuario.resx">
       <DependentUpon>SenhaCriarUsuario.cs</DependentUpon>
