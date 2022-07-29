@@ -201,5 +201,17 @@ namespace LoginDM
             NovoUsuario janela = new NovoUsuario();
             janela.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //string InsertQuery = "UPDATE usuario SET Introducao = @Introducao, Nome) VALUES (@cod, @Periodo, @Nome)";
+            //conexao.Open();
+            //MySqlCommand command = new MySqlCommand(InsertQuery, conexao);
+            //command.Parameters.AddWithValue("@cod", txtCod.Text);
+            //command.Parameters.AddWithValue("@Periodo", gbPeriodo.Controls.OfType<RadioButton>().SingleOrDefault(rad => rad.Checked == true).Text);
+            //command.Parameters.AddWithValue("@Nome", txtNome.Text);
+            //command.ExecuteNonQuery();
+            //conexao.Close();
+        }
     }
 }
