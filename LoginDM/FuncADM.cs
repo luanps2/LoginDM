@@ -16,12 +16,12 @@ namespace LoginDM
 
     public partial class FuncADM : Form
     {
-        
+
 
         public FuncADM()
         {
             InitializeComponent();
-            
+
         }
 
         public MySqlConnection conexao;
@@ -30,14 +30,14 @@ namespace LoginDM
         private MySqlDataReader rs;
         private String sql;
 
-       
-            string periodo;
-            
-       
+
+        string periodo;
+
+
 
         private void FuncADM_Load(object sender, EventArgs e)
         {
-            
+
 
             dadosbanco.Server = "db4free.net";
             dadosbanco.User = "usercedesp";
@@ -59,9 +59,9 @@ namespace LoginDM
                 "'; database=" + dadosbanco.DataBase +
                 " ;SSL Mode = None");
 
-           
 
-           
+
+
             popularDataGridADM();
 
             //ajusta colunas de acordo com o tamanho necessário
@@ -70,9 +70,9 @@ namespace LoginDM
         }
         DadosBanco dadosbanco = new DadosBanco();
 
-        
 
-     
+
+
 
         void popularDataGridADM()
         {
@@ -126,7 +126,7 @@ namespace LoginDM
 
         private void txtPesquisa_TextChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -134,7 +134,7 @@ namespace LoginDM
             if (rbTarde.Checked)
             {
                 dgADM.DataSource = null;
-                adapter = new MySqlDataAdapter("SELECT * FROM usuario WHERE Periodo = '" + periodo + "'", conexao) ;
+                adapter = new MySqlDataAdapter("SELECT * FROM usuario WHERE Periodo = '" + periodo + "'", conexao);
                 DataSet ds = new DataSet();
                 adapter.Fill(ds);
                 dgADM.DataSource = ds.Tables[0];
@@ -166,7 +166,7 @@ namespace LoginDM
 
                     MessageBox.Show("Usuário de código: " + dgADM.SelectedCells[0].Value.ToString() +
                         " \nPeriodo: " + dgADM.SelectedCells[1].Value.ToString() +
-                        " \nNome: " + dgADM.SelectedCells[2].Value.ToString() + 
+                        " \nNome: " + dgADM.SelectedCells[2].Value.ToString() +
                         " \nexcluído com sucesso!", "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     popularDataGridADM();
@@ -184,16 +184,16 @@ namespace LoginDM
                 MessageBox.Show("Usuário não foi excluido!");
             }
 
-           
+
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
 
-            
-          
 
-        
+
+
+
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
@@ -212,6 +212,50 @@ namespace LoginDM
             //command.Parameters.AddWithValue("@Nome", txtNome.Text);
             //command.ExecuteNonQuery();
             //conexao.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (dgADM.SelectedCells.Count > 0)
+            {
+                int IndexLinhaSelecionada = dgADM.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dgADM.Rows[IndexLinhaSelecionada];
+                //string ValorCelula = Convert.ToString(selectedRow.Cells[dgADM.SelectedCells[0].Value.ToString()]);
+
+                string UpdateQuery = "UPDATE usuario SET Periodo = @Periodo, Nome = @Nome, Introducao = @Introducao, Word = @Word, Excel = @Excel, PowerPoint = @PowerPoint, Desenvolvimento = @Desenvolvimento, Tecnico = @Tecnico, Photoshop = @Photoshop, TCC = @TCC, Faltas = @Faltas WHERE Cod = @cod";
+                conexao.Open();
+                MySqlCommand command = new MySqlCommand(UpdateQuery, conexao);
+
+
+
+                command.Parameters.AddWithValue("@Periodo", dgADM.SelectedCells[1].Value.ToString());
+                command.Parameters.AddWithValue("@Nome", dgADM.SelectedCells[2].Value.ToString());
+                command.Parameters.AddWithValue("@Introducao", dgADM.SelectedCells[3].Value.ToString());
+                command.Parameters.AddWithValue("@Word", dgADM.SelectedCells[4].Value.ToString());
+                command.Parameters.AddWithValue("@Excel", dgADM.SelectedCells[5].Value.ToString());
+                command.Parameters.AddWithValue("@PowerPoint", dgADM.SelectedCells[6].Value.ToString());
+                command.Parameters.AddWithValue("@Desenvolvimento", dgADM.SelectedCells[7].Value.ToString());
+                command.Parameters.AddWithValue("@Tecnico", dgADM.SelectedCells[8].Value.ToString());
+                command.Parameters.AddWithValue("@Photoshop", dgADM.SelectedCells[9].Value.ToString());
+                command.Parameters.AddWithValue("@TCC", dgADM.SelectedCells[10].Value.ToString());
+                command.Parameters.AddWithValue("@Faltas", dgADM.SelectedCells[11].Value.ToString());
+                command.Parameters.AddWithValue("@cod", dgADM.SelectedCells[0].Value.ToString());
+                command.ExecuteNonQuery();
+                conexao.Close();
+
+
+
+
+                MessageBox.Show("Dados do usuário: " + dgADM.SelectedCells[2].Value.ToString() + " Atualizados com sucesso!" + "Cód: " + dgADM.SelectedCells[0].Value.ToString() + "Periodo: " + dgADM.SelectedCells[1].Value.ToString() + " foram criados com sucesso! ", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            
+
+            //            UPDATE table_name
+            //SET column1 = value1, column2 = value2, ...
+            //WHERE condition;
+
+
         }
     }
 }

@@ -33,6 +33,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
             this.funçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.arquivosDeCursoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.criarUsuárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.conectarManualmenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,6 +44,8 @@
             this.alterarServidorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.regrasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.conteúdoProgramáticoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.lblUser = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -131,6 +134,7 @@
             // funçõesToolStripMenuItem
             // 
             this.funçõesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.arquivosDeCursoToolStripMenuItem,
             this.criarUsuárioToolStripMenuItem,
             this.conectarManualmenteToolStripMenuItem,
             this.sairToolStripMenuItem,
@@ -143,6 +147,14 @@
             this.funçõesToolStripMenuItem.Name = "funçõesToolStripMenuItem";
             this.funçõesToolStripMenuItem.Size = new System.Drawing.Size(67, 21);
             this.funçõesToolStripMenuItem.Text = "Funções";
+            // 
+            // arquivosDeCursoToolStripMenuItem
+            // 
+            this.arquivosDeCursoToolStripMenuItem.Image = global::LoginDM.Properties.Resources.folder1;
+            this.arquivosDeCursoToolStripMenuItem.Name = "arquivosDeCursoToolStripMenuItem";
+            this.arquivosDeCursoToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
+            this.arquivosDeCursoToolStripMenuItem.Text = "Arquivos de Curso";
+            this.arquivosDeCursoToolStripMenuItem.Click += new System.EventHandler(this.arquivosDeCursoToolStripMenuItem_Click);
             // 
             // criarUsuárioToolStripMenuItem
             // 
@@ -212,7 +224,9 @@
             // sobreToolStripMenuItem
             // 
             this.sobreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sobreToolStripMenuItem1});
+            this.sobreToolStripMenuItem1,
+            this.regrasToolStripMenuItem,
+            this.conteúdoProgramáticoToolStripMenuItem});
             this.sobreToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
             this.sobreToolStripMenuItem.Size = new System.Drawing.Size(53, 21);
@@ -222,9 +236,24 @@
             // 
             this.sobreToolStripMenuItem1.Image = global::LoginDM.Properties.Resources.info;
             this.sobreToolStripMenuItem1.Name = "sobreToolStripMenuItem1";
-            this.sobreToolStripMenuItem1.Size = new System.Drawing.Size(111, 22);
+            this.sobreToolStripMenuItem1.Size = new System.Drawing.Size(216, 22);
             this.sobreToolStripMenuItem1.Text = "Sobre";
             this.sobreToolStripMenuItem1.Click += new System.EventHandler(this.sobreToolStripMenuItem1_Click);
+            // 
+            // regrasToolStripMenuItem
+            // 
+            this.regrasToolStripMenuItem.Image = global::LoginDM.Properties.Resources.abra_o_livro;
+            this.regrasToolStripMenuItem.Name = "regrasToolStripMenuItem";
+            this.regrasToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.regrasToolStripMenuItem.Text = "Regras";
+            this.regrasToolStripMenuItem.Click += new System.EventHandler(this.regrasToolStripMenuItem_Click);
+            // 
+            // conteúdoProgramáticoToolStripMenuItem
+            // 
+            this.conteúdoProgramáticoToolStripMenuItem.Image = global::LoginDM.Properties.Resources.check_icone_scaled;
+            this.conteúdoProgramáticoToolStripMenuItem.Name = "conteúdoProgramáticoToolStripMenuItem";
+            this.conteúdoProgramáticoToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.conteúdoProgramáticoToolStripMenuItem.Text = "Conteúdo Programático";
             // 
             // menuStrip1
             // 
@@ -802,6 +831,9 @@
         private System.Windows.Forms.Label lblSaida;
         private System.Windows.Forms.PictureBox pbSaida;
         private System.Windows.Forms.ToolStripMenuItem funçõesAdministrativasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem arquivosDeCursoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem regrasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem conteúdoProgramáticoToolStripMenuItem;
     }
 }
 

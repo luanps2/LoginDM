@@ -1107,5 +1107,16 @@ namespace LoginDM
             JanelaAdm.Show();
             
         }
+
+        private void arquivosDeCursoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("\\\\luan\\Arquivos de Curso\\");
+        }
+
+        private void regrasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Regras regras= new Regras();
+            regras.Show();
+        }
     }
 }

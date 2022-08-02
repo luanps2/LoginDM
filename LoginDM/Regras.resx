@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="txtRegras.Text" xml:space="preserve">
+    <value>Sistema Disciplinar Discente
+
+1.	Todo educando deve estar devidamente matriculado no projeto CEDESP;
+
+2.	É obrigação do educando trazer o material em ordem, de acordo com o curso, não sen¬do permitida a entrada de materiais estranhos.
+
+3.	Após a entrada do aluno na organização, é vedada a entrega por parte de familiares ou amigos ou conhecidos, de qualquer tipo de material.
+
+4.	Proibido fumar. Lei n° 37/2007;
+
+5.	Não usar celular Lei n° 2246/07, ou qualquer outro aparelho eletrônico em sala de aula, a Casa Dom Macário não se responsabiliza por danos ou extravio de qualquer objeto pessoal.
+
+6.	Não é permitido sair antes do término das aulas ou fora dos horários de intervalo, ao não ser em caso de extrema necessidade.
+
+7.	Quando transitar pela dependência da escola devidamente autorizada, guardar silêncio em respeito aos cursos o qual estão em atividades.
+
+8.	Nos dias de recreação não será permitida a saída do aluno antes do horário, pois tais atividades fazem parte do conteúdo programático do curso.
+
+9.	Não namorar, nem andar abraçados, mesmo que sejam casados ou noivos.
+
+10.	Não desperdiçar material e nem alimentos, ao sair do refeitório colocar a cadeira embaixo da mesa, raspar o prato com os restos no lixo separando os talheres, pra¬to e caneca.
+
+11.	Zelar pela limpeza do refeitório e não se alimentar fora do mesmo.
+
+12.	É proibido trazer lanches, guloseimas e nem qualquer tipo de bebidas de fora.
+
+13.	Zelar pelo patrimônio material e utensílio da Casa Dom Macário, seja dentro ou fo¬ra das oficinas de aula mantendo a ordem e a disciplina,
+
+14.	Zelar pelos banheiros, mantendo-os sempre limpos, fechar a torneira de água quando não for mais necessário, reduzindo assim o desperdício.
+
+15.	Respeitar as orientações dos Educadores e funcionários da Casa Dom Macário.
+
+16.	Bicicletas: trazer uma corrente e cadeado, pois a Casa Dom Macário não se res-ponsabiliza pelas mesmas por danos ou extravio.
+
+17.	Participar dos eventos da Casa Dom Macário, mesmo quando externos.
+
+18.	Aos homens é proibido usar boné, bermuda colada, camisetas abertas, sem cami¬sa, chinelo etc. O aluno deverá vir trajado de acordo com as exigências do curso ou dos eventos da Casa.
+
+19.	As mulheres, proibido usar boné, mini-blusa, blusa decotada, mini-saia, roupas transparentes, bermudas coladas, calças rasgadas (somente do joelho pra baixo) chinelo etc. A aluna deverá vir trajada de acordo com as exigências do curso ou dos eventos da Casa Dom Macário.
+
+20.	A entrada tardia e a saída antecipada só serão permitidas em casos extremos de necessidade.
+
+21.	Os alunos menores de 18 anos: só sairão com bilhete assinado, e com o número do RG dos responsáveis, confirmados via telefone com a coordenação e com auto¬rização do instrutor e do coordenador.
+
+22.	Os responsáveis por alunos menores de 18 anos, deverão participar das reuniões quando solicitados, e sua assinatura é obrigatória para o recebimento do certifica¬do,
+
+23.	Os alunos maiores de 18 anos só poderão sair da Casa Dom Macário com autori¬zação do instrutor e do coordenador.
+
+24.	Não será tolerado nenhum tipo de violência ou desavença na Casa Dom Macário.
+
+25.	Não é permitido que os alunos fiquem sentados nas áreas de circulação e esca¬das.
+
+26.	Subir e descer escadas de acordo com o sinal, de maneira educada e ordenada, principalmente sem gritos, correrias e confusões.
+
+27.	É vedada ao educando portar material que represente perigo a saúde, segurança física, ou moral própria ou de outra pessoa.
+
+28.	É obrigação do educando e ou responsável manter o cadastro pessoal do mesmo sempre atualizado como telefone endereço, para facilitar eventuais necessidades de comunicar-se com a família.
+
+29.	Os pais e responsáveis devem acompanhar o desempenho do educando nos cur¬sos, estando em contato permanente com a organização, não apenas no ato da matrícula, mas durante todo tempo de permanência do mesmo na instituição.
+
+30.	Sempre que houver necessidade os responsáveis devem procurar os coordenadores, mesmo que seja fora do horário.
+
+31.	Não é permitida a entrada de alunos sem carteirinha (no caso de perda avisar imediatamente o instrutor para que outra seja providenciada).
+
+32.	O aluno só terá direito ao certificado de qualificação com no mínimo 90% de fre¬qüência, além de média 7 nos três critérios (Aulas de cidadania, avaliações práti¬cas e teóricas de seu respectivo curso e no índice de Participação —I.P ), o não cumprimento de um destes critérios impedirá o recebimento do certificado de quali¬ficação.
+
+33.	O excesso de faltas ou não cumprimento das normas impedirá o aluno de matricu¬lar-se em outro curso da Casa.
+
+34.	Os atestados (médicos ou de empresas) não abonam as faltas, apenas às justifi¬cam.
+
+35.	A dispensa do aluno fora do período de curso implicará na porcentagem de horas do certificado.
+
+36.	As ocorrências de indisplinas nas oficinas ou nas demais dependências da escola, devem ser registradas no livro de ocorrência, sendo assinado por todos os envolvi¬dos. Após os registros de acordo com a gravidade constatada e sendo reincidentes receberão advertência verbal, advertência escrita, ou quando menor convocação para o comparecimento dos responsáveis na organização.
+
+37.	O aluno deverá retirar seu certificado no máximo em 30 dias após o término do curso, nos seguintes dias: as segunda-feira ou quarta-feira das 13:30 as 16:00 ou 19:00 as 21:00 com pré-agendamento de 72hs.
+
+38.	O atendimento aos pais e aos alunos será feito exclusivamente de segunda e quar¬ta feira, das 14:00 ás 16:00 ou das 19:00 ás 21:00.
+
+39.	Participar do ato cívico cantando o hino nacional
+
+40.	Autorizo meu filho(a) a ir embora sozinho(a) após o término do curso.
+
+41.	Proibida a permanência de qualquer pessoa que não esteja matriculada nas de¬pendências da Fundação, exceto em dias de eventos, devidamente convidada pelo Educando do curso.
+As normas foram aprovadas em conselho de classe.</value>
+  </data>
+</root>
