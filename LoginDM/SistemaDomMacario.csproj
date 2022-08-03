@@ -318,6 +318,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo-dommacario-borda.ico" />
+    <None Include="Resources\folder2.png" />
+    <None Include="Resources\dirArquivosCurso.png" />
     <None Include="Resources\check-icone-scaled.png" />
     <None Include="Resources\abra-o-livro.png" />
     <None Include="Resources\folder.png" />

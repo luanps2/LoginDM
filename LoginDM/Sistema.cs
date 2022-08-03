@@ -477,6 +477,9 @@ namespace LoginDM
 
         public void Form1_Load(object sender, EventArgs e)
         {
+            panel3.AutoScroll = true;
+            
+            
             conexao = new MySqlConnection("server=" + dadosbanco.Server +
                " ;user id=" + dadosbanco.User + ";" +
                " password= '" + dadosbanco.Password +
@@ -876,9 +879,9 @@ namespace LoginDM
             if (destino.Exists)
             {
                 Directory.Delete(destinationDir, true);
-                Directory.CreateDirectory("C:\\SistemaDM\\");
+                Directory.CreateDirectory("C:\\SistemaLoginDm\\");
                 StreamWriter x;
-                string ver = "C:\\SistemaDM\\versao.txt";
+                string ver = "C:\\SistemaLoginDm\\versao.txt";
                 x = File.AppendText(ver);
                 String versaoServer = File.ReadAllText("\\\\luan\\SistemaLoginDM\\versao.txt"); //leitura servidor
                 x.WriteLine(versaoServer);
@@ -887,9 +890,9 @@ namespace LoginDM
             }
             else
             {
-                Directory.CreateDirectory("C:\\SistemaDM\\");
+                Directory.CreateDirectory("C:\\SistemaLoginDm\\");
                 StreamWriter x;
-                string ver = "C:\\SistemaDM\\versao.txt";
+                string ver = "C:\\SistemaLoginDm\\versao.txt";
                 x = File.AppendText(ver);
                 String versaoServer = File.ReadAllText("\\\\luan\\SistemaLoginDM\\versao.txt"); //leitura servidor
                 x.WriteLine(versaoServer);
@@ -1117,6 +1120,11 @@ namespace LoginDM
         {
             Regras regras= new Regras();
             regras.Show();
+        }
+
+        private void pictureBox3_Click_2(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("\\\\luan\\Arquivos de Curso\\");
         }
     }
 }
