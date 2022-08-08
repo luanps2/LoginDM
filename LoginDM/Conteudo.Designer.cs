@@ -150,6 +150,7 @@
             // 
             // textBox15
             // 
+            this.textBox15.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox15.Location = new System.Drawing.Point(730, 639);
             this.textBox15.Multiline = true;
             this.textBox15.Name = "textBox15";
@@ -161,6 +162,7 @@
             // 
             // textBox12
             // 
+            this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox12.Location = new System.Drawing.Point(733, 498);
             this.textBox12.Multiline = true;
             this.textBox12.Name = "textBox12";
@@ -172,6 +174,7 @@
             // 
             // textBox9
             // 
+            this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox9.Location = new System.Drawing.Point(730, 359);
             this.textBox9.Multiline = true;
             this.textBox9.Name = "textBox9";
@@ -182,6 +185,7 @@
             // 
             // textBox6
             // 
+            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox6.Location = new System.Drawing.Point(730, 219);
             this.textBox6.Multiline = true;
             this.textBox6.Name = "textBox6";
@@ -232,6 +236,7 @@
             // 
             // textBox14
             // 
+            this.textBox14.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox14.Location = new System.Drawing.Point(426, 639);
             this.textBox14.Multiline = true;
             this.textBox14.Name = "textBox14";
@@ -243,6 +248,7 @@
             // 
             // textBox11
             // 
+            this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox11.Location = new System.Drawing.Point(429, 498);
             this.textBox11.Multiline = true;
             this.textBox11.Name = "textBox11";
@@ -254,6 +260,7 @@
             // 
             // textBox8
             // 
+            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox8.Location = new System.Drawing.Point(426, 359);
             this.textBox8.Multiline = true;
             this.textBox8.Name = "textBox8";
@@ -264,6 +271,7 @@
             // 
             // textBox5
             // 
+            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox5.Location = new System.Drawing.Point(426, 219);
             this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
@@ -315,6 +323,7 @@
             // 
             // textBox13
             // 
+            this.textBox13.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox13.Location = new System.Drawing.Point(122, 639);
             this.textBox13.Multiline = true;
             this.textBox13.Name = "textBox13";
@@ -325,6 +334,7 @@
             // 
             // textBox10
             // 
+            this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox10.Location = new System.Drawing.Point(125, 498);
             this.textBox10.Multiline = true;
             this.textBox10.Name = "textBox10";
@@ -335,6 +345,7 @@
             // 
             // textBox7
             // 
+            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox7.Location = new System.Drawing.Point(122, 359);
             this.textBox7.Multiline = true;
             this.textBox7.Name = "textBox7";
@@ -355,6 +366,7 @@
             // 
             // textBox4
             // 
+            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox4.Location = new System.Drawing.Point(122, 219);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
@@ -405,6 +417,7 @@
             // 
             // textBox3
             // 
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox3.Location = new System.Drawing.Point(733, 82);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
@@ -507,6 +520,7 @@
             // 
             // textBox2
             // 
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.Location = new System.Drawing.Point(426, 82);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
@@ -567,6 +581,7 @@
             // 
             // textBox1
             // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Location = new System.Drawing.Point(122, 82);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";

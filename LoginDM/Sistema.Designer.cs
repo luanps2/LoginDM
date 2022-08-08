@@ -42,6 +42,7 @@
             this.funçõesAdministrativasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alterarBancoDeDadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alterarServidorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sairToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.regrasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.conteúdoProgramáticoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -88,7 +89,6 @@
             this.pbCafeouJantar = new System.Windows.Forms.PictureBox();
             this.pbStatus = new System.Windows.Forms.PictureBox();
             this.pbPeriodo = new System.Windows.Forms.PictureBox();
-            this.sairToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -223,6 +223,14 @@
             this.alterarServidorToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
             this.alterarServidorToolStripMenuItem.Text = "Alterar Servidor de Arquivos";
             // 
+            // sairToolStripMenuItem1
+            // 
+            this.sairToolStripMenuItem1.Image = global::LoginDM.Properties.Resources.shutdown_icon;
+            this.sairToolStripMenuItem1.Name = "sairToolStripMenuItem1";
+            this.sairToolStripMenuItem1.Size = new System.Drawing.Size(242, 22);
+            this.sairToolStripMenuItem1.Text = "Sair";
+            this.sairToolStripMenuItem1.Click += new System.EventHandler(this.sairToolStripMenuItem1_Click);
+            // 
             // sobreToolStripMenuItem
             // 
             this.sobreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -265,7 +273,7 @@
             this.sobreToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(437, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(419, 25);
             this.menuStrip1.TabIndex = 12;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -350,7 +358,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(422, 309);
+            this.tabPage1.Size = new System.Drawing.Size(403, 309);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Acesso";
             // 
@@ -476,7 +484,7 @@
             this.gbSistemas.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbSistemas.Location = new System.Drawing.Point(11, 168);
             this.gbSistemas.Name = "gbSistemas";
-            this.gbSistemas.Size = new System.Drawing.Size(392, 114);
+            this.gbSistemas.Size = new System.Drawing.Size(386, 114);
             this.gbSistemas.TabIndex = 25;
             this.gbSistemas.TabStop = false;
             this.gbSistemas.Text = "Sistemas";
@@ -616,7 +624,7 @@
             this.tabControl1.Location = new System.Drawing.Point(4, 30);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(430, 335);
+            this.tabControl1.Size = new System.Drawing.Size(411, 335);
             this.tabControl1.TabIndex = 21;
             // 
             // tabPage3
@@ -721,19 +729,11 @@
             this.pbPeriodo.TabStop = false;
             this.pbPeriodo.Click += new System.EventHandler(this.pbPeriodo_Click);
             // 
-            // sairToolStripMenuItem1
-            // 
-            this.sairToolStripMenuItem1.Image = global::LoginDM.Properties.Resources.shutdown_icon;
-            this.sairToolStripMenuItem1.Name = "sairToolStripMenuItem1";
-            this.sairToolStripMenuItem1.Size = new System.Drawing.Size(242, 22);
-            this.sairToolStripMenuItem1.Text = "Sair";
-            this.sairToolStripMenuItem1.Click += new System.EventHandler(this.sairToolStripMenuItem1_Click);
-            // 
             // SistemaDoma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(437, 369);
+            this.ClientSize = new System.Drawing.Size(419, 369);
             this.Controls.Add(this.pbSaida);
             this.Controls.Add(this.lblSaida);
             this.Controls.Add(this.pbCafeouJantar);

@@ -17,6 +17,7 @@ using Microsoft.Win32;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 using System.Configuration;
+using System.Diagnostics;
 
 
 namespace LoginDM
@@ -967,34 +968,43 @@ namespace LoginDM
 
         private void atualizarSistemaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string origem = @"\\luan\\SistemaLoginDM\\";
-            string destino = @"C:\SistemaLoginDM\";
 
-            try
-            {
+            Process myProcess = Process.Start(@"\\luan\UpdateLoginDM\Update.exe");
+            this.Close();
 
-                if (Convert.ToDouble(versaoLocal) < Convert.ToDouble(versaoServer))
-                {
-                    MessageBox.Show("Sistema desatualizado! \nVersão local: " + versaoLocal + "\nVersão servidor: " + versaoServer + "\nAperte OK para atualizar.", "Atualizar Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //string origem = @"\\luan\\SistemaLoginDM\\";
+            //string destino = @"C:\SistemaLoginDM\";
 
-                    CopyDir.Copy(origem, destino);
+            //try
+            //{
 
-                    MessageBox.Show("Sistema Atualizado com sucesso! versão atual: " + versaoServer);
+            //    if (Convert.ToDouble(versaoLocal) < Convert.ToDouble(versaoServer))
+            //    {
+            //        MessageBox.Show("Sistema desatualizado! \nVersão local: " + versaoLocal + "\nVersão servidor: " + versaoServer + "\nAperte OK para atualizar.", "Atualizar Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    versaoLocal = versaoServer;
+            //        foreach (var process in Process.GetProcessesByName("LoginDM.exe"))
+            //        {
+            //            process.Kill();
+            //        }
 
-                    Application.Restart();
+            //        CopyDir.Copy(origem, destino);
 
-                }
-                else
-                {
-                    MessageBox.Show("Sistema Atualizado! \nVersão local: " + versaoLocal + "\nVersão do Servidor: " + versaoServer, "Sistema Atualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            catch (Exception erro)
-            {
-                MessageBox.Show("Não foi possivel atualizar o sistema, Erro: " + erro.ToString());
-            }
+            //        MessageBox.Show("Sistema Atualizado com sucesso! versão atual: " + versaoServer);
+
+            //        versaoLocal = versaoServer;
+
+            //        Application.Restart();
+
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Sistema Atualizado! \nVersão local: " + versaoLocal + "\nVersão do Servidor: " + versaoServer, "Sistema Atualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    }
+            //}
+            //catch (Exception erro)
+            //{
+            //    MessageBox.Show("Não foi possivel atualizar o sistema, Erro: " + erro.ToString());
+            //}
 
             //AtualizarSistema();
 
