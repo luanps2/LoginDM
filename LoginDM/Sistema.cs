@@ -152,10 +152,10 @@ namespace LoginDM
                                         MessageBox.Show(dialogNome.ToString() + " sua pasta de usuário e seu registro no banco de dados " + lblUser.Text + " foram criados com sucesso! ", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                         //Criar usuário no banco Mysql
-                                        
 
 
-                                       
+
+
 
 
                                     }
@@ -205,7 +205,7 @@ namespace LoginDM
                                 lblUsuario2.Text = d.Name.ToUpper();
                             }
 
-                            System.Diagnostics.Process.Start("M:/");//abre a pasta do usuário após logar
+                            System.Diagnostics.Process.Start("M:/" + lblNome.Text);//abre a pasta do usuário após logar
 
 
                             tabPage2.Enabled = true;
@@ -265,6 +265,35 @@ namespace LoginDM
             }
 
 
+        }
+
+
+        class CopyDir
+        {
+            public static void Copy(string Origem, string Destino)
+            {
+                DirectoryInfo diOrigem = new DirectoryInfo(Origem);
+                DirectoryInfo diDestino = new DirectoryInfo(Destino);
+
+                CopyAll(diOrigem, diDestino);
+            }
+
+            public static void CopyAll(DirectoryInfo source, DirectoryInfo target)
+            {
+                Directory.CreateDirectory(target.FullName);
+                foreach (FileInfo fi in source.GetFiles())
+                {
+                    Console.WriteLine(@"Copying {0}/{1}", target.FullName, fi.Name);
+                    fi.CopyTo(Path.Combine(target.FullName, fi.Name), true);
+                }
+
+                foreach (DirectoryInfo diSourceSubDir in source.GetDirectories())
+                {
+                    DirectoryInfo nextTargetSubDir =
+                            target.CreateSubdirectory(diSourceSubDir.Name);
+                    CopyAll(diSourceSubDir, nextTargetSubDir);
+                }
+            }
         }
 
 
@@ -345,7 +374,7 @@ namespace LoginDM
             }
         }
 
-       
+
 
 
 
@@ -477,9 +506,9 @@ namespace LoginDM
 
         public void Form1_Load(object sender, EventArgs e)
         {
-            panel3.AutoScroll = true;
-            
-            
+            //panel3.AutoScroll = true;
+
+
             conexao = new MySqlConnection("server=" + dadosbanco.Server +
                " ;user id=" + dadosbanco.User + ";" +
                " password= '" + dadosbanco.Password +
@@ -530,7 +559,7 @@ namespace LoginDM
             //conexao = new MySqlConnectionConnection(dadosbanco.conn);
 
 
-           
+
 
             //dadosbanco.mysql = new MySqlConnection(dadosbanco.conn);
             //dadosbanco.mysql.Open();
@@ -938,7 +967,50 @@ namespace LoginDM
 
         private void atualizarSistemaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AtualizarSistema();
+            string origem = @"\\luan\\SistemaLoginDM\\";
+            string destino = @"C:\SistemaLoginDM\";
+
+            try
+            {
+
+                if (Convert.ToDouble(versaoLocal) < Convert.ToDouble(versaoServer))
+                {
+                    MessageBox.Show("Sistema desatualizado! \nVersão local: " + versaoLocal + "\nVersão servidor: " + versaoServer + "\nAperte OK para atualizar.", "Atualizar Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    CopyDir.Copy(origem, destino);
+
+                    MessageBox.Show("Sistema Atualizado com sucesso! versão atual: " + versaoServer);
+
+                    versaoLocal = versaoServer;
+
+                    Application.Restart();
+
+                }
+                else
+                {
+                    MessageBox.Show("Sistema Atualizado! \nVersão local: " + versaoLocal + "\nVersão do Servidor: " + versaoServer, "Sistema Atualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Não foi possivel atualizar o sistema, Erro: " + erro.ToString());
+            }
+
+            //AtualizarSistema();
+
+            ////var Origem = new DirectoryInfo("\\luan\\SistemaLoginDM\\");
+
+            //string origem = @"\\luan\\SistemaLoginDM\\";
+            //string destino = @"\\C:\\SistemaLoginDM\\";
+            //try
+            //{
+            //    CopyDir.Copy(origem, destino);
+            //}
+            //catch (Exception err)
+            //{
+            //    MessageBox.Show("Não foi possivel atualizar o sistema, Erro: " + err);
+            //}
+
 
         }
 
@@ -1108,7 +1180,7 @@ namespace LoginDM
         {
             FuncADM JanelaAdm = new FuncADM();
             JanelaAdm.Show();
-            
+
         }
 
         private void arquivosDeCursoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1118,13 +1190,64 @@ namespace LoginDM
 
         private void regrasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Regras regras= new Regras();
+            Regras regras = new Regras();
             regras.Show();
         }
 
         private void pictureBox3_Click_2(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("\\\\luan\\Arquivos de Curso\\");
+        }
+
+        private void pictureBox2_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click_3(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://classroom.google.com/h");
+        }
+
+        private void pbLive_Click(object sender, EventArgs e)
+        {
+            if (rbTarde.Checked)
+            {
+                System.Diagnostics.Process.Start("https://meet.jit.si/cedesp-tarde");
+            }
+            else if (rbNoite.Checked)
+            {
+                System.Diagnostics.Process.Start("https://meet.jit.si/cedesp-noite");
+            }
+            else
+            {
+                MessageBox.Show("Selecione seu periodo primeiro!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void imgPasta_Click_1(object sender, EventArgs e)
+        {
+            bool DiretorioExiste = Directory.Exists("M:/");
+
+            if (!DiretorioExiste)
+            {
+                MessageBox.Show("Entre com seu número de matricula primeiro!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if (DiretorioExiste)
+            {
+                System.Diagnostics.Process.Start("M:/" + lblNome.Text);
+            }
+        }
+
+        private void conteúdoProgramáticoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Conteudo conteudo = new Conteudo();
+            conteudo.Show();
+        }
+
+        private void sairToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
