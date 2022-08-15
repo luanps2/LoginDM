@@ -898,7 +898,7 @@ namespace LoginDM
 
         private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://www.linkedin.com/in/luan-da-costa-oliveira-esp%C3%B3sito-b57705ba/");
+            Process.Start("https://heylink.me/luanps2/");
         }
 
 
@@ -1188,8 +1188,11 @@ namespace LoginDM
 
         private void funçõesAdministrativasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FuncADM JanelaAdm = new FuncADM();
-            JanelaAdm.Show();
+           SenhaADM senha = new SenhaADM();
+            senha.Show();
+            
+            //FuncADM JanelaAdm = new FuncADM();
+            //JanelaAdm.Show();
 
         }
 
