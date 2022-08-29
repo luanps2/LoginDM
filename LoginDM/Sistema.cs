@@ -74,6 +74,8 @@ namespace LoginDM
 
         NetworkDrive Mapeamento = new NetworkDrive();
 
+      
+
         public void Conectar()
         {
 
@@ -358,13 +360,19 @@ namespace LoginDM
                 DataSet ds = new DataSet();
                 adapter.Fill(ds);
                 dgBoletim.DataSource = ds.Tables[0];
+                dgBoletim.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
 
-                //Tabela Faltas
-                dgFaltas.DataSource = null;
-                adapter = new MySqlDataAdapter("SELECT Cod, Periodo, Nome, Faltas FROM usuario WHERE Cod = " + "'" + lblUser.Text + "'", conexao);
+                //Tabela Frequencia
+                dgFrequencia.DataSource = null;
+                adapter = new MySqlDataAdapter("SELECT Cod, Periodo, Nome, Data, Presenca FROM frequencia WHERE Cod = " + "'" + lblUser.Text + "'", conexao);
                 DataSet ds2 = new DataSet();
                 adapter.Fill(ds2);
-                dgFaltas.DataSource = ds2.Tables[0];
+                dgFrequencia.DataSource = ds2.Tables[0];
+                dgFrequencia.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+
+
+
+
 
 
             }
@@ -377,7 +385,36 @@ namespace LoginDM
 
 
 
+        public void MarcarPresença()
+        {
 
+            string SelectQuery = "SELECT Cod, Periodo, Nome, Presenca FROM frequencia WHERE Presenca != NULL";
+            MySqlCommand cmd = new MySqlCommand(SelectQuery, conexao);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            dr.Read();
+            MessageBox.Show(dr.GetValue(0).ToString());
+            conexao.Close();
+
+            //Tabela Frequencia
+            //dgFrequencia.DataSource = null;
+            //adapter = new MySqlDataAdapter("SELECT Cod, Periodo, Nome, Presenca FROM frequencia WHERE Presenca != NULL", conexao);
+            //DataSet ds2 = new DataSet();
+            //adapter.Fill(ds2);
+            //dgFrequencia.DataSource = ds2.Tables[0];
+            //dgFrequencia.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+
+
+
+            //string InsertQuery = "INSERT INTO frequencia(Cod, Periodo, Nome, Data, Presenca) VALUES (@cod, @Periodo, @Nome, @Data, @Presenca)";
+            //MySqlCommand command = new MySqlCommand(InsertQuery, conexao);
+            //command.Parameters.AddWithValue("@cod", lblUser.Text);
+            //command.Parameters.AddWithValue("@Periodo", gbPeriodo.Controls.OfType<RadioButton>().SingleOrDefault(rad => rad.Checked == true).Text);
+            //command.Parameters.AddWithValue("@Nome", lblNome.Text);
+            //command.Parameters.AddWithValue("@Data", DateTime.Now.ToString("yyyy/MM/dd"));
+            //command.Parameters.AddWithValue("@Presenca", "P");
+            //command.ExecuteNonQuery();
+            //conexao.Close();
+        }
 
 
 
@@ -721,6 +758,8 @@ namespace LoginDM
             if (e.KeyCode == Keys.Enter)
             {
                 Conectar();
+                popularDataGrid();
+
             }
         }
 
@@ -817,6 +856,13 @@ namespace LoginDM
             {
                 Conectar();
                 popularDataGrid();
+                MarcarPresença();
+
+                dgBoletim.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+
+                dgFrequencia.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+
+
             }
             else
             {
@@ -883,11 +929,11 @@ namespace LoginDM
 
             if (rbTarde.Checked)
             {
-                System.Diagnostics.Process.Start("https://meet.jit.si/tarde");
+                System.Diagnostics.Process.Start("https://meet.jit.si/cedesp-tarde");
             }
             else if (rbNoite.Checked)
             {
-                System.Diagnostics.Process.Start("https://meet.jit.si/Inform%C3%A1tica");
+                System.Diagnostics.Process.Start("https://meet.jit.si/cedesp-noite");
             }
             else
             {
@@ -1106,6 +1152,7 @@ namespace LoginDM
 
                 DateTime CafeTarde = DateTime.Parse("15:30:00");
                 lblCafe.Text = (CafeTarde - HoraAtual).ToString();
+
                 DateTime SaidaTarde = DateTime.Parse("17:00:00");
                 lblSaida.Text = (SaidaTarde - HoraAtual).ToString();
 
@@ -1116,11 +1163,12 @@ namespace LoginDM
                 {
                     lblCafe.Text = "";
 
-                    if (HoraAtual == CafeTarde)
-                    {
-                        MessageBox.Show("Hora do Café! ", "Café", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
 
+                }
+
+                if (DateTime.Now == CafeTarde )
+                {
+                    MessageBox.Show("Hora do Café! ", "Café", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
                 if (SaidaTarde < HoraAtual)
@@ -1149,6 +1197,8 @@ namespace LoginDM
                 pbCafeouJantar.Image = Properties.Resources.jantar;
                 pbSaida.Image = Properties.Resources.saida;
 
+
+
                 if (JantarNoite < HoraAtual)
                 {
                     lblCafe.Text = "";
@@ -1157,6 +1207,7 @@ namespace LoginDM
                 if (HoraAtual == JantarNoite)
                 {
                     MessageBox.Show("Hora da janta! ", "Jantar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 }
 
                 if (SaidaNoite < HoraAtual)
@@ -1188,9 +1239,9 @@ namespace LoginDM
 
         private void funçõesAdministrativasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           SenhaADM senha = new SenhaADM();
+            SenhaADM senha = new SenhaADM();
             senha.Show();
-            
+
             //FuncADM JanelaAdm = new FuncADM();
             //JanelaAdm.Show();
 
@@ -1261,6 +1312,35 @@ namespace LoginDM
         private void sairToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void dgFaltas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button1_Click_4(object sender, EventArgs e)
+        {
+
+            //dgFrequencia.DataSource = null;
+            //adapter = new MySqlDataAdapter("SELECT Cod, Periodo, Nome, Presenca FROM frequencia WHERE Presenca != NULL", conexao);
+            //DataSet ds2 = new DataSet();
+            //adapter.(ds2);
+            //dgFrequencia.DataSource = ds2.Tables[0];
+            //dgFrequencia.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+
+            MessageBox.Show(adapter.ToString());
+
+        }
+
+        private void alterarServidorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSaida_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

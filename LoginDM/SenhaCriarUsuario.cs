@@ -31,7 +31,7 @@ namespace LoginDM
 
             if (txtSenha.Text == senha)
             {
-                CriarUsuario criaruser = new CriarUsuario();
+                NovoUsuario criaruser = new NovoUsuario();
                 criaruser.Show();
                 this.Close();
             }

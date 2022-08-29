@@ -194,11 +194,11 @@
             this.button4.ForeColor = System.Drawing.Color.White;
             this.button4.Image = global::LoginDM.Properties.Resources.edit;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button4.Location = new System.Drawing.Point(651, 445);
+            this.button4.Location = new System.Drawing.Point(652, 445);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(113, 45);
             this.button4.TabIndex = 2;
-            this.button4.Text = "Teste";
+            this.button4.Text = "Versão";
             this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);

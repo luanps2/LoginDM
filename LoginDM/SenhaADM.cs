@@ -24,6 +24,8 @@ namespace LoginDM
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+           
+
             if (textBox1.Text == "1674")
             {
                 FuncADM funcadm = new FuncADM();
@@ -34,6 +36,16 @@ namespace LoginDM
             {
                 MessageBox.Show("Senha Incorreta!");
                 textBox1.Focus();
+            }
+        }
+
+        private void textBox1_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                FuncADM funcadm = new FuncADM();
+                funcadm.Show();
+                this.Close();
             }
         }
     }

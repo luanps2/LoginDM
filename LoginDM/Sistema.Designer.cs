@@ -80,7 +80,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dgFaltas = new System.Windows.Forms.DataGridView();
+            this.dgFrequencia = new System.Windows.Forms.DataGridView();
             this.lblUsuario2 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblCafe = new System.Windows.Forms.Label();
@@ -105,7 +105,7 @@
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgFaltas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgFrequencia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSaida)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCafeouJantar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStatus)).BeginInit();
@@ -222,6 +222,7 @@
             this.alterarServidorToolStripMenuItem.Name = "alterarServidorToolStripMenuItem";
             this.alterarServidorToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
             this.alterarServidorToolStripMenuItem.Text = "Alterar Servidor de Arquivos";
+            this.alterarServidorToolStripMenuItem.Click += new System.EventHandler(this.alterarServidorToolStripMenuItem_Click);
             // 
             // sairToolStripMenuItem1
             // 
@@ -304,7 +305,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(422, 309);
+            this.tabPage2.Size = new System.Drawing.Size(403, 309);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Boletim";
             // 
@@ -634,29 +635,30 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(422, 309);
+            this.tabPage3.Size = new System.Drawing.Size(403, 309);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Faltas";
+            this.tabPage3.Text = "Frequência";
             this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.Control;
-            this.panel2.Controls.Add(this.dgFaltas);
+            this.panel2.Controls.Add(this.dgFrequencia);
             this.panel2.Controls.Add(this.lblUsuario2);
             this.panel2.Location = new System.Drawing.Point(6, 6);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(395, 297);
             this.panel2.TabIndex = 1;
             // 
-            // dgFaltas
+            // dgFrequencia
             // 
-            this.dgFaltas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgFaltas.Location = new System.Drawing.Point(6, 40);
-            this.dgFaltas.Name = "dgFaltas";
-            this.dgFaltas.ReadOnly = true;
-            this.dgFaltas.Size = new System.Drawing.Size(380, 254);
-            this.dgFaltas.TabIndex = 3;
+            this.dgFrequencia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgFrequencia.Location = new System.Drawing.Point(6, 40);
+            this.dgFrequencia.Name = "dgFrequencia";
+            this.dgFrequencia.ReadOnly = true;
+            this.dgFrequencia.Size = new System.Drawing.Size(380, 254);
+            this.dgFrequencia.TabIndex = 3;
+            this.dgFrequencia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgFaltas_CellContentClick);
             // 
             // lblUsuario2
             // 
@@ -676,7 +678,7 @@
             // lblCafe
             // 
             this.lblCafe.AutoSize = true;
-            this.lblCafe.Location = new System.Drawing.Point(167, 33);
+            this.lblCafe.Location = new System.Drawing.Point(187, 34);
             this.lblCafe.Name = "lblCafe";
             this.lblCafe.Size = new System.Drawing.Size(49, 13);
             this.lblCafe.TabIndex = 44;
@@ -685,15 +687,16 @@
             // lblSaida
             // 
             this.lblSaida.AutoSize = true;
-            this.lblSaida.Location = new System.Drawing.Point(250, 33);
+            this.lblSaida.Location = new System.Drawing.Point(270, 34);
             this.lblSaida.Name = "lblSaida";
             this.lblSaida.Size = new System.Drawing.Size(49, 13);
             this.lblSaida.TabIndex = 45;
             this.lblSaida.Text = "00:00:00";
+            this.lblSaida.Click += new System.EventHandler(this.lblSaida_Click);
             // 
             // pbSaida
             // 
-            this.pbSaida.Location = new System.Drawing.Point(226, 31);
+            this.pbSaida.Location = new System.Drawing.Point(246, 32);
             this.pbSaida.Name = "pbSaida";
             this.pbSaida.Size = new System.Drawing.Size(17, 17);
             this.pbSaida.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -702,7 +705,7 @@
             // 
             // pbCafeouJantar
             // 
-            this.pbCafeouJantar.Location = new System.Drawing.Point(146, 30);
+            this.pbCafeouJantar.Location = new System.Drawing.Point(166, 31);
             this.pbCafeouJantar.Name = "pbCafeouJantar";
             this.pbCafeouJantar.Size = new System.Drawing.Size(17, 17);
             this.pbCafeouJantar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -776,7 +779,7 @@
             this.tabPage3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgFaltas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgFrequencia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSaida)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCafeouJantar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStatus)).EndInit();
@@ -828,7 +831,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dgFaltas;
+        private System.Windows.Forms.DataGridView dgFrequencia;
         private System.Windows.Forms.Label lblUsuario2;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.PictureBox pbCafeouJantar;

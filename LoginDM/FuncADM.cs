@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Sistema_Dom_Macário_Lib;
-
+using System.Diagnostics;
 namespace LoginDM
 {
 
@@ -189,7 +189,7 @@ namespace LoginDM
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            Process.Start("C:\\Users\\Educador\\source\\repos\\SistemaDM\\LoginDM\\bin\\Debug\\versao.txt");
 
 
 
