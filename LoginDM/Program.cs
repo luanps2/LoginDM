@@ -16,13 +16,17 @@ namespace LoginDM
         [STAThread]
         static void Main()
         {
+            
+            
             //Pega o nome do processo deste programa
             string nomeProcesso = Process.GetCurrentProcess().ProcessName;
 
             //Busca os processos com este nome que estão em execução
             Process[] processos = Process.GetProcessesByName(nomeProcesso);
 
-            if (processos.Length > 1)
+            
+
+            if (processos.Length > 2)
             {
                 //Mostra mensagem de erro e finaliza
                 MessageBox.Show("Não é possivel abrir duas instânicas do programa. se você já clicou aguarde alguns instantes e o programa será aberto.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

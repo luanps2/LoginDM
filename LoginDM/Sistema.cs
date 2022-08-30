@@ -247,7 +247,7 @@ namespace LoginDM
                     Desconectar.UnMapDrive();
 
                     //bool ReturnValue = false;
-                    System.Diagnostics.Process p = new System.Diagnostics.Process();
+                    Process p = new Process();
                     p.StartInfo.UseShellExecute = false;
                     p.StartInfo.CreateNoWindow = true;
                     p.StartInfo.RedirectStandardError = true;
@@ -259,13 +259,21 @@ namespace LoginDM
                     p.WaitForExit();
 
                     MessageBox.Show(lblNome.Text + ", sua pasta de usuário " + lblUser.Text + " foi desconectada com sucesso! \naté a próxima aula! :)", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    lblNome.Text = "AO SISTEMA DOM MACÁRIO";
+                    btnDesconectar.Image = Properties.Resources.BT22;
+                    
+                    imgPasta.Image = Properties.Resources.offdir;
+                    Status();
                     Application.Restart();
+
                 }
                 catch (Exception)
                 {
 
                 }
             }
+
+            
 
 
         }
@@ -388,12 +396,12 @@ namespace LoginDM
         public void MarcarPresença()
         {
 
-            string SelectQuery = "SELECT Cod, Periodo, Nome, Presenca FROM frequencia WHERE Presenca != NULL";
-            MySqlCommand cmd = new MySqlCommand(SelectQuery, conexao);
-            MySqlDataReader dr = cmd.ExecuteReader();
-            dr.Read();
-            MessageBox.Show(dr.GetValue(0).ToString());
-            conexao.Close();
+            //string SelectQuery = "SELECT Cod, Periodo, Nome, Presenca FROM frequencia WHERE Presenca != NULL";
+            //MySqlCommand cmd = new MySqlCommand(SelectQuery, conexao);
+            //MySqlDataReader dr = cmd.ExecuteReader();
+            //dr.Read();
+            //MessageBox.Show(dr.GetValue(0).ToString());
+            //conexao.Close();
 
             //Tabela Frequencia
             //dgFrequencia.DataSource = null;
@@ -874,6 +882,7 @@ namespace LoginDM
         private void btnDesconectar_Click_1(object sender, EventArgs e)
         {
             Desconectar();
+            
         }
 
         private void imgPasta_Click(object sender, EventArgs e)
