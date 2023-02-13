@@ -143,6 +143,20 @@ namespace LoginDM
                                     {
                                         string dialogNome = Interaction.InputBox("Digite seu nome completo: ", "Nome", "Nome completo");
                                         DirectoryInfo di = Directory.CreateDirectory(dir + "\\" + dialogNome.ToString());
+
+                                        //string[] cursos;
+                                        
+
+                                        //foreach (var curso in cursos)
+                                        //{
+
+                                        //}
+
+                                        DirectoryInfo Word = Directory.CreateDirectory(dir + "\\" + dialogNome.ToString() + "\\" + "1 - Word");
+                                        DirectoryInfo Excel = Directory.CreateDirectory(dir + "\\" + dialogNome.ToString() + "\\" + "2 - Excel");
+                                        DirectoryInfo PowerPoint = Directory.CreateDirectory(dir + "\\" + dialogNome.ToString() + "\\" + "3 - PowerPoint");
+
+
                                         string InsertQuery = "INSERT INTO usuario(Cod, Periodo, Nome) VALUES (@cod, @Periodo, @Nome)";
                                         conexao.Open();
                                         MySqlCommand command = new MySqlCommand(InsertQuery, conexao);
@@ -274,6 +288,59 @@ namespace LoginDM
             }
 
             
+
+
+        }
+
+        public void Desconectar2()
+        {
+            DriveInfo driverinfo = new DriveInfo("M");
+            bool MapExiste = driverinfo.IsReady;
+
+            if (!MapExiste)
+            {
+                MessageBox.Show("Não há nenhum usuário conectado!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            else
+            {
+                NetworkDrive Desconectar = new NetworkDrive();
+                try
+                {
+                    Desconectar.Force = true;
+                    Desconectar.LocalDrive = "M:";
+                    Desconectar.UnMapDrive();
+
+                    //bool ReturnValue = false;
+                    Process p = new Process();
+                    p.StartInfo.UseShellExecute = false;
+                    p.StartInfo.CreateNoWindow = true;
+                    p.StartInfo.RedirectStandardError = true;
+                    p.StartInfo.RedirectStandardOutput = true;
+
+                    p.StartInfo.FileName = "net.exe";
+                    p.StartInfo.Arguments = "use * /DELETE /y";
+                    p.Start();
+                    p.WaitForExit();
+
+                    MessageBox.Show(lblNome.Text + ", sua pasta de usuário " + lblUser.Text + " foi desconectada com sucesso! \naté a próxima aula! :)", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    lblNome.Text = "AO SISTEMA DOM MACÁRIO";
+                    btnDesconectar.Image = Properties.Resources.BT22;
+
+                    imgPasta.Image = Properties.Resources.offdir;
+                    Status();
+                    txtUsuario.Text = "";
+                    txtSenha.Text = "";
+                   
+
+                }
+                catch (Exception)
+                {
+
+                }
+            }
+
+
 
 
         }
@@ -902,7 +969,8 @@ namespace LoginDM
 
         private void reiniciarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Restart();
+            Desconectar2();
+
         }
 
         private void button2_Click(object sender, EventArgs e)
