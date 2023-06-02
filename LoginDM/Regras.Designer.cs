@@ -57,10 +57,11 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(178, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(479, 20);
+            this.label1.Size = new System.Drawing.Size(488, 20);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Regras da Fundação Lar de São bento - Casa Do  Macário";
+            this.label1.Text = "Regras da Fundação Lar de São bento - Casa Dom Macário";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // pictureBox12
             // 

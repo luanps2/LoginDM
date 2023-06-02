@@ -203,6 +203,26 @@ namespace LoginDM.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap calendario {
+            get {
+                object obj = ResourceManager.GetObject("calendario", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ChatGPT_logo_svg {
+            get {
+                object obj = ResourceManager.GetObject("ChatGPT_logo.svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap check_icone_scaled {
             get {
                 object obj = ResourceManager.GetObject("check-icone-scaled", resourceCulture);
@@ -363,6 +383,16 @@ namespace LoginDM.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap evento_de_formatura {
+            get {
+                object obj = ResourceManager.GetObject("evento-de-formatura", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap excel {
             get {
                 object obj = ResourceManager.GetObject("excel", resourceCulture);
@@ -433,6 +463,16 @@ namespace LoginDM.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap formato_de_arquivo_log {
+            get {
+                object obj = ResourceManager.GetObject("formato-de-arquivo-log", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap google_37 {
             get {
                 object obj = ResourceManager.GetObject("google-37", resourceCulture);
@@ -466,6 +506,16 @@ namespace LoginDM.Properties {
         internal static System.Drawing.Bitmap ibmpc {
             get {
                 object obj = ResourceManager.GetObject("ibmpc", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ideia {
+            get {
+                object obj = ResourceManager.GetObject("ideia", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

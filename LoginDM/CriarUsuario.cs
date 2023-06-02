@@ -13,7 +13,7 @@ namespace LoginDM
 {
     public partial class CriarUsuario : Form
     {
-        string server = "luanpc";
+        string server = "server";
         string periodo = "";
     
 

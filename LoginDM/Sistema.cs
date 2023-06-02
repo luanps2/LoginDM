@@ -59,9 +59,9 @@ namespace LoginDM
         //string database = "boletim";
 
 
-        String server = "luan"; //Dom Macário
-                                //String server = "luanpc"; //Casa
-                                //String diretorio = "";
+        String server = "server"; //Dom Macário
+                                  //String server = "luanpc"; //Casa
+                                  //String diretorio = "";
 
         DadosBanco dadosbanco = new DadosBanco();
 
@@ -74,7 +74,7 @@ namespace LoginDM
 
         NetworkDrive Mapeamento = new NetworkDrive();
 
-      
+
 
         public void Conectar()
         {
@@ -145,7 +145,7 @@ namespace LoginDM
                                         DirectoryInfo di = Directory.CreateDirectory(dir + "\\" + dialogNome.ToString());
 
                                         //string[] cursos;
-                                        
+
 
                                         //foreach (var curso in cursos)
                                         //{
@@ -275,7 +275,7 @@ namespace LoginDM
                     MessageBox.Show(lblNome.Text + ", sua pasta de usuário " + lblUser.Text + " foi desconectada com sucesso! \naté a próxima aula! :)", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     lblNome.Text = "AO SISTEMA DOM MACÁRIO";
                     btnDesconectar.Image = Properties.Resources.BT22;
-                    
+
                     imgPasta.Image = Properties.Resources.offdir;
                     Status();
                     Application.Restart();
@@ -287,7 +287,7 @@ namespace LoginDM
                 }
             }
 
-            
+
 
 
         }
@@ -331,7 +331,7 @@ namespace LoginDM
                     Status();
                     txtUsuario.Text = "";
                     txtSenha.Text = "";
-                   
+
 
                 }
                 catch (Exception)
@@ -729,7 +729,17 @@ namespace LoginDM
             Status();
 
 
+            if (Convert.ToDecimal(versaoLocal.ToString()) < Convert.ToDecimal(versaoServer.ToString()))
+            {
+                atualizarSistemaToolStripMenuItem.ForeColor = Color.Green;
 
+                string versaoMenu = "( " + versaoLocal.ToString() + " > " + versaoServer.ToString() + " )";
+
+                atualizarSistemaToolStripMenuItem.Font = new Font(atualizarSistemaToolStripMenuItem.Font, FontStyle.Bold);
+
+                atualizarSistemaToolStripMenuItem.Text += versaoMenu;
+
+            }
 
         }
 
@@ -949,7 +959,7 @@ namespace LoginDM
         private void btnDesconectar_Click_1(object sender, EventArgs e)
         {
             Desconectar();
-            
+
         }
 
         private void imgPasta_Click(object sender, EventArgs e)
@@ -1243,7 +1253,7 @@ namespace LoginDM
 
                 }
 
-                if (DateTime.Now == CafeTarde )
+                if (DateTime.Now == CafeTarde)
                 {
                     MessageBox.Show("Hora do Café! ", "Café", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
@@ -1326,7 +1336,7 @@ namespace LoginDM
 
         private void arquivosDeCursoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("\\\\luan\\Arquivos de Curso\\");
+            Process.Start("\\\\server\\Arquivos de Curso\\");
         }
 
         private void regrasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1337,7 +1347,7 @@ namespace LoginDM
 
         private void pictureBox3_Click_2(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("\\\\luan\\Arquivos de Curso\\");
+            Process.Start("\\\\server\\Arquivos de Curso\\");
         }
 
         private void pictureBox2_Click_2(object sender, EventArgs e)
@@ -1418,6 +1428,30 @@ namespace LoginDM
         private void lblSaida_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void façaUmaPerguntaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PerguntaChatGPT GPT = new PerguntaChatGPT();
+            GPT.Show();
+        }
+
+        public int FinalCurso()
+        {
+            DateTime diasrestantes = new DateTime(DateTime.Today.Year, 12, 30);
+            return (int)diasrestantes.Subtract(DateTime.Today).TotalDays;
+        }
+
+        private void diasDeCursoRestantesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DiasRestantes dias = new DiasRestantes();
+            dias.Show();
+        }
+
+        private void diasRestantesParaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DiasTCC tcc = new DiasTCC();
+            tcc.Show();
         }
     }
 }

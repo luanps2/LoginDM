@@ -121,6 +121,12 @@
   <data name="online2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\online2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="indesign" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\indesign.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="word" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\word.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -166,9 +172,6 @@
   <data name="powerpoint" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\powerpoint.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="restart" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\restart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="refresh-button" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\refresh-button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -177,9 +180,6 @@
   </data>
   <data name="checklist-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\checklist-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="desconectar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\desconectar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logo dommacario borda" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo dommacario borda.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -202,14 +202,11 @@
   <data name="folder2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\folder2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btCriar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btCriar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="folder1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\folder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BtnAlterarSenha" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BtnAlterarSenha.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="google-classroom-logo-2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\google-classroom-logo-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="fileserver1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fileserver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -220,6 +217,9 @@
   <data name="BACK" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BACK.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="calendario" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\calendario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="dir" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -228,6 +228,9 @@
   </data>
   <data name="live1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\live1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="abra-o-livro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\abra-o-livro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="sistemas-operacionais" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sistemas-operacionais.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -238,8 +241,14 @@
   <data name="saida" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\saida.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="user" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="hardware" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hardware.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ideia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ideia.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="diskette" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\diskette.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -262,6 +271,9 @@
   <data name="logo dommacario borda1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo dommacario borda.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="shutdown-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\shutdown-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="create" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\create.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -280,8 +292,8 @@
   <data name="live1off" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\live1off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="consultar1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\consultar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="png-internet-internet-icon-1600" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\png-internet-internet-icon-1600.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="offdir" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\offdir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -292,20 +304,23 @@
   <data name="informatica" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\informatica.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="google-classroom-logo-2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\google-classroom-logo-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ChatGPT_logo.svg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ChatGPT_logo.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btCriar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btCriar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="conectar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\conectar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="word" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\word.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="desconectar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\desconectar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="tecnico" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\tecnico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="evento-de-formatura" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\evento-de-formatura.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="indesign" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\indesign.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="restart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\restart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pngwing.com" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pngwing.com.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -316,14 +331,14 @@
   <data name="dirArquivosCurso" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dirArquivosCurso.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="user" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="tecnico" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tecnico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="abra-o-livro" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\abra-o-livro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="png-internet-internet-icon-1600" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\png-internet-internet-icon-1600.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BtnAlterarSenha" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BtnAlterarSenha.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="search" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -331,10 +346,10 @@
   <data name="consultar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\consultar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="consultar1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\consultar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="shutdown-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\shutdown-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="formato-de-arquivo-log" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\formato-de-arquivo-log.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
