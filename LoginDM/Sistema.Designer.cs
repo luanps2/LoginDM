@@ -77,6 +77,7 @@
             this.pbStatus = new System.Windows.Forms.PictureBox();
             this.pbPeriodo = new System.Windows.Forms.PictureBox();
             this.arquivosDeCursoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.impressãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.criarUsuárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.conectarManualmenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -88,11 +89,11 @@
             this.sairToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.regrasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.conteúdoProgramáticoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sobreToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.façaUmaPerguntaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.diasRestantesParaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.diasDeCursoRestantesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logsDeAtualizaçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sobreToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -140,6 +141,7 @@
             // 
             this.funçõesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.arquivosDeCursoToolStripMenuItem,
+            this.impressãoToolStripMenuItem,
             this.criarUsuárioToolStripMenuItem,
             this.conectarManualmenteToolStripMenuItem,
             this.sairToolStripMenuItem,
@@ -159,10 +161,10 @@
             this.sobreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.regrasToolStripMenuItem,
             this.conteúdoProgramáticoToolStripMenuItem,
-            this.façaUmaPerguntaToolStripMenuItem,
             this.diasRestantesParaToolStripMenuItem,
             this.diasDeCursoRestantesToolStripMenuItem,
             this.logsDeAtualizaçõesToolStripMenuItem,
+            this.façaUmaPerguntaToolStripMenuItem,
             this.sobreToolStripMenuItem1});
             this.sobreToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
@@ -184,7 +186,7 @@
             // 
             this.lblUser.AutoSize = true;
             this.lblUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.Location = new System.Drawing.Point(372, 30);
+            this.lblUser.Location = new System.Drawing.Point(372, 31);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(39, 16);
             this.lblUser.TabIndex = 31;
@@ -194,7 +196,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(320, 30);
+            this.label7.Location = new System.Drawing.Point(320, 31);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(57, 16);
             this.label7.TabIndex = 32;
@@ -613,6 +615,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
             // pbStatus
             // 
@@ -641,6 +644,14 @@
             this.arquivosDeCursoToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
             this.arquivosDeCursoToolStripMenuItem.Text = "Arquivos de Curso";
             this.arquivosDeCursoToolStripMenuItem.Click += new System.EventHandler(this.arquivosDeCursoToolStripMenuItem_Click);
+            // 
+            // impressãoToolStripMenuItem
+            // 
+            this.impressãoToolStripMenuItem.Image = global::LoginDM.Properties.Resources.impressora;
+            this.impressãoToolStripMenuItem.Name = "impressãoToolStripMenuItem";
+            this.impressãoToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
+            this.impressãoToolStripMenuItem.Text = "Impressão";
+            this.impressãoToolStripMenuItem.Click += new System.EventHandler(this.impressãoToolStripMenuItem_Click);
             // 
             // criarUsuárioToolStripMenuItem
             // 
@@ -732,16 +743,9 @@
             this.conteúdoProgramáticoToolStripMenuItem.Text = "Conteúdo Programático";
             this.conteúdoProgramáticoToolStripMenuItem.Click += new System.EventHandler(this.conteúdoProgramáticoToolStripMenuItem_Click);
             // 
-            // sobreToolStripMenuItem1
-            // 
-            this.sobreToolStripMenuItem1.Image = global::LoginDM.Properties.Resources.info;
-            this.sobreToolStripMenuItem1.Name = "sobreToolStripMenuItem1";
-            this.sobreToolStripMenuItem1.Size = new System.Drawing.Size(227, 22);
-            this.sobreToolStripMenuItem1.Text = "Sobre";
-            this.sobreToolStripMenuItem1.Click += new System.EventHandler(this.sobreToolStripMenuItem1_Click);
-            // 
             // façaUmaPerguntaToolStripMenuItem
             // 
+            this.façaUmaPerguntaToolStripMenuItem.Enabled = false;
             this.façaUmaPerguntaToolStripMenuItem.Image = global::LoginDM.Properties.Resources.ideia;
             this.façaUmaPerguntaToolStripMenuItem.Name = "façaUmaPerguntaToolStripMenuItem";
             this.façaUmaPerguntaToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
@@ -770,6 +774,15 @@
             this.logsDeAtualizaçõesToolStripMenuItem.Name = "logsDeAtualizaçõesToolStripMenuItem";
             this.logsDeAtualizaçõesToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.logsDeAtualizaçõesToolStripMenuItem.Text = "Logs de atualizações";
+            this.logsDeAtualizaçõesToolStripMenuItem.Click += new System.EventHandler(this.logsDeAtualizaçõesToolStripMenuItem_Click);
+            // 
+            // sobreToolStripMenuItem1
+            // 
+            this.sobreToolStripMenuItem1.Image = global::LoginDM.Properties.Resources.info;
+            this.sobreToolStripMenuItem1.Name = "sobreToolStripMenuItem1";
+            this.sobreToolStripMenuItem1.Size = new System.Drawing.Size(227, 22);
+            this.sobreToolStripMenuItem1.Text = "Sobre";
+            this.sobreToolStripMenuItem1.Click += new System.EventHandler(this.sobreToolStripMenuItem1_Click);
             // 
             // SistemaDoma
             // 
@@ -892,6 +905,7 @@
         private System.Windows.Forms.ToolStripMenuItem diasDeCursoRestantesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem diasRestantesParaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logsDeAtualizaçõesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem impressãoToolStripMenuItem;
     }
 }
 

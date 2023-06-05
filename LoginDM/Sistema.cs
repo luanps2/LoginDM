@@ -1275,9 +1275,11 @@ namespace LoginDM
                 DateTime HoraAtual = Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss"));
                 //DateTime café = new TimeSpan(15, 30, 0);
 
+                //DateTime JantarNoite = DateTime.Parse("20:00:00");
                 DateTime JantarNoite = DateTime.Parse("20:00:00");
                 lblCafe.Text = (JantarNoite - HoraAtual).ToString();
 
+                //DateTime SaidaNoite = DateTime.Parse("21:50:00");
                 DateTime SaidaNoite = DateTime.Parse("21:50:00");
                 lblSaida.Text = (SaidaNoite - HoraAtual).ToString();
 
@@ -1452,6 +1454,21 @@ namespace LoginDM
         {
             DiasTCC tcc = new DiasTCC();
             tcc.Show();
+        }
+
+        private void impressãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("\\\\server\\Seagate\\Impressão\\");
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void logsDeAtualizaçõesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/luanps2/LoginDM/commits/master");
         }
     }
 }

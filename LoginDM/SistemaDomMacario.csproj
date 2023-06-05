@@ -421,6 +421,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo-dommacario-borda.ico" />
+    <None Include="Resources\impressora.png" />
     <None Include="Resources\formato-de-arquivo-log.png" />
     <None Include="Resources\evento-de-formatura.png" />
     <None Include="Resources\calendario.png" />
