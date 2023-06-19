@@ -18,6 +18,7 @@ using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 using System.Configuration;
 using System.Diagnostics;
+using Microsoft.VisualBasic.FileIO;
 
 
 namespace LoginDM
@@ -290,6 +291,11 @@ namespace LoginDM
 
 
 
+        }
+
+        public void Reiniciar()
+        {
+            Application.Restart();
         }
 
         public void Desconectar2()
@@ -979,7 +985,8 @@ namespace LoginDM
 
         private void reiniciarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Desconectar2();
+            //Desconectar2();
+            Reiniciar();
 
         }
 
@@ -1168,8 +1175,6 @@ namespace LoginDM
             AlterarBanco alterarbanco = new AlterarBanco();
 
             alterarbanco.db = new DadosBanco();
-
-
 
             alterarbanco.db.Server = "localhost";
             alterarbanco.db.User = "root2";
@@ -1388,7 +1393,7 @@ namespace LoginDM
             }
             else if (DiretorioExiste)
             {
-                System.Diagnostics.Process.Start("M:/" + lblNome.Text);
+                Process.Start("M:/" + lblNome.Text);
             }
         }
 
@@ -1463,7 +1468,7 @@ namespace LoginDM
 
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
-
+            Process.Start("https://www.casadommacario.org.br/");
         }
 
         private void logsDeAtualizaçõesToolStripMenuItem_Click(object sender, EventArgs e)
