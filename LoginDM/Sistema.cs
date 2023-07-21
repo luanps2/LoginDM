@@ -628,6 +628,7 @@ namespace LoginDM
             //panel3.AutoScroll = true;
 
 
+
             conexao = new MySqlConnection("server=" + dadosbanco.Server +
                " ;user id=" + dadosbanco.User + ";" +
                " password= '" + dadosbanco.Password +
@@ -1463,7 +1464,28 @@ namespace LoginDM
 
         private void impressãoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start("\\\\server\\Seagate\\Impressão\\");
+            DriveInfo driverinfo = new DriveInfo("Z");
+            bool MapImpressao = driverinfo.IsReady;
+
+            if (!MapImpressao)
+            {
+                Mapeamento.Force = true;
+                Mapeamento.Persistent = true;
+                Mapeamento.LocalDrive = "Z:";
+                String dir = "\\\\server\\Seagate\\Impressão";
+                Mapeamento.ShareName = dir;
+                Process.Start("\\\\server\\Seagate\\Impressão\\");
+                Mapeamento.MapDrive();
+                MessageBox.Show("Salve o arquivo a ser impresso na pasta Impressão!");
+
+            }
+            else
+            {
+                Mapeamento.Force = false;
+            }
+
+
+
         }
 
         private void pictureBox1_Click_1(object sender, EventArgs e)
@@ -1475,5 +1497,61 @@ namespace LoginDM
         {
             Process.Start("https://github.com/luanps2/LoginDM/commits/master");
         }
+
+        public class SendPeriodo
+        {
+
+            private String homepagelink = "abc.com.br";
+
+            public void setHomepage(String homepage)
+            { this.homepagelink = homepage; }
+
+            public String getHomepage()
+
+            { return this.homepagelink; }
+        }
+
+        private void backupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            //if (rbTarde.Checked || rbNoite.Checked)
+            //{
+            //    String periodo = "";
+            //    periodo = rbTarde.Checked ? "Tarde" : "Noite";
+
+            //    foreach (Control c in gbPeriodo.Controls)
+            //    {
+            //        if (c.GetType() == typeof(RadioButton))
+            //        {
+            //            RadioButton rb = c as RadioButton;
+            //            if (rb.Checked)
+            //            {
+            Backup backup = new Backup();
+            backup.Show();
+
+
+
+            //        }
+            //    }
+            //}
+        }
+
+        private void gbPeriodo_Enter_1(object sender, EventArgs e)
+        {
+
+        }
+
+
+        //else
+        //{
+        //    MessageBox.Show("Selecione o periodo que deseja fazer o backup");
+        //}
+
+        //Captura numero do mes atual
+        //string verificasemestre = DateTime.Now.Month.ToString();
+
+
+
+        //}
     }
 }
