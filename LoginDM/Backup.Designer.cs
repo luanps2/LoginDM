@@ -43,8 +43,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.txtProgresso = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbLogs = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnAbrirOrigem = new System.Windows.Forms.Button();
+            this.btnAbrirDestino = new System.Windows.Forms.Button();
             this.gpPeriodo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,7 +65,7 @@
             this.lbxOrigem.FormattingEnabled = true;
             this.lbxOrigem.Location = new System.Drawing.Point(167, 27);
             this.lbxOrigem.Name = "lbxOrigem";
-            this.lbxOrigem.Size = new System.Drawing.Size(243, 238);
+            this.lbxOrigem.Size = new System.Drawing.Size(243, 212);
             this.lbxOrigem.TabIndex = 1;
             // 
             // lbxDestino
@@ -71,7 +73,7 @@
             this.lbxDestino.FormattingEnabled = true;
             this.lbxDestino.Location = new System.Drawing.Point(416, 27);
             this.lbxDestino.Name = "lbxDestino";
-            this.lbxDestino.Size = new System.Drawing.Size(243, 238);
+            this.lbxDestino.Size = new System.Drawing.Size(368, 212);
             this.lbxDestino.TabIndex = 1;
             // 
             // btnBackup
@@ -178,7 +180,7 @@
             // 
             this.progressBar1.Location = new System.Drawing.Point(167, 281);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(492, 23);
+            this.progressBar1.Size = new System.Drawing.Size(617, 23);
             this.progressBar1.TabIndex = 7;
             // 
             // txtProgresso
@@ -190,29 +192,51 @@
             this.txtProgresso.TabIndex = 5;
             this.txtProgresso.Text = "Status";
             // 
-            // textBox1
+            // tbLogs
             // 
-            this.textBox1.Location = new System.Drawing.Point(16, 242);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(130, 79);
-            this.textBox1.TabIndex = 8;
+            this.tbLogs.Location = new System.Drawing.Point(16, 330);
+            this.tbLogs.Multiline = true;
+            this.tbLogs.Name = "tbLogs";
+            this.tbLogs.Size = new System.Drawing.Size(768, 66);
+            this.tbLogs.TabIndex = 8;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(19, 226);
+            this.label5.Location = new System.Drawing.Point(16, 314);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(30, 13);
             this.label5.TabIndex = 5;
             this.label5.Text = "Logs";
             // 
+            // btnAbrirOrigem
+            // 
+            this.btnAbrirOrigem.Location = new System.Drawing.Point(242, 245);
+            this.btnAbrirOrigem.Name = "btnAbrirOrigem";
+            this.btnAbrirOrigem.Size = new System.Drawing.Size(86, 31);
+            this.btnAbrirOrigem.TabIndex = 10;
+            this.btnAbrirOrigem.Text = "Abrir Origem";
+            this.btnAbrirOrigem.UseVisualStyleBackColor = true;
+            this.btnAbrirOrigem.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // btnAbrirDestino
+            // 
+            this.btnAbrirDestino.Location = new System.Drawing.Point(566, 244);
+            this.btnAbrirDestino.Name = "btnAbrirDestino";
+            this.btnAbrirDestino.Size = new System.Drawing.Size(82, 31);
+            this.btnAbrirDestino.TabIndex = 10;
+            this.btnAbrirDestino.Text = "Abrir Destino";
+            this.btnAbrirDestino.UseVisualStyleBackColor = true;
+            this.btnAbrirDestino.Click += new System.EventHandler(this.btnAbrirDestino_Click);
+            // 
             // Backup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(691, 333);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(815, 408);
+            this.Controls.Add(this.btnAbrirDestino);
+            this.Controls.Add(this.btnAbrirOrigem);
+            this.Controls.Add(this.tbLogs);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.dpAno);
             this.Controls.Add(this.label4);
@@ -254,7 +278,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label txtProgresso;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbLogs;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnAbrirOrigem;
+        private System.Windows.Forms.Button btnAbrirDestino;
     }
 }

@@ -40,8 +40,8 @@
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reiniciarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.atualizarSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.backupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.funçõesAdministrativasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alterarBancoDeDadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alterarServidorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -148,8 +148,8 @@
             this.sairToolStripMenuItem,
             this.reiniciarToolStripMenuItem,
             this.atualizarSistemaToolStripMenuItem,
-            this.backupToolStripMenuItem,
             this.funçõesAdministrativasToolStripMenuItem,
+            this.backupToolStripMenuItem,
             this.alterarBancoDeDadosToolStripMenuItem,
             this.alterarServidorToolStripMenuItem,
             this.sairToolStripMenuItem1});
@@ -214,14 +214,6 @@
             this.atualizarSistemaToolStripMenuItem.Text = "Atualizar Sistema";
             this.atualizarSistemaToolStripMenuItem.Click += new System.EventHandler(this.atualizarSistemaToolStripMenuItem_Click);
             // 
-            // backupToolStripMenuItem
-            // 
-            this.backupToolStripMenuItem.Image = global::LoginDM.Properties.Resources.backup;
-            this.backupToolStripMenuItem.Name = "backupToolStripMenuItem";
-            this.backupToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
-            this.backupToolStripMenuItem.Text = "Backup";
-            this.backupToolStripMenuItem.Click += new System.EventHandler(this.backupToolStripMenuItem_Click);
-            // 
             // funçõesAdministrativasToolStripMenuItem
             // 
             this.funçõesAdministrativasToolStripMenuItem.Image = global::LoginDM.Properties.Resources.adm;
@@ -229,6 +221,14 @@
             this.funçõesAdministrativasToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
             this.funçõesAdministrativasToolStripMenuItem.Text = "Funções Administrativas";
             this.funçõesAdministrativasToolStripMenuItem.Click += new System.EventHandler(this.funçõesAdministrativasToolStripMenuItem_Click);
+            // 
+            // backupToolStripMenuItem
+            // 
+            this.backupToolStripMenuItem.Image = global::LoginDM.Properties.Resources.backup;
+            this.backupToolStripMenuItem.Name = "backupToolStripMenuItem";
+            this.backupToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
+            this.backupToolStripMenuItem.Text = "Backup";
+            this.backupToolStripMenuItem.Click += new System.EventHandler(this.backupToolStripMenuItem_Click);
             // 
             // alterarBancoDeDadosToolStripMenuItem
             // 
