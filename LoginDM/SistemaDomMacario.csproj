@@ -436,6 +436,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo-dommacario-borda.ico" />
+    <None Include="Resources\sincronizar %281%29.png" />
+    <None Include="Resources\sincronizar.png" />
     <None Include="Resources\pasta.png" />
     <None Include="Resources\limpar-limpo.png" />
     <None Include="Resources\copia-de-dados.png" />

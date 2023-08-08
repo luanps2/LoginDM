@@ -25,6 +25,8 @@ namespace LoginDM
 {
     public partial class SistemaDoma : Form
     {
+        private ToolTip toolTip;
+
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         private static extern Int32 SystemParametersInfo(
             UInt32 action, UInt32 uParam, String vParam, UInt32 winIni);
@@ -228,7 +230,7 @@ namespace LoginDM
 
                             tabPage2.Enabled = true;
                             tabPage3.Enabled = true;
-
+                            pbBackupAluno.Visible = true;
                         }
                     }
                     catch (Exception erro)
@@ -418,6 +420,8 @@ namespace LoginDM
 
         public SistemaDoma()
         {
+            toolTip = new ToolTip();
+
             InitializeComponent();
             if (rbTarde.Checked == false && rbNoite.Checked == false)
             {
@@ -627,13 +631,13 @@ namespace LoginDM
         {
             //panel3.AutoScroll = true;
 
-
+            pbBackupAluno.Visible = false;
 
             conexao = new MySqlConnection("server=" + dadosbanco.Server +
-               " ;user id=" + dadosbanco.User + ";" +
-               " password= '" + dadosbanco.Password +
-               "'; database=" + dadosbanco.DataBase +
-               " ;SSL Mode = None");
+              " ;user id=" + dadosbanco.User + ";" +
+              " password= '" + dadosbanco.Password +
+              "'; database=" + dadosbanco.DataBase +
+              " ;SSL Mode = None");
 
             //lblSinal.Text = DateTime.Now.ToString(); //Pega hora atual do sistema
 
@@ -947,12 +951,16 @@ namespace LoginDM
             if (txtUsuario.Text == txtSenha.Text)
             {
                 Conectar();
+
                 popularDataGrid();
                 MarcarPresença();
+
+
 
                 dgBoletim.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
 
                 dgFrequencia.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+
 
 
             }
@@ -1002,6 +1010,9 @@ namespace LoginDM
             {
                 pbPeriodo.Image = Properties.Resources.tarde;
                 pbLive.Image = Properties.Resources.live1;
+
+
+                toolTip.SetToolTip(pbPeriodo, "Café");
             }
         }
 
@@ -1011,6 +1022,10 @@ namespace LoginDM
             {
                 pbPeriodo.Image = Properties.Resources.noite;
                 pbLive.Image = Properties.Resources.live1;
+
+
+
+                toolTip.SetToolTip(pbPeriodo, "Jantar");
             }
         }
 
@@ -1541,17 +1556,89 @@ namespace LoginDM
 
         }
 
+        private void pictureBox3_MouseHover(object sender, EventArgs e)
+        {
 
-        //else
-        //{
-        //    MessageBox.Show("Selecione o periodo que deseja fazer o backup");
-        //}
+        }
 
-        //Captura numero do mes atual
-        //string verificasemestre = DateTime.Now.Month.ToString();
+        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
+
+        private void pictureBox3_Click_3(object sender, EventArgs e)
+        {
+
+            string periodo = rbTarde.Checked ? "Tarde" : "Noite";
+            string ano = DateTime.Now.Year.ToString();
+            int mes = DateTime.Now.Month;
+            string semestre = mes < 6 ? "1º Semestre" : "2º Semestre";
+
+            string usuario = lblUser.Text;
+            string origem = $@"\\server\{periodo}\{usuario}";
+            string destino = $@"\\server\Seagate\Backups2\{ano}\{semestre}\{periodo}\{usuario}";
+
+            BackupAluno(origem, destino);
+            MessageBox.Show("Backup do seu diretório " + usuario + " efetuado com sucesso para: \n" + destino);
 
 
+        }
 
-        //}
+        static void BackupAluno(string origem, string destino)
+        {
+
+
+            // Se o diretório de destino não existe, cria-o
+            if (!Directory.Exists(destino))
+            {
+                Directory.CreateDirectory(destino);
+            }
+
+            // Copia os arquivos do diretório
+            foreach (string sourceFile in Directory.GetFiles(origem))
+            {
+                try
+                {
+                    string fileName = Path.GetFileName(sourceFile);
+                    string targetPath = Path.Combine(destino, fileName);
+                    File.Copy(sourceFile, targetPath, true);
+
+                }
+                catch (UnauthorizedAccessException e)
+                {
+                    MessageBox.Show("Erro: " + e.Message); ;// Ignora a exceção de acesso não autorizado e continua
+                }
+            }
+
+            // Copia os subdiretórios
+            foreach (string subDir in Directory.GetDirectories(origem))
+            {
+                try
+                {
+                    string subDirName = new DirectoryInfo(subDir).Name;
+                    string targetSubDir = Path.Combine(destino, subDirName);
+                    BackupAluno(subDir, targetSubDir);
+
+
+                }
+                catch (UnauthorizedAccessException)
+                {
+                    // Ignora a exceção de acesso não autorizado e continua
+                }
+            }
+        }
+
+        private void button1_Click_5(object sender, EventArgs e)
+        {
+            string periodo = rbTarde.Checked ? "Tarde" : (rbNoite.Checked ? "Noite" : "Tarde");
+            string ano = DateTime.Now.Year.ToString();
+            int mes = DateTime.Now.Month;
+            string semestre = mes < 6 ? "1º Semestre" : "2º Semestre";
+
+            string origem = @"\\server\" + periodo + "\\" + lblUser.Text;
+            string destino = @"\\server\Seagate\Backups2\" + ano + "\\" + semestre + "\\" + periodo + "\\" + lblUser.Text;
+
+            MessageBox.Show("origem: " + origem + "\n" + "destino:" + destino);
+        }
     }
 }

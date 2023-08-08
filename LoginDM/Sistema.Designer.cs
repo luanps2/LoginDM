@@ -66,8 +66,10 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblCafe = new System.Windows.Forms.Label();
             this.lblSaida = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.pbSaida = new System.Windows.Forms.PictureBox();
             this.pbCafeouJantar = new System.Windows.Forms.PictureBox();
+            this.pbBackupAluno = new System.Windows.Forms.PictureBox();
             this.btnDesconectar = new System.Windows.Forms.PictureBox();
             this.btnLogin = new System.Windows.Forms.PictureBox();
             this.imgPasta = new System.Windows.Forms.PictureBox();
@@ -88,6 +90,7 @@
             this.alterarBancoDeDadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alterarServidorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.restaurarBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.regrasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.conteúdoProgramáticoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.diasRestantesParaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -108,6 +111,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgFrequencia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSaida)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCafeouJantar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBackupAluno)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDesconectar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLogin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgPasta)).BeginInit();
@@ -150,6 +154,7 @@
             this.atualizarSistemaToolStripMenuItem,
             this.funçõesAdministrativasToolStripMenuItem,
             this.backupToolStripMenuItem,
+            this.restaurarBackupToolStripMenuItem,
             this.alterarBancoDeDadosToolStripMenuItem,
             this.alterarServidorToolStripMenuItem,
             this.sairToolStripMenuItem1});
@@ -248,6 +253,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.Controls.Add(this.pbBackupAluno);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.linkLabel1);
             this.tabPage1.Controls.Add(this.lblVersao);
@@ -358,6 +364,7 @@
             // 
             // gbSistemas
             // 
+            this.gbSistemas.BackColor = System.Drawing.Color.Transparent;
             this.gbSistemas.Controls.Add(this.label4);
             this.gbSistemas.Controls.Add(this.label3);
             this.gbSistemas.Controls.Add(this.label2);
@@ -530,6 +537,10 @@
             this.lblSaida.Text = "00:00:00";
             this.lblSaida.Click += new System.EventHandler(this.lblSaida_Click);
             // 
+            // toolTip1
+            // 
+            this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
+            // 
             // pbSaida
             // 
             this.pbSaida.Location = new System.Drawing.Point(246, 32);
@@ -538,6 +549,7 @@
             this.pbSaida.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbSaida.TabIndex = 46;
             this.pbSaida.TabStop = false;
+            this.toolTip1.SetToolTip(this.pbSaida, "Saída");
             // 
             // pbCafeouJantar
             // 
@@ -547,6 +559,21 @@
             this.pbCafeouJantar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbCafeouJantar.TabIndex = 47;
             this.pbCafeouJantar.TabStop = false;
+            // 
+            // pbBackupAluno
+            // 
+            this.pbBackupAluno.BackColor = System.Drawing.Color.Transparent;
+            this.pbBackupAluno.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbBackupAluno.Image = global::LoginDM.Properties.Resources.sincronizar__1_;
+            this.pbBackupAluno.Location = new System.Drawing.Point(365, 9);
+            this.pbBackupAluno.Name = "pbBackupAluno";
+            this.pbBackupAluno.Size = new System.Drawing.Size(25, 25);
+            this.pbBackupAluno.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbBackupAluno.TabIndex = 20;
+            this.pbBackupAluno.TabStop = false;
+            this.toolTip1.SetToolTip(this.pbBackupAluno, "Efetuar Backup");
+            this.pbBackupAluno.Click += new System.EventHandler(this.pictureBox3_Click_3);
+            this.pbBackupAluno.MouseHover += new System.EventHandler(this.pictureBox3_MouseHover);
             // 
             // btnDesconectar
             // 
@@ -738,6 +765,13 @@
             this.sairToolStripMenuItem1.Text = "Sair";
             this.sairToolStripMenuItem1.Click += new System.EventHandler(this.sairToolStripMenuItem1_Click);
             // 
+            // restaurarBackupToolStripMenuItem
+            // 
+            this.restaurarBackupToolStripMenuItem.Image = global::LoginDM.Properties.Resources.copia_de_dados3;
+            this.restaurarBackupToolStripMenuItem.Name = "restaurarBackupToolStripMenuItem";
+            this.restaurarBackupToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
+            this.restaurarBackupToolStripMenuItem.Text = "Restaurar Backup";
+            // 
             // regrasToolStripMenuItem
             // 
             this.regrasToolStripMenuItem.Image = global::LoginDM.Properties.Resources.abra_o_livro;
@@ -780,7 +814,7 @@
             // 
             // façaUmaPerguntaToolStripMenuItem
             // 
-            this.façaUmaPerguntaToolStripMenuItem.Image = global::LoginDM.Properties.Resources.ideia;
+            this.façaUmaPerguntaToolStripMenuItem.Image = global::LoginDM.Properties.Resources.ChatGPT_logo1;
             this.façaUmaPerguntaToolStripMenuItem.Name = "façaUmaPerguntaToolStripMenuItem";
             this.façaUmaPerguntaToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.façaUmaPerguntaToolStripMenuItem.Text = "Faça uma pergunta!";
@@ -838,6 +872,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgFrequencia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSaida)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCafeouJantar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBackupAluno)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDesconectar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLogin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgPasta)).EndInit();
@@ -917,6 +952,9 @@
         private System.Windows.Forms.ToolStripMenuItem logsDeAtualizaçõesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem impressãoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem backupToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pbBackupAluno;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolStripMenuItem restaurarBackupToolStripMenuItem;
     }
 }
 

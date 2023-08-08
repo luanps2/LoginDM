@@ -133,6 +133,16 @@ namespace LoginDM.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap backup2 {
+            get {
+                object obj = ResourceManager.GetObject("backup2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap boletim {
             get {
                 object obj = ResourceManager.GetObject("boletim", resourceCulture);
@@ -243,6 +253,16 @@ namespace LoginDM.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ChatGPT_logo1 {
+            get {
+                object obj = ResourceManager.GetObject("ChatGPT_logo1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap check_icone_scaled {
             get {
                 object obj = ResourceManager.GetObject("check-icone-scaled", resourceCulture);
@@ -316,6 +336,16 @@ namespace LoginDM.Properties {
         internal static System.Drawing.Bitmap copia_de_dados2 {
             get {
                 object obj = ResourceManager.GetObject("copia-de-dados2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap copia_de_dados3 {
+            get {
+                object obj = ResourceManager.GetObject("copia-de-dados3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -866,6 +896,46 @@ namespace LoginDM.Properties {
         internal static System.Drawing.Bitmap shutdown_icon {
             get {
                 object obj = ResourceManager.GetObject("shutdown-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sincronizar {
+            get {
+                object obj = ResourceManager.GetObject("sincronizar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sincronizar__1_ {
+            get {
+                object obj = ResourceManager.GetObject("sincronizar (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sincronizar1 {
+            get {
+                object obj = ResourceManager.GetObject("sincronizar1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sincronizar2 {
+            get {
+                object obj = ResourceManager.GetObject("sincronizar2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
