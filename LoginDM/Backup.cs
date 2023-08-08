@@ -27,11 +27,17 @@ namespace LoginDM
 
         private void Backup_Load(object sender, EventArgs e)
         {
+            string periodo = rbTarde.Checked ? "Tarde" : (rbNoite.Checked ? "Noite" : "Tarde");
+            string baseOrigem = @"\\server\" + periodo;
+            string baseDestino = @"\\server\Seagate\Backups";
+
+            llBaseOrigem.Text = baseOrigem;
+            llBaseDestino.Text = baseDestino;
             progressBar1.Minimum = 0;
             progressBar1.Maximum = 100;
             progressBar1.Step = 1;
 
-            
+
 
 
             int mes = DateTime.Now.Month;
@@ -50,7 +56,7 @@ namespace LoginDM
             dpAno.Format = DateTimePickerFormat.Custom;
             dpAno.CustomFormat = "yyyy";
             dpAno.ShowUpDown = true;
-      
+
 
 
         }
@@ -78,11 +84,11 @@ namespace LoginDM
 
             var diretorios2 = Directory.GetDirectories(rota2);
 
-
             foreach (string dir2 in diretorios2)
             {
-
-                lbxDestino.Items.Add(dir2);
+                string caminho = dir2;
+                caminho = caminho.Remove(0, 25);
+                lbxDestino.Items.Add(caminho);
 
             }
         }
@@ -90,8 +96,8 @@ namespace LoginDM
         {
 
 
-            string periodo = !rbNoite.Checked ? "Tarde" : "Noite";
-
+            string periodo = rbTarde.Checked ? "Tarde" : (rbNoite.Checked ? "Noite" : "Tarde");
+            string rotaDestino = @"\\server\Seagate\Backups\" + dpAno.Text + "\\" + cbSemestre.Text + "\\" + periodo;
 
 
             try
@@ -108,19 +114,19 @@ namespace LoginDM
             }
             catch (Exception err)
             {
-                tbLogs.Text = "Erro 1 ao listar:" + err.ToString();
+                tbLogs.Text = "Erro 1 ao listar: " + err.ToString();
 
             }
 
             try
             {
-                string rotaDestino = @"\\server\Seagate\Backups2\" + dpAno.Text + "\\" + cbSemestre.Text + "\\" + periodo;
+                
                 lbxDestino.Items.Clear();
                 GetDirDestino(rotaDestino);
             }
             catch (Exception err2)
             {
-                tbLogs.Text = "Erro 2 ao listar:" + err2.ToString();
+                tbLogs.Text = "O diretório " + rotaDestino + "ainda não foi criado";
 
             }
 
@@ -212,7 +218,7 @@ namespace LoginDM
                 }
 
 
-               
+
             }
 
             public static void CopyAll(Label label1, ProgressBar progressBar1, DirectoryInfo source, DirectoryInfo target)
@@ -256,57 +262,112 @@ namespace LoginDM
         {
             long total = 0;
 
-            foreach (string file in Directory.GetFiles(path))
+            try
             {
-                total += new FileInfo(file).Length;
-            }
+                foreach (string file in Directory.GetFiles(path))
+                {
+                    total += new FileInfo(file).Length;
+                }
 
-            foreach (string subDir in Directory.GetDirectories(path))
+                foreach (string subDir in Directory.GetDirectories(path))
+                {
+                    total += GetTotalBytes(subDir);
+                }
+            }
+            catch (UnauthorizedAccessException)
             {
-                total += GetTotalBytes(subDir);
+                // Lidar com exceção de acesso não autorizado
+                // Pode ser ignorada ou tratada de acordo com suas necessidades
             }
 
             return total;
         }
 
-        static void EfetuarBackup(string origem, string destino, ProgressInfo progressInfo)
+        static double CalculateProgress(long totalBytes, long copiedBytes)
         {
+            if (totalBytes <= 0)
+            {
+                return 100.0; // Se não há bytes totais, consideramos o progresso como 100%
+            }
+
+            return (double)copiedBytes / totalBytes * 100.0;
+        }
+
+        public void UpdateProgress(long totalBytes, long copiedBytes)
+        {
+            int progressPercentage = (int)((copiedBytes * 100) / totalBytes);
+            progressBar1.Value = progressPercentage;
+            txtProgresso.Text = $"Progresso: {progressPercentage}%";
+
+            Application.DoEvents();
+        }
+
+        static void EfetuarBackup(ProgressInfo progressInfo, string origem, string destino, ListBox lbxDestino)
+        {
+
+            
+            // Se o diretório de destino não existe, cria-o
             if (!Directory.Exists(destino))
             {
                 Directory.CreateDirectory(destino);
             }
 
             // Obtem a quantidade total de bytes a serem copiados
-            long totalBytes = GetTotalBytes(destino);
+            long totalBytes = GetTotalBytes(origem);
 
             // Inicializa variáveis para o progresso
             long copiedBytes = 0;
             int progressPercentage = 0;
 
-            foreach (string arquivo in Directory.GetFiles(origem))
+            // Copia os arquivos do diretório
+            foreach (string sourceFile in Directory.GetFiles(origem))
             {
-                string fileName = Path.GetFileName(arquivo);
-                string targetPath = Path.Combine(destino, fileName);
-                File.Copy(arquivo, targetPath, true);
-
-                copiedBytes += new FileInfo(targetPath).Length;
-
-                // Calcula o progresso atual
-                int newProgressPercentage = (int)((copiedBytes * 100) / totalBytes);
-
-                // Atualiza a ProgressBar se houver mudança significativa no progresso
-                if (newProgressPercentage > progressPercentage)
+                try
                 {
-                    progressPercentage = newProgressPercentage;
-                    progressInfo.UpdateProgress(totalBytes, copiedBytes);
+                    string fileName = Path.GetFileName(sourceFile);
+                    string targetPath = Path.Combine(destino, fileName);
+                    File.Copy(sourceFile, targetPath, true);
+
+                    copiedBytes += new FileInfo(targetPath).Length;
+
+                    lbxDestino.Invoke((MethodInvoker)(() => lbxDestino.Items.Add(targetPath)));
+
+                    // Rolagem automática para o último item adicionado
+                    lbxDestino.SelectedIndex = lbxDestino.Items.Count - 1;
+                    lbxDestino.SelectedIndex = -1; // Deseleciona o item para desativar a seleção azul
+                    // Calcula o progresso atual
+                    int newProgressPercentage = (int)((copiedBytes * 100) / totalBytes);
+
+                    // Atualiza a ProgressBar se houver mudança significativa no progresso
+                    if (newProgressPercentage > progressPercentage)
+                    {
+                        progressPercentage = newProgressPercentage;
+                        progressInfo.UpdateProgress(totalBytes, copiedBytes);
+                    }
+
+
+                }
+                catch (UnauthorizedAccessException e)
+                {
+                    MessageBox.Show("Erro: " + e.Message); ;// Ignora a exceção de acesso não autorizado e continua
                 }
             }
 
-            foreach (var subDir in Directory.GetDirectories(origem))
+            // Copia os subdiretórios
+            foreach (string subDir in Directory.GetDirectories(origem))
             {
-                string subDirName = new DirectoryInfo(subDir).Name;
-                string targetSubDir = Path.Combine(destino, subDirName);
-                EfetuarBackup(subDir, targetSubDir, progressInfo);
+                try
+                {
+                    string subDirName = new DirectoryInfo(subDir).Name;
+                    string targetSubDir = Path.Combine(destino, subDirName);
+                    EfetuarBackup(progressInfo, subDir, targetSubDir, lbxDestino);
+
+
+                }
+                catch (UnauthorizedAccessException)
+                {
+                    // Ignora a exceção de acesso não autorizado e continua
+                }
             }
         }
 
@@ -335,16 +396,16 @@ namespace LoginDM
 
         private void button2_Click(object sender, EventArgs e)
         {
-
-            string periodo = rbNoite.Checked ? "Tarde" : "Noite";
+            
+            string periodo = rbTarde.Checked ? "Tarde" : (rbNoite.Checked ? "Noite" : "Tarde");
 
             string rotaOrigem = @"\\server\" + periodo + "\\";
-            string rotaDestino = @"\\server\Seagate\Backups2\" + dpAno.Text + "\\" + cbSemestre.Text + "\\" + periodo + "\\";
+            string rotaDestino = @"\\server\Seagate\Backups\" + dpAno.Text + "\\" + cbSemestre.Text + "\\" + periodo + "\\";
 
             // Cria uma instância de ProgressInfo com os controles encontrados
             ProgressInfo progressInfo = new ProgressInfo(progressBar1, txtProgresso);
 
-            EfetuarBackup(rotaOrigem, rotaDestino, progressInfo);
+            EfetuarBackup(progressInfo, rotaOrigem, rotaDestino, lbxDestino);
 
         }
 
@@ -368,7 +429,7 @@ namespace LoginDM
         {
             string periodo = !rbTarde.Checked ? "Tarde" : "Noite";
             string rotaOrigem = @"\\server\" + periodo;
-            string rotaDestino = @"\\server\Seagate\Backups2\" + dpAno.Text + "\\" + cbSemestre.Text + "\\" + periodo + "\\";
+            string rotaDestino = @"\\server\Seagate\Backups\" + dpAno.Text + "\\" + cbSemestre.Text + "\\" + periodo + "\\";
 
             CopiarPasta(rotaOrigem, rotaDestino);
 
@@ -378,7 +439,7 @@ namespace LoginDM
 
             //    string periodo = rbTarde.Checked ? "Tarde" : "Noite";
             //    string rotaOrigem = @"\\server\" + periodo;
-            //    string rotaDestino = @"\\server\\Seagate\\Backups2\\" + dpAno.Text + "\\" + cbSemestre.Text + "\\" + periodo + "\\";
+            //    string rotaDestino = @"\\server\\Seagate\\Backups\\" + dpAno.Text + "\\" + cbSemestre.Text + "\\" + periodo + "\\";
 
             //    CopyDir.Copy(txtProgresso, progressBar1, rotaOrigem, rotaDestino);
 
@@ -392,21 +453,26 @@ namespace LoginDM
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            string periodo = rbTarde.Checked ? "Tarde" : "Noite";
+            string periodo = !rbNoite.Checked ? "Tarde" : "Noite";
             string rotaOrigem = @"\\server\" + periodo;
             System.Diagnostics.Process.Start(rotaOrigem);
         }
 
         private void btnAbrirDestino_Click(object sender, EventArgs e)
         {
-            string periodo = rbTarde.Checked ? "Tarde" : "Noite";
-            string rotaDestino = @"\\server\Seagate\Backups2\" + dpAno.Text + "\\" + cbSemestre.Text + "\\" + periodo + "\\";
-            //System.Diagnostics.Process.Start(rotaDestino);
-            MessageBox.Show(rotaDestino);
 
+            string periodo = !rbNoite.Checked ? "Tarde" : "Noite";
+            string rotaDestino = @"\\server\Seagate\Backups\" + dpAno.Text + "\\" + cbSemestre.Text + "\\" + periodo + "\\";
+
+            if (!Directory.Exists(rotaDestino))
+            {
+                DirectoryInfo di = Directory.CreateDirectory(rotaDestino);
+            }
+
+            //System.Diagnostics.Process.Start(rotaDestino);
             try
             {
-            System.Diagnostics.Process.Start(rotaDestino);
+                System.Diagnostics.Process.Start(rotaDestino);
 
             }
             catch (Exception ex)
@@ -414,6 +480,23 @@ namespace LoginDM
 
                 MessageBox.Show("erro: " + ex);
             }
+        }
+
+        private void llBaseOrigem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(llBaseOrigem.Text);
+        }
+
+        private void llBaseDestino_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(llBaseDestino.Text);
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            lbxOrigem.Items.Clear(); 
+            lbxDestino.Items.Clear(); 
+            tbLogs.Text = ""; 
         }
     }
 }

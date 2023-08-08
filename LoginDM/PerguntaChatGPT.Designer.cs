@@ -103,7 +103,7 @@
             this.btnPergunta.TabIndex = 3;
             this.btnPergunta.Text = "Perguntar";
             this.btnPergunta.UseVisualStyleBackColor = true;
-            this.btnPergunta.Click += new System.EventHandler(this.btnPergunta_Click_1);
+            this.btnPergunta.Click += new System.EventHandler(this.btnPergunta_Click);
             // 
             // btnLimpar
             // 
@@ -131,7 +131,7 @@
             this.Name = "PerguntaChatGPT";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PerguntaChatGPT";
-            this.Load += new System.EventHandler(this.PerguntaChatGPT_Load);
+            this.Load += new System.EventHandler(this.PerguntaChatGPT_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

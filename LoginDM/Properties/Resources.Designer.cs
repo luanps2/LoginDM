@@ -123,6 +123,16 @@ namespace LoginDM.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap backup1 {
+            get {
+                object obj = ResourceManager.GetObject("backup1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap boletim {
             get {
                 object obj = ResourceManager.GetObject("boletim", resourceCulture);
@@ -283,6 +293,36 @@ namespace LoginDM.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap copia_de_dados {
+            get {
+                object obj = ResourceManager.GetObject("copia-de-dados", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap copia_de_dados1 {
+            get {
+                object obj = ResourceManager.GetObject("copia-de-dados1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap copia_de_dados2 {
+            get {
+                object obj = ResourceManager.GetObject("copia-de-dados2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap corona_5206903_960_720 {
             get {
                 object obj = ResourceManager.GetObject("corona-5206903_960_720", resourceCulture);
@@ -366,6 +406,16 @@ namespace LoginDM.Properties {
         internal static System.Drawing.Bitmap dirArquivosCurso1 {
             get {
                 object obj = ResourceManager.GetObject("dirArquivosCurso1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dirArquivosCurso2 {
+            get {
+                object obj = ResourceManager.GetObject("dirArquivosCurso2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -593,6 +643,16 @@ namespace LoginDM.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap limpar_limpo {
+            get {
+                object obj = ResourceManager.GetObject("limpar-limpo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap live {
             get {
                 object obj = ResourceManager.GetObject("live", resourceCulture);
@@ -696,6 +756,16 @@ namespace LoginDM.Properties {
         internal static System.Drawing.Bitmap online2 {
             get {
                 object obj = ResourceManager.GetObject("online2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pasta {
+            get {
+                object obj = ResourceManager.GetObject("pasta", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -816,6 +886,16 @@ namespace LoginDM.Properties {
         internal static System.Drawing.Bitmap tarde {
             get {
                 object obj = ResourceManager.GetObject("tarde", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tarefa {
+            get {
+                object obj = ResourceManager.GetObject("tarefa", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

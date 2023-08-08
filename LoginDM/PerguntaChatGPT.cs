@@ -11,6 +11,7 @@ using System.Net.Http;
 using System.Text.Json;
 
 
+
 namespace LoginDM
 {
     public partial class PerguntaChatGPT : Form
@@ -25,13 +26,16 @@ namespace LoginDM
             InitializeComponent();
 
             _httpClient = new HttpClient();
-            _apiKey = "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";
+            _apiKey = "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";
             _apiUrl = "https://api.openai.com/v1/engines/davinci-codex/completions";
+
         }
+
+
 
         private async Task<string> GetAnswer(string prompt)
         {
-            var request = new HttpRequestMessage(new HttpMethod("POST"), _apiUrl);
+            var request = new HttpRequestMessage(HttpMethod.Post, _apiUrl);
             request.Headers.Add("Authorization", $"Bearer {_apiKey}");
 
             var requestData = new
@@ -43,7 +47,7 @@ namespace LoginDM
             };
 
             var json = JsonSerializer.Serialize(requestData);
-            request.Content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
+            request.Content = new StringContent(json, Encoding.UTF8, "application/json");
 
             var response = await _httpClient.SendAsync(request);
             response.EnsureSuccessStatusCode();
@@ -89,6 +93,18 @@ namespace LoginDM
         {
             txtPergunta.Text = "";
             txtResposta.Text = "";
+        }
+
+        private void PerguntaChatGPT_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void btnPergunta_Click(object sender, EventArgs e)
+        {
+            var question = txtPergunta.Text;
+            var answer = await GetAnswer(question);
+            txtResposta.Text = answer;
         }
     }
 }
