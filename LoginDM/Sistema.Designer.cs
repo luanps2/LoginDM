@@ -736,7 +736,7 @@
             this.backupToolStripMenuItem.Image = global::LoginDM.Properties.Resources.backup;
             this.backupToolStripMenuItem.Name = "backupToolStripMenuItem";
             this.backupToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
-            this.backupToolStripMenuItem.Text = "Backup";
+            this.backupToolStripMenuItem.Text = "Efetuar Backup";
             this.backupToolStripMenuItem.Click += new System.EventHandler(this.backupToolStripMenuItem_Click);
             // 
             // alterarBancoDeDadosToolStripMenuItem

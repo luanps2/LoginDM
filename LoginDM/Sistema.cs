@@ -231,6 +231,7 @@ namespace LoginDM
                             tabPage2.Enabled = true;
                             tabPage3.Enabled = true;
                             pbBackupAluno.Visible = true;
+                            backupToolStripMenuItem.Enabled = true;
                         }
                     }
                     catch (Exception erro)
@@ -632,6 +633,7 @@ namespace LoginDM
             //panel3.AutoScroll = true;
 
             pbBackupAluno.Visible = false;
+            backupToolStripMenuItem.Enabled = false;
 
             conexao = new MySqlConnection("server=" + dadosbanco.Server +
               " ;user id=" + dadosbanco.User + ";" +
@@ -1528,6 +1530,36 @@ namespace LoginDM
 
         private void backupToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (Environment.UserName == "Educador")
+            {
+                Backup backup = new Backup();
+                backup.Show();
+            }
+            else
+            {
+                DialogResult resposta = MessageBox.Show("Deseja efetuar backup do seu dirétório?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (resposta == DialogResult.Yes)
+                {
+                    string periodo = rbTarde.Checked ? "Tarde" : "Noite";
+                    string ano = DateTime.Now.Year.ToString();
+                    int mes = DateTime.Now.Month;
+                    string semestre = mes < 6 ? "1º Semestre" : "2º Semestre";
+
+                    string usuario = lblUser.Text;
+                    string origem = $@"\\server\{periodo}\{usuario}";
+                    string destino = $@"\\server\Seagate\Backups2\{ano}\{semestre}\{periodo}\{usuario}";
+
+                    BackupAluno(origem, destino);
+                    MessageBox.Show("Backup do seu diretório " + usuario + " efetuado com sucesso para: \n" + destino, "Backup Concluído", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (resposta == DialogResult.No)
+                {
+                    MessageBox.Show("Backup não efetuado!", "Backup", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                
+            }
 
             //if (rbTarde.Checked || rbNoite.Checked)
             //{
@@ -1541,8 +1573,9 @@ namespace LoginDM
             //            RadioButton rb = c as RadioButton;
             //            if (rb.Checked)
             //            {
-            Backup backup = new Backup();
-            backup.Show();
+
+
+           
 
 
 
@@ -1568,7 +1601,6 @@ namespace LoginDM
 
         private void pictureBox3_Click_3(object sender, EventArgs e)
         {
-
             string periodo = rbTarde.Checked ? "Tarde" : "Noite";
             string ano = DateTime.Now.Year.ToString();
             int mes = DateTime.Now.Month;
@@ -1578,8 +1610,19 @@ namespace LoginDM
             string origem = $@"\\server\{periodo}\{usuario}";
             string destino = $@"\\server\Seagate\Backups2\{ano}\{semestre}\{periodo}\{usuario}";
 
-            BackupAluno(origem, destino);
-            MessageBox.Show("Backup do seu diretório " + usuario + " efetuado com sucesso para: \n" + destino);
+            DialogResult resposta = MessageBox.Show("Deseja efetuar o backup do diretório " + lblUser.Text + " para \n" + destino + " ?", "Backup", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (resposta == DialogResult.Yes)
+            {
+                BackupAluno(origem, destino);
+                MessageBox.Show("Backup do seu diretório " + usuario + " efetuado com sucesso para: \n" + destino);
+            }
+            else if (resposta == DialogResult.No)
+            {
+                MessageBox.Show("Backup não efetuado!", "Backup", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            
 
 
         }
