@@ -232,6 +232,7 @@ namespace LoginDM
                             tabPage3.Enabled = true;
                             pbBackupAluno.Visible = true;
                             backupToolStripMenuItem.Enabled = true;
+                            restaurarBackupToolStripMenuItem.Enabled = true;
                         }
                     }
                     catch (Exception erro)
@@ -631,9 +632,9 @@ namespace LoginDM
         public void Form1_Load(object sender, EventArgs e)
         {
             //panel3.AutoScroll = true;
-
+            restaurarBackupToolStripMenuItem.Enabled = false;
             pbBackupAluno.Visible = false;
-            backupToolStripMenuItem.Enabled = false;
+            //backupToolStripMenuItem.Enabled = false;
 
             conexao = new MySqlConnection("server=" + dadosbanco.Server +
               " ;user id=" + dadosbanco.User + ";" +
@@ -1530,14 +1531,20 @@ namespace LoginDM
 
         private void backupToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
             if (Environment.UserName == "Educador")
             {
                 Backup backup = new Backup();
                 backup.Show();
             }
+            else if (pbBackupAluno.Visible == false)
+            {
+                MessageBox.Show("Acesse sua conta primeiro para efetuar o backup!", "Acesse sua conta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             else
             {
-                DialogResult resposta = MessageBox.Show("Deseja efetuar backup do seu dirétório?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                DialogResult resposta = MessageBox.Show(lblNome.Text + " deseja efetuar backup do seu dirétório " + lblUser.Text + " completo?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (resposta == DialogResult.Yes)
                 {
@@ -1548,7 +1555,7 @@ namespace LoginDM
 
                     string usuario = lblUser.Text;
                     string origem = $@"\\server\{periodo}\{usuario}";
-                    string destino = $@"\\server\Seagate\Backups2\{ano}\{semestre}\{periodo}\{usuario}";
+                    string destino = $@"\\server\Seagate\Backups\{ano}\{semestre}\{periodo}\{usuario}";
 
                     BackupAluno(origem, destino);
                     MessageBox.Show("Backup do seu diretório " + usuario + " efetuado com sucesso para: \n" + destino, "Backup Concluído", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -1558,7 +1565,9 @@ namespace LoginDM
                     MessageBox.Show("Backup não efetuado!", "Backup", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
-                
+            }
+            {
+
             }
 
             //if (rbTarde.Checked || rbNoite.Checked)
@@ -1575,7 +1584,7 @@ namespace LoginDM
             //            {
 
 
-           
+
 
 
 
@@ -1608,7 +1617,7 @@ namespace LoginDM
 
             string usuario = lblUser.Text;
             string origem = $@"\\server\{periodo}\{usuario}";
-            string destino = $@"\\server\Seagate\Backups2\{ano}\{semestre}\{periodo}\{usuario}";
+            string destino = $@"\\server\Seagate\Backups\{ano}\{semestre}\{periodo}\{usuario}";
 
             DialogResult resposta = MessageBox.Show("Deseja efetuar o backup do diretório " + lblUser.Text + " para \n" + destino + " ?", "Backup", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -1622,7 +1631,7 @@ namespace LoginDM
                 MessageBox.Show("Backup não efetuado!", "Backup", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            
+
 
 
         }
@@ -1679,9 +1688,33 @@ namespace LoginDM
             string semestre = mes < 6 ? "1º Semestre" : "2º Semestre";
 
             string origem = @"\\server\" + periodo + "\\" + lblUser.Text;
-            string destino = @"\\server\Seagate\Backups2\" + ano + "\\" + semestre + "\\" + periodo + "\\" + lblUser.Text;
+            string destino = @"\\server\Seagate\Backups\" + ano + "\\" + semestre + "\\" + periodo + "\\" + lblUser.Text;
 
             MessageBox.Show("origem: " + origem + "\n" + "destino:" + destino);
+        }
+
+        private void restaurarBackupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult resposta = MessageBox.Show(lblNome.Text + " deseja restaurar o backup do seu dirétório " + lblUser.Text + " completo? isso irá substituir todos arquivos da sua pasta pelos arquivos feitos no último backup", "Deseja continuar?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (resposta == DialogResult.Yes)
+            {
+                string periodo = rbTarde.Checked ? "Tarde" : "Noite";
+                string ano = DateTime.Now.Year.ToString();
+                int mes = DateTime.Now.Month;
+                string semestre = mes < 6 ? "1º Semestre" : "2º Semestre";
+
+                string usuario = lblUser.Text;
+                string origem = $@"\\server\Seagate\Backups\{ano}\{semestre}\{periodo}\{usuario}";
+                string destino = $@"\\server\{periodo}\{usuario}"; 
+
+                BackupAluno(origem, destino);
+                MessageBox.Show("Restauração do seu diretório " + usuario + " efetuado com sucesso para: \n" + destino, "Backup Concluído", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if (resposta == DialogResult.No)
+            {
+                MessageBox.Show("Backup não efetuado!", "Backup", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }
