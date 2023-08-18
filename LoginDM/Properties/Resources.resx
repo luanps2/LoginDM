@@ -121,9 +121,6 @@
   <data name="backup1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\backup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="indesign" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\indesign.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="dirArquivosCurso2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dirArquivosCurso.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -181,11 +178,11 @@
   <data name="powerpoint" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\powerpoint.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="restart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\restart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="refresh-button" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\refresh-button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="google-classroom-logo-2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\google-classroom-logo-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="fileserver" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fileserver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -193,20 +190,23 @@
   <data name="checklist-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\checklist-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="desconectar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\desconectar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="abra-o-livro" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\abra-o-livro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logo dommacario borda" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo dommacario borda.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="copia-de-seguranca" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\copia-de-seguranca.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="boletim" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\boletim.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="jantar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\jantar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="offline" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\offline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cafe" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cafe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -220,17 +220,26 @@
   <data name="folder2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\folder2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="btCriar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btCriar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="folder1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\folder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\create.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="backup" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\backup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="BtnAlterarSenha" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BtnAlterarSenha.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="fileserver1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fileserver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="fakenews" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fakenews.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BACK" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BACK.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="btnEntrar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnEntrar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -253,14 +262,11 @@
   <data name="google-37" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\google-37.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="png-internet-internet-icon-1600" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\png-internet-internet-icon-1600.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="check-icone-scaled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\check-icone-scaled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="saida" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\saida.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="user" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="hardware" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hardware.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -283,14 +289,11 @@
   <data name="online" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\online.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="formato-de-arquivo-log" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\formato-de-arquivo-log.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="tecnico" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tecnico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="adm1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\adm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sincronizar1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sincronizar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="excel" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\excel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -301,8 +304,8 @@
   <data name="shutdown-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\shutdown-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="create" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\create.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="formato-de-arquivo-log" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\formato-de-arquivo-log.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="curiosidade" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\curiosidade.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -310,17 +313,20 @@
   <data name="folder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\folder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="check-icone-scaled" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\check-icone-scaled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="sincronizar1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sincronizar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="tarde" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tarde.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BACK" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BACK.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="fakenews" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fakenews.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="consultar1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\consultar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="backup3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\backup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="sincronizar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sincronizar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -343,26 +349,26 @@
   <data name="ChatGPT_logo.svg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ChatGPT_logo.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btCriar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btCriar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="google-classroom-logo-2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\google-classroom-logo-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="conectar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\conectar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="live1off" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\live1off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="copia-de-dados3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\copia-de-dados.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="copia-de-dados1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\copia-de-dados.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="desconectar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\desconectar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="offline" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\offline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="evento-de-formatura" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\evento-de-formatura.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="restart" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\restart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="indesign" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\indesign.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pngwing.com" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pngwing.com.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -376,8 +382,8 @@
   <data name="dirArquivosCurso" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dirArquivosCurso.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="tecnico" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\tecnico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="user" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="impressora" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\impressora.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -385,8 +391,11 @@
   <data name="Photoshop_CC_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Photoshop_CC_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BtnAlterarSenha" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BtnAlterarSenha.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="png-internet-internet-icon-1600" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\png-internet-internet-icon-1600.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="live1off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\live1off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="search" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -400,7 +409,7 @@
   <data name="edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="copia-de-dados3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\copia-de-dados.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="copia-de-seguranca (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\copia-de-seguranca (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

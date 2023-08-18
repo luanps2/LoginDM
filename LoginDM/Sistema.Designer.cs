@@ -326,6 +326,7 @@
             // 
             // façaUmaPerguntaToolStripMenuItem
             // 
+            this.façaUmaPerguntaToolStripMenuItem.Enabled = false;
             this.façaUmaPerguntaToolStripMenuItem.Image = global::LoginDM.Properties.Resources.ChatGPT_logo1;
             this.façaUmaPerguntaToolStripMenuItem.Name = "façaUmaPerguntaToolStripMenuItem";
             this.façaUmaPerguntaToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
@@ -441,10 +442,10 @@
             // 
             this.pbBackupAluno.BackColor = System.Drawing.Color.Transparent;
             this.pbBackupAluno.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbBackupAluno.Image = global::LoginDM.Properties.Resources.sincronizar__1_;
-            this.pbBackupAluno.Location = new System.Drawing.Point(365, 9);
+            this.pbBackupAluno.Image = global::LoginDM.Properties.Resources.backup3;
+            this.pbBackupAluno.Location = new System.Drawing.Point(374, 6);
             this.pbBackupAluno.Name = "pbBackupAluno";
-            this.pbBackupAluno.Size = new System.Drawing.Size(25, 25);
+            this.pbBackupAluno.Size = new System.Drawing.Size(24, 24);
             this.pbBackupAluno.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbBackupAluno.TabIndex = 20;
             this.pbBackupAluno.TabStop = false;
@@ -472,6 +473,7 @@
             this.linkLabel1.TabIndex = 26;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Luan Costa";
+            this.toolTip1.SetToolTip(this.linkLabel1, "O pai é monstro!");
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked_1);
             // 
             // lblVersao
@@ -808,6 +810,7 @@
             this.pbCafeouJantar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbCafeouJantar.TabIndex = 47;
             this.pbCafeouJantar.TabStop = false;
+            this.toolTip1.SetToolTip(this.pbCafeouJantar, "Café/Jantar");
             // 
             // pbStatus
             // 

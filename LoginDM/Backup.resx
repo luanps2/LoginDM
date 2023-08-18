@@ -117,4 +117,51 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAGBgAAAEAIACICQAAFgAAACgAAAAYAAAAMAAAAAEAIAAAAAAAAAkAALEAAACxAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABsqh8hcKwdaW+sH45vrB+OcKwdaXCv
+        ICAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAb7EhF2+tH6dvrR7+b60e/2+tHv9vrR7/b60e/2+tHv5vrR2ldK4jFgAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAADLv/KQq5/zMKuf8zCrn/Mwq5/zM8s5RRbK0k6G+tHv9vrR7/cK4g/4K4
+        O/+Btzn/cK0f/2+tHv9vrR7/bK0j5zmzmVAKuf8zCrn/Mwq5/zMKuf8zDLv/KQAAAAAMuP9sC7n//wu5
+        //8Luf//C7n//w+59v9gr0D/b60e/3CtH/+v0oP/4+/U/9HluP/R5bj/5fDW/6/Sg/9wriD/b60e/1+v
+        Qv8OuPj/C7n//wu5//8Luf//C7n//wy6/2sMuf+ZC7n//wu5//8Luf//C7n//zq0lv9vrR7/b60e/8jf
+        qf+72JX/cq8i/2+tHv9vrR7/cq8i/7zZlv/E3aL/b60e/2+tHv85s5j/C7n//wu5//8Luf//C7n//wy5
+        /5kMuf+ZC7n//wu5//8Luf//C7n//2CvQP9vrR7/mMRe/8zir/9vrR7/b60e/2+tHv9vrR7/b60e/2+t
+        Hv/K4a3/ibxH/2+tHv9hrz//C7n//wu5//8Luf//C7n//wy5/5kMuf+ZC7n//wu5//8Luf//FLjr/2+t
+        Hv+u0YH/yeCq/8Teo/95sy7/b60e/2+tHv9vrR7/b60e/2+tHv9vrR7/e7Qx/2+tHv9vrR7/E7js/wu5
+        //8Luf//C7n//wy5/5kMuf+ZC7n//wu5//8Luf//HLfY/2+tHv+y04b//v/+/83isP9xriH/b60e/2+t
+        Hv9vrR7/b60e/2+tHv+w0oP//P36/5vGY/9vrR7/HLfY/wu5//8Luf//C7n//wy5/5kMuf+ZC7n//wu5
+        //8Luf//F7jl/2+tHv9vrR7/lcNZ/3GuIf9vrR7/b60e/2+tHv9vrR7/b60e/3u0Mf/X6MH/1ui//8jf
+        qf9vrR7/Frjm/wu5//8Luf//C7n//wy5/5kMuf+ZC7n//wu5//8Luf//DLn9/2auMv9vrR7/iLtG/6/R
+        gv9vrR7/b60e/2+tHv9vrR7/b60e/2+tHv+72JT/pMtw/2+tHv9mrjP/DLn9/wu5//8Luf//C7n//wy5
+        /5kMuf+ZC7n//wu5//8Luf//C7n//0Syf/9vrR7/cK4g/9fowf+dx2X/b60e/2+tHv9vrR7/b60e/57I
+        Z//a6sb/ca4h/2+tHv9DsoH/C7n//wu5//8Luf//C7n//wy5/5kMuf+ZC7n//wu5//8Luf//C7n//xS4
+        6v9prS3/b60e/3mzLv/O47L/1ui//6/Sg/+01Ir/1+jA/83isP93siv/b60e/2iuLv8UuOz/C7n//wu5
+        //8Luf//C7n//wy5/5kMuf+ZC7n//wu5//8Luf//C7n//wu5//8mtsL/bK4l/2+tHv9vrR7/gbc6/6DJ
+        a/+eyGj/f7Y3/2+tHv9vrR7/bK4l/yW1xP8Luf//C7n//wu5//8Luf//C7n//wy5/5kMuf+ZC7n//wu5
+        //8Luf//C7n//wu5//8Luf//IbbO/2CvQP9vrR7/b60e/2+tHv9vrR7/b60e/2+tHv9gr0H/IbfP/wu5
+        //8Luf//C7n//wu5//8Luf//C7n//wy5/5kMuf+ZC7n//wu5//8Luf//C7n//wu5//8Luf//C7n//w25
+        +/8stbX/SbF0/1ewVf9XsFX/SbF0/yu1tv8Nufv/C7n//wu5//8Luf//C7n//wu5//8Luf//C7n//wy5
+        /5kMuf+ZC7n//wu5//8Luf//C7n//wu5//8Luf//C7n//wu5//8Luf//C7n//wu5//8Luf//C7n//wu5
+        //8Luf//C7n//wu5//8Luf//C7n//wu5//8Luf//C7n//wy5/5kLtfylC7n//wu5//8Luf//C7n//wu5
+        //8Luf//C7n//wu5//8Luf//C7n//wu5//8Luf//C7n//wu5//8Luf//C7n//wu5//8Luf//C7n//wu5
+        //8Luf//C7n//wu1/KUKn/C5C7f+/wu5//8Luf//C7n//wu5//8Luf//C7n//wu5//8Luf//C7n//wu5
+        //8Luf//C7n//wu5//8Luf//C7n//wu5//8Luf//C7n//wu5//8Luf//C7f+/wqd8LkKiuSZCovl/5zQ
+        9P//////////////////////////////////////////////////////////////////////////////
+        //////////////////+c0PT/Covl/wqK5JkKiuSZCovl/1ev7f/2+/7/////////////////////////
+        //////////////////////////////////////////////////////////////X6/v9Wr+3/Covl/wqK
+        5JkKiuSZCovl/wqL5f8Ki+X/Covl/wqL5f8Ki+X/Covl/wqL5f8Ki+X/Covl/wqL5f8Ki+X/Covl/wqL
+        5f8Ki+X/Covl/wqL5f8Ki+X/Covl/wqL5f8Ki+X/Covl/wuL5I8KiuSZCovl/wqL5f8Ki+X/Covl/wqL
+        5f8Ki+X/Covl/wqL5f8Ki+X/C4vkwAqK5JkKiuSZCorkmQqK5JkKiuSZCorkmQqK5JkKiuSZCorkmQqK
+        5JkKiuSZC4vkjwqJ4hoLiuSQCovl/wqL5f8Ki+X/Covl/wqL5f8Ki+X/Covl/wqL5fcLi+ZaAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJjuMbC4rkkAqK
+        5JkKiuSZCorkmQqK5JkKiuSZC4rmjguO4y0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/gf8A/gB/AIAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//AAB/
+        /wA=
+</value>
+  </data>
 </root>

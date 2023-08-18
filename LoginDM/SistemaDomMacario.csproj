@@ -341,6 +341,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sistema.resx">
       <DependentUpon>Sistema.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Sobre.aa-DJ.resx">
       <DependentUpon>Sobre.cs</DependentUpon>
@@ -436,6 +437,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo-dommacario-borda.ico" />
+    <None Include="Resources\copia-de-seguranca %281%29.png" />
+    <None Include="Resources\copia-de-seguranca.png" />
     <None Include="Resources\sincronizar %281%29.png" />
     <None Include="Resources\sincronizar.png" />
     <None Include="Resources\pasta.png" />

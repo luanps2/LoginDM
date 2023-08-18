@@ -143,6 +143,16 @@ namespace LoginDM.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap backup3 {
+            get {
+                object obj = ResourceManager.GetObject("backup3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap boletim {
             get {
                 object obj = ResourceManager.GetObject("boletim", resourceCulture);
@@ -346,6 +356,26 @@ namespace LoginDM.Properties {
         internal static System.Drawing.Bitmap copia_de_dados3 {
             get {
                 object obj = ResourceManager.GetObject("copia-de-dados3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap copia_de_seguranca {
+            get {
+                object obj = ResourceManager.GetObject("copia-de-seguranca", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap copia_de_seguranca__1_ {
+            get {
+                object obj = ResourceManager.GetObject("copia-de-seguranca (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

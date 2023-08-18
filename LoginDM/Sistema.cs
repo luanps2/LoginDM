@@ -396,7 +396,7 @@ namespace LoginDM
 
                     CopyDirectory(@"\\luan\\SistemaLoginDM\\", @"C:\\SistemaLoginDm\\", true);
 
-                    MessageBox.Show("Sistema Atualizado com sucesso! versão atual: " + versaoServer);
+                    MessageBox.Show("Sistema Atualizado com sucesso! versão atual: " + versaoServer, "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     versaoLocal = versaoServer;
 
@@ -631,6 +631,9 @@ namespace LoginDM
 
         public void Form1_Load(object sender, EventArgs e)
         {
+
+          
+
             //panel3.AutoScroll = true;
             restaurarBackupToolStripMenuItem.Enabled = false;
             pbBackupAluno.Visible = false;
@@ -1015,7 +1018,8 @@ namespace LoginDM
                 pbLive.Image = Properties.Resources.live1;
 
 
-                toolTip.SetToolTip(pbPeriodo, "Café");
+                toolTip1.SetToolTip(pbCafeouJantar, "Café");
+                
             }
         }
 
@@ -1028,7 +1032,7 @@ namespace LoginDM
 
 
 
-                toolTip.SetToolTip(pbPeriodo, "Jantar");
+                toolTip1.SetToolTip(pbCafeouJantar, "Jantar");
             }
         }
 
@@ -1127,9 +1131,15 @@ namespace LoginDM
 
         private void atualizarSistemaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if (Convert.ToDouble(versaoServer)>Convert.ToDouble(versaoLocal))
+            {
             Process myProcess = Process.Start(@"\\luan\UpdateLoginDM\Update.exe");
             this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Seu programa já está atualizado com a ultima versão disponível! Versão atual: " + versaoLocal, "Atualização", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
             //string origem = @"\\luan\\SistemaLoginDM\\";
             //string destino = @"C:\SistemaLoginDM\";
@@ -1418,8 +1428,11 @@ namespace LoginDM
 
         private void conteúdoProgramáticoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Conteudo conteudo = new Conteudo();
-            conteudo.Show();
+
+            Process.Start("https://drive.google.com/file/d/1Hv4RslWHcJoNANUGhywzv8OuxdsKd4LJ/view?usp=sharing");
+
+            //Conteudo conteudo = new Conteudo();
+            //conteudo.Show();
         }
 
         private void sairToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -1558,7 +1571,7 @@ namespace LoginDM
                     string destino = $@"\\server\Seagate\Backups\{ano}\{semestre}\{periodo}\{usuario}";
 
                     BackupAluno(origem, destino);
-                    MessageBox.Show("Backup do seu diretório " + usuario + " efetuado com sucesso para: \n" + destino, "Backup Concluído", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(lblNome.Text + " backup do seu diretório " + usuario + " efetuado com sucesso para: \n" + destino, "Backup Concluído", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else if (resposta == DialogResult.No)
                 {
@@ -1624,7 +1637,7 @@ namespace LoginDM
             if (resposta == DialogResult.Yes)
             {
                 BackupAluno(origem, destino);
-                MessageBox.Show("Backup do seu diretório " + usuario + " efetuado com sucesso para: \n" + destino);
+                MessageBox.Show(lblNome.Text + " o backup do seu diretório " + usuario + " efetuado com sucesso para: \n" + destino + " para restaurar esse backup basta clicar em Funções>Restaurar Backup", "Backup Concluído", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else if (resposta == DialogResult.No)
             {
@@ -1716,5 +1729,6 @@ namespace LoginDM
                 MessageBox.Show("Backup não efetuado!", "Backup", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
     }
 }

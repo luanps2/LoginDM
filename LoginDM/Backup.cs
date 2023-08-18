@@ -399,8 +399,8 @@ namespace LoginDM
             
             string periodo = rbTarde.Checked ? "Tarde" : (rbNoite.Checked ? "Noite" : "Tarde");
 
-            string rotaOrigem = @"\\server\" + periodo + "\\";
-            string rotaDestino = @"\\server\Seagate\Backups\" + dpAno.Text + "\\" + cbSemestre.Text + "\\" + periodo + "\\";
+            string rotaOrigem = $@"\\server\{periodo}\\";
+            string rotaDestino = $@"\\server\Seagate\Backups\{dpAno.Text}\\{cbSemestre.Text}\\{periodo}\\";
 
             // Cria uma instância de ProgressInfo com os controles encontrados
             ProgressInfo progressInfo = new ProgressInfo(progressBar1, txtProgresso);
@@ -497,6 +497,19 @@ namespace LoginDM
             lbxOrigem.Items.Clear(); 
             lbxDestino.Items.Clear(); 
             tbLogs.Text = ""; 
+        }
+
+        private void btnRestaurar_Click(object sender, EventArgs e)
+        {
+            string periodo = rbTarde.Checked ? "Tarde" : (rbNoite.Checked ? "Noite" : "Tarde");
+
+            string rotaOrigem = @"\\server\Seagate\Backups\" + dpAno.Text + "\\" + cbSemestre.Text + "\\" + periodo + "\\";
+            string rotaDestino = $@"\\server\{periodo}\\";
+
+            // Cria uma instância de ProgressInfo com os controles encontrados
+            ProgressInfo progressInfo = new ProgressInfo(progressBar1, txtProgresso);
+
+            EfetuarBackup(progressInfo, rotaOrigem, rotaDestino, lbxDestino);
         }
     }
 }
