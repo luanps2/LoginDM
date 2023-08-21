@@ -781,7 +781,7 @@
             // lblSaida
             // 
             this.lblSaida.AutoSize = true;
-            this.lblSaida.Location = new System.Drawing.Point(270, 34);
+            this.lblSaida.Location = new System.Drawing.Point(268, 34);
             this.lblSaida.Name = "lblSaida";
             this.lblSaida.Size = new System.Drawing.Size(49, 13);
             this.lblSaida.TabIndex = 45;

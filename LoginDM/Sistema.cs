@@ -233,6 +233,12 @@ namespace LoginDM
                             pbBackupAluno.Visible = true;
                             backupToolStripMenuItem.Enabled = true;
                             restaurarBackupToolStripMenuItem.Enabled = true;
+
+                            gbPeriodo.Enabled = false;
+                            txtUsuario.Enabled = false;
+                            txtSenha.Enabled = false;
+                            btnLogin.Image = Properties.Resources.BT11;
+                            btnLogin.Enabled = false;
                         }
                     }
                     catch (Exception erro)

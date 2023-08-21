@@ -41,6 +41,7 @@
             this.llBaseDestino = new System.Windows.Forms.LinkLabel();
             this.btnAbrirDestino = new System.Windows.Forms.Button();
             this.btnAbrirOrigem = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
             this.btnListar = new System.Windows.Forms.Button();
             this.btnBackup = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -60,7 +61,7 @@
             // lbxOrigem
             // 
             this.lbxOrigem.FormattingEnabled = true;
-            this.lbxOrigem.Location = new System.Drawing.Point(185, 25);
+            this.lbxOrigem.Location = new System.Drawing.Point(186, 59);
             this.lbxOrigem.Name = "lbxOrigem";
             this.lbxOrigem.Size = new System.Drawing.Size(243, 212);
             this.lbxOrigem.TabIndex = 1;
@@ -68,7 +69,7 @@
             // lbxDestino
             // 
             this.lbxDestino.FormattingEnabled = true;
-            this.lbxDestino.Location = new System.Drawing.Point(434, 25);
+            this.lbxDestino.Location = new System.Drawing.Point(435, 59);
             this.lbxDestino.Name = "lbxDestino";
             this.lbxDestino.Size = new System.Drawing.Size(368, 212);
             this.lbxDestino.TabIndex = 1;
@@ -76,7 +77,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(182, 9);
+            this.label3.Location = new System.Drawing.Point(183, 43);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 13);
             this.label3.TabIndex = 5;
@@ -85,7 +86,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(431, 9);
+            this.label4.Location = new System.Drawing.Point(432, 43);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(43, 13);
             this.label4.TabIndex = 5;
@@ -93,7 +94,7 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(185, 281);
+            this.progressBar1.Location = new System.Drawing.Point(186, 315);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(617, 23);
             this.progressBar1.TabIndex = 7;
@@ -101,7 +102,7 @@
             // txtProgresso
             // 
             this.txtProgresso.AutoSize = true;
-            this.txtProgresso.Location = new System.Drawing.Point(182, 311);
+            this.txtProgresso.Location = new System.Drawing.Point(183, 345);
             this.txtProgresso.Name = "txtProgresso";
             this.txtProgresso.Size = new System.Drawing.Size(37, 13);
             this.txtProgresso.TabIndex = 5;
@@ -111,7 +112,7 @@
             // 
             this.llBaseOrigem.AutoSize = true;
             this.llBaseOrigem.LinkColor = System.Drawing.Color.Black;
-            this.llBaseOrigem.Location = new System.Drawing.Point(278, 259);
+            this.llBaseOrigem.Location = new System.Drawing.Point(279, 293);
             this.llBaseOrigem.Name = "llBaseOrigem";
             this.llBaseOrigem.Size = new System.Drawing.Size(55, 13);
             this.llBaseOrigem.TabIndex = 12;
@@ -122,7 +123,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(277, 242);
+            this.label6.Location = new System.Drawing.Point(278, 276);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(31, 13);
             this.label6.TabIndex = 13;
@@ -131,7 +132,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(525, 242);
+            this.label7.Location = new System.Drawing.Point(526, 276);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(31, 13);
             this.label7.TabIndex = 13;
@@ -141,7 +142,7 @@
             // 
             this.llBaseDestino.AutoSize = true;
             this.llBaseDestino.LinkColor = System.Drawing.Color.Black;
-            this.llBaseDestino.Location = new System.Drawing.Point(525, 258);
+            this.llBaseDestino.Location = new System.Drawing.Point(526, 292);
             this.llBaseDestino.Name = "llBaseDestino";
             this.llBaseDestino.Size = new System.Drawing.Size(55, 13);
             this.llBaseDestino.TabIndex = 14;
@@ -153,7 +154,7 @@
             // 
             this.btnAbrirDestino.Image = global::LoginDM.Properties.Resources.pasta;
             this.btnAbrirDestino.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAbrirDestino.Location = new System.Drawing.Point(434, 242);
+            this.btnAbrirDestino.Location = new System.Drawing.Point(435, 276);
             this.btnAbrirDestino.Name = "btnAbrirDestino";
             this.btnAbrirDestino.Size = new System.Drawing.Size(90, 31);
             this.btnAbrirDestino.TabIndex = 10;
@@ -166,7 +167,7 @@
             // 
             this.btnAbrirOrigem.Image = global::LoginDM.Properties.Resources.pasta;
             this.btnAbrirOrigem.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAbrirOrigem.Location = new System.Drawing.Point(185, 242);
+            this.btnAbrirOrigem.Location = new System.Drawing.Point(186, 276);
             this.btnAbrirOrigem.Name = "btnAbrirOrigem";
             this.btnAbrirOrigem.Size = new System.Drawing.Size(86, 31);
             this.btnAbrirOrigem.TabIndex = 10;
@@ -175,6 +176,16 @@
             this.btnAbrirOrigem.UseVisualStyleBackColor = true;
             this.btnAbrirOrigem.Click += new System.EventHandler(this.button2_Click_1);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(181, 9);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(214, 25);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Sistema de Backup";
+            // 
             // btnListar
             // 
             this.btnListar.BackColor = System.Drawing.Color.DodgerBlue;
@@ -182,7 +193,7 @@
             this.btnListar.ForeColor = System.Drawing.Color.White;
             this.btnListar.Image = global::LoginDM.Properties.Resources.tarefa;
             this.btnListar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnListar.Location = new System.Drawing.Point(8, 113);
+            this.btnListar.Location = new System.Drawing.Point(9, 147);
             this.btnListar.Name = "btnListar";
             this.btnListar.Size = new System.Drawing.Size(76, 35);
             this.btnListar.TabIndex = 0;
@@ -198,7 +209,7 @@
             this.btnBackup.ForeColor = System.Drawing.Color.White;
             this.btnBackup.Image = global::LoginDM.Properties.Resources.backup1;
             this.btnBackup.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBackup.Location = new System.Drawing.Point(8, 150);
+            this.btnBackup.Location = new System.Drawing.Point(9, 184);
             this.btnBackup.Name = "btnBackup";
             this.btnBackup.Size = new System.Drawing.Size(158, 35);
             this.btnBackup.TabIndex = 2;
@@ -209,7 +220,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 242);
+            this.label5.Location = new System.Drawing.Point(9, 276);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(30, 13);
             this.label5.TabIndex = 5;
@@ -218,7 +229,7 @@
             // tbLogs
             // 
             this.tbLogs.Enabled = false;
-            this.tbLogs.Location = new System.Drawing.Point(9, 258);
+            this.tbLogs.Location = new System.Drawing.Point(10, 292);
             this.tbLogs.Multiline = true;
             this.tbLogs.Name = "tbLogs";
             this.tbLogs.Size = new System.Drawing.Size(157, 66);
@@ -231,7 +242,7 @@
             this.btnLimpar.ForeColor = System.Drawing.Color.White;
             this.btnLimpar.Image = global::LoginDM.Properties.Resources.limpar_limpo;
             this.btnLimpar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLimpar.Location = new System.Drawing.Point(90, 113);
+            this.btnLimpar.Location = new System.Drawing.Point(91, 147);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(76, 35);
             this.btnLimpar.TabIndex = 11;
@@ -247,7 +258,7 @@
             this.btnRestaurar.ForeColor = System.Drawing.Color.White;
             this.btnRestaurar.Image = global::LoginDM.Properties.Resources.copia_de_seguranca__1_;
             this.btnRestaurar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRestaurar.Location = new System.Drawing.Point(8, 188);
+            this.btnRestaurar.Location = new System.Drawing.Point(9, 222);
             this.btnRestaurar.Name = "btnRestaurar";
             this.btnRestaurar.Size = new System.Drawing.Size(158, 35);
             this.btnRestaurar.TabIndex = 15;
@@ -283,7 +294,7 @@
             // 
             this.gpPeriodo.Controls.Add(this.rbNoite);
             this.gpPeriodo.Controls.Add(this.rbTarde);
-            this.gpPeriodo.Location = new System.Drawing.Point(8, 56);
+            this.gpPeriodo.Location = new System.Drawing.Point(9, 90);
             this.gpPeriodo.Name = "gpPeriodo";
             this.gpPeriodo.Size = new System.Drawing.Size(159, 51);
             this.gpPeriodo.TabIndex = 3;
@@ -297,15 +308,15 @@
             this.cbSemestre.Items.AddRange(new object[] {
             "1º Semestre",
             "2º Semestre"});
-            this.cbSemestre.Location = new System.Drawing.Point(100, 25);
+            this.cbSemestre.Location = new System.Drawing.Point(83, 59);
             this.cbSemestre.Name = "cbSemestre";
-            this.cbSemestre.Size = new System.Drawing.Size(66, 21);
+            this.cbSemestre.Size = new System.Drawing.Size(84, 21);
             this.cbSemestre.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(99, 9);
+            this.label1.Location = new System.Drawing.Point(81, 43);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 5;
@@ -314,7 +325,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 9);
+            this.label2.Location = new System.Drawing.Point(13, 43);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(26, 13);
             this.label2.TabIndex = 5;
@@ -322,16 +333,17 @@
             // 
             // dpAno
             // 
-            this.dpAno.Location = new System.Drawing.Point(11, 25);
+            this.dpAno.Location = new System.Drawing.Point(12, 59);
             this.dpAno.Name = "dpAno";
-            this.dpAno.Size = new System.Drawing.Size(73, 20);
+            this.dpAno.Size = new System.Drawing.Size(65, 20);
             this.dpAno.TabIndex = 6;
             // 
             // Backup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(816, 335);
+            this.ClientSize = new System.Drawing.Size(816, 368);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.btnRestaurar);
             this.Controls.Add(this.llBaseDestino);
             this.Controls.Add(this.label7);
@@ -357,7 +369,6 @@
             this.Controls.Add(this.btnListar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
             this.Name = "Backup";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Backup";
@@ -382,6 +393,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.LinkLabel llBaseDestino;
+        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnListar;
         private System.Windows.Forms.Button btnBackup;
         private System.Windows.Forms.Label label5;
