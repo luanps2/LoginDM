@@ -126,7 +126,7 @@ namespace LoginDM
             }
             catch (Exception err2)
             {
-                tbLogs.Text = "O diretório " + rotaDestino + "ainda não foi criado";
+                tbLogs.Text = "O diretório " + rotaDestino + " ainda não foi criado";
 
             }
 
@@ -466,20 +466,34 @@ namespace LoginDM
 
             if (!Directory.Exists(rotaDestino))
             {
-                DirectoryInfo di = Directory.CreateDirectory(rotaDestino);
+                DialogResult resposta = MessageBox.Show("Diretório destino não existe, deseja cria-lo?", "Mensagem", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (resposta == DialogResult.Yes)
+                {
+                    DirectoryInfo di = Directory.CreateDirectory(rotaDestino);
+
+                    try
+                    {
+                        System.Diagnostics.Process.Start(rotaDestino);
+
+                    }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show("erro: " + ex);
+                    }
+
+                }
+                else if (resposta == DialogResult.No)
+                {
+                    MessageBox.Show("Diretório não foi criado!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
+
+            
+            
 
             //System.Diagnostics.Process.Start(rotaDestino);
-            try
-            {
-                System.Diagnostics.Process.Start(rotaDestino);
-
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show("erro: " + ex);
-            }
+       
         }
 
         private void llBaseOrigem_Click(object sender, EventArgs e)

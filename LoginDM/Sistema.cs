@@ -76,6 +76,7 @@ namespace LoginDM
         //bool MapExiste = Directory.Exists("M:/");
 
         NetworkDrive Mapeamento = new NetworkDrive();
+        NetworkDrive Mapeamento2 = new NetworkDrive();
 
 
 
@@ -637,8 +638,9 @@ namespace LoginDM
 
         public void Form1_Load(object sender, EventArgs e)
         {
+            lblCafe.Text = "";
+            lblSaida.Text = "";
 
-          
 
             //panel3.AutoScroll = true;
             restaurarBackupToolStripMenuItem.Enabled = false;
@@ -713,6 +715,7 @@ namespace LoginDM
             {
                 Desconectar.Force = true;
                 Desconectar.LocalDrive = "M:";
+                Desconectar.LocalDrive = "Z:";
                 Desconectar.UnMapDrive();
 
                 //bool ReturnValue = false;
@@ -1025,7 +1028,7 @@ namespace LoginDM
 
 
                 toolTip1.SetToolTip(pbCafeouJantar, "Café");
-                
+
             }
         }
 
@@ -1137,10 +1140,10 @@ namespace LoginDM
 
         private void atualizarSistemaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Convert.ToDouble(versaoServer)>Convert.ToDouble(versaoLocal))
+            if (Convert.ToDouble(versaoServer) > Convert.ToDouble(versaoLocal))
             {
-            Process myProcess = Process.Start(@"\\luan\UpdateLoginDM\Update.exe");
-            this.Close();
+                Process myProcess = Process.Start(@"\\luan\UpdateLoginDM\Update.exe");
+                this.Close();
             }
             else
             {
@@ -1258,11 +1261,137 @@ namespace LoginDM
 
         }
 
+
+        private bool msgCafeExibida = false;
+        private bool msgSaidaExibida = false;
+        private bool msgJantarExibida = false;
+
+        private readonly TimeSpan CafeTarde = new TimeSpan(15, 30, 0);
+        private readonly TimeSpan SaidaTarde = new TimeSpan(17, 0, 0);
+        private readonly TimeSpan JantarNoite = new TimeSpan(19, 49, 30);
+        private readonly TimeSpan SaidaNoite = new TimeSpan(21, 50, 0);
+
+
+        //private void timer1_Tick(object sender, EventArgs e)
+        //{
+        //    DateTime horaAtual = DateTime.Now;
+
+        //    AtualizarLabelsTempoRestante(horaAtual);
+
+        //    if (rbTarde.Checked)
+        //    {
+        //        VerificarRefeicao(horaAtual, CafeTarde, "Hora do Café!", ref msgCafeExibida);
+        //        VerificarRefeicao(horaAtual, SaidaTarde, "Hora de ir embora :( \nAté a próxima aula! bom descanso. ;)", ref msgSaidaExibida);
+        //        pbCafeouJantar.Image = Properties.Resources.cafe;
+        //        pbSaida.Image = Properties.Resources.saida;
+        //    }
+        //    else if (rbNoite.Checked)
+        //    {
+        //        VerificarRefeicao(horaAtual, JantarNoite, "Hora da janta!", ref msgJantarExibida);
+        //        VerificarRefeicao(horaAtual, SaidaNoite, "Hora de ir embora :( \nAté a próxima aula! bom descanso. ;)", ref msgSaidaExibida);
+        //        pbCafeouJantar.Image = Properties.Resources.jantar;
+        //        pbSaida.Image = Properties.Resources.saida;
+        //    }
+        //}
+
+        //private void AtualizarLabelsTempoRestante(DateTime horaAtual)
+        //{
+        //    if (rbTarde.Checked)
+        //    {
+        //        AtualizarLabelTempoRestante(lblCafe, CafeTarde, horaAtual);
+        //        AtualizarLabelTempoRestante(lblSaida, SaidaTarde, horaAtual);
+        //    }
+        //    else if (rbNoite.Checked)
+        //    {
+        //        AtualizarLabelTempoRestante(lblCafe, JantarNoite, horaAtual);
+        //        AtualizarLabelTempoRestante(lblSaida, SaidaNoite, horaAtual);
+        //    }
+        //}
+
+        //private void AtualizarLabelTempoRestante(Label label, TimeSpan horarioRefeicao, DateTime horaAtual)
+        //{
+        //    if (horaAtual.TimeOfDay < horarioRefeicao)
+        //    {
+        //        TimeSpan tempoRestante = horarioRefeicao - horaAtual.TimeOfDay;
+        //        label.Text = $"{tempoRestante.Hours:D2}:{tempoRestante.Minutes:D2}:{tempoRestante.Seconds:D2}";
+        //    }
+        //    else
+        //    {
+        //        label.Text = "";
+        //    }
+        //}
+
+        //private void LimparLabels()
+        //{
+        //    lblCafe.Text = "";
+        //    lblSaida.Text = "";
+        //}
+
+        //private void VerificarRefeicao(DateTime horaAtual, TimeSpan horarioRefeicao, string mensagem, ref bool mensagemExibida)
+        //{
+        //    if (horaAtual.TimeOfDay >= horarioRefeicao && !mensagemExibida)
+        //    {
+        //        MessageBox.Show(mensagem, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //        mensagemExibida = true;
+        //    }
+        //}
+
+        //private Dictionary<TimeSpan, bool> mensagensExibidas = new Dictionary<TimeSpan, bool>();
+
+        //private bool MensagemJaExibida(TimeSpan horarioRefeicao)
+        //{
+        //    return mensagensExibidas.ContainsKey(horarioRefeicao) && mensagensExibidas[horarioRefeicao];
+        //}
+
+        //private void RegistrarMensagemExibida(TimeSpan horarioRefeicao)
+        //{
+        //    if (!mensagensExibidas.ContainsKey(horarioRefeicao))
+        //    {
+        //        mensagensExibidas.Add(horarioRefeicao, true);
+        //    }
+        //}
+
+
+
+
+
+
+
         private void timer1_Tick(object sender, EventArgs e)
         {
-            var hora = DateTime.Now.ToString("HH");
-            var minutos = DateTime.Now.ToString("mm");
-            var segundos = DateTime.Now.ToString("ss");
+
+            //    DateTime horaAtual = DateTime.Now;
+
+            //    LimparLabels();
+
+            //    if (rbTarde.Checked)
+            //    {
+            //        VerificarRefeicao(horaAtual, CafeTarde, "Hora do Café!", ref msgCafe);
+            //        VerificarRefeicao(horaAtual, SaidaTarde, "Hora de ir embora :( \nAté a próxima aula! bom descanso. ;)", ref msgSaida);
+            //        pbCafeouJantar.Image = Properties.Resources.cafe;
+            //        pbSaida.Image = Properties.Resources.saida;
+            //    }
+            //    else if (rbNoite.Checked)
+            //    {
+            //        VerificarRefeicao(horaAtual, JantarNoite, "Hora da janta!", ref msgJantar);
+            //        VerificarRefeicao(horaAtual, SaidaNoite, "Hora de ir embora :( \nAté a próxima aula! bom descanso. ;)", ref msgSaida);
+            //        pbCafeouJantar.Image = Properties.Resources.jantar;
+            //        pbSaida.Image = Properties.Resources.saida;
+            //    }
+
+
+
+
+
+
+            bool msgCafe = false;
+            bool msgJantar = false;
+            bool msgSaida = false;
+
+
+            //    //var hora = DateTime.Now.ToString("HH");
+            //    //var minutos = DateTime.Now.ToString("mm");
+            //    //var segundos = DateTime.Now.ToString("ss");
 
             if (!rbTarde.Checked && !rbNoite.Checked)
             {
@@ -1289,13 +1418,16 @@ namespace LoginDM
                 if (CafeTarde < HoraAtual)
                 {
                     lblCafe.Text = "";
-
-
                 }
 
-                if (DateTime.Now == CafeTarde)
+
+
+
+
+                if (DateTime.Now == CafeTarde && !msgCafe)
                 {
                     MessageBox.Show("Hora do Café! ", "Café", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    msgCafe = true;
                 }
 
                 if (SaidaTarde < HoraAtual)
@@ -1303,9 +1435,10 @@ namespace LoginDM
                     lblSaida.Text = "";
                 }
 
-                if (HoraAtual == SaidaTarde)
+                if (HoraAtual == SaidaTarde && !msgSaida)
                 {
                     MessageBox.Show("Hora de ir embora :( \nAté a próxima aula! bom descanso. ;)", "Hora da saída", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    msgSaida = true;
                 }
 
             }
@@ -1316,7 +1449,7 @@ namespace LoginDM
                 //DateTime café = new TimeSpan(15, 30, 0);
 
                 //DateTime JantarNoite = DateTime.Parse("20:00:00");
-                DateTime JantarNoite = DateTime.Parse("20:00:00");
+                DateTime JantarNoite = DateTime.Parse("20:50:00");
                 lblCafe.Text = (JantarNoite - HoraAtual).ToString();
 
                 //DateTime SaidaNoite = DateTime.Parse("21:50:00");
@@ -1333,20 +1466,23 @@ namespace LoginDM
                     lblCafe.Text = "";
                 }
 
-                if (HoraAtual == JantarNoite)
+                if (HoraAtual == JantarNoite && !msgJantar)
                 {
                     MessageBox.Show("Hora da janta! ", "Jantar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
+                    msgJantar = true;
                 }
+
+                
 
                 if (SaidaNoite < HoraAtual)
                 {
                     lblSaida.Text = "";
                 }
 
-                if (SaidaNoite == HoraAtual)
+                if (SaidaNoite == HoraAtual && !msgSaida)
                 {
                     MessageBox.Show("Hora de ir embora :( \nAté a próxima aula! bom descanso. ;)", "Hora da saída", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    msgSaida = true;
                 }
 
 
@@ -1361,6 +1497,8 @@ namespace LoginDM
             //lblSinal.Text = DateTime.Now.ToString("HH:mm:ss");  
         }
 
+
+
         private void lblSinal_Click(object sender, EventArgs e)
         {
 
@@ -1368,8 +1506,17 @@ namespace LoginDM
 
         private void funçõesAdministrativasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SenhaADM senha = new SenhaADM();
-            senha.Show();
+            if (Environment.UserName == "Educador")
+            {
+                SenhaADM senha = new SenhaADM();
+                senha.Show();
+            }
+            else
+            {
+                MessageBox.Show("Apenas o professor pode acessar essa função!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+
 
             //FuncADM JanelaAdm = new FuncADM();
             //JanelaAdm.Show();
@@ -1506,19 +1653,21 @@ namespace LoginDM
 
             if (!MapImpressao)
             {
-                Mapeamento.Force = true;
-                Mapeamento.Persistent = true;
-                Mapeamento.LocalDrive = "Z:";
+                Mapeamento2.Force = true;
+                Mapeamento2.Persistent = true;
+                Mapeamento2.LocalDrive = "Z:";
                 String dir = "\\\\server\\Seagate\\Impressão";
-                Mapeamento.ShareName = dir;
-                Process.Start("\\\\server\\Seagate\\Impressão\\");
-                Mapeamento.MapDrive();
-                MessageBox.Show("Salve o arquivo a ser impresso na pasta Impressão!");
+                Mapeamento2.ShareName = dir;
+                Mapeamento2.MapDrive();
+                MessageBox.Show("Salve o arquivo a ser impresso na pasta Impressão!","Impressão", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Process.Start("Z:\\");
+                //Process.Start("\\\\server\\Seagate\\Impressão\\");
 
             }
             else
             {
-                Mapeamento.Force = false;
+                Process.Start("Z:\\");
+                
             }
 
 
@@ -1725,7 +1874,7 @@ namespace LoginDM
 
                 string usuario = lblUser.Text;
                 string origem = $@"\\server\Seagate\Backups\{ano}\{semestre}\{periodo}\{usuario}";
-                string destino = $@"\\server\{periodo}\{usuario}"; 
+                string destino = $@"\\server\{periodo}\{usuario}";
 
                 BackupAluno(origem, destino);
                 MessageBox.Show("Restauração do seu diretório " + usuario + " efetuado com sucesso para: \n" + destino, "Backup Concluído", MessageBoxButtons.OK, MessageBoxIcon.Information);
