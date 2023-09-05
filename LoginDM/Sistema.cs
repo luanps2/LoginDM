@@ -19,6 +19,7 @@ using System.Runtime.InteropServices;
 using System.Configuration;
 using System.Diagnostics;
 using Microsoft.VisualBasic.FileIO;
+using System.Net;
 
 
 namespace LoginDM
@@ -82,175 +83,181 @@ namespace LoginDM
 
         public void Conectar()
         {
-
-            if (txtUsuario.TextLength < 2)
+            if (InternetConectada())
             {
-                MessageBox.Show("Digite um usuário válido!", "Usuário Inválido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                if (txtUsuario.TextLength < 2)
+                {
+                    MessageBox.Show("Digite um usuário válido!", "Usuário Inválido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    DriveInfo driverinfo = new DriveInfo("M");
+                    bool MapExiste = driverinfo.IsReady;
+
+                    if (MapExiste)
+                    {
+                        Desconectar();
+
+                    }
+
+                    if (!rbTarde.Checked && !rbNoite.Checked)
+                    {
+                        MessageBox.Show("Selecione seu periodo!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if (txtUsuario.Text == "")
+                    {
+                        MessageBox.Show("Digite seu Usuário!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                    //if (txtUsuario.TextLength > 0 && gbPeriodo.Controls.Count < 0)
+                    //{
+                    //    MessageBox.Show("Selecione seu periodo e \nDigite seu Usuário!");
+                    //}
+
+                    String periodo = "";
+                    periodo = rbTarde.Checked ? "Tarde" : "Noite";
+
+                    //int user = Int32.Parse(txtUsuario.Text);
+
+                    if ((rbTarde.Checked || rbNoite.Checked) && (txtUsuario.TextLength > 0))
+                    {
+                        try
+                        {
+
+                            conexao = new MySqlConnection("server=" + dadosbanco.Server +
+                               " ;user id=" + dadosbanco.User + ";" +
+                               " password= '" + dadosbanco.Password +
+                               "'; database=" + dadosbanco.DataBase +
+                               " ;SSL Mode = None");
+
+                            if (!MapExiste)
+                            {
+                                Mapeamento.Force = true;
+                                Mapeamento.Persistent = true;
+                                Mapeamento.LocalDrive = "M:";
+                                String dir = "\\\\" + server + "\\" + periodo + "\\" + txtUsuario.Text;
+                                Mapeamento.ShareName = dir;
+
+                                bool DiretorioExiste = Directory.Exists(dir);
+
+                                if (!DiretorioExiste)
+                                {
+                                    try
+                                    {
+                                        DialogResult dialogresult = MessageBox.Show("Usuário " + txtUsuario.Text + " não existe, deseja cria-lo?", "Usuário não existe", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                                        if (dialogresult == DialogResult.Yes)
+                                        {
+                                            string dialogNome = Interaction.InputBox("Digite seu nome completo: ", "Nome", "Nome completo");
+                                            DirectoryInfo di = Directory.CreateDirectory(dir + "\\" + dialogNome.ToString());
+
+                                            //string[] cursos;
+
+
+                                            //foreach (var curso in cursos)
+                                            //{
+
+                                            //}
+
+                                            DirectoryInfo Word = Directory.CreateDirectory(dir + "\\" + dialogNome.ToString() + "\\" + "1 - Word");
+                                            DirectoryInfo Excel = Directory.CreateDirectory(dir + "\\" + dialogNome.ToString() + "\\" + "2 - Excel");
+                                            DirectoryInfo PowerPoint = Directory.CreateDirectory(dir + "\\" + dialogNome.ToString() + "\\" + "3 - PowerPoint");
+
+
+                                            string InsertQuery = "INSERT INTO usuario(Cod, Periodo, Nome) VALUES (@cod, @Periodo, @Nome)";
+                                            conexao.Open();
+                                            MySqlCommand command = new MySqlCommand(InsertQuery, conexao);
+                                            command.Parameters.AddWithValue("@cod", txtUsuario.Text);
+                                            command.Parameters.AddWithValue("@Periodo", periodo.ToString());
+                                            command.Parameters.AddWithValue("@Nome", dialogNome.ToString());
+                                            command.ExecuteNonQuery();
+                                            conexao.Close();
+
+                                            MessageBox.Show(dialogNome.ToString() + " sua pasta de usuário e seu registro no banco de dados " + lblUser.Text + " foram criados com sucesso! ", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                            //Criar usuário no banco Mysql
+
+
+
+
+
+
+                                        }
+                                        else if (dialogresult == DialogResult.No)
+                                        {
+                                            MessageBox.Show("Pasta não foi criada! Aguarde alguns segundos...\nErro: LN01");
+                                            Application.Restart();
+                                        }
+
+                                    }
+                                    catch (Exception erro2)
+                                    {
+                                        MessageBox.Show("Pasta não foi criada! \nErro: LN02 " + erro2.Message);
+
+                                    }
+
+                                }
+
+                                //MessageBox.Show(Mapeamento.ShareName);
+
+                                Mapeamento.MapDrive();
+                                pbStatus.Image = Properties.Resources.online2;
+                                lblStatus.Text = "Status: Conectado!";
+                                lblStatus.Location = new Point(275, 4);
+                                btnDesconectar.Image = Properties.Resources.BT2;
+
+                                DriveInfo dinfo = new DriveInfo("M");
+                                bool pronto = dinfo.IsReady;
+
+                                if (!pronto)
+                                {
+                                    imgPasta.Image = Properties.Resources.offdir;
+                                }
+                                else if (pronto)
+                                {
+                                    imgPasta.Image = Properties.Resources.dir;
+                                }
+
+                                DriveInfo din = new DriveInfo(@"M:\");
+                                DirectoryInfo dirInfo = din.RootDirectory;
+                                DirectoryInfo[] dirInfos = dirInfo.GetDirectories("*.*");
+
+                                foreach (DirectoryInfo d in dirInfos)
+                                {
+                                    lblNome.Text = d.Name.ToUpper();
+                                    lblUsuario.Text = d.Name.ToUpper();
+                                    lblUsuario2.Text = d.Name.ToUpper();
+                                }
+
+                                System.Diagnostics.Process.Start("M:/" + lblNome.Text);//abre a pasta do usuário após logar
+
+
+                                tabPage2.Enabled = true;
+                                tabPage3.Enabled = true;
+                                pbBackupAluno.Visible = true;
+                                backupToolStripMenuItem.Enabled = true;
+                                restaurarBackupToolStripMenuItem.Enabled = true;
+
+                                gbPeriodo.Enabled = false;
+                                txtUsuario.Enabled = false;
+                                txtSenha.Enabled = false;
+                                btnLogin.Image = Properties.Resources.BT11;
+                                btnLogin.Enabled = false;
+                            }
+                        }
+                        catch (Exception erro)
+                        {
+                            MessageBox.Show("Não conectado!\nErro: " + erro.Message, "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        }
+                        Mapeamento = null;
+                    }
+                }
             }
             else
             {
-                DriveInfo driverinfo = new DriveInfo("M");
-                bool MapExiste = driverinfo.IsReady;
 
-                if (MapExiste)
-                {
-                    Desconectar();
-
-                }
-
-                if (!rbTarde.Checked && !rbNoite.Checked)
-                {
-                    MessageBox.Show("Selecione seu periodo!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else if (txtUsuario.Text == "")
-                {
-                    MessageBox.Show("Digite seu Usuário!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-
-                //if (txtUsuario.TextLength > 0 && gbPeriodo.Controls.Count < 0)
-                //{
-                //    MessageBox.Show("Selecione seu periodo e \nDigite seu Usuário!");
-                //}
-
-                String periodo = "";
-                periodo = rbTarde.Checked ? "Tarde" : "Noite";
-
-                //int user = Int32.Parse(txtUsuario.Text);
-
-                if ((rbTarde.Checked || rbNoite.Checked) && (txtUsuario.TextLength > 0))
-                {
-                    try
-                    {
-
-                        conexao = new MySqlConnection("server=" + dadosbanco.Server +
-                           " ;user id=" + dadosbanco.User + ";" +
-                           " password= '" + dadosbanco.Password +
-                           "'; database=" + dadosbanco.DataBase +
-                           " ;SSL Mode = None");
-
-                        if (!MapExiste)
-                        {
-                            Mapeamento.Force = true;
-                            Mapeamento.Persistent = true;
-                            Mapeamento.LocalDrive = "M:";
-                            String dir = "\\\\" + server + "\\" + periodo + "\\" + txtUsuario.Text;
-                            Mapeamento.ShareName = dir;
-
-                            bool DiretorioExiste = Directory.Exists(dir);
-
-                            if (!DiretorioExiste)
-                            {
-                                try
-                                {
-                                    DialogResult dialogresult = MessageBox.Show("Usuário " + txtUsuario.Text + " não existe, deseja cria-lo?", "Usuário não existe", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                                    if (dialogresult == DialogResult.Yes)
-                                    {
-                                        string dialogNome = Interaction.InputBox("Digite seu nome completo: ", "Nome", "Nome completo");
-                                        DirectoryInfo di = Directory.CreateDirectory(dir + "\\" + dialogNome.ToString());
-
-                                        //string[] cursos;
-
-
-                                        //foreach (var curso in cursos)
-                                        //{
-
-                                        //}
-
-                                        DirectoryInfo Word = Directory.CreateDirectory(dir + "\\" + dialogNome.ToString() + "\\" + "1 - Word");
-                                        DirectoryInfo Excel = Directory.CreateDirectory(dir + "\\" + dialogNome.ToString() + "\\" + "2 - Excel");
-                                        DirectoryInfo PowerPoint = Directory.CreateDirectory(dir + "\\" + dialogNome.ToString() + "\\" + "3 - PowerPoint");
-
-
-                                        string InsertQuery = "INSERT INTO usuario(Cod, Periodo, Nome) VALUES (@cod, @Periodo, @Nome)";
-                                        conexao.Open();
-                                        MySqlCommand command = new MySqlCommand(InsertQuery, conexao);
-                                        command.Parameters.AddWithValue("@cod", txtUsuario.Text);
-                                        command.Parameters.AddWithValue("@Periodo", periodo.ToString());
-                                        command.Parameters.AddWithValue("@Nome", dialogNome.ToString());
-                                        command.ExecuteNonQuery();
-                                        conexao.Close();
-
-                                        MessageBox.Show(dialogNome.ToString() + " sua pasta de usuário e seu registro no banco de dados " + lblUser.Text + " foram criados com sucesso! ", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                                        //Criar usuário no banco Mysql
-
-
-
-
-
-
-                                    }
-                                    else if (dialogresult == DialogResult.No)
-                                    {
-                                        MessageBox.Show("Pasta não foi criada! Aguarde alguns segundos...\nErro: LN01");
-                                        Application.Restart();
-                                    }
-
-                                }
-                                catch (Exception erro2)
-                                {
-                                    MessageBox.Show("Pasta não foi criada! \nErro: LN02 " + erro2.Message);
-
-                                }
-
-                            }
-
-                            //MessageBox.Show(Mapeamento.ShareName);
-
-                            Mapeamento.MapDrive();
-                            pbStatus.Image = Properties.Resources.online2;
-                            lblStatus.Text = "Status: Conectado!";
-                            lblStatus.Location = new Point(275, 4);
-                            btnDesconectar.Image = Properties.Resources.BT2;
-
-                            DriveInfo dinfo = new DriveInfo("M");
-                            bool pronto = dinfo.IsReady;
-
-                            if (!pronto)
-                            {
-                                imgPasta.Image = Properties.Resources.offdir;
-                            }
-                            else if (pronto)
-                            {
-                                imgPasta.Image = Properties.Resources.dir;
-                            }
-
-                            DriveInfo din = new DriveInfo(@"M:\");
-                            DirectoryInfo dirInfo = din.RootDirectory;
-                            DirectoryInfo[] dirInfos = dirInfo.GetDirectories("*.*");
-
-                            foreach (DirectoryInfo d in dirInfos)
-                            {
-                                lblNome.Text = d.Name.ToUpper();
-                                lblUsuario.Text = d.Name.ToUpper();
-                                lblUsuario2.Text = d.Name.ToUpper();
-                            }
-
-                            System.Diagnostics.Process.Start("M:/" + lblNome.Text);//abre a pasta do usuário após logar
-
-
-                            tabPage2.Enabled = true;
-                            tabPage3.Enabled = true;
-                            pbBackupAluno.Visible = true;
-                            backupToolStripMenuItem.Enabled = true;
-                            restaurarBackupToolStripMenuItem.Enabled = true;
-
-                            gbPeriodo.Enabled = false;
-                            txtUsuario.Enabled = false;
-                            txtSenha.Enabled = false;
-                            btnLogin.Image = Properties.Resources.BT11;
-                            btnLogin.Enabled = false;
-                        }
-                    }
-                    catch (Exception erro)
-                    {
-                        MessageBox.Show("Não conectado!\nErro: " + erro.Message, "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                    }
-                    Mapeamento = null;
-                }
             }
-
         }
 
         public void Desconectar()
@@ -719,7 +726,7 @@ namespace LoginDM
                 Desconectar.UnMapDrive();
 
                 //bool ReturnValue = false;
-                System.Diagnostics.Process p = new System.Diagnostics.Process();
+                Process p = new Process();
                 //p.StartInfo.UseShellExecute = false;
                 //p.StartInfo.CreateNoWindow = true;
                 //p.StartInfo.RedirectStandardError = true;
@@ -961,28 +968,67 @@ namespace LoginDM
             txtSenha.ForeColor = Color.Black;
         }
 
+        static bool InternetConectada()
+        {
+            try
+            {
+                using (WebClient client = new WebClient())
+                {
+                    using (var stream = client.OpenRead("http://www.google.com"))
+                    {
+                        return true;
+                    }
+                }
+            }
+            catch (WebException)
+            {
+                return false;
+            }
+        }
+
         private void btnLogin_Click_1(object sender, EventArgs e)
         {
-            if (txtUsuario.Text == txtSenha.Text)
-            {
-                Conectar();
+           
+                if (txtUsuario.Text == txtSenha.Text)
+                {
+                    if (InternetConectada())
+                    {
+                        Conectar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Internet não está conectada! verifique sua conexão!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Senha Incorreta, Verifique sua senha e tente novamente.", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
 
-                popularDataGrid();
-                MarcarPresença();
+                //popularDataGrid();
+                //MarcarPresença();
+
+                //dgBoletim.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                //dgFrequencia.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            
 
 
+            //if (txtUsuario.Text == txtSenha.Text)
+            //{
+            //    Conectar();
 
-                dgBoletim.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            //    //popularDataGrid();
+            //    //MarcarPresença();
 
-                dgFrequencia.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            //    //dgBoletim.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            //    //dgFrequencia.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Senha Incorreta, Verifique sua senha e tente novamente.", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
 
 
-
-            }
-            else
-            {
-                MessageBox.Show("Senha Incorreta, Verifique sua senha e tente novamente.", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
 
         }
 
@@ -1232,14 +1278,7 @@ namespace LoginDM
             MessageBox.Show(dadosbanco.conn.ToString());
         }
 
-        private void txtSenha_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                Conectar();
-                popularDataGrid();
-            }
-        }
+     
 
         private void button1_Click_3(object sender, EventArgs e)
         {
@@ -1268,7 +1307,7 @@ namespace LoginDM
 
         private readonly TimeSpan CafeTarde = new TimeSpan(15, 30, 0);
         private readonly TimeSpan SaidaTarde = new TimeSpan(17, 0, 0);
-        private readonly TimeSpan JantarNoite = new TimeSpan(19, 49, 30);
+        private readonly TimeSpan JantarNoite = new TimeSpan(20, 00, 00);
         private readonly TimeSpan SaidaNoite = new TimeSpan(21, 50, 0);
 
 
@@ -1449,7 +1488,7 @@ namespace LoginDM
                 //DateTime café = new TimeSpan(15, 30, 0);
 
                 //DateTime JantarNoite = DateTime.Parse("20:00:00");
-                DateTime JantarNoite = DateTime.Parse("20:50:00");
+                DateTime JantarNoite = DateTime.Parse("20:00:00");
                 lblCafe.Text = (JantarNoite - HoraAtual).ToString();
 
                 //DateTime SaidaNoite = DateTime.Parse("21:50:00");
@@ -1472,7 +1511,7 @@ namespace LoginDM
                     msgJantar = true;
                 }
 
-                
+
 
                 if (SaidaNoite < HoraAtual)
                 {
@@ -1659,7 +1698,7 @@ namespace LoginDM
                 String dir = "\\\\server\\Seagate\\Impressão";
                 Mapeamento2.ShareName = dir;
                 Mapeamento2.MapDrive();
-                MessageBox.Show("Salve o arquivo a ser impresso na pasta Impressão!","Impressão", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Salve o arquivo a ser impresso na pasta Impressão!", "Impressão", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Process.Start("Z:\\");
                 //Process.Start("\\\\server\\Seagate\\Impressão\\");
 
@@ -1667,7 +1706,7 @@ namespace LoginDM
             else
             {
                 Process.Start("Z:\\");
-                
+
             }
 
 
@@ -1885,5 +1924,51 @@ namespace LoginDM
             }
         }
 
+        private void button1_Click_6(object sender, EventArgs e)
+        {
+            if (!InternetConectada())
+            {
+                MessageBox.Show("Internet não está conectada! verifique sua conexão", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show("Internet está conectada!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void txtSenha_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                if (txtUsuario.Text == txtSenha.Text)
+                {
+                    if (InternetConectada())
+                    {
+                        Conectar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Internet não está conectada! verifique sua conexão!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Senha Incorreta, Verifique sua senha e tente novamente.", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                //popularDataGrid();
+                //MarcarPresença();
+
+                //dgBoletim.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                //dgFrequencia.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            }
+         
+
+
+
+
+        }
+
+      
     }
 }

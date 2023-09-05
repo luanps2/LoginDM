@@ -62,13 +62,14 @@
             this.dgBoletim = new System.Windows.Forms.DataGridView();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.pbBackupAluno = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.lblVersao = new System.Windows.Forms.Label();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.lblNome = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lblInsiraDados = new System.Windows.Forms.Label();
             this.lblBemVindo = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnDesconectar = new System.Windows.Forms.PictureBox();
@@ -416,13 +417,14 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.pbBackupAluno);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.linkLabel1);
             this.tabPage1.Controls.Add(this.lblVersao);
             this.tabPage1.Controls.Add(this.txtSenha);
             this.tabPage1.Controls.Add(this.lblNome);
-            this.tabPage1.Controls.Add(this.label10);
+            this.tabPage1.Controls.Add(this.lblInsiraDados);
             this.tabPage1.Controls.Add(this.lblBemVindo);
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.btnDesconectar);
@@ -437,6 +439,16 @@
             this.tabPage1.Size = new System.Drawing.Size(403, 309);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Acesso";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(233, 6);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 37;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_6);
             // 
             // pbBackupAluno
             // 
@@ -499,7 +511,7 @@
             this.txtSenha.Text = "Senha";
             this.txtSenha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtSenha.Click += new System.EventHandler(this.txtSenha_Click_1);
-            this.txtSenha.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSenha_KeyUp);
+            this.txtSenha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSenha_KeyPress);
             // 
             // lblNome
             // 
@@ -511,15 +523,15 @@
             this.lblNome.TabIndex = 32;
             this.lblNome.Text = "AO SISTEMA DOM MACÁRIO";
             // 
-            // label10
+            // lblInsiraDados
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(8, 49);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(324, 16);
-            this.label10.TabIndex = 33;
-            this.label10.Text = "INSIRA SEUS DADOS PARA ACESSAR O SISTEMA";
+            this.lblInsiraDados.AutoSize = true;
+            this.lblInsiraDados.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInsiraDados.Location = new System.Drawing.Point(8, 49);
+            this.lblInsiraDados.Name = "lblInsiraDados";
+            this.lblInsiraDados.Size = new System.Drawing.Size(324, 16);
+            this.lblInsiraDados.TabIndex = 33;
+            this.lblInsiraDados.Text = "INSIRA SEUS DADOS PARA ACESSAR O SISTEMA";
             // 
             // lblBemVindo
             // 
@@ -915,7 +927,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.Label lblNome;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblInsiraDados;
         private System.Windows.Forms.Label lblBemVindo;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label6;
@@ -959,6 +971,7 @@
         private System.Windows.Forms.PictureBox pbBackupAluno;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ToolStripMenuItem restaurarBackupToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }
 

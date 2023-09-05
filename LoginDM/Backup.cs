@@ -488,6 +488,10 @@ namespace LoginDM
                     MessageBox.Show("Diretório não foi criado!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+            else
+            {
+                System.Diagnostics.Process.Start(rotaDestino);
+            }
 
             
             
