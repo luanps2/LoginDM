@@ -62,7 +62,6 @@
             this.dgBoletim = new System.Windows.Forms.DataGridView();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
             this.pbBackupAluno = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
@@ -417,7 +416,6 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.pbBackupAluno);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.linkLabel1);
@@ -439,16 +437,6 @@
             this.tabPage1.Size = new System.Drawing.Size(403, 309);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Acesso";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(233, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 37;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_6);
             // 
             // pbBackupAluno
             // 
@@ -971,7 +959,6 @@
         private System.Windows.Forms.PictureBox pbBackupAluno;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ToolStripMenuItem restaurarBackupToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
     }
 }
 
