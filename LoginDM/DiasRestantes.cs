@@ -19,7 +19,7 @@ namespace LoginDM
 
          public int FinalCurso()
         {
-            DateTime diasrestantes = new DateTime(DateTime.Today.Year, 12, 20);
+            DateTime diasrestantes = new DateTime(2024, 07, 11); //ANO , MÊS, DIA)
             return (int)diasrestantes.Subtract(DateTime.Today).TotalDays;
         }
 

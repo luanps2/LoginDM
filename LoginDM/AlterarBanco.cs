@@ -22,11 +22,11 @@ namespace LoginDM
 
         SistemaDoma sistemadoma = new SistemaDoma();
 
-        string server2;
-        string user;
-        string password;
-        string database;
-        string cnx;
+        //string server2;
+        //string user;
+        //string password;
+        //string database;
+        //string cnx;
         
         public MySqlConnection conexao;
 

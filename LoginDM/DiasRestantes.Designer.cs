@@ -43,7 +43,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 39);
             this.label1.TabIndex = 0;
-            this.label1.Text = "180";
+            this.label1.Text = "999";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
@@ -62,20 +62,20 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(156, 13);
             this.label3.TabIndex = 1;
-            this.label3.Text = "Data da formatura: 20/12/2023";
+            this.label3.Text = "Data da formatura: 11/07/2024";
             // 
             // DiasRestantes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(191, 127);
+            this.ClientSize = new System.Drawing.Size(198, 127);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "DiasRestantes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DiasRestantes";
+            this.Text = "Dias restantes para a formatura";
             this.Load += new System.EventHandler(this.DiasRestantes_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

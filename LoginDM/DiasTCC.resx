@@ -132,7 +132,7 @@
     <value>4</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
-    <value>Data para o TCC: 30/11/2023</value>
+    <value>Data para o TCC: 05/06/2024</value>
   </data>
   <data name="&gt;&gt;label3.Name" xml:space="preserve">
     <value>label3</value>
@@ -189,7 +189,7 @@
     <value>2</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>180</value>
+    <value>999</value>
   </data>
   <data name="label1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
@@ -220,7 +220,7 @@
     <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Dias TCC</value>
+    <value>Dias restantes para o TCC</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>DiasTCC</value>

@@ -24,8 +24,8 @@ namespace LoginDM
 
         public int TCC()
         {
-            DateTime diasrestantes = new DateTime(DateTime.Today.Year, 11, 30);
-            return (int)diasrestantes.Subtract(DateTime.Today).TotalDays;
+            DateTime diasrestantes = new DateTime(2024, 06, 05); // (ANO, MÊS, DIA)
+            return (int)diasrestantes.Subtract(DateTime.Today).TotalDays; 
 
         }
 

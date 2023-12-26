@@ -443,7 +443,7 @@
             this.pbBackupAluno.BackColor = System.Drawing.Color.Transparent;
             this.pbBackupAluno.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbBackupAluno.Image = global::LoginDM.Properties.Resources.backup3;
-            this.pbBackupAluno.Location = new System.Drawing.Point(374, 6);
+            this.pbBackupAluno.Location = new System.Drawing.Point(367, 9);
             this.pbBackupAluno.Name = "pbBackupAluno";
             this.pbBackupAluno.Size = new System.Drawing.Size(24, 24);
             this.pbBackupAluno.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

@@ -54,8 +54,10 @@ namespace LoginDM
         private String sql;
 
 
-        String versaoLocal = File.ReadAllText("C:\\SistemaLoginDm\\versao.txt"); //leitura local 
-        String versaoServer = File.ReadAllText("\\\\luan\\SistemaLoginDM\\versao.txt"); //leitura servidor
+       
+
+        string caminho_local = "C:\\SistemaLoginDm\\";
+        string caminho_servidor = "\\\\server\\SistemaLoginDM\\";
 
         //string server2 = "localhost";
         //string user = "root";
@@ -63,7 +65,7 @@ namespace LoginDM
         //string database = "boletim";
 
 
-        String server = "server"; //Dom Macário
+        //String server = "server"; //Dom Macário
                                   //String server = "luanpc"; //Casa
                                   //String diretorio = "";
 
@@ -136,7 +138,7 @@ namespace LoginDM
                                 Mapeamento.Force = true;
                                 Mapeamento.Persistent = true;
                                 Mapeamento.LocalDrive = "M:";
-                                String dir = "\\\\" + server + "\\" + periodo + "\\" + txtUsuario.Text;
+                                String dir = "\\\\server\\" + periodo + "\\" + txtUsuario.Text;
                                 Mapeamento.ShareName = dir;
 
                                 bool DiretorioExiste = Directory.Exists(dir);
@@ -159,6 +161,7 @@ namespace LoginDM
 
                                             //}
 
+                                            DirectoryInfo Introdcao = Directory.CreateDirectory(dir + "\\" + dialogNome.ToString() + "\\" + "0 - Introdução à Informática");
                                             DirectoryInfo Word = Directory.CreateDirectory(dir + "\\" + dialogNome.ToString() + "\\" + "1 - Word");
                                             DirectoryInfo Excel = Directory.CreateDirectory(dir + "\\" + dialogNome.ToString() + "\\" + "2 - Excel");
                                             DirectoryInfo PowerPoint = Directory.CreateDirectory(dir + "\\" + dialogNome.ToString() + "\\" + "3 - PowerPoint");
@@ -311,9 +314,61 @@ namespace LoginDM
 
         }
 
+        public void DesconectarPuro()
+        {
+            DriveInfo driverinfo = new DriveInfo("M");
+            bool MapExiste = driverinfo.IsReady;
+
+            if (!MapExiste)
+            {
+                
+
+            }
+            else
+            {
+                NetworkDrive Desconectar = new NetworkDrive();
+                try
+                {
+                    Desconectar.Force = true;
+                    Desconectar.LocalDrive = "M:";
+                    Desconectar.UnMapDrive();
+
+                    //bool ReturnValue = false;
+                    Process p = new Process();
+                    p.StartInfo.UseShellExecute = false;
+                    p.StartInfo.CreateNoWindow = true;
+                    p.StartInfo.RedirectStandardError = true;
+                    p.StartInfo.RedirectStandardOutput = true;
+
+                    p.StartInfo.FileName = "net.exe";
+                    p.StartInfo.Arguments = "use * /DELETE /y";
+                    p.Start();
+                    p.WaitForExit();
+
+                    lblNome.Text = "AO SISTEMA DOM MACÁRIO";
+                    btnDesconectar.Image = Properties.Resources.BT22;
+
+                    imgPasta.Image = Properties.Resources.offdir;
+                    Status();
+                    Application.Restart();
+
+                }
+                catch (Exception)
+                {
+
+                }
+            }
+
+
+
+
+        }
+
         public void Reiniciar()
         {
+
             Application.Restart();
+            
         }
 
         public void Desconectar2()
@@ -398,34 +453,54 @@ namespace LoginDM
             }
         }
 
+    
+
+
 
         public void AtualizarSistema()
         {
-            try
+            String versaoLocal = File.ReadAllText("C:\\SistemaLoginDm\\versao.txt"); //leitura local 
+            String versaoServer = File.ReadAllText("\\\\server\\SistemaLoginDM\\versao.txt"); //leitura servidor
+
+            if (Convert.ToDouble(versaoServer) > Convert.ToDouble(versaoLocal))
             {
 
-                if (Convert.ToDouble(versaoLocal) < Convert.ToDouble(versaoServer))
-                {
-                    MessageBox.Show("Sistema desatualizado! \nVersão local: " + versaoLocal + "\nVersão servidor: " + versaoServer + "\nAperte OK para atualizar.", "Atualizar Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Process myProcess = Process.Start(@"\\server\UpdateLoginDM\Update.exe");
+                this.Close();
 
-                    CopyDirectory(@"\\luan\\SistemaLoginDM\\", @"C:\\SistemaLoginDm\\", true);
-
-                    MessageBox.Show("Sistema Atualizado com sucesso! versão atual: " + versaoServer, "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    versaoLocal = versaoServer;
-
-                    Application.Restart();
-
-                }
-                else
-                {
-                    MessageBox.Show("Sistema Atualizado! \nVersão local: " + versaoLocal + "\nVersão do Servidor: " + versaoServer, "Sistema Atualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
             }
-            catch (Exception e)
+            else
             {
-                MessageBox.Show("Erro: " + e.ToString());
+                MessageBox.Show("Seu programa já está atualizado com a ultima versão disponível! Versão atual: " + versaoLocal + "/nVersão Servidor: " + versaoServer, "Atualização", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+
+
+
+            //try
+            //{
+
+            //    if (Convert.ToDouble(versaoLocal) < Convert.ToDouble(versaoServer))
+            //    {
+            //        MessageBox.Show("Sistema desatualizado! \nVersão local: " + versaoLocal + "\nVersão servidor: " + versaoServer + "\nAperte OK para atualizar.", "Atualizar Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            //        CopyDirectory(caminho_servidor, caminho_local, true);
+
+            //        MessageBox.Show("Sistema Atualizado com sucesso! versão atual: " + versaoServer, "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            //        versaoLocal = versaoServer;
+
+            //        Application.Restart();
+
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Sistema Atualizado! \nVersão local: " + versaoLocal + "\nVersão do Servidor: " + versaoServer, "Sistema Atualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    }
+            //}
+            //catch (Exception e)
+            //{
+            //    MessageBox.Show("Erro: " + e.ToString());
+            //}
 
 
 
@@ -645,6 +720,8 @@ namespace LoginDM
 
         public void Form1_Load(object sender, EventArgs e)
         {
+
+            DesconectarPuro();
             lblCafe.Text = "";
             lblSaida.Text = "";
 
@@ -653,6 +730,29 @@ namespace LoginDM
             restaurarBackupToolStripMenuItem.Enabled = false;
             pbBackupAluno.Visible = false;
             //backupToolStripMenuItem.Enabled = false;
+
+            //atualização ao iniciar programa
+            String versaoLocal = File.ReadAllText("C:\\SistemaLoginDm\\versao.txt"); //leitura local 
+            String versaoServer = File.ReadAllText("\\\\server\\SistemaLoginDM\\versao.txt"); //leitura servidor
+
+            if (Convert.ToDouble(versaoServer) > Convert.ToDouble(versaoLocal))
+            {
+
+                DialogResult resposta = MessageBox.Show($"Sua versão atual do sistema({versaoLocal}) está desatualizada, há uma versão mais recente do sistema({versaoServer}), deseja atualizar agora?", "Atualização do sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+
+                if (resposta == DialogResult.Yes)
+                {
+                Process myProcess = Process.Start(@"\\server\UpdateLoginDM\UpdateLogimDM.exe");
+                this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Seu programa não foi atualizado, aconselhamos que atualize assim que possivel!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+
+            }
+            
 
             conexao = new MySqlConnection("server=" + dadosbanco.Server +
               " ;user id=" + dadosbanco.User + ";" +
@@ -670,7 +770,8 @@ namespace LoginDM
                 SetWallpaper(imgWallpaper);//coloca papel de parede padrão
             }
 
-
+            //String versaoLocal = File.ReadAllText("C:\\SistemaLoginDm\\versao.txt"); //leitura local 
+            //String versaoServer = File.ReadAllText("\\\\server\\SistemaLoginDM\\versao.txt"); //leitura servidor
 
             lblVersao.Text = versaoLocal.ToString();
 
@@ -761,6 +862,8 @@ namespace LoginDM
 
             Status();
 
+          
+           
 
             if (Convert.ToDecimal(versaoLocal.ToString()) < Convert.ToDecimal(versaoServer.ToString()))
             {
@@ -1055,7 +1158,7 @@ namespace LoginDM
 
         private void reiniciarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Desconectar2();
+            Desconectar2();
             Reiniciar();
 
         }
@@ -1131,7 +1234,7 @@ namespace LoginDM
                 StreamWriter x;
                 string ver = "C:\\SistemaLoginDm\\versao.txt";
                 x = File.AppendText(ver);
-                String versaoServer = File.ReadAllText("\\\\luan\\SistemaLoginDM\\versao.txt"); //leitura servidor
+                String versaoServer = File.ReadAllText("\\\\server\\SistemaLoginDM\\versao.txt"); //leitura servidor
                 x.WriteLine(versaoServer);
                 x.Close();
 
@@ -1142,7 +1245,7 @@ namespace LoginDM
                 StreamWriter x;
                 string ver = "C:\\SistemaLoginDm\\versao.txt";
                 x = File.AppendText(ver);
-                String versaoServer = File.ReadAllText("\\\\luan\\SistemaLoginDM\\versao.txt"); //leitura servidor
+                String versaoServer = File.ReadAllText("\\\\server\\SistemaLoginDM\\versao.txt"); //leitura servidor
                 x.WriteLine(versaoServer);
                 x.Close();
 
@@ -1186,15 +1289,7 @@ namespace LoginDM
 
         private void atualizarSistemaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Convert.ToDouble(versaoServer) > Convert.ToDouble(versaoLocal))
-            {
-                Process myProcess = Process.Start(@"\\luan\UpdateLoginDM\Update.exe");
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Seu programa já está atualizado com a ultima versão disponível! Versão atual: " + versaoLocal, "Atualização", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            AtualizarSistema();
 
             //string origem = @"\\luan\\SistemaLoginDM\\";
             //string destino = @"C:\SistemaLoginDM\";
@@ -1940,6 +2035,7 @@ namespace LoginDM
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
+
                 if (txtUsuario.Text == txtSenha.Text)
                 {
                     if (InternetConectada())
@@ -1956,11 +2052,6 @@ namespace LoginDM
                     MessageBox.Show("Senha Incorreta, Verifique sua senha e tente novamente.", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
-                //popularDataGrid();
-                //MarcarPresença();
-
-                //dgBoletim.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-                //dgFrequencia.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             }
          
 
