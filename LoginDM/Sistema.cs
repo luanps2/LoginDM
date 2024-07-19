@@ -462,7 +462,7 @@ namespace LoginDM
         {
             String versaoLocal = File.ReadAllText("C:\\SistemaLoginDm\\versao.txt"); //leitura local 
             String versaoServer = File.ReadAllText("\\\\server\\SistemaLoginDM\\versao.txt"); //leitura servidor
-            string atualizador = @"\\server\UpdateLoginDM\UpdateLogimDM.exe";
+            string atualizador = @"\\server\UpdateLoginDM\Update.exe";
 
             if (Convert.ToDouble(versaoServer) > Convert.ToDouble(versaoLocal))
             {
@@ -726,7 +726,7 @@ namespace LoginDM
             int mes = DateTime.Now.Month;
             int dia = DateTime.Now.Day;
             string semestre = (mes < 6 && dia > 17) ? "1º Semestre" : "2º Semestre";
-
+          
 
             DesconectarPuro();
             lblCafe.Text = "";
@@ -2014,7 +2014,7 @@ namespace LoginDM
                 string ano = DateTime.Now.Year.ToString();
                 int mes = DateTime.Now.Month;
                 int dia = DateTime.Now.Day;
-                string semestre = (mes <= 6 && dia > 15) ? "1º Semestre" : "2º Semestre";
+                string semestre = (mes <= 6 && dia >15) ? "1º Semestre" : "2º Semestre";
 
                 string usuario = lblUser.Text;
                 string origem = $@"\\server\Seagate\Backups\{ano}\{semestre}\{periodo}\{usuario}";
