@@ -266,7 +266,25 @@ namespace LoginDM
             {
                 foreach (string file in Directory.GetFiles(path))
                 {
-                    total += new FileInfo(file).Length;
+                    try
+                    {
+                        // Verifica se o nome do arquivo é válido antes de acessá-lo
+                        string fileName = Path.GetFileName(file);
+                        if (IsFileNameValid(fileName))
+                        {
+                            total += new FileInfo(file).Length;
+                        }
+                        else
+                        {
+                            // Lidar com arquivos de nome inválido
+                            MessageBox.Show($"Nome de arquivo inválido: {file}");
+                        }
+                    }
+                    catch (FileNotFoundException ex)
+                    {
+                        // Lidar com exceção de arquivo não encontrado
+                        MessageBox.Show($"Arquivo não encontrado: {file}. Exceção: {ex.Message}");
+                    }
                 }
 
                 foreach (string subDir in Directory.GetDirectories(path))
@@ -274,13 +292,19 @@ namespace LoginDM
                     total += GetTotalBytes(subDir);
                 }
             }
-            catch (UnauthorizedAccessException)
+            catch (UnauthorizedAccessException ex)
             {
                 // Lidar com exceção de acesso não autorizado
-                // Pode ser ignorada ou tratada de acordo com suas necessidades
+                MessageBox.Show($"Acesso não autorizado ao diretório: {path}. Exceção: {ex.Message}");
             }
 
             return total;
+        }
+
+        // Método auxiliar para verificar se o nome do arquivo é válido
+        static bool IsFileNameValid(string fileName)
+        {
+            return !string.IsNullOrEmpty(fileName) && fileName.IndexOfAny(Path.GetInvalidFileNameChars()) == -1;
         }
 
         static double CalculateProgress(long totalBytes, long copiedBytes)

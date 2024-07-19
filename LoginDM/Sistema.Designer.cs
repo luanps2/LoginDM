@@ -98,6 +98,7 @@
             this.pbCafeouJantar = new System.Windows.Forms.PictureBox();
             this.pbStatus = new System.Windows.Forms.PictureBox();
             this.pbPeriodo = new System.Windows.Forms.PictureBox();
+            this.lblSemestre = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -417,6 +418,7 @@
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
             this.tabPage1.Controls.Add(this.pbBackupAluno);
+            this.tabPage1.Controls.Add(this.lblSemestre);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.linkLabel1);
             this.tabPage1.Controls.Add(this.lblVersao);
@@ -832,6 +834,16 @@
             this.pbPeriodo.TabStop = false;
             this.pbPeriodo.Click += new System.EventHandler(this.pbPeriodo_Click);
             // 
+            // lblSemestre
+            // 
+            this.lblSemestre.AutoSize = true;
+            this.lblSemestre.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSemestre.Location = new System.Drawing.Point(152, 287);
+            this.lblSemestre.Name = "lblSemestre";
+            this.lblSemestre.Size = new System.Drawing.Size(45, 12);
+            this.lblSemestre.TabIndex = 35;
+            this.lblSemestre.Text = "Semestre";
+            // 
             // SistemaDoma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -959,6 +971,7 @@
         private System.Windows.Forms.PictureBox pbBackupAluno;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ToolStripMenuItem restaurarBackupToolStripMenuItem;
+        private System.Windows.Forms.Label lblSemestre;
     }
 }
 

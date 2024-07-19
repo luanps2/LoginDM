@@ -50,7 +50,7 @@ namespace LoginDM
             string password = dadosbanco.Password;
             string database = dadosbanco.DataBase;
 
-            dadosbanco.conn = "server=" + server2 + " ;user id=" + user + "; password= '" + password + "'; database=" + database + " ;SSL Mode = None";
+            dadosbanco.conn = $"server={server2};user id={user};password='{password}';database={database};SSL Mode = None";
 
 
             conexao = new MySqlConnection("server=" + dadosbanco.Server +

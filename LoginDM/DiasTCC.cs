@@ -22,16 +22,28 @@ namespace LoginDM
 
         }
 
-        public int TCC()
-        {
-            DateTime diasrestantes = new DateTime(2024, 06, 05); // (ANO, MÊS, DIA)
-            return (int)diasrestantes.Subtract(DateTime.Today).TotalDays; 
+     
 
+        public string TCC()
+        {
+            DateTime selectDate = dateTimePicker1.Value; //ANO , MÊS, DIA)
+            TimeSpan diasrestantes = selectDate - DateTime.Now; //ANO , MÊS, DIA)
+            return diasrestantes.Days.ToString();
         }
 
         private void DiasTCC_Load(object sender, EventArgs e)
         {
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            dateTimePicker1.CustomFormat = "dd/MM/yyyy";
+            DateTime dataFinal = new DateTime(2024, 11, 18);
+
+            dateTimePicker1.Value = dataFinal;
             label1.Text = "" + TCC();
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            label1.Text = TCC();
         }
     }
 }

@@ -20,6 +20,7 @@ using System.Configuration;
 using System.Diagnostics;
 using Microsoft.VisualBasic.FileIO;
 using System.Net;
+using Google.Protobuf.WellKnownTypes;
 
 
 namespace LoginDM
@@ -54,7 +55,7 @@ namespace LoginDM
         private String sql;
 
 
-       
+
 
         string caminho_local = "C:\\SistemaLoginDm\\";
         string caminho_servidor = "\\\\server\\SistemaLoginDM\\";
@@ -66,8 +67,8 @@ namespace LoginDM
 
 
         //String server = "server"; //Dom Macário
-                                  //String server = "luanpc"; //Casa
-                                  //String diretorio = "";
+        //String server = "luanpc"; //Casa
+        //String diretorio = "";
 
         DadosBanco dadosbanco = new DadosBanco();
 
@@ -321,7 +322,7 @@ namespace LoginDM
 
             if (!MapExiste)
             {
-                
+
 
             }
             else
@@ -368,7 +369,7 @@ namespace LoginDM
         {
 
             Application.Restart();
-            
+
         }
 
         public void Desconectar2()
@@ -453,7 +454,7 @@ namespace LoginDM
             }
         }
 
-    
+
 
 
 
@@ -461,17 +462,18 @@ namespace LoginDM
         {
             String versaoLocal = File.ReadAllText("C:\\SistemaLoginDm\\versao.txt"); //leitura local 
             String versaoServer = File.ReadAllText("\\\\server\\SistemaLoginDM\\versao.txt"); //leitura servidor
+            string atualizador = @"\\server\UpdateLoginDM\UpdateLogimDM.exe";
 
             if (Convert.ToDouble(versaoServer) > Convert.ToDouble(versaoLocal))
             {
 
-                Process myProcess = Process.Start(@"\\server\UpdateLoginDM\Update.exe");
+                Process myProcess = Process.Start(atualizador);
                 this.Close();
 
             }
             else
             {
-                MessageBox.Show("Seu programa já está atualizado com a ultima versão disponível! Versão atual: " + versaoLocal + "/nVersão Servidor: " + versaoServer, "Atualização", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Seu programa já está atualizado com a ultima versão disponível!\n Versão atual: " + versaoLocal + "\nVersão Servidor: " + versaoServer, "Atualização", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
 
@@ -720,11 +722,16 @@ namespace LoginDM
 
         public void Form1_Load(object sender, EventArgs e)
         {
+            string ano = DateTime.Now.Year.ToString();
+            int mes = DateTime.Now.Month;
+            int dia = DateTime.Now.Day;
+            string semestre = (mes < 6 && dia > 17) ? "1º Semestre" : "2º Semestre";
+
 
             DesconectarPuro();
             lblCafe.Text = "";
             lblSaida.Text = "";
-
+            lblSemestre.Text = semestre;
 
             //panel3.AutoScroll = true;
             restaurarBackupToolStripMenuItem.Enabled = false;
@@ -743,8 +750,8 @@ namespace LoginDM
 
                 if (resposta == DialogResult.Yes)
                 {
-                Process myProcess = Process.Start(@"\\server\UpdateLoginDM\UpdateLogimDM.exe");
-                this.Close();
+                    Process myProcess = Process.Start(@"\\server\UpdateLoginDM\UpdateLogimDM.exe");
+                    this.Close();
                 }
                 else
                 {
@@ -752,7 +759,7 @@ namespace LoginDM
                 }
 
             }
-            
+
 
             conexao = new MySqlConnection("server=" + dadosbanco.Server +
               " ;user id=" + dadosbanco.User + ";" +
@@ -862,8 +869,8 @@ namespace LoginDM
 
             Status();
 
-          
-           
+
+
 
             if (Convert.ToDecimal(versaoLocal.ToString()) < Convert.ToDecimal(versaoServer.ToString()))
             {
@@ -1091,29 +1098,29 @@ namespace LoginDM
 
         private void btnLogin_Click_1(object sender, EventArgs e)
         {
-           
-                if (txtUsuario.Text == txtSenha.Text)
+
+            if (txtUsuario.Text == txtSenha.Text)
+            {
+                if (InternetConectada())
                 {
-                    if (InternetConectada())
-                    {
-                        Conectar();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Internet não está conectada! verifique sua conexão!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    Conectar();
                 }
                 else
                 {
-                    MessageBox.Show("Senha Incorreta, Verifique sua senha e tente novamente.", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Internet não está conectada! verifique sua conexão!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+            else
+            {
+                MessageBox.Show("Senha Incorreta, Verifique sua senha e tente novamente.", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
-                //popularDataGrid();
-                //MarcarPresença();
+            //popularDataGrid();
+            //MarcarPresença();
 
-                //dgBoletim.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-                //dgFrequencia.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-            
+            //dgBoletim.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            //dgFrequencia.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+
 
 
             //if (txtUsuario.Text == txtSenha.Text)
@@ -1373,7 +1380,7 @@ namespace LoginDM
             MessageBox.Show(dadosbanco.conn.ToString());
         }
 
-     
+
 
         private void button1_Click_3(object sender, EventArgs e)
         {
@@ -1915,7 +1922,9 @@ namespace LoginDM
             string periodo = rbTarde.Checked ? "Tarde" : "Noite";
             string ano = DateTime.Now.Year.ToString();
             int mes = DateTime.Now.Month;
-            string semestre = mes < 6 ? "1º Semestre" : "2º Semestre";
+            int dia = DateTime.Now.Day;
+            string semestre = mes < 7 && dia <= 17 ? "1º Semestre" : "2º Semestre";
+
 
             string usuario = lblUser.Text;
             string origem = $@"\\server\{periodo}\{usuario}";
@@ -2004,7 +2013,8 @@ namespace LoginDM
                 string periodo = rbTarde.Checked ? "Tarde" : "Noite";
                 string ano = DateTime.Now.Year.ToString();
                 int mes = DateTime.Now.Month;
-                string semestre = mes < 6 ? "1º Semestre" : "2º Semestre";
+                int dia = DateTime.Now.Day;
+                string semestre = (mes <= 6 && dia > 15) ? "1º Semestre" : "2º Semestre";
 
                 string usuario = lblUser.Text;
                 string origem = $@"\\server\Seagate\Backups\{ano}\{semestre}\{periodo}\{usuario}";
@@ -2053,13 +2063,13 @@ namespace LoginDM
                 }
 
             }
-         
+
 
 
 
 
         }
 
-      
+
     }
 }
